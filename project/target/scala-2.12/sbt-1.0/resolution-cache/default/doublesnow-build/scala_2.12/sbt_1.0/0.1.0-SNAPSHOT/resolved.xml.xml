@@ -4,7 +4,7 @@
 		module="doublesnow-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20200203201434"
+		publication="20200203203236"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
@@ -40,6 +40,11 @@
 			<artifact name="global-plugins" type="src" ext="jar" conf="compile" e:classifier="sources"/>
 			<artifact name="global-plugins" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.bytedeco" name="javacpp" rev="1.5" conf="compile->default(compile)"/>
+		<dependency org="org.portable-scala" name="sbt-scalajs-crossproject" rev="0.6.1" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
+		<dependency org="org.scala-js" name="sbt-scalajs" rev="0.6.28" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
+		<dependency org="io.spray" name="sbt-revolver" rev="0.9.1" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
+		<dependency org="org.xerial.sbt" name="sbt-pack" rev="0.12" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
 		<override org="org.scala-sbt" module="scripted-plugin_2.12" matcher="exact" rev="1.2.8"/>
 	</dependencies>
 </ivy-module>

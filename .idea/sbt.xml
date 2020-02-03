@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaSbtSettings">
+    <option name="customLauncherEnabled" value="true" />
+    <option name="customLauncherPath" value="$USER_HOME$/Downloads/sbt/bin/sbt-launch.jar" />
     <option name="customVMPath" />
     <option name="linkedExternalProjectsSettings">
       <SbtProjectSettings>
@@ -25,8 +27,9 @@
             <option value="$PROJECT_DIR$/webrtcMessage/.jvm" />
           </set>
         </option>
-        <option name="sbtVersion" value="1.2.8" />
       </SbtProjectSettings>
     </option>
+    <option name="maximumHeapSize" value="4096" />
+    <option name="vmParameters" value="-XX:MaxPermSize=2048m -XX:ReservedCodeCacheSize=1024m -Xss4m" />
   </component>
 </project>

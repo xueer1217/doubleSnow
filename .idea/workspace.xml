@@ -1,49 +1,662 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a0c9f8e-4c9e-4f9d-854f-d7f090763af4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+    <list default="true" id="7a0c9f8e-4c9e-4f9d-854f-d7f090763af4" name="Default Changelist" comment="init">
+      <change afterPath="$PROJECT_DIR$/capture/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/java/org/bytedeco/javacv/FFmpegFrameGrabber1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/java/org/bytedeco/javacv/Java2DFrameUtils1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/java/org/bytedeco/javacv/JavaFXFrameConverter1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/java/org/bytedeco/javacv/JavaUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/CaptureManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/DesktopCapture.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/EncodeActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/ImageCapture.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/MontageActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/core/SoundCapture.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/demo/TestCaptureActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/demo/TestRecordScreenActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/demo/TestScala.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/demo/testRemoveBlackInImage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/processor/ImageConverter.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/protocol/Messages.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/sdk/DeviceUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capture/src/main/scala/org/seekloud/theia/capture/sdk/MediaCapture.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/logs/application.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/css/controlbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/agreeBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/audienceBack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/backBtn1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/backward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/coin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/confirm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/connection.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/connection1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/connectionBg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/continue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/date.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/defaultCover.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/email.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/enterBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/font1.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/forward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/full-screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/gift6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/header.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/hideBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/imageOffBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/imageOnBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/live.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liveLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liveOffBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liveOnBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liveRooms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/liveState1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/loading.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/messageIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/passWord.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/recordLabel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/recordOffBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/recordOnBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/recordRooms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/refreshBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/refuseBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/register.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/roomDes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/roomInfo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/roomName.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/roomScene-like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/roomScene-view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/rose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/seguiemj.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/shutdown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/soundOffBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/soundOnBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/toggleIcon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/toggleIcon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/toggleIcon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/userName.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/waitPulling.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/waiting.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/watch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/watching.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/watching1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/welcomeBg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/img/welcomeText.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/Constants.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/Ids.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/Pictures.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/Routes.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/StageContext.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/common/package.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/Barrage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/CommentBoard.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/Common.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/Emoji.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/GiftBar.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/LiveBar.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/PlayerPane.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/RecordCommentBoard.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/WarningDialog.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/component/WatchingList.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/AudienceController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/EditController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/HomeController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/HostController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/LoginController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/RoomController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/NetImageProcessor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/RmManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/collector/CaptureActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/player/VideoPlayer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/rtp/PullChannel.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/rtp/PushChannel.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/rtp/TsPacket.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/stream/LiveManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/stream/StreamPuller.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/core/stream/StreamPusher.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/AudienceScene.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HomeScene.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HostScene.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/RoomScene.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/test/grabDemo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/CirceSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/GetAllPixel.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/HestiaClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/HttpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/NetUsage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/NetUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/OshiUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/RMClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/RtpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/TimeUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/VideoUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/utils/test.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/java/org/bytedeco/javacv/FFmpegFrameGrabber1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/java/org/bytedeco/javacv/JavaFXFrameConverter2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/resources/img/loading.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/resources/img/waiting.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/common/Constants.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/core/ImageActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/core/PlayerGrabber.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/core/PlayerManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/core/RecordActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/core/SoundActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/demo/Test1.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/demo/Test2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/demo/VideoPlayer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/processor/ImageConverter.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/protocol/Messages.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/sdk/MediaPlayer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/util/CirceSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/util/HttpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player/src/main/scala/org/seekloud/theia/player/util/RecordUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/java/org/bytedeco/javacv/FFmpegFrameGrabber1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/css/controlbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/html/anchor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/html/audience.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/html/husky.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/ControlBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/RtmpStreamer.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/TestC.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/dash.all.debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/dash.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/js/rtmp-streamer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/processor.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/resources/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/common/Constants.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/ChannelWorker.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/GrabberActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/GrabberManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/RecorderActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/RecorderManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/RoomManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/SendActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core/WrapperActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/GrabberActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/RecorderActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/RoomActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/RoomManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/StreamPullActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/StreamPullPipe.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/StreamPushActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/core_new/StreamPushPipe.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/http/HttpService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/http/ProcessorService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/http/ResourceService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/http/SessionBase.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/models/MpdInfoDao.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/models/SlickTables.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/protocol/CommonErrorCode.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/protocol/SharedProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/stream/PipeStream.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/CirceSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/CpuUtils.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/DBUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/HttpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/MySlickCodeGenerator.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/RMClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/SecureUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/ServiceUtils.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/SessionSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/Test.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/main/scala/org/seekloud/theia/processor/utils/TimeUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/Hls2Mp4.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/TestCmd.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/TestReconnect.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/TestThread.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/TestUdp2Dash.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/TestWatch.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/UdpSender.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/src/test/scala/VideoDuration.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/Dependencies.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/Dependencies4Capture.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/Dependencies4PcClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/Dependencies4Player.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/Dependencies4Processor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/CommonInfo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/client2Manager/http/AdminProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/client2Manager/http/CommonProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/client2Manager/http/RecordCommentProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/client2Manager/http/StatisticsProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/client2Manager/websocket/AuthProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/distributor2Manager/DistributorProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/package.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/processer2Manager/Processor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/processer2Manager/ProcessorProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/rtmp2Manager/RtmpProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protocol/src/main/scala/org/seekloud/theia/protocol/ptcl/server2Manager/CommonProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/adminPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/bootstrapv3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/controlbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/phoneClient.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/popWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/qunit-1.11.0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/statistics.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/video-js.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/css/webclient.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/ehcache-default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/html/edata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/html/phoneClient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/html/statistics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/html/webClient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfont/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfont/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfont/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfont/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfontPhone/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfontPhone/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfontPhone/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/iconfontPhone/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/anchor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/audience.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/barbecue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/bread.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/broccoli.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/cake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/coin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/donut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/ice-cream.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/juice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/lollipop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/gifts/no-like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/headPortrait/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/header_1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/header_2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/header_3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/header_4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/header_5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/homePage/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/homePage/live.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/homePage/record.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/homePage/refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/homePage/replay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/loading2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/page_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/webrtc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/上传图片.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/下载客户端.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/人数.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/会员.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/头像.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/布局0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/布局1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/布局2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/拍照1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/拍照2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/挂断.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/正在直播.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/热度.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/用户.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/表情.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/img/默认图片.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/CommentCoreLibrary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/ControlBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/TestC-copy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/TestC.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/bootstrap-paginator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/bootstrapv3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/ccl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/dash.all.debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/dash.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/echarts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/jquery-1.9.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/kurento-utils.cov.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/kurento-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/kurento-utils_require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/theme/default/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/theme/default/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/theme/default/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/theme/default/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/laydate/theme/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/live.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/qunit-1.11.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/js/videojs-contrib-hls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/sql/roomManager.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/resources/tomatocc.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/common/Common.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/EmailActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/RegisterActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/RegisterManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/RoomActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/RoomManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/UserActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core/UserManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/EmailActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/RegisterActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/RegisterManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/RoomActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/RoomManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/UserActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/core_old/UserManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/AdminService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/FileService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/HttpService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/RecordCommentService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/RecordService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/ResourceService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/RtmpService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/RtpService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/ServiceUtils.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/SessionBase.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/StatisticService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/TestService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/http/UserService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/SlickTables.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/dao/AdminDAO.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/dao/RecordCommentDAO.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/dao/RecordDao.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/dao/StatisticDao.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models/dao/UserInfoDao.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/protocol/ActorProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/protocol/CommonInfoProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/CirceSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/DBUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/DistributorClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/FileFilter.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/FileUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/HestiaClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/HttpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/MySlickCodeGenerator.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/ProcessorClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/RtpClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/SecureUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/SessionSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/utils/TimeUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/conf/product.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/html/allInfoPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/js/allInfoPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/js/template-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/Boot.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/TestRtpClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/common/AppSettings.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/AuthActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/DataStoreActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/PublishActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/PublishManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/QueryInfoManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/ReceiveActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/ReceiveManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/StreamActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/StreamManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/core/UserManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/ApiService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/BaseService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/HttpService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/ResourceService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/ServiceUtils.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/http/StreamService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/protocol/ApiProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/protocol/RoomManagerProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/protocol/StreamServiceProtocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/protocol/package.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/ptcl/protocol.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/ptcl/ptcl.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/test/TestPullActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/test/TestPushActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/CirceSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/DBUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/FileUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/HttpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/MySlickCodeGenerator.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/RoomManagerClient.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/RtpUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/SecureUtil.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rtpServer/src/main/scala/org/seekloud/theia/rtpServer/utils/SessionSupport.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/ivy-report.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/ivy-report.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-compile-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-compile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-optional.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-phantom-js-jetty.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-provided.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-runtime-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-runtime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-scala-tool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-test-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared$sources-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-compile-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-compile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-optional.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-phantom-js-jetty.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-provided.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-runtime-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-runtime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-scala-tool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-test-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/reports/shared-shared_sjs0.6_2.12-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.14/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.14/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.16/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.16/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared_sjs0.6_2.12/19.10.14/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared_sjs0.6_2.12/19.10.14/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared_sjs0.6_2.12/19.10.16/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/scala-2.12/resolution-cache/shared/shared_sjs0.6_2.12/19.10.16/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/ivySbt/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/projectDescriptors/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/compile/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/compile/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/compile/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/runtime/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/runtime/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/test/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/test/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/test/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.js/target/streams/test/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$AuthRsp$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$AuthRsp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$Command.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$Data$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$Data.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$Header$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$Header.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$NoStream$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$NoStream.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamData$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamPacketLoss$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamReady$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamReqSuccess$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PullStreamReqSuccess.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PushStreamError$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$PushStreamError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$StreamStop$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$StreamStop.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$TestPullStreamData$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol$TestPullStreamData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/Protocol.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/PullStreamClient$$anon$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/PullStreamClient$TimeSeq$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/PullStreamClient$TimeSeq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/PullStreamClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/PushStreamClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/RtpClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/RtpUtil$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/RtpUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/classes/org/seekloud/theia/shared/rtp/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/ivy-report.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/ivy-report.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-compile-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-compile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-optional.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-provided.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-runtime-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-runtime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-scala-tool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-test-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared$sources-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-compile-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-compile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-optional.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-provided.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-runtime-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-runtime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-scala-tool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-test-internal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/reports/shared-shared_2.12-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.14/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.14/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.16/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared$sources/19.10.16/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared_2.12/19.10.14/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared_2.12/19.10.14/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared_2.12/19.10.16/resolved.xml.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/scala-2.12/resolution-cache/shared/shared_2.12/19.10.16/resolved.xml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/$global/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/ivySbt/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/projectDescriptors/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/$global/$global/discoveredMainClasses/data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/compile/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/copyResources/$global/streams/copy-resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/copyResources/$global/streams/out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/dependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/exportedProducts/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/internalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/compile/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/runtime/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/runtime/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/test/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/test/managedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/test/unmanagedClasspath/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/.jvm/target/streams/test/unmanagedJars/$global/streams/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/org/seekloud/theia/shared/kcp/KCP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/css/controlbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/css/popWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/css/webclient.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/html/webClient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/img/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/ControlBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/dash.all.debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/dash.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/kurento-utils.cov.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/kurento-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/kurento-utils_require.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/resources/js/live.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/Main.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/actors/Client2RoomManager.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/actors/WebSocketRoom.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Component.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Components/AdminHeader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Components/InteractiveText.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Components/PopWindow.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Page.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/PageSwitcher.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/Routes.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/common/UserMsg.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/AdminHomePage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/AdminPeoplePage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/AnchorPage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/HomePage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/LivePage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/MainPage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/pages/RecordPage.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/EChart.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/Globals.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/Http.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/JsFunc.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/RtmpStreamerJs.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/ScalaWebSocket.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/Shortcut.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/TimeTool.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/layDate.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webClient/src/main/scala/org/seekloud/theia/webClient/util/video.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/build.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$13c297724b101ef64f30$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$13c297724b101ef64f30.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$13c297724b101ef64f30.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$69c861b3db029eb00974$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$69c861b3db029eb00974.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$69c861b3db029eb00974.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$78201c55a72681ed9b0b$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$78201c55a72681ed9b0b.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$78201c55a72681ed9b0b.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8193a851d48c46090e4$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8193a851d48c46090e4.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8193a851d48c46090e4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/doublesnow-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/doublesnow-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/doublesnow-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/doublesnow-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-compile-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-compile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-compile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-optional.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-optional.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-provided.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-provided.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-runtime-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-runtime-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-runtime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-runtime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-scala-tool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-test-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-doublesnow-build-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,8 +694,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="146" column="3" lean-forward="true" selection-start-line="146" selection-start-column="3" selection-end-line="146" selection-end-column="3" />
+            <state relative-caret-position="597">
+              <caret line="204" column="26" lean-forward="true" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -100,8 +713,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="47" />
+    <option name="x" value="-13" />
+    <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="919" />
   </component>
@@ -274,7 +887,8 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="47" width="1680" height="919" extended-state="0" />
+    <frame x="-13" y="23" width="1680" height="919" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -324,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="146" column="3" lean-forward="true" selection-start-line="146" selection-start-column="3" selection-end-line="146" selection-end-column="3" />
+        <state relative-caret-position="597">
+          <caret line="204" column="26" lean-forward="true" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
         </state>
       </provider>
     </entry>

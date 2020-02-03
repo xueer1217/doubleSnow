@@ -1,0 +1,504 @@
+20-01-18 22:38:53.965 INFO o.s.theia.capture.sdk.DeviceUtil$ - Try to get pc device info...
+20-01-18 22:38:54.537 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-18 22:38:54.618 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-18 22:38:54.630 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-18 22:38:54.643 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-18 22:38:54.644 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-18 22:38:54.645 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-18 22:38:54.645 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-18 22:38:54.645 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-18 22:38:54.655 INFO o.s.t.p.core.NetImageProcessor$ - NetImageProcessor is starting...
+20-01-18 22:38:54.662 INFO o.s.theia.pcClient.core.RmManager$ - RmManager is starting...
+20-01-18 22:38:54.664 INFO o.s.theia.player.sdk.MediaPlayer - MediaPlayer is starting...
+20-01-18 22:38:54.673 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-18 22:38:54.688 INFO o.s.theia.player.core.PlayerManager$ - PlayerManager is starting...
+20-01-18 22:38:54.722 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager is starting...
+20-01-18 22:38:55.629 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-18 22:38:55.641 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-18 22:38:56.116 DEBUG o.s.theia.pcClient.utils.RMClient$ - signIn by userName post data:{"userName":"haoxue","password":"123"}
+20-01-18 22:38:57.237 DEBUG o.s.t.p.controller.HomeController - delete theia temps: theia1458889269016321074cacheLogin
+20-01-18 22:38:57.242 DEBUG o.s.t.p.controller.HomeController - create theia temp: /Users/haoxue/.theia/pcClient/login/theia7863134350677421774cacheLogin
+20-01-18 22:40:58.616 DEBUG o.s.theia.pcClient.utils.RMClient$ - getRecordList error.
+20-01-18 22:40:58.617 DEBUG o.s.theia.pcClient.utils.RMClient$ - getRecordList error.
+20-01-18 22:40:58.618 ERROR o.s.theia.pcClient.scene.RoomScene - get record list error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:40:58.618 ERROR o.s.theia.pcClient.scene.RoomScene - get record list error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:41:58.238 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:42:31.664 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: false
+20-01-18 22:42:33.289 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: false, need sound: false
+20-01-18 22:42:35.061 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: false
+20-01-18 22:42:35.798 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: true
+20-01-18 22:42:43.887 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:42:44.000 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:43:08.755 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:43:26.800 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: false, need sound: true
+20-01-18 22:43:27.281 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: true
+20-01-18 22:43:28.818 DEBUG o.s.theia.pcClient.utils.RMClient$ - getCommentList error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:43:28.819 ERROR o.s.t.p.c.AudienceController - getRecCommentList error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:43:34.576 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:43:34.716 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:45:04.923 DEBUG o.s.theia.pcClient.utils.RMClient$ - getRecordList error.
+20-01-18 22:45:04.924 ERROR o.s.theia.pcClient.scene.RoomScene - get record list error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:46:10.408 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:46:34.189 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:46:34.311 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:47:16.928 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:48:26.100 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:48:26.256 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:49:10.887 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:49:16.219 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:49:16.378 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:49:22.655 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:49:49.601 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: false, need sound: true
+20-01-18 22:49:50.236 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: true
+20-01-18 22:49:52.570 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:49:52.717 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:50:01.837 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:50:09.945 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:50:10.101 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:50:24.759 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:50:42.391 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:50:42.602 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:50:48.347 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:50:57.818 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:50:58.025 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:51:33.730 DEBUG o.s.theia.pcClient.utils.RMClient$ - getRecordList error.
+20-01-18 22:51:33.732 ERROR o.s.theia.pcClient.scene.RoomScene - get record list error: java.util.concurrent.TimeoutException: Request timeout to /10.1.29.245:30387 after 20000 ms
+20-01-18 22:51:58.462 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-18 22:52:09.701 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-18 22:52:09.702 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100173&token=X6HeGk5rP65uoZ1Ytdj93M0jbREMP8md45zI64Sr&roomId=1000173
+20-01-18 22:52:09.704 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-18 22:52:09.708 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579359129708 is starting...
+20-01-18 22:52:09.728 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-18 22:52:10.484 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-18 22:52:10.530 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-18 22:52:17.754 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-18 22:52:28.220 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 22:52:28.223 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager stopped in init.
+20-01-18 22:52:28.224 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-18 22:52:28.225 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture start failed. Review your settings.
+20-01-18 22:52:28.978 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 22:52:28.978 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,false,44100.0,16,2,false,86018,27,0,4))
+20-01-18 22:52:29.452 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 22:52:29.452 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-18 22:52:29.984 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 22:52:29.984 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-18 22:54:04.609 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.core.CaptureManager$StartCameraFailed] without sender to Actor[akka://CaptureSystem/user/captureManager-1579359129708#-70623770] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579359129708#-70623770]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-18 22:58:47.860 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-18 22:58:47.860 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-18 22:58:47.860 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:58:47.878 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-18 22:58:47.883 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579359129698
+20-01-18 22:59:00.972 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-18 22:59:22.807 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-18 22:59:23.088 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 22:59:43.961 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-18 22:59:59.414 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-18 23:00:13.788 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-18 23:00:13.788 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100173&token=X6HeGk5rP65uoZ1Ytdj93M0jbREMP8md45zI64Sr&roomId=1000173
+20-01-18 23:00:13.788 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579359613788 is starting...
+20-01-18 23:00:13.788 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-18 23:00:13.789 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-18 23:00:13.789 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-18 23:00:13.798 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-18 23:00:14.814 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-18 23:01:04.869 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 23:01:04.869 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager stopped in init.
+20-01-18 23:01:04.869 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-18 23:01:04.869 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture start failed. Review your settings.
+20-01-18 23:01:05.880 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 23:01:05.881 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,false,44100.0,16,2,false,86018,27,0,4))
+20-01-18 23:01:14.650 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 23:01:14.651 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,false,44100.0,16,2,true,86018,27,0,4))
+20-01-18 23:01:15.223 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-18 23:01:15.223 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-18 23:02:07.155 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.core.CaptureManager$StartCameraFailed] without sender to Actor[akka://CaptureSystem/user/captureManager-1579359613788#571656300] was not delivered. [2] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579359613788#571656300]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-18 23:02:16.044 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-18 23:02:16.346 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 23:02:16.347 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-18 23:02:16.347 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-18 23:02:16.348 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579359613788
+20-01-18 23:02:17.000 WARN o.s.theia.pcClient.core.RmManager$ - unknown msg in idle: HeartBeat
+20-01-18 23:02:17.000 WARN o.s.theia.pcClient.core.RmManager$ - unknown msg in idle: HeartBeat
+20-01-18 23:02:18.781 INFO o.s.theia.pcClient.core.RmManager$ - logout.
+20-01-18 23:02:18.783 DEBUG o.s.t.p.controller.HomeController - delete theia temps: theia7863134350677421774cacheLogin
+20-01-18 23:06:07.305 DEBUG o.s.theia.pcClient.utils.RMClient$ - signIn by userName post data:{"userName":"xueer","password":"123"}
+20-01-18 23:06:07.505 ERROR o.s.t.p.controller.HomeController - sign in error: error : no user.
+20-01-18 23:06:21.955 DEBUG o.s.theia.pcClient.utils.RMClient$ - signIn by mail post data:{"email":"haoxue@neotel.com.cn","password":"123"}
+20-01-18 23:06:22.560 ERROR o.s.t.p.controller.HomeController - sign in error: error : no user.
+20-01-18 23:08:17.782 DEBUG o.s.theia.pcClient.utils.RMClient$ - signIn by userName post data:{"userName":"xueer","password":"123"}
+20-01-18 23:08:18.152 DEBUG o.s.t.p.controller.HomeController - create theia temp: /Users/haoxue/.theia/pcClient/login/theia8108441131268783780cacheLogin
+20-01-18 23:11:09.392 DEBUG o.s.t.p.controller.HomeController - start changeUserName...
+20-01-18 23:15:51.574 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-18 23:15:51.574 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579360551574 is starting...
+20-01-18 23:15:51.575 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-18 23:15:51.575 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-18 23:15:51.576 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-18 23:15:51.576 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-18 23:15:51.583 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-18 23:15:54.126 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-18 23:17:44.915 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-18 23:17:44.916 INFO o.s.t.p.core.collector.CaptureActor$ - Image unavailable.
+20-01-18 23:17:44.923 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-18 23:17:44.929 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-18 23:17:45.152 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-18 23:28:23.327 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-18 23:28:23.406 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-18 23:28:23.327 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-18 23:28:23.408 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-18 23:28:23.408 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579360551574
+20-01-19 14:45:01.033 INFO o.s.theia.capture.sdk.DeviceUtil$ - Try to get pc device info...
+20-01-19 14:45:01.641 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-19 14:45:01.723 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-19 14:45:01.737 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-19 14:45:01.746 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-19 14:45:01.748 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-19 14:45:01.749 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-19 14:45:01.749 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-19 14:45:01.749 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-19 14:45:01.765 INFO o.s.t.p.core.NetImageProcessor$ - NetImageProcessor is starting...
+20-01-19 14:45:01.773 INFO o.s.theia.pcClient.core.RmManager$ - RmManager is starting...
+20-01-19 14:45:01.776 INFO o.s.theia.player.sdk.MediaPlayer - MediaPlayer is starting...
+20-01-19 14:45:01.786 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-19 14:45:01.807 INFO o.s.theia.player.core.PlayerManager$ - PlayerManager is starting...
+20-01-19 14:45:01.845 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager is starting...
+20-01-19 14:45:02.817 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-19 14:45:05.292 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-19 14:45:05.295 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-19 14:45:05.300 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-19 14:45:05.300 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579416305300 is starting...
+20-01-19 14:45:05.316 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-19 14:45:06.339 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-19 14:45:06.422 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-19 14:45:06.991 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-19 14:45:08.803 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 started.
+20-01-19 14:45:08.804 INFO o.s.t.capture.core.CaptureManager$ - Start camera success.
+20-01-19 14:45:08.812 INFO o.s.t.p.core.collector.CaptureActor$ - MediaCapture start success!
+20-01-19 14:45:08.817 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-19 14:45:08.823 INFO o.s.theia.capture.core.ImageCapture$ - ImageCapture is staring...
+20-01-19 14:45:08.827 INFO o.s.theia.capture.core.ImageCapture$ - Media camera started.
+20-01-19 14:45:08.828 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-19 14:45:08.829 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.833 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-19 14:45:08.839 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:08.853 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.854 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:08.886 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.887 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:08.918 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.919 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:08.952 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.952 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:08.983 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:08.983 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.016 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.016 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.051 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.051 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.085 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.086 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.119 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.119 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.153 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.153 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.182 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.183 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.218 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.218 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.252 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.252 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.286 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.286 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.319 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.319 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:09.352 INFO o.s.t.capture.core.CaptureManager$ - No image captured yet.
+20-01-19 14:45:09.354 INFO o.s.t.p.core.collector.CaptureActor$ - No images yet, try later.
+20-01-19 14:45:58.588 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:45:58.597 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-19 14:45:58.599 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:45:58.604 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager stopped in idle.
+20-01-19 14:45:58.608 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone stopped.
+20-01-19 14:45:58.623 INFO o.s.theia.capture.core.ImageCapture$ - Media camera stopped.
+20-01-19 14:45:58.625 INFO akka.actor.LocalActorRef - Message [org.seekloud.theia.capture.core.MontageActor$CameraImage] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300/MontageActor#861641106] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300/MontageActor#861641106]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:58.627 DEBUG o.s.t.capture.core.CaptureManager$ - CaptureManager unWatch child-MontageActor
+20-01-19 14:45:58.640 DEBUG o.s.t.capture.core.CaptureManager$ - CaptureManager unWatch child-SoundCapture
+20-01-19 14:45:58.870 DEBUG o.s.t.capture.core.CaptureManager$ - CaptureManager unWatch child-ImageCapture
+20-01-19 14:45:58.870 INFO akka.actor.LocalActorRef - Message [org.seekloud.theia.capture.core.ImageCapture$GrabFrame$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300/ImageCapture#26924463] was not delivered. [2] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300/ImageCapture#26924463]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.629 INFO o.s.t.capture.core.CaptureManager$ - Capture Manager stopped.
+20-01-19 14:45:59.629 INFO o.s.t.p.core.collector.CaptureActor$ - Capture Manager stopped.
+20-01-19 14:45:59.630 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579416359630 is starting...
+20-01-19 14:45:59.630 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-19 14:45:59.630 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-19 14:45:59.654 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [3] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.686 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [4] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.720 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [5] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.753 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [6] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.787 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [7] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.820 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [8] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.852 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [9] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:45:59.886 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.protocol.Messages$AskImage$] without sender to Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412] was not delivered. [10] dead letters encountered, no more dead letters will be logged. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579416305300#-1257470412]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-19 14:46:10.870 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:10.870 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager stopped in init.
+20-01-19 14:46:10.870 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-19 14:46:10.870 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture start failed. Review your settings.
+20-01-19 14:46:10.870 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:19.094 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:19.095 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,false,44100.0,16,2,true,86018,27,0,4))
+20-01-19 14:46:19.095 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:26.579 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:26.580 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-19 14:46:26.580 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:33.616 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:33.617 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-19 14:46:33.617 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:34.091 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:34.091 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-19 14:46:34.091 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:34.990 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:34.990 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-19 14:46:34.990 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:35.554 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-19 14:46:35.554 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-19 14:46:35.554 INFO o.s.t.p.core.collector.CaptureActor$ - drawer reset
+20-01-19 14:46:44.863 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-19 14:46:44.867 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-19 14:46:44.873 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-19 14:46:44.875 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-19 14:46:44.878 INFO o.s.t.p.core.collector.CaptureActor$ - Capture Drawer stopped.
+20-01-19 14:46:44.897 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579416305288
+20-01-19 14:46:46.282 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-19 14:46:46.282 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-19 14:46:46.282 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579416406282 is starting...
+20-01-19 14:46:46.282 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-19 14:46:46.282 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-19 14:46:46.283 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-19 14:46:46.289 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-19 14:46:47.679 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-19 14:47:29.467 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-19 14:47:29.467 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-19 14:47:29.467 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-19 14:47:29.468 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-19 14:47:29.469 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579416406282
+20-01-20 13:14:27.490 INFO o.s.theia.capture.sdk.DeviceUtil$ - Try to get pc device info...
+20-01-20 13:14:28.060 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:14:28.143 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-20 13:14:28.158 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:14:28.167 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:14:28.170 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:14:28.170 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:14:28.170 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:14:28.170 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:14:28.182 INFO o.s.t.p.core.NetImageProcessor$ - NetImageProcessor is starting...
+20-01-20 13:14:28.192 INFO o.s.theia.pcClient.core.RmManager$ - RmManager is starting...
+20-01-20 13:14:28.193 INFO o.s.theia.player.sdk.MediaPlayer - MediaPlayer is starting...
+20-01-20 13:14:28.203 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:14:28.220 INFO o.s.theia.player.core.PlayerManager$ - PlayerManager is starting...
+20-01-20 13:14:28.258 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager is starting...
+20-01-20 13:14:29.199 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-20 13:14:52.961 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 13:14:52.964 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 13:14:52.969 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 13:14:52.971 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579497292971 is starting...
+20-01-20 13:14:52.989 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 13:14:54.005 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 13:14:54.110 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 13:14:55.377 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-20 13:15:41.271 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-20 13:15:41.370 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 13:15:41.379 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-20 13:15:41.400 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-20 13:15:41.410 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579497292958
+20-01-20 13:16:17.465 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-20 13:16:19.132 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 13:16:19.132 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 13:16:19.132 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579497379132 is starting...
+20-01-20 13:16:19.132 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 13:16:19.133 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 13:16:19.133 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 13:16:19.141 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 13:16:20.598 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-20 13:16:48.032 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-20 13:16:48.036 INFO akka.actor.LocalActorRef - Message [org.seekloud.theia.capture.protocol.Messages$CannotAccessImage] without sender to Actor[akka://theia/user/rmManager/liveManager/captureActor-1579497292958#-353852094] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://theia/user/rmManager/liveManager/captureActor-1579497292958#-353852094]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-20 13:16:48.039 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-20 13:16:48.045 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-20 13:16:48.050 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-20 13:17:11.090 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-20 13:17:11.095 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager stopped in init.
+20-01-20 13:17:11.098 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,false,86018,27,0,4))
+20-01-20 13:17:11.099 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture start failed. Review your settings.
+20-01-20 13:17:11.755 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-20 13:17:11.755 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-20 13:17:12.203 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-20 13:17:12.203 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,false,44100.0,16,2,true,86018,27,0,4))
+20-01-20 13:17:12.604 INFO o.s.theia.capture.sdk.MediaCapture$ - MediaCapture-0 is stopping...
+20-01-20 13:17:12.604 DEBUG o.s.t.p.core.collector.CaptureActor$ - change media settings: Some(MediaSettings(640,360,30,2000000,true,44100.0,16,2,true,86018,27,0,4))
+20-01-20 13:17:35.199 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-20 13:17:35.317 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 13:17:35.199 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-20 13:17:35.320 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-20 13:17:35.320 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579497379132
+20-01-20 13:18:12.905 INFO akka.actor.RepointableActorRef - Message [org.seekloud.theia.capture.core.CaptureManager$StartCameraFailed] without sender to Actor[akka://CaptureSystem/user/captureManager-1579497379132#1406641109] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://CaptureSystem/user/captureManager-1579497379132#1406641109]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-20 13:42:06.997 INFO o.s.theia.pcClient.core.RmManager$ - rmManager stopped in idle.
+20-01-20 13:45:38.375 INFO o.s.theia.capture.sdk.DeviceUtil$ - Try to get pc device info...
+20-01-20 13:45:39.055 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:45:39.170 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-20 13:45:39.184 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:45:39.196 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:45:39.197 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:45:39.198 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:45:39.198 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:45:39.198 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 13:45:39.212 INFO o.s.t.p.core.NetImageProcessor$ - NetImageProcessor is starting...
+20-01-20 13:45:39.220 INFO o.s.theia.pcClient.core.RmManager$ - RmManager is starting...
+20-01-20 13:45:39.222 INFO o.s.theia.player.sdk.MediaPlayer - MediaPlayer is starting...
+20-01-20 13:45:39.230 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 13:45:39.247 INFO o.s.theia.player.core.PlayerManager$ - PlayerManager is starting...
+20-01-20 13:45:39.290 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager is starting...
+20-01-20 13:45:40.238 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-20 13:45:45.802 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 13:45:45.806 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 13:45:45.809 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579499145809 is starting...
+20-01-20 13:45:45.810 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 13:45:45.822 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 13:45:46.922 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 13:45:46.993 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 13:45:48.199 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-20 13:45:58.480 INFO o.s.theia.pcClient.core.RmManager$ - disconnected from room manager.
+20-01-20 13:45:58.581 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 13:45:58.584 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-20 13:45:58.594 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-20 13:45:58.605 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579499145799
+20-01-20 13:46:14.551 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-20 13:46:27.025 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 13:46:27.025 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.245:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 13:46:27.025 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579499187025 is starting...
+20-01-20 13:46:27.025 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 13:46:27.025 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 13:46:27.026 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 13:46:27.033 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 13:46:28.406 INFO o.s.theia.pcClient.core.RmManager$ - Success(link room manager success.)
+20-01-20 13:46:29.095 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-20 13:46:29.099 INFO akka.actor.LocalActorRef - Message [org.seekloud.theia.capture.protocol.Messages$CannotAccessImage] without sender to Actor[akka://theia/user/rmManager/liveManager/captureActor-1579499145799#583806446] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://theia/user/rmManager/liveManager/captureActor-1579499145799#583806446]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-20 13:46:29.101 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-20 13:46:29.107 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-20 13:46:29.110 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-20 15:20:44.020 INFO o.s.theia.capture.sdk.DeviceUtil$ - Try to get pc device info...
+20-01-20 15:20:44.664 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 15:20:44.769 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-20 15:20:44.783 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 15:20:44.794 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:20:44.796 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:20:44.796 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:20:44.796 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:20:44.796 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:20:44.806 INFO o.s.t.p.core.NetImageProcessor$ - NetImageProcessor is starting...
+20-01-20 15:20:44.822 INFO o.s.theia.pcClient.core.RmManager$ - RmManager is starting...
+20-01-20 15:20:44.824 INFO o.s.theia.player.sdk.MediaPlayer - MediaPlayer is starting...
+20-01-20 15:20:44.843 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-01-20 15:20:44.867 INFO o.s.theia.player.core.PlayerManager$ - PlayerManager is starting...
+20-01-20 15:20:44.912 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager is starting...
+20-01-20 15:20:45.512 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (64ch)List()
+20-01-20 15:20:45.512 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (2ch)List()
+20-01-20 15:20:45.514 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Capture screen 0List()
+20-01-20 15:20:45.514 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名MacBook Pro 麦克风List()
+20-01-20 15:20:45.528 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名FaceTime HD CameraList(VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1), VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1))
+20-01-20 15:20:45.956 DEBUG o.s.t.p.controller.HomeController - login by cache.
+20-01-20 15:20:45.967 DEBUG o.s.t.p.controller.HomeController - login.
+20-01-20 15:21:03.517 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-20 15:21:04.905 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 15:21:04.908 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 15:21:04.912 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.248:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 15:21:04.915 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.098 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.098 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.099 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.099 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.099 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:05.365 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (64ch)List()
+20-01-20 15:21:05.366 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (2ch)List()
+20-01-20 15:21:05.366 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Capture screen 0List()
+20-01-20 15:21:05.366 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名MacBook Pro 麦克风List()
+20-01-20 15:21:05.372 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名FaceTime HD CameraList(VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1), VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1))
+20-01-20 15:21:05.376 INFO o.s.t.p.core.stream.LiveManager$ - availableDevices pixels: TreeSet(1280x720, 640x480)
+20-01-20 15:21:05.377 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579504865377 is starting...
+20-01-20 15:21:05.551 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 15:21:06.290 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 15:21:06.382 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 15:21:06.652 INFO o.s.theia.pcClient.core.RmManager$ - Failure(java.lang.RuntimeException: link room manager failed: 200 OK)
+20-01-20 15:21:14.315 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 15:21:14.320 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-20 15:21:14.338 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-20 15:21:14.346 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579504864903
+20-01-20 15:21:15.403 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 15:21:15.404 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.248:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 15:21:15.404 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 15:21:15.415 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.554 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.555 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.555 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.555 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.555 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:21:15.853 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (64ch)List()
+20-01-20 15:21:15.853 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (2ch)List()
+20-01-20 15:21:15.854 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Capture screen 0List()
+20-01-20 15:21:15.854 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名MacBook Pro 麦克风List()
+20-01-20 15:21:15.857 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名FaceTime HD CameraList(VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1), VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1))
+20-01-20 15:21:15.859 INFO o.s.t.p.core.stream.LiveManager$ - availableDevices pixels: TreeSet(1280x720, 640x480)
+20-01-20 15:21:15.859 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579504875859 is starting...
+20-01-20 15:21:15.859 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 15:21:15.860 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 15:21:15.868 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 15:21:15.909 INFO o.s.theia.pcClient.core.RmManager$ - Failure(java.lang.RuntimeException: link room manager failed: 200 OK)
+20-01-20 15:22:25.843 DEBUG o.s.t.p.controller.HostController - refresh ==========
+20-01-20 15:22:25.844 DEBUG o.s.t.p.controller.HostController - send userid 1000179
+20-01-20 15:22:27.530 DEBUG o.s.t.p.controller.HostController - getListwell 3
+20-01-20 15:23:00.297 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-20 15:23:00.300 INFO akka.actor.LocalActorRef - Message [org.seekloud.theia.capture.protocol.Messages$CannotAccessImage] without sender to Actor[akka://theia/user/rmManager/liveManager/captureActor-1579504864903#-1438838934] was not delivered. [1] dead letters encountered. If this is not an expected behavior, then [Actor[akka://theia/user/rmManager/liveManager/captureActor-1579504864903#-1438838934]] may have terminated unexpectedly, This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+20-01-20 15:23:00.308 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-20 15:23:00.314 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-20 15:23:00.317 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-20 15:23:08.345 DEBUG o.s.t.p.controller.HostController - refresh ==========
+20-01-20 15:23:08.345 DEBUG o.s.t.p.controller.HostController - send userid 1000179
+20-01-20 15:23:08.654 DEBUG o.s.t.p.controller.HostController - getListwell 3
+20-01-20 15:23:09.615 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-20 15:23:09.616 INFO o.s.t.p.core.collector.CaptureActor$ - Image unavailable.
+20-01-20 15:23:09.616 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-20 15:23:09.617 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-20 15:23:09.617 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.
+20-01-20 15:23:24.552 INFO o.s.t.p.core.stream.LiveManager$ - LiveManager stop pusher!
+20-01-20 15:23:24.665 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 15:23:24.665 INFO o.s.t.p.core.collector.CaptureActor$ - Media capture is stopping...
+20-01-20 15:23:24.665 DEBUG o.s.t.p.core.stream.LiveManager$ - LiveManager unWatch child-captureActor-1579504875403
+20-01-20 15:23:33.342 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes audienceBehavior behavior.
+20-01-20 15:23:39.244 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: false
+20-01-20 15:23:40.141 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: false, need sound: false
+20-01-20 15:23:41.278 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: false
+20-01-20 15:23:41.835 INFO o.s.theia.pcClient.core.RmManager$ - change option need image: true, need sound: true
+20-01-20 15:23:52.147 DEBUG o.s.theia.pcClient.core.RmManager$ - audience back to previous page.
+20-01-20 15:23:52.261 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes idle behavior.
+20-01-20 15:23:55.976 INFO o.s.theia.pcClient.core.RmManager$ - roomInfo error: RoomInfo(1000029,test_room,测试房间,100029,byf1,http://pic.neoap.com/hestia/files/image/roomManager/b2eab30365a2a81cf1a13d1de6332c8f.png,http://pic.neoap.com/hestia/files/image/roomManager/1c6af4509f95701ffeae9999059d66d9.png,0,0,Some(/theia/distributor/getFile/test/index.mpd),None)!
+20-01-20 15:24:00.784 INFO o.s.theia.pcClient.core.RmManager$ - back to home.
+20-01-20 15:24:02.300 DEBUG o.s.theia.pcClient.core.RmManager$ - akka://theia/user/rmManager becomes hostBehavior behavior.
+20-01-20 15:24:02.300 DEBUG o.s.theia.pcClient.core.RmManager$ - build ws with roomManager: ws://10.1.29.248:30387/theia/roomManager/user/setupWebSocket?userId=100179&token=ahSuNQG3RU5Q3yG5OREGR59mJBSmYFQNahHSdxvW&roomId=1000179
+20-01-20 15:24:02.301 INFO o.s.t.p.core.collector.CaptureActor$ - CaptureActor is starting...
+20-01-20 15:24:02.413 WARN o.s.theia.capture.sdk.DeviceUtil$ - normal stream get null, try error stream.
+20-01-20 15:24:02.433 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:24:02.434 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:24:02.434 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:24:02.434 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:24:02.434 WARN o.s.theia.capture.sdk.DeviceUtil$ - inputStream read error: java.io.IOException: Stream closed, try errorStream
+20-01-20 15:24:02.744 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (64ch)List()
+20-01-20 15:24:02.744 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Soundflower (2ch)List()
+20-01-20 15:24:02.744 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名Capture screen 0List()
+20-01-20 15:24:02.744 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名MacBook Pro 麦克风List()
+20-01-20 15:24:02.747 INFO o.s.theia.capture.sdk.DeviceUtil$ - 设备名FaceTime HD CameraList(VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1), VideoOption(pixel_format,uyvy422,640x480,30,640x480,30), VideoOption(pixel_format,uyvy422,640x480,29,640x480,29), VideoOption(pixel_format,uyvy422,640x480,28,640x480,28), VideoOption(pixel_format,uyvy422,640x480,27,640x480,27), VideoOption(pixel_format,uyvy422,640x480,26,640x480,26), VideoOption(pixel_format,uyvy422,640x480,25,640x480,25), VideoOption(pixel_format,uyvy422,640x480,24,640x480,24), VideoOption(pixel_format,uyvy422,640x480,23,640x480,23), VideoOption(pixel_format,uyvy422,640x480,22,640x480,22), VideoOption(pixel_format,uyvy422,640x480,21,640x480,21), VideoOption(pixel_format,uyvy422,640x480,20,640x480,20), VideoOption(pixel_format,uyvy422,640x480,19,640x480,19), VideoOption(pixel_format,uyvy422,640x480,18,640x480,18), VideoOption(pixel_format,uyvy422,640x480,17,640x480,17), VideoOption(pixel_format,uyvy422,640x480,16,640x480,16), VideoOption(pixel_format,uyvy422,640x480,15,640x480,15), VideoOption(pixel_format,uyvy422,640x480,14,640x480,14), VideoOption(pixel_format,uyvy422,640x480,13,640x480,13), VideoOption(pixel_format,uyvy422,640x480,12,640x480,12), VideoOption(pixel_format,uyvy422,640x480,11,640x480,11), VideoOption(pixel_format,uyvy422,640x480,10,640x480,10), VideoOption(pixel_format,uyvy422,640x480,9,640x480,9), VideoOption(pixel_format,uyvy422,640x480,8,640x480,8), VideoOption(pixel_format,uyvy422,640x480,7,640x480,7), VideoOption(pixel_format,uyvy422,640x480,6,640x480,6), VideoOption(pixel_format,uyvy422,640x480,5,640x480,5), VideoOption(pixel_format,uyvy422,640x480,4,640x480,4), VideoOption(pixel_format,uyvy422,640x480,3,640x480,3), VideoOption(pixel_format,uyvy422,640x480,2,640x480,2), VideoOption(pixel_format,uyvy422,640x480,1,640x480,1), VideoOption(pixel_format,uyvy422,1280x720,30,1280x720,30), VideoOption(pixel_format,uyvy422,1280x720,29,1280x720,29), VideoOption(pixel_format,uyvy422,1280x720,28,1280x720,28), VideoOption(pixel_format,uyvy422,1280x720,27,1280x720,27), VideoOption(pixel_format,uyvy422,1280x720,26,1280x720,26), VideoOption(pixel_format,uyvy422,1280x720,25,1280x720,25), VideoOption(pixel_format,uyvy422,1280x720,24,1280x720,24), VideoOption(pixel_format,uyvy422,1280x720,23,1280x720,23), VideoOption(pixel_format,uyvy422,1280x720,22,1280x720,22), VideoOption(pixel_format,uyvy422,1280x720,21,1280x720,21), VideoOption(pixel_format,uyvy422,1280x720,20,1280x720,20), VideoOption(pixel_format,uyvy422,1280x720,19,1280x720,19), VideoOption(pixel_format,uyvy422,1280x720,18,1280x720,18), VideoOption(pixel_format,uyvy422,1280x720,17,1280x720,17), VideoOption(pixel_format,uyvy422,1280x720,16,1280x720,16), VideoOption(pixel_format,uyvy422,1280x720,15,1280x720,15), VideoOption(pixel_format,uyvy422,1280x720,14,1280x720,14), VideoOption(pixel_format,uyvy422,1280x720,13,1280x720,13), VideoOption(pixel_format,uyvy422,1280x720,12,1280x720,12), VideoOption(pixel_format,uyvy422,1280x720,11,1280x720,11), VideoOption(pixel_format,uyvy422,1280x720,10,1280x720,10), VideoOption(pixel_format,uyvy422,1280x720,9,1280x720,9), VideoOption(pixel_format,uyvy422,1280x720,8,1280x720,8), VideoOption(pixel_format,uyvy422,1280x720,7,1280x720,7), VideoOption(pixel_format,uyvy422,1280x720,6,1280x720,6), VideoOption(pixel_format,uyvy422,1280x720,5,1280x720,5), VideoOption(pixel_format,uyvy422,1280x720,4,1280x720,4), VideoOption(pixel_format,uyvy422,1280x720,3,1280x720,3), VideoOption(pixel_format,uyvy422,1280x720,2,1280x720,2), VideoOption(pixel_format,uyvy422,1280x720,1,1280x720,1))
+20-01-20 15:24:02.748 INFO o.s.t.p.core.stream.LiveManager$ - availableDevices pixels: TreeSet(1280x720, 640x480)
+20-01-20 15:24:02.749 INFO o.s.theia.capture.sdk.MediaCapture$ - captureManager-1579505042749 is starting...
+20-01-20 15:24:02.749 INFO o.s.t.capture.core.CaptureManager$ - CaptureManager is starting...
+20-01-20 15:24:02.749 DEBUG o.s.t.capture.core.CaptureManager$ - cameraGrabber-0 is starting...
+20-01-20 15:24:02.755 INFO o.s.t.capture.core.CaptureManager$ - Start targetDataLine success.
+20-01-20 15:24:03.672 INFO o.s.theia.pcClient.core.RmManager$ - Failure(java.lang.RuntimeException: link room manager failed: 200 OK)
+20-01-20 15:25:56.498 INFO o.s.t.capture.core.CaptureManager$ - Start Camera failed: org.bytedeco.javacv.FrameGrabber$Exception: read() Error: Could not read frame in start().
+20-01-20 15:25:56.499 INFO o.s.t.p.core.collector.CaptureActor$ - Image unavailable.
+20-01-20 15:25:56.500 INFO o.s.theia.capture.core.MontageActor$ - ImageCapture is staring...
+20-01-20 15:25:56.500 INFO o.s.theia.capture.core.SoundCapture$ - SoundCapture is staring...
+20-01-20 15:25:56.500 INFO o.s.theia.capture.core.SoundCapture$ - Media microphone started.

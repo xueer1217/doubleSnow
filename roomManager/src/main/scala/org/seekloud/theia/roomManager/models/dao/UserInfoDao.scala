@@ -63,7 +63,7 @@ object UserInfoDao {
     }
   }
 
-  def verifyUserWithToken(uid:Long,token:String):Future[Boolean] = {
+    def verifyUserWithToken(uid:Long,token:String):Future[Boolean] = {
     for{
       value <- db.run(tUserInfo.filter(i => i.uid === uid).map(t => (t.token,t.tokenCreateTime)).result.headOption)
     }yield {

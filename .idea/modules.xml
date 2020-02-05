@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/.js-protocol.iml" filepath="$PROJECT_DIR$/.idea/modules/.js-protocol.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/.js-webrtcMessage.iml" filepath="$PROJECT_DIR$/.idea/modules/.js-webrtcMessage.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/capture.iml" filepath="$PROJECT_DIR$/.idea/modules/capture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distributor.iml" filepath="$PROJECT_DIR$/.idea/modules/distributor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distributorPage.iml" filepath="$PROJECT_DIR$/.idea/modules/distributorPage.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doubleSnow.iml" filepath="$PROJECT_DIR$/.idea/modules/doubleSnow.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doubleSnow-build.iml" filepath="$PROJECT_DIR$/.idea/modules/doubleSnow-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pcClient.iml" filepath="$PROJECT_DIR$/.idea/modules/pcClient.iml" />

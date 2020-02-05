@@ -11,6 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/capture" />
+            <option value="$PROJECT_DIR$/distributor" />
+            <option value="$PROJECT_DIR$/distributorPage" />
             <option value="$PROJECT_DIR$/pcClient" />
             <option value="$PROJECT_DIR$/player" />
             <option value="$PROJECT_DIR$/processor" />
@@ -27,6 +29,7 @@
             <option value="$PROJECT_DIR$/webrtcMessage/.jvm" />
           </set>
         </option>
+        <option name="sbtVersion" value="1.2.8" />
       </SbtProjectSettings>
     </option>
     <option name="maximumHeapSize" value="4096" />

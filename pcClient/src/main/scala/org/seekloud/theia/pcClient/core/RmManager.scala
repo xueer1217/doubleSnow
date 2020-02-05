@@ -224,11 +224,10 @@ object RmManager {
           Behaviors.same
 
         case GoToLive =>
+
           val hostScene = new HostScene(stageCtx.getStage)
           val hostController = new HostController(stageCtx, hostScene, ctx.self)
-
           def callBack(): Unit = Boot.addToPlatform(hostScene.changeToggleAction())
-
           liveManager ! LiveManager.DevicesOn(hostScene.gc, callBackFunc = Some(callBack))
           ctx.self ! HostWsEstablish
           Boot.addToPlatform {
@@ -515,7 +514,7 @@ object RmManager {
           log.debug(s"Host req live.")
           assert(userInfo.nonEmpty && roomInfo.nonEmpty)
           if(msg.rtpSelected){
-            sender.foreach(_ ! StartLiveReq(userInfo.get.userId, userInfo.get.token, ClientType.PC))
+            sender.foreach(_ ! StartLiveReq(userInfo.get.userId, userInfo.get.token, ClientType.PC))  //roomManager->UserActor->WebSocketMsg(reqOpt)
           }
 
          // log.debug(s"rtmpselected   ${msg.rtmpSelected}  ==== ${msg.rtmpServer}  ")

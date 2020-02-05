@@ -338,6 +338,7 @@ class HostScene(stage: Stage) {
     * canvas
     *
     **/
+
   val liveImage = new Canvas(Constants.DefaultPlayer.width, Constants.DefaultPlayer.height)
   val gc: GraphicsContext = liveImage.getGraphicsContext2D
   val backImg = new Image("img/background.jpg")

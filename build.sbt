@@ -37,6 +37,14 @@ lazy val shared = (project in file("shared"))
   .settings(name := "shared")
   .settings(commonSettings: _*)
 
+lazy val rtpClient = (project in file("rtpClient"))
+  .settings(name := "rtpClient")
+  .settings(commonSettings: _*)
+  .settings(
+    libraryDependencies ++= Dependencies.akkaSeq,
+    libraryDependencies ++= Dependencies.backendDependencies)
+  .dependsOn(shared)
+
 
 
 lazy val webClient = (project in file("webClient"))
@@ -94,7 +102,7 @@ lazy val pcClient = (project in file("pcClient")).enablePlugins(PackPlugin)
     libraryDependencies ++= Dependencies.bytedecoLibs,
     libraryDependencies ++= Dependencies4PcClient.pcClientDependencies,
   )
-  .dependsOn(protocolJvm, capture, player)
+  .dependsOn(protocolJvm,rtpClient, capture, player)
 
 val captureMain = "org.seekloud.theia.capture.Boot"
 
@@ -145,7 +153,7 @@ lazy val player = (project in file("player")).enablePlugins(PackPlugin)
     libraryDependencies ++= Dependencies.bytedecoLibs,
     libraryDependencies ++= Dependencies4Player.playerDependencies,
   )
-  .dependsOn(protocolJvm)
+  .dependsOn(protocolJvm, rtpClient)
 
 
 
@@ -170,12 +178,30 @@ lazy val roomManager = (project in file("roomManager")).enablePlugins(PackPlugin
   .settings(
     libraryDependencies ++= Dependencies.backendDependencies
   )
+  .settings {
+    (resourceGenerators in Compile) += Def.task {
+      val fastJsOut = (fastOptJS in Compile in webClient).value.data
+      val fastJsSourceMap = fastJsOut.getParentFile / (fastJsOut.getName + ".map")
+      Seq(
+        fastJsOut,
+        fastJsSourceMap
+      )
+    }.taskValue
+  }
+  .settings((resourceGenerators in Compile) += Def.task {
+    Seq(
+      (packageJSDependencies in Compile in webClient).value
+      //(packageMinifiedJSDependencies in Compile in frontend).value
+    )
+  }.taskValue)
   .settings(
     (resourceDirectories in Compile) += (crossTarget in webClient).value,
     watchSources ++= (watchSources in webClient).value
   )
   .settings(scalaJSUseMainModuleInitializer := false)
   .dependsOn(protocolJvm)
+
+ 
 
 
 
@@ -202,7 +228,7 @@ lazy val processor = (project in file("processor")).enablePlugins(PackPlugin)
   .settings(
     libraryDependencies ++= Dependencies.backendDependencies,
     libraryDependencies ++= Dependencies.bytedecoLibs
-  ).dependsOn(protocolJvm)
+  ).dependsOn(protocolJvm, rtpClient)
 
 val distributorMain = "org.seekloud.theia.distributor.Boot"
 
@@ -272,7 +298,7 @@ lazy val distributor = (project in file("distributor")).enablePlugins(PackPlugin
     watchSources ++= (watchSources in distributorPage).value
   )
   .settings(scalaJSUseMainModuleInitializer := false)
-  .dependsOn(protocolJvm)
+  .dependsOn(protocolJvm, rtpClient)
 
 
 
@@ -296,7 +322,7 @@ lazy val rtpServer = (project in file("rtpServer")).enablePlugins(PackPlugin)
   )
   .settings(
     libraryDependencies ++= Dependencies.backendDependencies
-  ).dependsOn(protocolJvm, shared)
+  ).dependsOn(protocolJvm, shared, rtpClient)
 
 
 

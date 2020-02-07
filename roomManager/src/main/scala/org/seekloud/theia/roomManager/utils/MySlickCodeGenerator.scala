@@ -15,14 +15,21 @@ object MySlickCodeGenerator {
 
   import concurrent.ExecutionContext.Implicits.global
 
-  val slickProfile = "slick.jdbc.PostgresProfile"
-  val jdbcDriver = "org.postgresql.Driver"
-  val url = "jdbc:postgresql://10.1.29.248:5432/theia"
+//  val slickProfile = "slick.jdbc.PostgresProfile"
+//  val jdbcDriver = "org.postgresql.Driver"
+//  val url = "jdbc:postgresql://10.1.29.248:5432/theia"
+//  val outputFolder = "target/gencode/genTablesPsql"
+//  val pkg = "org.seekloud.theia.roomManager.models"
+//  val user = "theia"
+//  val password = "1qaz@WSX"//Rm1qaz@WSX
+
+  val slickProfile = "slick.jdbc.H2Profile"
+  val jdbcDriver = "org.h2.Driver"
+  val url = "jdbc:h2:file:./DATA/H2/doubleSnow"
   val outputFolder = "target/gencode/genTablesPsql"
   val pkg = "org.seekloud.theia.roomManager.models"
-  val user = "theia"
-  val password = "1qaz@WSX"//Rm1qaz@WSX
-
+  val user = "doubleSnow"
+  val password = "doubleSnow"
 
   //val dbDriver = MySQLDriver
 

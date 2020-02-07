@@ -91,6 +91,8 @@ object HostScene {
 
     def shutJoin()
 
+    def shutSpeak()
+
     def gotoHomeScene()
 
     def setFullScreen()
@@ -191,18 +193,34 @@ class HostScene(stage: Stage) {
   connectStateBox.setAlignment(Pos.CENTER_LEFT)
   connectStateBox.setSpacing(10)
 
+  val speakStateText = new Text("目前状态：无人申请发言")
+  speakStateText.getStyleClass.add("hostScene-leftArea-text")
+  val shutSpeakBtn = new Button("暂停")
+  shutSpeakBtn.getStyleClass.add("hostScene-middleArea-shutConnectionBtn")
+  Common.addButtonEffect(shutSpeakBtn)
+  shutSpeakBtn.setOnAction {
+    _ => listener.shutSpeak()
+
+  }
+  val speakStateBox = new HBox()
+  speakStateBox.getChildren.add(speakStateText)
+  speakStateBox.setSpacing(10)
+  speakStateBox.setAlignment(Pos.CENTER_LEFT)
+  connectStateBox.setSpacing(10)
+
+
   /*查看录像*/
-  val content = new VBox()
-  val leftRecordBox = new VBox()
-  leftRecordBox.setPadding(new Insets(20, 20, 20, 20))
-  leftRecordBox.getStyleClass.add("hostScene-leftArea-wholeBox")
-  leftRecordBox.setPrefHeight(height)
-  val loading = new Label("录像加载中……")
-  loading.setFont(Font.font("Verdana", 30))
-  loading.setPadding(new Insets(10, 150, 0, 0))
-  val waitPane = new BorderPane()
-  waitPane.setCenter(loading)
-  leftRecordBox.getChildren.add(waitPane)
+//  val content = new VBox()
+//  val leftRecordBox = new VBox()
+//  leftRecordBox.setPadding(new Insets(20, 20, 20, 20))
+//  leftRecordBox.getStyleClass.add("hostScene-leftArea-wholeBox")
+//  leftRecordBox.setPrefHeight(height)
+//  val loading = new Label("录像加载中……")
+//  loading.setFont(Font.font("Verdana", 30))
+//  loading.setPadding(new Insets(10, 150, 0, 0))
+//  val waitPane = new BorderPane()
+//  waitPane.setCenter(loading)
+//  leftRecordBox.getChildren.add(waitPane)
 
   /*录像相关*/
   val recordRadioBtn1 = new RadioButton("录制自己")
@@ -310,9 +328,9 @@ class HostScene(stage: Stage) {
   connectionIcon1.setFitWidth(20)
   connectionIcon1.setFitHeight(20)
   val audienceIcon: ImageView = Common.getImageView("img/watching.png", 20, 20)
-  val recordIcon = new ImageView("img/recordRooms.png")
-  recordIcon.setFitHeight(20)
-  recordIcon.setFitWidth(20)
+  val speakIcon = new ImageView("img/recordRooms.png")
+  speakIcon.setFitHeight(20)
+  speakIcon.setFitWidth(20)
 
   val tb1 = new ToggleButton("房间 ", roomInfoIcon)
   tb1.getStyleClass.add("hostScene-leftArea-toggleButton")
@@ -322,7 +340,7 @@ class HostScene(stage: Stage) {
   tb3.getStyleClass.add("hostScene-leftArea-toggleButton")
   val tb4 = new ToggleButton("观众 ", audienceIcon)
   tb4.getStyleClass.add("hostScene-leftArea-toggleButton")
-  val tb5 = new ToggleButton("我的录像 ",recordIcon)
+  val tb5 = new ToggleButton("发言 ",speakIcon)
   tb5.getStyleClass.add("hostScene-leftArea-toggleButton")
 
   /**
@@ -464,6 +482,51 @@ class HostScene(stage: Stage) {
 
   }
 
+  /**
+    * 更新发言请求
+    *
+    **/
+
+  def updateSpeakerList(audienceId: Long, audienceName: String): Unit = {
+    if (!tb5.isSelected) {
+      tb5.setGraphic(connectionIcon1)
+    }
+    val agreeBtn = new Button("", new ImageView("img/agreeBtn.png"))
+    val refuseBtn = new Button("", new ImageView("img/refuseBtn.png"))
+
+    agreeBtn.getStyleClass.add("hostScene-middleArea-tableBtn")
+    refuseBtn.getStyleClass.add("hostScene-middleArea-tableBtn")
+    val glow = new Glow()
+    agreeBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (_: MouseEvent) => {
+      agreeBtn.setEffect(glow)
+    })
+    agreeBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (_: MouseEvent) => {
+      agreeBtn.setEffect(null)
+    })
+    refuseBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (_: MouseEvent) => {
+      refuseBtn.setEffect(glow)
+    })
+    refuseBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (_: MouseEvent) => {
+      refuseBtn.setEffect(null)
+    })
+    val newRequest = AudienceListInfo(
+      new SimpleStringProperty(s"$audienceName($audienceId)"),
+      new SimpleObjectProperty[Button](agreeBtn),
+      new SimpleObjectProperty[Button](refuseBtn)
+    )
+    audObservableList.add(newRequest)
+
+    agreeBtn.setOnAction {
+      _ =>
+        listener.audienceAcceptance(userId = audienceId, accept = true, newRequest)
+    }
+    refuseBtn.setOnAction {
+      _ =>
+        listener.audienceAcceptance(userId = audienceId, accept = false, newRequest)
+    }
+
+  }
+
   def getScene: Scene = this.scene
 
   def setListener(listener: HostSceneListener): Unit = {
@@ -483,7 +546,7 @@ class HostScene(stage: Stage) {
     val tbBox = new HBox()
     tbBox.getChildren.addAll(tb1, tb2, tb3, tb4,tb5)
 
-    //val content = new VBox()
+    val content = new VBox()
     val left1Area = addLeftChild1Area()
     val left2Area = addLeftChild2Area()
     val left3Area = addLeftChild3Area()
@@ -517,10 +580,10 @@ class HostScene(stage: Stage) {
     }
                     )
     tb5.setOnAction(_ => {
-      tb5.setGraphic(recordIcon)
-      leftRecordBox.getChildren.clear()
-      leftRecordBox.getChildren.add(waitPane)
-      listener.refresh()
+      tb5.setGraphic(speakIcon)
+//      leftRecordBox.getChildren.clear()
+//      leftRecordBox.getChildren.add(waitPane)
+ //     listener.refresh()
       content.getChildren.clear()
       content.getChildren.addAll(left5Area)
     }
@@ -1040,126 +1103,153 @@ class HostScene(stage: Stage) {
     vBox
   }
 
-  //record page
+  //speak
 
   def addLeftChild5Area(): VBox = {
     val vBox = new VBox()
-    vBox.getChildren.addAll(leftRecordBox)
+    vBox.getChildren.addAll(speakStateBox,creatSpkTbArea)
+    vBox.setSpacing(20)
+    vBox.setPrefHeight(height)
+    vBox.setPadding(new Insets(20, 10, 5, 10))
+    vBox.getStyleClass.add("hostScene-leftArea-wholeBox")
+
+    def creatSpkTbArea: TableView[AudienceListInfo] = {
+      val AudienceTable = new TableView[AudienceListInfo]()
+      AudienceTable.getStyleClass.add("table-view")
+
+      val userInfoCol = new TableColumn[AudienceListInfo, String]("申请发言者")
+      userInfoCol.setPrefWidth(width * 0.15)
+      userInfoCol.setCellValueFactory(new PropertyValueFactory[AudienceListInfo, String]("userInfo"))
+
+      val agreeBtnCol = new TableColumn[AudienceListInfo, Button]("同意")
+      agreeBtnCol.setCellValueFactory(new PropertyValueFactory[AudienceListInfo, Button]("agreeBtn"))
+      agreeBtnCol.setPrefWidth(width * 0.05)
+
+      val refuseBtnCol = new TableColumn[AudienceListInfo, Button]("拒绝")
+      refuseBtnCol.setCellValueFactory(new PropertyValueFactory[AudienceListInfo, Button]("refuseBtn"))
+      refuseBtnCol.setPrefWidth(width * 0.05)
+
+      AudienceTable.setItems(audObservableList)
+      AudienceTable.getColumns.addAll(userInfoCol, agreeBtnCol, refuseBtnCol)
+      AudienceTable.setPrefHeight(height * 0.8)
+      AudienceTable
+
+    }
+
     vBox
   }
 
-  def updateRecordBox():Unit={
-    val scrollPane = new ScrollPane()
-    val allRecordPane = new VBox()
-    recordList match{
-      case Nil=>
-        leftRecordBox.getChildren.clear()
-        val nonRecord = new Label("暂无录像")
-        nonRecord.setFont(Font.font("Verdana", 30))
-        nonRecord.setPadding(new Insets(200, 0, 0, 0))
-        val noRecordPane = new BorderPane()
-        noRecordPane.setCenter(nonRecord)
-        leftRecordBox.getChildren.add(noRecordPane)
+//  def updateRecordBox():Unit={
+//    val scrollPane = new ScrollPane()
+//    val allRecordPane = new VBox()
+//    recordList match{
+//      case Nil=>
+//        leftRecordBox.getChildren.clear()
+//        val nonRecord = new Label("暂无录像")   nonRecord.setFont(Font.font("Verdana", 30))
+//        nonRecord.setPadding(new Insets(200, 0, 0, 0))
+//        val noRecordPane = new BorderPane()
+//        noRecordPane.setCenter(nonRecord)
+//        leftRecordBox.getChildren.add(noRecordPane)
+//
+//      case record=>
+//        leftRecordBox.getChildren.clear()
+//        val albumList = record.map(a=>a.toAlbum)
+//
+//        for(i <- 1 to recordsSize) {
+//          val totalBox = new HBox(2)
+//          val roomBox = new VBox(3)
+//          val roomPic = Pictures.getPic(albumList(i - 1).coverImgUrl, isHeader = false)
+//          roomPic.setFitHeight(Constants.DefaultPlayer.height / 2.5)
+//          roomPic.setFitWidth(Constants.DefaultPlayer.width / 2.5)
+//          是否需要点进去播放视频这个功能，先不写
+//                roomPic.addEventHandler(MouseEvent.MOUSE_CLICKED, (_: MouseEvent) => {
+//                  listener.enter(albumList(i - 1).roomId, albumList(i - 1).timestamp)
+//                })
+//          val userName = new Label(s"${albumList(i - 1).userName}")
+//          userName.setPrefWidth(120)
+//          userName.getStyleClass.add("roomScene-userName")
+//
+//          val audienceNumIcon = Common.getImageView("img/roomScene-view.png", 25, 25)
+//          val audienceNum = new Label(s"${albumList(i - 1).observerNum}", audienceNumIcon)
+//          audienceNum.setPrefWidth(80)
+//          audienceNum.getStyleClass.add("roomScene-userName")
+//
+//          val likeNumIcon = Common.getImageView("img/roomScene-like.png", 20, 20)
+//          val likeNum = new Label(s"${albumList(i - 1).like}", likeNumIcon)
+//          likeNum.setPrefWidth(80)
+//          likeNum.getStyleClass.add("roomScene-userName")
+//
+//          val picBar = new HBox(userName, audienceNum, likeNum)
+//          picBar.setMaxSize(roomPic.getFitWidth, roomPic.getFitHeight * 0.2)
+//          picBar.setPadding(new Insets(3, 0, 3, 0))
+//          picBar.setAlignment(Pos.CENTER_LEFT)
+//          picBar.getStyleClass.add("roomScene-picBar")
+//
+//          val picPane = new StackPane()
+//          picPane.setAlignment(Pos.BOTTOM_CENTER)
+//          picPane.getChildren.addAll(roomPic)
 
-      case record=>
-        leftRecordBox.getChildren.clear()
-        val albumList = record.map(a=>a.toAlbum)
+//          只看自己录像，不用xxx的直播间
+//           roomName
+//                val roomName = new Label(s"${albumList(i - 1).roomName}")
+//                roomName.setPrefWidth(200)
+//                roomName.getStyleClass.add("roomScene-roomName")
+//
+//           timeBox(startTime & duration)
+//          val timeIcon = getImageView("img/date.png", 20, 20)
+//          val liveTime = if (albumList(i - 1).timestamp != 0L) new Label(TimeUtil.timeStamp2DetailDate(albumList(i - 1).timestamp), timeIcon) else new Label("")
+//          liveTime.setPrefWidth(160)
+//          liveTime.getStyleClass.add("roomScene-time")
+//
+//          val durationIcon = getImageView("img/clock.png", 20, 20)
+//          val duration = new Label(s"${albumList(i - 1).duration}", durationIcon)
+//          duration.setPrefWidth(100)
+//          duration.getStyleClass.add("roomScene-time")
 
-        for(i <- 1 to recordsSize) {
-          val totalBox = new HBox(2)
-          val roomBox = new VBox(3)
-          val roomPic = Pictures.getPic(albumList(i - 1).coverImgUrl, isHeader = false)
-          roomPic.setFitHeight(Constants.DefaultPlayer.height / 2.5)
-          roomPic.setFitWidth(Constants.DefaultPlayer.width / 2.5)
-          //是否需要点进去播放视频这个功能，先不写
-          //      roomPic.addEventHandler(MouseEvent.MOUSE_CLICKED, (_: MouseEvent) => {
-          //        listener.enter(albumList(i - 1).roomId, albumList(i - 1).timestamp)
-          //      })
-          val userName = new Label(s"${albumList(i - 1).userName}")
-          userName.setPrefWidth(120)
-          userName.getStyleClass.add("roomScene-userName")
-
-          val audienceNumIcon = Common.getImageView("img/roomScene-view.png", 25, 25)
-          val audienceNum = new Label(s"${albumList(i - 1).observerNum}", audienceNumIcon)
-          audienceNum.setPrefWidth(80)
-          audienceNum.getStyleClass.add("roomScene-userName")
-
-          val likeNumIcon = Common.getImageView("img/roomScene-like.png", 20, 20)
-          val likeNum = new Label(s"${albumList(i - 1).like}", likeNumIcon)
-          likeNum.setPrefWidth(80)
-          likeNum.getStyleClass.add("roomScene-userName")
-
-          val picBar = new HBox(userName, audienceNum, likeNum)
-          picBar.setMaxSize(roomPic.getFitWidth, roomPic.getFitHeight * 0.2)
-          picBar.setPadding(new Insets(3, 0, 3, 0))
-          picBar.setAlignment(Pos.CENTER_LEFT)
-          picBar.getStyleClass.add("roomScene-picBar")
-
-          val picPane = new StackPane()
-          picPane.setAlignment(Pos.BOTTOM_CENTER)
-          picPane.getChildren.addAll(roomPic)
-
-          //只看自己录像，不用xxx的直播间
-          // roomName
-          //      val roomName = new Label(s"${albumList(i - 1).roomName}")
-          //      roomName.setPrefWidth(200)
-          //      roomName.getStyleClass.add("roomScene-roomName")
-
-          // timeBox(startTime & duration)
-          val timeIcon = getImageView("img/date.png", 20, 20)
-          val liveTime = if (albumList(i - 1).timestamp != 0L) new Label(TimeUtil.timeStamp2DetailDate(albumList(i - 1).timestamp), timeIcon) else new Label("")
-          liveTime.setPrefWidth(160)
-          liveTime.getStyleClass.add("roomScene-time")
-
-          val durationIcon = getImageView("img/clock.png", 20, 20)
-          val duration = new Label(s"${albumList(i - 1).duration}", durationIcon)
-          duration.setPrefWidth(100)
-          duration.getStyleClass.add("roomScene-time")
-
-          val timeBox = new HBox(liveTime, duration)
-          timeBox.setAlignment(Pos.CENTER_LEFT)
-
-          //roomBox
-          roomBox.getChildren.addAll(picPane, timeBox)
-          roomBox.setStyle("-fx-cursor: hand;")
-          val shadow = new DropShadow(10, Color.GRAY)
-          roomBox.addEventHandler(MouseEvent.MOUSE_ENTERED, (_: MouseEvent) => {
-            picPane.getChildren.add(picBar)
-            roomPic.setEffect(shadow)
-          })
-          roomBox.addEventHandler(MouseEvent.MOUSE_EXITED, (_: MouseEvent) => {
-            picPane.getChildren.remove(picBar)
-            roomPic.setEffect(null)
-          })
-
-          //delete button
-          val deleteBtn = new Button("Delete")
-          //deleteBtn.setPadding(new Insets(50,50,0,0))
-          deleteBtn.setOnAction { _ =>
-            val record = albumList(i - 1).toRecordInfo
-            listener.deleteRecord(record.recordId)
-          }
-
+//          val timeBox = new HBox(liveTime, duration)
+//          timeBox.setAlignment(Pos.CENTER_LEFT)
+//
+//          roomBox
+//          roomBox.getChildren.addAll(picPane, timeBox)
+//          roomBox.setStyle("-fx-cursor: hand;")
+//          val shadow = new DropShadow(10, Color.GRAY)
+//          roomBox.addEventHandler(MouseEvent.MOUSE_ENTERED, (_: MouseEvent) => {
+//            picPane.getChildren.add(picBar)
+//            roomPic.setEffect(shadow)
+//          })
+//          roomBox.addEventHandler(MouseEvent.MOUSE_EXITED, (_: MouseEvent) => {
+//            picPane.getChildren.remove(picBar)
+//            roomPic.setEffect(null)
+//          })
+//
+//          delete button
+//          val deleteBtn = new Button("Delete")
+//          deleteBtn.setPadding(new Insets(50,50,0,0))
+//          deleteBtn.setOnAction { _ =>
+//            val record = albumList(i - 1).toRecordInfo
+//            listener.deleteRecord(record.recordId)
+//          }
+//
           //一行
-          totalBox.getChildren.addAll(roomBox, deleteBtn)
-          //s1.getChildren.add()
-          allRecordPane.getChildren.addAll(totalBox)
-        }
+//          totalBox.getChildren.addAll(roomBox, deleteBtn)
+//          s1.getChildren.add()
+//          allRecordPane.getChildren.addAll(totalBox)
+//        }
 
-        import javafx.beans.value.ObservableValue
-        import javafx.beans.value.ChangeListener
-        scrollPane.setVmax(440)
-        scrollPane.setPrefSize(width*0.9, height*0.9)
-        scrollPane.setContent(allRecordPane)
-        scrollPane.vvalueProperty().addListener(new ChangeListener[Number]() {
-          override def changed(ov: ObservableValue[_ <: Number], old_val: Number, new_val: Number): Unit = {
-            allRecordPane.setLayoutY(-new_val.doubleValue)
-          }
-        })
-        leftRecordBox.getChildren.addAll(scrollPane)
-    }
-  }
-
+//        import javafx.beans.value.ObservableValue
+//        import javafx.beans.value.ChangeListener
+//        scrollPane.setVmax(440)
+//        scrollPane.setPrefSize(width*0.9, height*0.9)
+//        scrollPane.setContent(allRecordPane)
+//        scrollPane.vvalueProperty().addListener(new ChangeListener[Number]() {
+//          override def changed(ov: ObservableValue[_ <: Number], old_val: Number, new_val: Number): Unit = {
+//            allRecordPane.setLayoutY(-new_val.doubleValue)
+//          }
+//        })
+//        leftRecordBox.getChildren.addAll(scrollPane)
+//    }
+//  }
+//
   def addRightArea(): VBox = {
 
     def createUpBox = {

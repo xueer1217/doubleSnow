@@ -79,6 +79,10 @@ class HostController(
       rmManager ! RmManager.ShutJoin
     }
 
+    override def shutSpeak(): Unit = {
+
+    }
+
     override def gotoHomeScene(): Unit = {
       rmManager ! RmManager.BackToHome
     }
@@ -193,7 +197,7 @@ class HostController(
             Boot.addToPlatform {
               hostScene.recordList =  rst.recordInfo
               hostScene.recordsSize = rst.recordNum
-              hostScene.updateRecordBox()
+//              hostScene.updateRecordBox()
             }
           } else {
             //removeLoading()

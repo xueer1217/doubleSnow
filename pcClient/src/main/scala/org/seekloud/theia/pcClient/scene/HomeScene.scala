@@ -197,7 +197,7 @@ class HomeScene {
     liveBtn.setOnAction(_ => listener.liveCheck())
     addButtonEffect(liveBtn)
 
-    val liveText = new Text("我要直播")
+    val liveText = new Text("创建会议")
     liveText.getStyleClass.add("homeScene-bottomText")
 
     val liveVBox = new VBox()
@@ -213,7 +213,7 @@ class HomeScene {
     watchBtn.setOnAction(_ => listener.gotoRoomPage())
     addButtonEffect(watchBtn)
 
-    val watchText = new Text("观看直播")
+    val watchText = new Text("加入会议")
     watchText.getStyleClass.add("homeScene-bottomText")
 
     val watchVBox = new VBox()

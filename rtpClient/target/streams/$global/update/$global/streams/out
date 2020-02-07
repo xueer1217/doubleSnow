@@ -1,4 +1,5 @@
 [info] Updating rtpClient...
+[debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
 [debug] :: resolving dependencies :: rtpclient#rtpclient_2.12;0.1
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool]
 [debug] 	validate = true
@@ -1556,6 +1557,15 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] sbt-chain: Checking cache for: dependency: com.h2database#h2;1.4.196 {compile=[default(compile)]}
+[debug] sbt-chain: module revision found in cache: com.h2database#h2;1.4.196
+[debug] 	found com.h2database#h2;1.4.196 in sbt-chain
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] resolving dependencies for configuration 'runtime'
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [runtime]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [compile]
@@ -2973,6 +2983,14 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] resolving dependencies for configuration 'test'
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [test]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [runtime]
@@ -4511,6 +4529,16 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] resolving dependencies for configuration 'provided'
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [provided]
 [debug] resolving dependencies for configuration 'optional'
@@ -6172,6 +6200,18 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [optional]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [provided]
 [debug] resolving dependencies for configuration 'runtime-internal'
@@ -7832,6 +7872,18 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [optional]
 [debug] resolving dependencies for configuration 'test-internal'
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [test-internal]
@@ -9732,6 +9784,22 @@
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.sun.mail#javax.mail;1.5.3->javax.activation#activation;1.1 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.sun.mail#javax.mail;1.5.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.12.8 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.12.8 {compile=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.12.8 {scala-tool=[default, optional(default)], compile=[default(compile)]}
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient_2.12;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [optional]
 [debug] == resolving dependencies for rtpclient#rtpclient_2.12;0.1 [provided]
 [debug] resolving dependencies for configuration 'plugin'
@@ -9878,7 +9946,6 @@
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-slf4j_2.12;2.5.23!akka-slf4j_2.12.jar
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-stream_2.12;2.5.23!akka-stream_2.12.jar
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.12;2.5.23!akka-actor_2.12.jar
-[debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-actor-typed_2.12;2.5.23!akka-actor-typed_2.12.jar
 [debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
 [debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
@@ -9886,6 +9953,7 @@
 [debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-stream-typed_2.12;2.5.23!akka-stream-typed_2.12.jar
 [debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
+[debug] no default ivy user dir defined: set to /Users/haoxue/.ivy2
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
@@ -9893,15 +9961,15 @@
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
 [debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
+[debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
 [debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
-[debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
-[debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
+[debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
 [debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
 [debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
-[debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
+[debug] no default cache defined: set to /Users/haoxue/.ivy2/cache
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
@@ -9922,6 +9990,7 @@
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
 [debug] including url: jar:file:/Users/haoxue/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (37ms)
 [debug] settings loaded (37ms)
 [debug] settings loaded (37ms)
 [debug] settings loaded (37ms)
@@ -9929,109 +9998,109 @@
 [debug] 	default cache: /Users/haoxue/.ivy2/cache
 [debug] 	default cache: /Users/haoxue/.ivy2/cache
 [debug] 	default cache: /Users/haoxue/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	default resolver: default
+[debug] 	default resolver: default
 [debug] 	default cache: /Users/haoxue/.ivy2/cache
-[debug] 	default resolver: default
-[debug] 	default resolver: default
-[debug] 	default resolver: default
-[debug] 	default resolver: default
-[debug] 	-- 5 resolvers:
-[debug] 	-- 5 resolvers:
-[debug] 	-- 5 resolvers:
-[debug] 	-- 5 resolvers:
-[debug] 	shared [file]
-[debug] 	shared [file]
-[debug] 	shared [file]
-[debug] 	shared [file]
-[debug] 	default [chain] [local, main]
-[debug] 	default [chain] [local, main]
-[debug] 	default [chain] [local, main]
-[debug] 	default [chain] [local, main]
-[debug] 	public [ibiblio]
-[debug] 	public [ibiblio]
-[debug] 	public [ibiblio]
-[debug] 	public [ibiblio]
-[debug] 	main [chain] [shared, public]
-[debug] 	local [file]
-[debug] 	main [chain] [shared, public]
-[debug] 	main [chain] [shared, public]
-[debug] 	main [chain] [shared, public]
-[debug] 	local [file]
-[debug] 	local [file]
-[debug] 	local [file]
-[debug] settings loaded (38ms)
 [debug] 	default cache: /Users/haoxue/.ivy2/cache
 [debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	-- 5 resolvers:
+[debug] 	-- 5 resolvers:
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	shared [file]
+[debug] 	shared [file]
+[debug] 	shared [file]
 [debug] 	shared [file]
 [debug] 	default [chain] [local, main]
+[debug] 	default [chain] [local, main]
+[debug] 	default [chain] [local, main]
+[debug] 	default [chain] [local, main]
+[debug] 	default [chain] [local, main]
 [debug] 	public [ibiblio]
-[debug] settings loaded (38ms)
-[debug] 	default cache: /Users/haoxue/.ivy2/cache
+[debug] 	public [ibiblio]
+[debug] 	public [ibiblio]
+[debug] 	public [ibiblio]
+[debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
-[debug] 	default resolver: default
+[debug] 	main [chain] [shared, public]
+[debug] 	main [chain] [shared, public]
+[debug] 	main [chain] [shared, public]
 [debug] 	local [file]
+[debug] 	local [file]
+[debug] 	local [file]
+[debug] 	local [file]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] settings loaded (37ms)
+[debug] 	default cache: /Users/haoxue/.ivy2/cache
+[debug] 	default resolver: default
 [debug] 	-- 5 resolvers:
 [debug] 	shared [file]
 [debug] 	default [chain] [local, main]
 [debug] 	public [ibiblio]
 [debug] 	main [chain] [shared, public]
 [debug] 	local [file]
-[debug] 	[NOT REQUIRED] ch.megard#akka-http-cors_2.12;0.4.0!akka-http-cors_2.12.jar
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-testkit_2.12;10.1.8!akka-http-testkit_2.12.jar
-[debug] 	[NOT REQUIRED] io.circe#circe-generic_2.12;0.9.3!circe-generic_2.12.jar
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http_2.12;10.1.8!akka-http_2.12.jar
-[debug] 	[NOT REQUIRED] io.circe#circe-core_2.12;0.9.3!circe-core_2.12.jar
+[debug] 	[NOT REQUIRED] ch.megard#akka-http-cors_2.12;0.4.0!akka-http-cors_2.12.jar
+[debug] 	[NOT REQUIRED] io.circe#circe-generic_2.12;0.9.3!circe-generic_2.12.jar
 [debug] 	[NOT REQUIRED] io.circe#circe-parser_2.12;0.9.3!circe-parser_2.12.jar
-[debug] 	[NOT REQUIRED] com.typesafe.slick#slick-codegen_2.12;3.3.0!slick-codegen_2.12.jar
-[debug] 	[NOT REQUIRED] com.typesafe.slick#slick_2.12;3.3.0!slick_2.12.jar(bundle)
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-testkit_2.12;10.1.8!akka-http-testkit_2.12.jar
+[debug] 	[NOT REQUIRED] io.circe#circe-core_2.12;0.9.3!circe-core_2.12.jar
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)
-[debug] 	[NOT REQUIRED] ch.qos.logback#logback-classic;1.2.3!logback-classic.jar
+[debug] 	[NOT REQUIRED] com.typesafe.slick#slick-codegen_2.12;3.3.0!slick-codegen_2.12.jar
 [debug] 	[NOT REQUIRED] com.github.nscala-time#nscala-time_2.12;2.16.0!nscala-time_2.12.jar
+[debug] 	[NOT REQUIRED] com.typesafe.slick#slick_2.12;3.3.0!slick_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] com.zaxxer#HikariCP;2.7.9!HikariCP.jar(bundle)
+[debug] 	[NOT REQUIRED] ch.qos.logback#logback-classic;1.2.3!logback-classic.jar
 [debug] 	[NOT REQUIRED] commons-codec#commons-codec;1.10!commons-codec.jar
 [debug] 	[NOT REQUIRED] org.postgresql#postgresql;9.4.1208!postgresql.jar(bundle)
 [debug] 	[NOT REQUIRED] org.asynchttpclient#async-http-client;2.0.32!async-http-client.jar
-[debug] 	[NOT REQUIRED] com.sun.mail#javax.mail;1.5.3!javax.mail.jar
 [debug] 	[NOT REQUIRED] net.sf.ehcache#ehcache;2.10.6!ehcache.jar
+[debug] 	[NOT REQUIRED] com.sun.mail#javax.mail;1.5.3!javax.mail.jar
 [debug] 	[NOT REQUIRED] org.seekloud#byteobject_2.12;0.1.1!byteobject_2.12.jar
-[debug] 	[NOT REQUIRED] com.typesafe#config;1.3.3!config.jar(bundle)
+[debug] 	[NOT REQUIRED] com.h2database#h2;1.4.196!h2.jar
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(bundle)
+[debug] 	[NOT REQUIRED] com.typesafe#config;1.3.3!config.jar(bundle)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-protobuf_2.12;2.5.23!akka-protobuf_2.12.jar
+[debug] 	[NOT REQUIRED] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar
 [debug] 	[NOT REQUIRED] com.typesafe#ssl-config-core_2.12;0.3.7!ssl-config-core_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] org.reactivestreams#reactive-streams;1.0.2!reactive-streams.jar
-[debug] 	[NOT REQUIRED] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.1.1!scala-parser-combinators_2.12.jar(bundle)
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-core_2.12;10.1.8!akka-http-core_2.12.jar
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-parsing_2.12;10.1.8!akka-parsing_2.12.jar
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-core_2.12;10.1.8!akka-http-core_2.12.jar
 [debug] 	[NOT REQUIRED] io.circe#circe-numbers_2.12;0.9.3!circe-numbers_2.12.jar
 [debug] 	[NOT REQUIRED] org.typelevel#cats-core_2.12;1.0.1!cats-core_2.12.jar
-[debug] 	[NOT REQUIRED] org.typelevel#cats-kernel_2.12;1.0.1!cats-kernel_2.12.jar
 [debug] 	[NOT REQUIRED] org.typelevel#cats-macros_2.12;1.0.1!cats-macros_2.12.jar
+[debug] 	[NOT REQUIRED] org.typelevel#cats-kernel_2.12;1.0.1!cats-kernel_2.12.jar
 [debug] 	[NOT REQUIRED] org.typelevel#machinist_2.12;0.6.2!machinist_2.12.jar
 [debug] 	[NOT REQUIRED] org.typelevel#macro-compat_2.12;1.1.1!macro-compat_2.12.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar
 [debug] 	[NOT REQUIRED] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] io.circe#circe-jawn_2.12;0.9.3!circe-jawn_2.12.jar
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar
 [debug] 	[NOT REQUIRED] org.spire-math#jawn-parser_2.12;0.11.1!jawn-parser_2.12.jar
 [debug] 	[NOT REQUIRED] joda-time#joda-time;2.9.7!joda-time.jar
 [debug] 	[NOT REQUIRED] org.joda#joda-convert;1.2!joda-convert.jar
+[debug] 	[NOT REQUIRED] ch.qos.logback#logback-core;1.2.3!logback-core.jar
 [debug] 	[NOT REQUIRED] org.asynchttpclient#async-http-client-netty-utils;2.0.32!async-http-client-netty-utils.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-codec-http;4.0.46.Final!netty-codec-http.jar
-[debug] 	[NOT REQUIRED] ch.qos.logback#logback-core;1.2.3!logback-core.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-handler;4.0.46.Final!netty-handler.jar
 [debug] 	[NOT REQUIRED] org.asynchttpclient#netty-resolver-dns;2.0.32!netty-resolver-dns.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-transport-native-epoll;4.0.46.Final!netty-transport-native-epoll.jar
-[debug] 	[NOT REQUIRED] io.netty#netty-buffer;4.0.46.Final!netty-buffer.jar
 [debug] 	[NOT REQUIRED] com.typesafe.netty#netty-reactive-streams;1.0.8!netty-reactive-streams.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-common;4.0.46.Final!netty-common.jar
+[debug] 	[NOT REQUIRED] io.netty#netty-buffer;4.0.46.Final!netty-buffer.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-codec;4.0.46.Final!netty-codec.jar
 [debug] 	[NOT REQUIRED] io.netty#netty-transport;4.0.46.Final!netty-transport.jar
 [debug] 	[NOT REQUIRED] org.asynchttpclient#netty-resolver;2.0.32!netty-resolver.jar
 [debug] 	[NOT REQUIRED] org.asynchttpclient#netty-codec-dns;2.0.32!netty-codec-dns.jar
-[debug] 	[NOT REQUIRED] javax.activation#activation;1.1!activation.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.8!scala-compiler.jar
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar
-[debug] :: resolution report :: resolve 1088ms :: artifacts dl 59ms
+[debug] 	[NOT REQUIRED] javax.activation#activation;1.1!activation.jar
+[debug] :: resolution report :: resolve 1057ms :: artifacts dl 59ms
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 compile produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-compile.xml
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 runtime produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-runtime.xml
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 test produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-test.xml
@@ -10043,6 +10112,6 @@
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 plugin produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-plugin.xml
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 pom produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-pom.xml
 [debug] 	report for rtpclient#rtpclient_2.12;0.1 scala-tool produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient_2.12-scala-tool.xml
-[debug] 	resolve done (1088ms resolve - 59ms download)
+[debug] 	resolve done (1057ms resolve - 59ms download)
 [info] Done updating.
 [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

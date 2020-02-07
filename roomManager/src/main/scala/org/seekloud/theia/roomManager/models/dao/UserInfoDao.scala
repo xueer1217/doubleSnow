@@ -14,13 +14,14 @@ import scala.concurrent.Future
 
 object UserInfoDao {
 
+
   def getHeadImg(headImg:String):String = {
     if(headImg == "")Common.DefaultImg.headImg else headImg
   }
 
-  def getCoverImg(coverImg:String):String = {
-    if(coverImg == "")Common.DefaultImg.coverImg else coverImg
-  }
+//  def getCoverImg(coverImg:String):String = {
+//    if(coverImg == "")Common.DefaultImg.coverImg else coverImg
+//  }
 
   def getVideoImg(coverImg:String):String = {
     if(coverImg == Common.DefaultImg.coverImg)Common.DefaultImg.videoImg else coverImg

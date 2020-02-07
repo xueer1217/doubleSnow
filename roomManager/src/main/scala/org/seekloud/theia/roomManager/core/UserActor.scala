@@ -14,7 +14,7 @@ import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol
 import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol._
 import org.seekloud.theia.roomManager.Boot.{executor, roomManager, scheduler}
 import org.seekloud.theia.roomManager.common.Common
-import org.seekloud.theia.roomManager.models.dao.UserInfoDao
+import org.seekloud.theia.roomManager.models.dao.{UserInfoDao, AttendDao, RoomDao}
 import org.seekloud.theia.roomManager.protocol.ActorProtocol
 import org.seekloud.theia.roomManager.utils.RtpClient
 import org.slf4j.LoggerFactory
@@ -50,7 +50,7 @@ object UserActor {
   case class UserClientActor(actor:ActorRef[WsMsgRm]) extends Command
 
   /**http消息*/
-  final case class UserLogin(roomId:Long,userId:Long) extends Command with UserManager.Command//新用户请求mpd的时候处理这个消息，更新roomActor中的列表
+  final case class UserLogin(userId:Long,roomIdOp:Option[Long]) extends Command with UserManager.Command//新用户请求mpd的时候处理这个消息，更新roomActor中的列表
 
   case class UserLeft[U](actorRef: ActorRef[U]) extends Command
   final case class ChildDead[U](userId: Long,temporary:Boolean, childRef: ActorRef[U]) extends Command with UserManager.Command
@@ -111,10 +111,28 @@ object UserActor {
             switchBehavior(ctx, "audience", audience(userId,temporary,clientActor,roomIdOpt.get))
 
 
-          case UserLogin(roomId,`userId`) =>
+          case UserLogin(`userId`,roomIdOp) =>
+
+            roomIdOp match {
+
+              case Some(roomId) =>
+
+                roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join,roomId,userId,temporary,Some(ctx.self))
+                init(userId,temporary,Some(roomId))
+
+
+              case None =>
+                for{
+                  roomId <- RoomDao.createRoom(userId)
+                  opt <- AttendDao.addAttendEvent(userId,roomId,System.currentTimeMillis())
+                }yield {
+                  roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join,roomId,userId,temporary,Some(ctx.self))
+                  ctx.self ! SwitchBehavior("init",init(userId,temporary,Some(roomId)))
+                }
+                switchBehavior(ctx,"busy",busy(),BusyTime,TimeOut("busy"))
+            }
+
             //先发一个用户登陆，再切换到其他的状态
-            roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join,roomId,userId,temporary,Some(ctx.self))
-            init(userId,temporary,Some(roomId))
 
           case TimeOut(m) =>
             log.debug(s"${ctx.self.path} is time out when busy,msg=${m}")

@@ -13,7 +13,7 @@ import org.seekloud.theia.roomManager.common.AppSettings.{distributorIp, distrib
 import org.seekloud.theia.roomManager.common.Common
 import org.seekloud.theia.roomManager.common.Common.{Like, Role}
 import org.seekloud.theia.roomManager.core.RoomManager.GetRtmpLiveInfo
-import org.seekloud.theia.roomManager.models.dao.{RecordDao, StatisticDao, UserInfoDao}
+import org.seekloud.theia.roomManager.models.dao.{RecordDao, RoomDao, StatisticDao, UserInfoDao}
 import org.seekloud.theia.roomManager.protocol.ActorProtocol
 import org.seekloud.theia.roomManager.protocol.ActorProtocol.BanOnAnchor
 import org.seekloud.theia.roomManager.protocol.CommonInfoProtocol.WholeRoomInfo
@@ -72,7 +72,7 @@ object RoomActor {
       log.debug(s"${ctx.self.path} setup")
       Behaviors.withTimers[Command] { implicit timer =>
         implicit val sendBuffer: MiddleBufferInJvm = new MiddleBufferInJvm(8192)
-        val subscribers = mutable.HashMap.empty[(Long, Boolean), ActorRef[UserActor.Command]]
+        val subscribers = mutable.HashMap.empty[(Long, Boolean), ActorRef[UserActor.Command]] //??什么含义
         init(roomId, subscribers)
       }
     }
@@ -90,17 +90,19 @@ object RoomActor {
     ): Behavior[Command] = {
     Behaviors.receive[Command] { (ctx, msg) =>
       msg match {
+
         case ActorProtocol.StartRoom4Anchor(userId, `roomId`, actor) =>
-          log.debug(s"${ctx.self.path} 用户id=$userId 开启了的新的直播间id=$roomId")
+          log.debug(s"${ctx.self.path} 用户id=$userId 开启了新的视频会议 id=$roomId")
           subscribers.put((userId, false), actor)
           for {
             data <- RtpClient.getLiveInfoFunc()
             userTableOpt <- UserInfoDao.searchById(userId)
+            roomIdOpt <- RoomDao.getRoomInfo(roomId)
             //            rtmpOpt <- ProcessorClient.getmpd(roomId)
           } yield {
             data match {
               case Right(rsp) =>
-                if (userTableOpt.nonEmpty) {
+                if (userTableOpt.nonEmpty && roomIdOpt.nonEmpty) {
                   //                  val roomInfo = rtmpOpt match {
                   //                    case Right(value) =>
                   //                      if(value.errCode == 0){
@@ -113,10 +115,12 @@ object RoomActor {
                   //                        )
                   //                      }else{
 
-                  val roomInfo = RoomInfo(roomId, s"${userTableOpt.get.userName}的直播间", "", userTableOpt.get.uid, userTableOpt.get.userName,
-                    UserInfoDao.getHeadImg(userTableOpt.get.headImg),
-                    UserInfoDao.getHeadImg(userTableOpt.get.coverImg), 0, 0, None,
-                    Some(rsp.liveInfo.liveId)
+                  val uinfo = userTableOpt.get
+                  val rinfo = roomIdOpt.get
+                  val roomInfo = RoomInfo(roomId,rinfo.roomName,rinfo.roomDesc, uinfo.uid, uinfo.userName,
+                    UserInfoDao.getHeadImg(uinfo.headImg),
+                    RoomDao.getCoverImg(rinfo.coverImg),
+                    rtmp = Some(rsp.liveInfo.liveId)
                     //Some(Common.getMpdPath(roomId))
                   )
                   //                      }
@@ -147,7 +151,7 @@ object RoomActor {
                   }
 
                 } else {
-                  log.debug(s"${ctx.self.path} 开始直播被拒绝，数据库中没有该用户的数据，userId=$userId")
+                  log.debug(s"${ctx.self.path} 开始直播被拒绝，数据库中没有该用户或该房间信息的数据，userId=$userId")
                   dispatchTo(subscribers)(List((userId, false)), StartLiveRefused)
                   ctx.self ! SwitchBehavior("init", init(roomId, subscribers))
                 }

@@ -762,6 +762,21 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] sbt-chain: Checking cache for: dependency: com.h2database#h2;1.4.196 {compile=[default, compile, runtime, default(compile), master], runtime=[default, compile, runtime, default(compile), master], test=[default, compile, runtime, default(compile), master], compile-internal=[default, compile, runtime, default(compile), master], runtime-internal=[default, compile, runtime, default(compile), master], test-internal=[default, compile, runtime, default(compile), master]}
+[debug] sbt-chain: module revision found in cache: com.h2database#h2;1.4.196
+[debug] 	found com.h2database#h2;1.4.196 in sbt-chain
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] sbt-chain: Checking cache for: dependency: org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 {compile=[compile, runtime(*), master(compile), runtime, compile(*), master], runtime=[compile, runtime(*), master(compile), runtime, compile(*), master], test=[compile, runtime(*), master(compile), runtime, compile(*), master], compile-internal=[compile, runtime(*), master(compile), runtime, compile(*), master], runtime-internal=[compile, runtime(*), master(compile), runtime, compile(*), master], test-internal=[compile, runtime(*), master(compile), runtime, compile(*), master]}
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-java8-compat_2.12;0.8.0
@@ -1362,6 +1377,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
@@ -1952,6 +1979,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
@@ -2546,6 +2585,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
@@ -3136,6 +3187,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
@@ -3726,6 +3789,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->compile]
@@ -4323,6 +4398,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
@@ -4915,6 +5002,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile-internal->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile-internal->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile-internal->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile-internal->compile]
@@ -5509,6 +5608,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
@@ -6099,6 +6210,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
@@ -6690,6 +6813,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime-internal->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime-internal->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime-internal->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime-internal->compile]
@@ -7285,6 +7420,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [compile->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [compile->compile]
@@ -7875,6 +8022,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [runtime->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [runtime->compile]
@@ -8465,6 +8624,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test->compile]
@@ -9057,6 +9228,18 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test-internal->compile(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->ch.qos.logback#logback-core;1.2.3 [test-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->default]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->default(compile)]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->runtime]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->compile]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->master]
+[debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->com.h2database#h2;1.4.196 [test-internal->master]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test-internal->compile]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test-internal->runtime(*)]
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->org.scala-lang.modules#scala-java8-compat_2.12;0.8.0 [test-internal->compile]
@@ -9135,67 +9318,68 @@
 [debug] == resolving dependencies rtpclient#rtpclient$sources;0.1->jline#jline;2.14.6 [scala-tool->master]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
-[debug] 	[NOT REQUIRED] org.asynchttpclient#netty-resolver;2.0.32!netty-resolver.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-slf4j_2.12;2.5.23!akka-slf4j_2.12.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.netty#netty-reactive-streams;1.0.8!netty-reactive-streams.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.slick#slick_2.12;3.3.0!slick_2.12.jar(src)
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-slf4j_2.12;2.5.23!akka-slf4j_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.asynchttpclient#netty-resolver;2.0.32!netty-resolver.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-core_2.12;10.1.8!akka-http-core_2.12.jar(src)
+[debug] 	[NOT REQUIRED] com.typesafe.netty#netty-reactive-streams;1.0.8!netty-reactive-streams.jar(src)
 [debug] 	[NOT REQUIRED] javax.activation#activation;1.1!activation.jar(src)
-[debug] 	[NOT REQUIRED] io.circe#circe-generic_2.12;0.9.3!circe-generic_2.12.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.8!scala-library.jar(src)
-[debug] 	[NOT REQUIRED] joda-time#joda-time;2.9.7!joda-time.jar(src)
 [debug] 	[NOT REQUIRED] com.sun.mail#javax.mail;1.5.3!javax.mail.jar(src)
+[debug] 	[NOT REQUIRED] io.circe#circe-generic_2.12;0.9.3!circe-generic_2.12.jar(src)
 [debug] 	[NOT REQUIRED] ch.megard#akka-http-cors_2.12;0.4.0!akka-http-cors_2.12.jar(src)
-[debug] 	[NOT REQUIRED] io.netty#netty-transport;4.0.46.Final!netty-transport.jar(src)
+[debug] 	[NOT REQUIRED] joda-time#joda-time;2.9.7!joda-time.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-stream_2.12;2.5.23!akka-stream_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.8!scala-library.jar(src)
+[debug] 	[NOT REQUIRED] io.netty#netty-transport;4.0.46.Final!netty-transport.jar(src)
 [debug] 	[NOT REQUIRED] io.netty#netty-buffer;4.0.46.Final!netty-buffer.jar(src)
 [debug] 	[NOT REQUIRED] io.circe#circe-core_2.12;0.9.3!circe-core_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.1.1!scala-parser-combinators_2.12.jar(src)
-[debug] 	[NOT REQUIRED] org.postgresql#postgresql;9.4.1208!postgresql.jar(src)
 [debug] 	[NOT REQUIRED] org.asynchttpclient#async-http-client-netty-utils;2.0.32!async-http-client-netty-utils.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-testkit_2.12;10.1.8!akka-http-testkit_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.postgresql#postgresql;9.4.1208!postgresql.jar(src)
 [debug] 	[NOT REQUIRED] com.zaxxer#HikariCP;2.7.9!HikariCP.jar(src)
-[debug] 	[NOT REQUIRED] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(src)
-[debug] 	[NOT REQUIRED] org.spire-math#jawn-parser_2.12;0.11.1!jawn-parser_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http-testkit_2.12;10.1.8!akka-http-testkit_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.spire-math#jawn-parser_2.12;0.11.1!jawn-parser_2.12.jar(src)
+[debug] 	[NOT REQUIRED] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.reactivestreams#reactive-streams;1.0.2!reactive-streams.jar(src)
+[debug] 	[NOT REQUIRED] org.typelevel#cats-kernel_2.12;1.0.1!cats-kernel_2.12.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.slick#slick-codegen_2.12;3.3.0!slick-codegen_2.12.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-protobuf_2.12;2.5.23!akka-protobuf_2.12.jar(src)
-[debug] 	[NOT REQUIRED] org.typelevel#cats-kernel_2.12;1.0.1!cats-kernel_2.12.jar(src)
 [debug] 	[NOT REQUIRED] ch.qos.logback#logback-classic;1.2.3!logback-classic.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-stream-typed_2.12;2.5.23!akka-stream-typed_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar(src)
 [debug] 	[NOT REQUIRED] org.joda#joda-convert;1.2!joda-convert.jar(src)
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-stream-typed_2.12;2.5.23!akka-stream-typed_2.12.jar(src)
 [debug] 	[NOT REQUIRED] io.netty#netty-common;4.0.46.Final!netty-common.jar(src)
-[debug] 	[NOT REQUIRED] io.circe#circe-numbers_2.12;0.9.3!circe-numbers_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.typelevel#cats-core_2.12;1.0.1!cats-core_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.typelevel#cats-macros_2.12;1.0.1!cats-macros_2.12.jar(src)
+[debug] 	[NOT REQUIRED] io.circe#circe-numbers_2.12;0.9.3!circe-numbers_2.12.jar(src)
 [debug] 	[NOT REQUIRED] io.netty#netty-codec-http;4.0.46.Final!netty-codec-http.jar(src)
 [debug] 	[NOT REQUIRED] org.seekloud#byteobject_2.12;0.1.1!byteobject_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.typelevel#macro-compat_2.12;1.1.1!macro-compat_2.12.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe#ssl-config-core_2.12;0.3.7!ssl-config-core_2.12.jar(src)
 [debug] 	[NOT REQUIRED] commons-codec#commons-codec;1.10!commons-codec.jar(src)
 [debug] 	[NOT REQUIRED] org.asynchttpclient#netty-resolver-dns;2.0.32!netty-resolver-dns.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http_2.12;10.1.8!akka-http_2.12.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe#config;1.3.3!config.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar(src)
 [debug] 	[NOT REQUIRED] org.asynchttpclient#netty-codec-dns;2.0.32!netty-codec-dns.jar(src)
-[debug] 	[NOT REQUIRED] com.github.nscala-time#nscala-time_2.12;2.16.0!nscala-time_2.12.jar(src)
-[debug] 	[NOT REQUIRED] io.netty#netty-transport-native-epoll;4.0.46.Final!netty-transport-native-epoll.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar(src)
+[debug] 	[NOT REQUIRED] com.typesafe.akka#akka-http_2.12;10.1.8!akka-http_2.12.jar(src)
 [debug] 	[NOT REQUIRED] io.netty#netty-handler;4.0.46.Final!netty-handler.jar(src)
+[debug] 	[NOT REQUIRED] com.github.nscala-time#nscala-time_2.12;2.16.0!nscala-time_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.typelevel#machinist_2.12;0.6.2!machinist_2.12.jar(src)
+[debug] 	[NOT REQUIRED] io.netty#netty-transport-native-epoll;4.0.46.Final!netty-transport-native-epoll.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-actor-typed_2.12;2.5.23!akka-actor-typed_2.12.jar(src)
-[debug] 	[NOT REQUIRED] org.asynchttpclient#async-http-client;2.0.32!async-http-client.jar(src)
 [debug] 	[NOT REQUIRED] io.netty#netty-codec;4.0.46.Final!netty-codec.jar(src)
+[debug] 	[NOT REQUIRED] org.asynchttpclient#async-http-client;2.0.32!async-http-client.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.12;2.5.23!akka-actor_2.12.jar(src)
 [debug] 	[NOT REQUIRED] net.sf.ehcache#ehcache;2.10.6!ehcache.jar(src)
-[debug] 	[NOT REQUIRED] ch.qos.logback#logback-core;1.2.3!logback-core.jar(src)
 [debug] 	[NOT REQUIRED] io.circe#circe-jawn_2.12;0.9.3!circe-jawn_2.12.jar(src)
+[debug] 	[NOT REQUIRED] ch.qos.logback#logback-core;1.2.3!logback-core.jar(src)
+[debug] 	[NOT REQUIRED] com.h2database#h2;1.4.196!h2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.8!scala-compiler.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(src)
-[debug] 	[NOT REQUIRED] io.circe#circe-parser_2.12;0.9.3!circe-parser_2.12.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar(src)
-[debug] :: resolution report :: resolve 433ms :: artifacts dl 6ms
+[debug] 	[NOT REQUIRED] io.circe#circe-parser_2.12;0.9.3!circe-parser_2.12.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(src)
+[debug] :: resolution report :: resolve 512ms :: artifacts dl 11ms
 [debug] 	report for rtpclient#rtpclient$sources;0.1 compile produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-compile.xml
 [debug] 	report for rtpclient#rtpclient$sources;0.1 runtime produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-runtime.xml
 [debug] 	report for rtpclient#rtpclient$sources;0.1 test produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-test.xml
@@ -9207,4 +9391,4 @@
 [debug] 	report for rtpclient#rtpclient$sources;0.1 plugin produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-plugin.xml
 [debug] 	report for rtpclient#rtpclient$sources;0.1 pom produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-pom.xml
 [debug] 	report for rtpclient#rtpclient$sources;0.1 scala-tool produced in /Users/haoxue/IdeaProjects/doubleSnow/rtpClient/target/scala-2.12/resolution-cache/reports/rtpclient-rtpclient$sources-scala-tool.xml
-[debug] 	resolve done (433ms resolve - 6ms download)
+[debug] 	resolve done (512ms resolve - 11ms download)

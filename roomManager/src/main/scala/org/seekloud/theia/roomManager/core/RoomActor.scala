@@ -583,6 +583,24 @@ object RoomActor {
         }
         Behaviors.same
 
+      case AttendeeSpeakReq(userId4Audience,roomId,clientType) =>
+
+        UserInfoDao.searchById(userId4Audience).map { r =>
+          if (r.nonEmpty) {
+            dispatchTo(List((wholeRoomInfo.roomInfo.userId, false)), AttendeeSpeak(userId4Audience, r.get.userName, clientType))
+          } else {
+            log.debug(s"${ctx.self.path} 发言请求失败，用户id错误id=$userId4Audience in roomId=$roomId")
+            dispatchTo(List((userId4Audience, false)), JoinAccountError)
+          }
+        }.recover {
+          case e: Exception =>
+            log.debug(s"${ctx.self.path} 发言请求失败，内部错误error=$e")
+            dispatchTo(List((userId4Audience, false)), JoinInternalError)
+        }
+
+        Behaviors.same
+
+
       case AudienceShutJoin(`roomId`) =>
         //切断所有的观众连线
         liveInfoMap.get(Role.audience) match {

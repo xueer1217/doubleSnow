@@ -152,6 +152,8 @@ object RmManager {
 
   final case class JoinRoomReq(roomId: Long) extends RmCommand
 
+  final case class SpeakReq(roomId:Long) extends RmCommand
+
   final case class StartJoin(hostLiveId: String, audienceLiveInfo: LiveInfo) extends RmCommand
 
   final case class Devicesuccess(hostLiveId: String, audienceLiveInfo: LiveInfo) extends RmCommand
@@ -342,7 +344,6 @@ object RmManager {
             audienceScene.liveId = msg.roomInfo.rtmp
 //
             //            val info = WatchInfo(msg.roomInfo.roomId, audienceScene.gc)
-            //            liveManager ! LiveManager.PullStream(msg.roomInfo.rtmp.get, watchInfo = Some(info), audienceScene = Some(audienceScene))
             ctx.self ! AudienceWsEstablish
 
             Boot.addToPlatform {
@@ -828,6 +829,12 @@ object RmManager {
           sender.foreach(_ ! JoinReq(userId, msg.roomId, ClientType.PC))
           Behaviors.same
 
+        case msg:SpeakReq =>
+          assert(userInfo.nonEmpty)
+          val userId = userInfo.get.userId
+          sender.foreach(_ ! AttendeeSpeakReq(userId,msg.roomId,ClientType.PC))
+          Behaviors.same
+
         case msg: ChangeOption4Audience =>
           assert(userInfo.nonEmpty)
           val rst = liveManager ? LiveManager.Ask4State
@@ -903,6 +910,12 @@ object RmManager {
           //case StartJoin =>
           log.info(s"Start join.")
           assert(userInfo.nonEmpty)
+
+          //房主同意连线之后 开始开始拉流
+          val roomInfo = audienceScene.getRoomInfo
+          val info = WatchInfo(roomInfo.roomId, audienceScene.gc)
+          liveManager ! LiveManager.PullStream(roomInfo.rtmp.get, watchInfo = Some(info), audienceScene = Some(audienceScene))
+
 
           // val userId = userInfo.get.userId
 

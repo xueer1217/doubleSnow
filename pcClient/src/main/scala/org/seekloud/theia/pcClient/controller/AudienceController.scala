@@ -125,6 +125,18 @@ class AudienceController(
 
     }
 
+    override def speakReq(roomId:Long):Unit={
+      if(RmManager.userInfo.nonEmpty){
+        WarningDialog.initWarningDialog("发言请求已发送！")
+        rmManager !  RmManager.SpeakReq(roomId)
+
+      }else{
+        WarningDialog.initWarningDialog("请先登录哦～")
+      }
+
+    }
+
+
     override def quitJoin(roomId: Long): Unit = {
       if (RmManager.userInfo.nonEmpty) {
         rmManager ! RmManager.ExitJoin(roomId)
@@ -255,6 +267,9 @@ class AudienceController(
           } else if (msg.errCode == 300002) {
             WarningDialog.initWarningDialog("房主拒绝连线申请!")
             audienceScene.hasReqJoin = false
+            //退出房间
+            updateRecCmt = false
+            rmManager ! RmManager.BackToHome
           }
 
         case msg:Join4AllRsp=>
@@ -265,11 +280,15 @@ class AudienceController(
           }
 
         case HostDisconnect(liveId) =>
+
           Boot.addToPlatform {
             WarningDialog.initWarningDialog("主播已断开连线~")
           }
-          rmManager ! RmManager.StopJoinAndWatch(liveId)
+//          rmManager ! RmManager.StopJoinAndWatch(liveId)
 
+          //退出房间
+          updateRecCmt = false
+          rmManager ! RmManager.BackToHome
 
         case HostCloseRoom() =>
           Boot.addToPlatform {

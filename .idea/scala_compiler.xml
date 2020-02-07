@@ -9,7 +9,7 @@
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.28.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 3" modules="capture,distributor,pcClient,player,processor,protocol,roomManager,rtpServer,shared,webrtcMessage">
+    <profile name="sbt 3" modules="capture,distributor,pcClient,player,processor,protocol,roomManager,rtpClient,rtpServer,shared,webrtcMessage">
       <option name="featureWarnings" value="true" />
     </profile>
   </component>

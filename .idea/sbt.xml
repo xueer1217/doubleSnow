@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/protocol/.js" />
             <option value="$PROJECT_DIR$/protocol/.jvm" />
             <option value="$PROJECT_DIR$/roomManager" />
+            <option value="$PROJECT_DIR$/rtpClient" />
             <option value="$PROJECT_DIR$/rtpServer" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/webClient" />

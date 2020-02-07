@@ -4,10 +4,10 @@
 	<info
 		organisation="rtpclient"
 		module="rtpclient$sources"
-		revision="19.11.1"
+		revision="0.1"
 		conf="plugin"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20200203202047"/>
+		date="20200206144128"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

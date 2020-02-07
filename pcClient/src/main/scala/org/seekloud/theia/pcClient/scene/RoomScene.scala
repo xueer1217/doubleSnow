@@ -106,7 +106,7 @@ class RoomScene {
   /*tab nav*/
   //  val roomTableLabel = new Label("房间列表")
   //  roomTableLabel.getStyleClass.add("roomScene-roomTableLabel")
-  var liveMode: Boolean = true
+  var liveMode: Boolean = true  //表示当前选中观看直播
 
   /*live*/
   var roomList: List[RoomInfo] = Nil

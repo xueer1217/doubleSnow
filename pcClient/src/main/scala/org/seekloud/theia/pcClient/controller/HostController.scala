@@ -277,6 +277,11 @@ class HostController(
           hostScene.updateAudienceList(msg.userId, msg.userName)
         }
 
+      case msg:AttendeeSpeak =>
+        log.debug(s"Attendee-${msg.userName} send speak req.")
+          //todo 更新发言请求列表
+
+
 
       case msg: AudienceJoinRsp =>
         if (msg.errCode == 0) {

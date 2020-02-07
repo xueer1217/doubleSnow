@@ -42,7 +42,9 @@ object Routes {
 
   val hostNotLive = 100024
 
-  def linkRoomManager(userId: Long, token: String, roomId: Long): String = wsBase + "/setupWebSocket" + s"?userId=$userId&token=$token&roomId=$roomId"
+  def linkRoomManagerForAudience(userId: Long, token: String,roomId:Long): String = wsBase + "/setupWebSocket" + s"?userId=$userId&token=$token&roomId=$roomId"
+  
+  def linkRoomManager(userId: Long, token: String): String = wsBase + "/setupWebSocket" + s"?userId=$userId&token=$token"
 
   def uploadImgUrl(imgType: Int, userId: Long): String = baseUrl + s"/file/uploadFile?imgType=$imgType&userId=$userId"
 

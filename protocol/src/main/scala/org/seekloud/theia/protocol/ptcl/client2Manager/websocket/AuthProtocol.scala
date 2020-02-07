@@ -52,16 +52,17 @@ object AuthProtocol {
 
   case class HeatBeat(ts: Long) extends WsMsgRm
 
-  case object AccountSealed extends WsMsgRm// 被封号
+  case object AccountSealed extends WsMsgRm // 被封号
 
   case object NoUser extends WsMsgRm
 
   case object NoAuthor extends WsMsgRm
 
   //fixme url
-  case class UpdateAudienceInfo(AudienceList: List[UserDes]) extends WsMsgRm   //当前房间内所有观众的id和昵称,新加入--join--true
+  case class UpdateAudienceInfo(AudienceList: List[UserDes]) extends WsMsgRm //当前房间内所有观众的id和昵称,新加入--join--true
 
   case class ReFleshRoomInfo(roomInfo: RoomInfo) extends WsMsgRm
+
   /*申请直播*/
   case class StartLiveReq(
     userId: Long,
@@ -126,6 +127,10 @@ object AuthProtocol {
   case class HostStopPushStream(roomId: Long) extends WsMsgHost //房主停止推流
 
 
+  /*发言申请*/
+
+  case class AttendeeSpeak(userId:Long,userName:String,clientType:Int) extends WsMsgRm2Host //申请发言者信息
+
   /**
     *
     * 观众端
@@ -144,6 +149,9 @@ object AuthProtocol {
   case class JoinReq(userId: Long, roomId: Long, clientType: Int) extends WsMsgAudience
 
 
+  /*发言请求*/
+  case class AttendeeSpeakReq(userInd: Long, roomId: Long, clientType: Int) extends WsMsgAudience
+
   case class JoinRsp(
     hostLiveId: Option[String] = None, //房主liveId
     joinInfo: Option[LiveInfo] = None, //连线者live信息
@@ -160,21 +168,21 @@ object AuthProtocol {
   /*
   点赞
    */
-  case class LikeRoom(userId: Long, roomId: Long, upDown:Int) extends WsMsgClient
+  case class LikeRoom(userId: Long, roomId: Long, upDown: Int) extends WsMsgClient
 
   case class LikeRoomRsp(
-                          errCode: Int = 0,
-                          msg: String = "ok"
-                        ) extends WsMsgRm2Audience
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Audience
 
-  case class JudgeLike(userId: Long, roomId:Long) extends WsMsgClient
+  case class JudgeLike(userId: Long, roomId: Long) extends WsMsgClient
 
 
   case class JudgeLikeRsp(
-                          like:Boolean,                 //true->已点过赞  false->未点过赞
-                          errCode: Int = 0,
-                          msg: String = "ok"
-                        ) extends WsMsgRm2Audience
+    like: Boolean, //true->已点过赞  false->未点过赞
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Audience
 
   val JoinInvalid = JoinRsp(errCode = 300001, msg = "join not open.") //房主未开通连线功能
 
@@ -186,7 +194,7 @@ object AuthProtocol {
   case class AudienceShutJoin(roomId: Long) extends WsMsgAudience //断开与房主的连线请求
 
   //fixme 切断与某个用户的连线，增加userId，拓展多个用户连线的情况
-  case class AudienceShutJoinPlus(userId:Long) extends WsMsgAudience //断开与房主的连线请求
+  case class AudienceShutJoinPlus(userId: Long) extends WsMsgAudience //断开与房主的连线请求
 
   case class HostDisconnect(hostLiveId: String) extends WsMsgRm2Audience //房主断开连线通知 (之后rm断开ws连接)
 
@@ -194,7 +202,7 @@ object AuthProtocol {
   case class HostCloseRoom() extends WsMsgRm2Audience //房主关闭房间通知房间所有用户，class方便后台一些代码的处理
 
 
-  case object BanOnAnchor extends WsMsgRm2Host//禁播消息
+  case object BanOnAnchor extends WsMsgRm2Host //禁播消息
 
   /**
     * 所有用户
@@ -205,7 +213,7 @@ object AuthProtocol {
     userId: Long,
     roomId: Long,
     comment: String,
-    color:String = "#FFFFFF",
+    color: String = "#FFFFFF",
     extension: Option[String] = None
   ) extends WsMsgClient
 
@@ -213,7 +221,7 @@ object AuthProtocol {
     userId: Long,
     userName: String,
     comment: String,
-    color:String = "#FFFFFF",
+    color: String = "#FFFFFF",
     extension: Option[String] = None
   ) extends WsMsgRm
 

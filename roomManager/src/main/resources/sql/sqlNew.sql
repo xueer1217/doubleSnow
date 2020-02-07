@@ -65,8 +65,10 @@ create table attend_event
     id        bigint  default attend_event_id_seq.nextval,
     uid       bigint                not null, -- 参与会议的用户id
     roomId    bigint                not null, -- 会议的房间号
-    temporary boolean default false not null, -- 是否是中途退出？？
+    temporary boolean default false not null, -- 是否是游客
     in_time   bigint  default 0     not null, -- 加入时间 （是加入时间为0表示未参与）
     out_time  bigint  default 0     not null, -- 退出时间
     primary key (id)
 );
+
+alter table attend_event drop column temporary;

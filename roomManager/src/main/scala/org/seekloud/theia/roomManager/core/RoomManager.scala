@@ -10,7 +10,7 @@ import org.seekloud.theia.protocol.ptcl.processer2Manager.ProcessorProtocol.Seek
 import org.seekloud.theia.roomManager.Boot.{executor, scheduler, timeout}
 import org.seekloud.theia.roomManager.common.AppSettings._
 import org.seekloud.theia.roomManager.common.Common
-import org.seekloud.theia.roomManager.models.dao.{RecordDao, UserInfoDao}
+import org.seekloud.theia.roomManager.models.dao.{RecordDao, RoomDao, UserInfoDao}
 import org.seekloud.theia.roomManager.core.RoomActor._
 import org.seekloud.theia.roomManager.protocol.ActorProtocol
 import org.seekloud.theia.roomManager.protocol.CommonInfoProtocol.WholeRoomInfo
@@ -58,7 +58,7 @@ object RoomManager {
 //        idle(mutable.HashMap.empty[Long,RoomInfo])
         var roomInfo = RoomInfo(Common.TestConfig.TEST_ROOM_ID,"test_room","测试房间",Common.TestConfig.TEST_USER_ID,
           "byf1",UserInfoDao.getHeadImg(""),
-          UserInfoDao.getCoverImg(""),0,0,
+          RoomDao.getCoverImg(""),0,0,
           Some(Common.getMpdPath(Common.TestConfig.TEST_ROOM_ID))
         )
         /*ProcessorClient.getmpd(Common.TestConfig.TEST_ROOM_ID).map{

@@ -23,20 +23,19 @@ trait SlickTables {
    *  @param id Database column ID SqlType(BIGINT), PrimaryKey
    *  @param uid Database column UID SqlType(BIGINT)
    *  @param roomid Database column ROOMID SqlType(BIGINT)
-   *  @param temporary Database column TEMPORARY SqlType(BOOLEAN), Default(false)
    *  @param inTime Database column IN_TIME SqlType(BIGINT), Default(0)
    *  @param outTime Database column OUT_TIME SqlType(BIGINT), Default(0) */
-  case class rAttendEvent(id: Long, uid: Long, roomid: Long, temporary: Boolean = false, inTime: Long = 0L, outTime: Long = 0L)
+  case class rAttendEvent(id: Long, uid: Long, roomid: Long, inTime: Long = 0L, outTime: Long = 0L)
   /** GetResult implicit for fetching rAttendEvent objects using plain SQL queries */
-  implicit def GetResultrAttendEvent(implicit e0: GR[Long], e1: GR[Boolean]): GR[rAttendEvent] = GR{
+  implicit def GetResultrAttendEvent(implicit e0: GR[Long]): GR[rAttendEvent] = GR{
     prs => import prs._
-    rAttendEvent.tupled((<<[Long], <<[Long], <<[Long], <<[Boolean], <<[Long], <<[Long]))
+    rAttendEvent.tupled((<<[Long], <<[Long], <<[Long], <<[Long], <<[Long]))
   }
   /** Table description of table ATTEND_EVENT. Objects of this class serve as prototypes for rows in queries. */
   class tAttendEvent(_tableTag: Tag) extends profile.api.Table[rAttendEvent](_tableTag, Some("PUBLIC"), "ATTEND_EVENT") {
-    def * = (id, uid, roomid, temporary, inTime, outTime) <> (rAttendEvent.tupled, rAttendEvent.unapply)
+    def * = (id, uid, roomid, inTime, outTime) <> (rAttendEvent.tupled, rAttendEvent.unapply)
     /** Maps whole row to an option. Useful for outer joins. */
-    def ? = ((Rep.Some(id), Rep.Some(uid), Rep.Some(roomid), Rep.Some(temporary), Rep.Some(inTime), Rep.Some(outTime))).shaped.<>({r=>import r._; _1.map(_=> rAttendEvent.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
+    def ? = ((Rep.Some(id), Rep.Some(uid), Rep.Some(roomid), Rep.Some(inTime), Rep.Some(outTime))).shaped.<>({r=>import r._; _1.map(_=> rAttendEvent.tupled((_1.get, _2.get, _3.get, _4.get, _5.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
     /** Database column ID SqlType(BIGINT), PrimaryKey */
     val id: Rep[Long] = column[Long]("ID", O.PrimaryKey)
@@ -44,8 +43,6 @@ trait SlickTables {
     val uid: Rep[Long] = column[Long]("UID")
     /** Database column ROOMID SqlType(BIGINT) */
     val roomid: Rep[Long] = column[Long]("ROOMID")
-    /** Database column TEMPORARY SqlType(BOOLEAN), Default(false) */
-    val temporary: Rep[Boolean] = column[Boolean]("TEMPORARY", O.Default(false))
     /** Database column IN_TIME SqlType(BIGINT), Default(0) */
     val inTime: Rep[Long] = column[Long]("IN_TIME", O.Default(0L))
     /** Database column OUT_TIME SqlType(BIGINT), Default(0) */

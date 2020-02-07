@@ -63,8 +63,8 @@ object CommonInfo {
     userName:String,
     headImgUrl:String,
     coverImgUrl:String,
-    var observerNum:Int,
-    var like:Int,
+    var observerNum:Int = 0 , //该房间的参会人数
+    var like:Int = 0 ,
     var mpd: Option[String] = None,
     var rtmp: Option[String] = None
     //var liveAdd: Option[String] = None

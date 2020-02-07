@@ -43,11 +43,11 @@ object UserManager {
 
   case class TimeOut(msg:String) extends Command
 
-  final case class WebSocketFlowSetup(userId:Long,roomId:Long,temporary:Boolean,replyTo:ActorRef[Option[Flow[Message,Message,Any]]]) extends Command
+  final case class WebSocketFlowSetup(userId:Long,roomIdOp:Option[Long],temporary:Boolean,replyTo:ActorRef[Option[Flow[Message,Message,Any]]]) extends Command
 
   final case class Register(code:String, email:String, userName:String, password:String, replyTo:ActorRef[SignUpRsp]) extends Command
 
-  final case class SetupWs(uidOpt:Long, tokenOpt:String ,roomId:Long,replyTo: ActorRef[Option[Flow[Message, Message, Any]]]) extends Command
+  final case class SetupWs(uidOpt:Long, tokenOpt:String,roomId:Option[Long] ,replyTo: ActorRef[Option[Flow[Message, Message, Any]]]) extends Command
 
   final case class TemporaryUser(replyTo:ActorRef[GetTemporaryUserRsp]) extends Command
 
@@ -139,19 +139,19 @@ object UserManager {
           }
           Behaviors.same
 
-        case SetupWs(uid, token, roomId,replyTo) =>
+        case SetupWs(uid, token,roomIdOp,replyTo) =>
           UserInfoDao.verifyUserWithToken(uid, token).onComplete {
             case Success(f) =>
               if (f) {
                 log.debug(s"${ctx.self.path} ws start")
-                val flowFuture: Future[Option[Flow[Message, Message, Any]]] = ctx.self ? (WebSocketFlowSetup(uid,roomId,false, _))
+                val flowFuture: Future[Option[Flow[Message, Message, Any]]] = ctx.self ? (WebSocketFlowSetup(uid,roomIdOp,false, _))
                 flowFuture.map(replyTo ! _)
               } else {
                 temporaryUserMap.get(uid) match {
                   case Some((createTime,userInfo)) =>
                     if(token == userInfo.token && (System.currentTimeMillis() / 1000 - createTime / 1000 < AppSettings.guestTokenExistTime)){
                       log.debug(s"${ctx.self.path} the user is temporary")
-                      val flowFuture: Future[Option[Flow[Message, Message, Any]]] = ctx.self ? (WebSocketFlowSetup(uid,roomId,true, _))
+                      val flowFuture: Future[Option[Flow[Message, Message, Any]]] = ctx.self ? (WebSocketFlowSetup(uid,roomIdOp,true, _))
                       flowFuture.map(replyTo ! _)
                     }else{
                       log.debug(s"${ctx.self.path}setup websocket error: the user doesn't exist or the token is wrong")
@@ -169,32 +169,33 @@ object UserManager {
           }
           Behaviors.same
 
-        case WebSocketFlowSetup(userId,roomId,temporary,replyTo) =>
-          if(temporary){
-            val existRoom:Future[Boolean] = roomManager ? (RoomManager.ExistRoom(roomId,_))
-            existRoom.map{exist =>
-              if(exist){
-                log.info(s"${ctx.self.path} websocket will setup for user:$userId")
-                getUserActorOpt(userId,temporary,ctx) match{
-                  case Some(actor) =>
-                    log.debug(s"${ctx.self.path} setup websocket error:该账户已经登录userId=$userId,temporary=$temporary")
-                    //TODO 重复登录相关处理
-//                    actor ! UserActor.UserLogin(roomId,userId)
-//                    replyTo ! Some(setupWebSocketFlow(actor))
-                    replyTo ! None
-                  case None =>
-                    val userActor = getUserActor(userId, temporary,ctx)
-                    userActor ! UserActor.UserLogin(roomId,userId)
-                    replyTo ! Some(setupWebSocketFlow(userActor))
-                }
+        case WebSocketFlowSetup(userId,roomIdOp,temporary,replyTo) =>
 
-
-              }else{
-                log.debug(s"${ctx.self.path} setup websocket error:the room doesn't exist")
-                replyTo ! None
-              }
-            }
-          }else{
+//          if(temporary){
+//            val existRoom:Future[Boolean] = roomManager ? (RoomManager.ExistRoom(roomId,_))
+//            existRoom.map{exist =>
+//              if(exist){
+//                log.info(s"${ctx.self.path} websocket will setup for user:$userId")
+//                getUserActorOpt(userId,temporary,ctx) match{
+//                  case Some(actor) =>
+//                    log.debug(s"${ctx.self.path} setup websocket error:该账户已经登录userId=$userId,temporary=$temporary")
+//                    //TODO 重复登录相关处理
+////                    actor ! UserActor.UserLogin(roomId,userId)
+////                    replyTo ! Some(setupWebSocketFlow(actor))
+//                    replyTo ! None
+//                  case None =>
+//                    val userActor = getUserActor(userId, temporary,ctx)
+//                    userActor ! UserActor.UserLogin(roomId,userId)
+//                    replyTo ! Some(setupWebSocketFlow(userActor))
+//                }
+//
+//
+//              }else{
+//                log.debug(s"${ctx.self.path} setup websocket error:the room doesn't exist")
+//                replyTo ! None
+//              }
+//            }
+//          }else{
             log.info(s"${ctx.self.path} websocket will setup for user:$userId")
             getUserActorOpt(userId,temporary,ctx) match{
               case Some(actor) =>
@@ -205,10 +206,10 @@ object UserManager {
                 replyTo ! None
               case None =>
                 val userActor = getUserActor(userId, temporary,ctx)
-                userActor ! UserActor.UserLogin(roomId,userId)
+                userActor ! UserActor.UserLogin(userId,roomIdOp)
                 replyTo ! Some(setupWebSocketFlow(userActor))
             }
-          }
+//          }
           Behaviors.same
 
         case ChildDead(userId,temporary,actor) =>

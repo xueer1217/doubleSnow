@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a0c9f8e-4c9e-4f9d-854f-d7f090763af4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/H2/doubleSnow.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/H2/doubleSnow.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/H2/doubleSnow.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/H2/doubleSnow.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/HostController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/controller/HostController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HomeScene.scala" beforeDir="false" afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HomeScene.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HostScene.scala" beforeDir="false" afterPath="$PROJECT_DIR$/pcClient/src/main/scala/org/seekloud/theia/pcClient/scene/HostScene.scala" afterDir="false" />
-    </list>
+    <list default="true" id="7a0c9f8e-4c9e-4f9d-854f-d7f090763af4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,44 +19,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-        <item name="DOUBLESNOW: database" type="2aa06773:H2ImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-        <item name="DOUBLESNOW: database" type="2aa06773:H2ImplModel$Database" />
-        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-        <item name="DOUBLESNOW: database" type="2aa06773:H2ImplModel$Database" />
-        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
-        <item name="LOGIN_EVENT: table" type="818c1b4a:H2ImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-        <item name="DOUBLESNOW: database" type="2aa06773:H2ImplModel$Database" />
-        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
-        <item name="ROOM: table" type="818c1b4a:H2ImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="doubleSnow" type="feb32156:DbDataSourceImpl" />
-        <item name="DOUBLESNOW: database" type="2aa06773:H2ImplModel$Database" />
-        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
-        <item name="USER_INFO: table" type="818c1b4a:H2ImplModel$Table" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
@@ -278,6 +231,14 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="update rtpclient">
+      <created>1581076561592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581076561592</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

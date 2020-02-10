@@ -7,9 +7,6 @@
         <option name="TAB_SIZE" value="2" />
       </value>
     </option>
-    <ScalaCodeStyleSettings>
-      <option name="USE_SCALADOC2_FORMATTING" value="true" />
-    </ScalaCodeStyleSettings>
     <XML>
       <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
     </XML>

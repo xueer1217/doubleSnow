@@ -203,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="127" />
     <option name="y" value="32" />
     <option name="width" value="1680" />
@@ -357,7 +357,7 @@
     <property name="DatabaseDriversLRU" value="postgresql&#10;h2" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/roomManager/src/main/scala/org/seekloud/theia/roomManager/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />

@@ -52,7 +52,7 @@ object AudienceScene {
 
     def refreshRecCmt()
 
-    def joinReq(roomId: Long)
+//    def joinReq(roomId: Long)
 
     def quitJoin(roomId: Long)
 
@@ -123,6 +123,7 @@ class AudienceScene(album: AlbumInfo, isRecord: Boolean = false, recordUrl: Stri
 
   var isFullScreen = false
   var hasReqJoin = false
+  var hasReqSpeak = false
 
   var audienceStatus: Int = AudienceStatus.LIVE
 
@@ -176,8 +177,8 @@ class AudienceScene(album: AlbumInfo, isRecord: Boolean = false, recordUrl: Stri
   val sendIcon: ImageView = Common.getImageView("img/confirm.png", 20, 20)
   val sendBtn = new Button("发送", sendIcon)
   val gift = new GiftBar(group)
-  val linkBtn = new Button("申请连线", new ImageView("img/link.png"))
-  val exitBtn = new Button("中断连线", new ImageView("img/shutdown.png"))
+  val linkBtn = new Button("申请发言", new ImageView("img/link.png"))
+  val exitBtn = new Button("中断发言", new ImageView("img/shutdown.png"))
   val emojiBtn = new Button("\uD83D\uDE00")
 
   val effectOptions: ObservableList[String] =
@@ -478,9 +479,9 @@ class AudienceScene(album: AlbumInfo, isRecord: Boolean = false, recordUrl: Stri
       //      val linkBtn = new Button("申请连线", new ImageView("img/link.png"))
       linkBtn.getStyleClass.add("audienceScene-leftArea-linkBtn")
       linkBtn.setOnAction { _ =>
-        if (!hasReqJoin) {
-          listener.joinReq(album.roomId)
-          hasReqJoin = true
+        if (!hasReqSpeak) {
+          listener.speakReq(album.roomId)
+          hasReqSpeak = true
         }
         else WarningDialog.initWarningDialog("已经发送过申请啦~")
       }

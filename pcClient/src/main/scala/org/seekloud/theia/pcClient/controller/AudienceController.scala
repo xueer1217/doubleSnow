@@ -114,16 +114,16 @@ class AudienceController(
       }
     }
 
-    override def joinReq(roomId: Long): Unit = {
-      if (RmManager.userInfo.nonEmpty) {
-        WarningDialog.initWarningDialog("连线申请已" +
-                                        "发送！")
-        rmManager ! RmManager.JoinRoomReq(roomId)
-      } else {
-        WarningDialog.initWarningDialog("请先登录哦~")
-      }
-
-    }
+//    override def joinReq(roomId: Long): Unit = {
+//      if (RmManager.userInfo.nonEmpty) {
+//        WarningDialog.initWarningDialog("连线申请已" +
+//                                        "发送！")
+//        rmManager ! RmManager.JoinRoomReq(roomId)
+//      } else {
+//        WarningDialog.initWarningDialog("请先登录哦~")
+//      }
+//
+//    }
 
     override def speakReq(roomId:Long):Unit={
       if(RmManager.userInfo.nonEmpty){

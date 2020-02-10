@@ -39,7 +39,7 @@ object PullActor {
 
   private val liveSenderMap = mutable.Map[String, ActorRef[SendActor.Command]]()
   private val liveCountMap = mutable.Map[String,Int]()
-  private val roomLiveMap = mutable.Map[Long, String]()
+  private val roomLiveMap = mutable.Map[Long, String]() //roomid->liveid
 
   //test
   private val pullChannel = DatagramChannel.open()

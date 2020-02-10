@@ -13,7 +13,7 @@ import scala.collection.mutable
   */
 object RtpUtil {
 
-  var clientHostQueue: mutable.Queue[String] = mutable.Queue.empty
+//  var clientHostQueue: mutable.Queue[String] = mutable.Queue.empty
 
   val clientHost: String = if (NetUtil.getLocalIpv4Address.nonEmpty) {NetUtil.getLocalIpv4Address.head} else AppSettings.host//AppSettings.host
   val clientPushPort: Int = AppSettings.pushPort
@@ -23,14 +23,14 @@ object RtpUtil {
   val rtpServerPushPort: Int = AppSettings.rsPushPort
   val rtpServerPullPort: Int = AppSettings.rsPullPort
 
-  def initIpPool(): Unit = {
-    clientHostQueue.enqueue(AppSettings.host)
-    if (NetUtil.getLocalIpv4Address.nonEmpty) NetUtil.getLocalIpv4Address.foreach(clientHostQueue.enqueue(_))
-    clientHostQueue = clientHostQueue.distinct
-//    println(clientHostQueue)
-  }
-
-  initIpPool()
+//  def initIpPool(): Unit = {
+//    clientHostQueue.enqueue(AppSettings.host)
+//    if (NetUtil.getLocalIpv4Address.nonEmpty) NetUtil.getLocalIpv4Address.foreach(clientHostQueue.enqueue(_))
+//    clientHostQueue = clientHostQueue.distinct
+////    println(clientHostQueue)
+//  }
+//
+//  initIpPool()
 
   object PAYLOAD_TYPE {
     val STREAM: Byte = AppSettings.rsStreamPT.toByte
@@ -102,7 +102,7 @@ object RtpUtil {
   }
 
   def main1(args: Array[String]): Unit = {
-    println(clientHostQueue)
+    //println(clientHostQueue)
   }
 
 

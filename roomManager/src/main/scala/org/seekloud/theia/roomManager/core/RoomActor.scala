@@ -424,15 +424,15 @@ object RoomActor {
             clientLiveInfo <- RtpClient.getLiveInfoFunc()
             mixLiveInfo <- RtpClient.getLiveInfoFunc()
           } yield {
-            (clientLiveInfo, mixLiveInfo) match {
+            (clientLiveInfo, mixLiveInfo) match { //为client和混流申请了两个liveinfo
               case (Right(GetLiveInfoRsp(liveInfo4Client, 0, _)), Right(GetLiveInfoRsp(liveInfo4Mix, 0, _))) =>
                 log.info("client" + liveInfo4Client + "; mix" + liveInfo4Mix)
                 if (userInfoOpt.nonEmpty) {
                   liveInfoMap.get(Role.host) match {
-                    case Some(value) =>
+                    case Some(value) => //获取主播的liveinfo
                       val liveIdHost = value.get(wholeRoomInfo.roomInfo.userId)
                       if (liveIdHost.nonEmpty) {
-                        liveInfoMap.get(Role.audience) match {
+                        liveInfoMap.get(Role.audience) match { //将连线观众的liveinfo放入状态中
                           case Some(value4Audience) =>
                             value4Audience.put(userId4Audience, liveInfo4Client)
                             liveInfoMap.put(Role.audience, value4Audience)
@@ -440,7 +440,7 @@ object RoomActor {
                             liveInfoMap.put(Role.audience, mutable.HashMap(userId4Audience -> liveInfo4Client))
                         }
                         liveIdHost.foreach { HostLiveInfo =>
-                          DistributorClient.startPull(roomId, liveInfo4Mix.liveId)
+                          DistributorClient.startPull(roomId, liveInfo4Mix.liveId) //使用混流的liveid进行推流
                           ProcessorClient.newConnect(roomId, HostLiveInfo.liveId, liveInfo4Client.liveId, liveInfo4Mix.liveId, liveInfo4Mix.liveCode, wholeRoomInfo.layout)
                           ctx.self ! UpdateRTMP(liveInfo4Mix.liveId)
                         }

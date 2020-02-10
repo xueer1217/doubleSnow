@@ -146,13 +146,13 @@ object RmManager {
 
   final case class SendComment(comment: Comment) extends RmCommand
 
-  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand
+  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand  //判断是否给房间点赞过
 
   final case class SendLikeRoom(likeRoom: LikeRoom) extends RmCommand
 
-  final case class JoinRoomReq(roomId: Long) extends RmCommand
+  final case class JoinRoomReq(roomId: Long) extends RmCommand //连线请求
 
-  final case class SpeakReq(roomId:Long) extends RmCommand
+  final case class SpeakReq(roomId: Long) extends RmCommand //发言请求
 
   final case class StartJoin(hostLiveId: String, audienceLiveInfo: LiveInfo) extends RmCommand
 
@@ -264,7 +264,7 @@ object RmManager {
               rst match {
                 case Right(rsp) =>
                   if (rsp.errCode == 0) {
-                    //todo 发送连线请求
+
                     ctx.self ! GoToWatch(rsp.roomInfo.get)
                   }
                   else if (rsp.errCode == 100008) {
@@ -342,8 +342,8 @@ object RmManager {
 
 
             audienceScene.liveId = msg.roomInfo.rtmp
-//
-            //            val info = WatchInfo(msg.roomInfo.roomId, audienceScene.gc)
+            //todo watchinfo有点问题
+            //val info = WatchInfo(msg.roomInfo.roomId, audienceScene.gc)
             ctx.self ! AudienceWsEstablish
 
             Boot.addToPlatform {
@@ -352,8 +352,7 @@ object RmManager {
             }
 
             switchBehavior(ctx, "audienceBehavior", audienceBehavior(stageCtx, homeController, roomController, audienceScene, audienceController, liveManager, mediaPlayer, audienceLiveInfo = None, audienceStatus = AudienceStatus.LIVE, anchorLiveId = msg.roomInfo.rtmp))
-          }
-          else {
+          } else {
             log.info(s"roomInfo error: ${msg.roomInfo}!")
             Boot.addToPlatform {
               roomController.foreach(_.removeLoading())
@@ -713,6 +712,11 @@ object RmManager {
                   if (userInfo.nonEmpty) {
                     ctx.self ! SendJudgeLike(JudgeLike(userInfo.get.userId, audienceScene.getRoomInfo.roomId))
                     ctx.self ! JoinRoomReq(audienceScene.getRoomInfo.roomId) //如果ws建立成功 就发送连线请求
+
+                    Boot.addToPlatform {
+                      WarningDialog.initWarningDialog("已经发送参会请求，等待会议发起人同意！")
+                    }
+
                   }
                 }
 
@@ -829,10 +833,10 @@ object RmManager {
           sender.foreach(_ ! JoinReq(userId, msg.roomId, ClientType.PC))
           Behaviors.same
 
-        case msg:SpeakReq =>
+        case msg: SpeakReq =>
           assert(userInfo.nonEmpty)
           val userId = userInfo.get.userId
-          sender.foreach(_ ! AttendeeSpeakReq(userId,msg.roomId,ClientType.PC))
+          sender.foreach(_ ! AttendeeSpeakReq(userId, msg.roomId, ClientType.PC))
           Behaviors.same
 
         case msg: ChangeOption4Audience =>

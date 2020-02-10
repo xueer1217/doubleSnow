@@ -15,7 +15,7 @@ import org.seekloud.theia.pcClient.core.stream.StreamPuller.{PackageLossInfo, Pu
 import org.seekloud.theia.pcClient.scene.{AudienceScene, HostScene}
 import org.seekloud.theia.pcClient.utils.{GetAllPixel, NetUtil, RtpUtil}
 import org.seekloud.theia.rtpClient.{PullStreamClient, PushStreamClient}
-import org.seekloud.theia.pcClient.utils.RtpUtil.{clientHost, clientHostQueue}
+import org.seekloud.theia.pcClient.utils.RtpUtil.{clientHost}
 import org.seekloud.theia.player.sdk.MediaPlayer
 import org.slf4j.LoggerFactory
 import org.seekloud.theia.pcClient.Boot.{executor, scheduler, timeout}
@@ -174,8 +174,8 @@ object LiveManager {
           if (streamPusher.isEmpty) {
             val pushChannel = new PushChannel
             val pusher = getStreamPusher(ctx, msg.liveId, msg.liveCode, captureActor.get)
-            RtpUtil.initIpPool()
-            validHost = clientHostQueue.dequeue()
+//            RtpUtil.initIpPool()
+//            validHost = clientHostQueue.dequeue() 暂时用不到？？
             val rtpClient = new PushStreamClient(AppSettings.host, NetUtil.getFreePort, pushChannel.serverPushAddr, pusher,AppSettings.rtpServerDst)
             mediaCapture.foreach(_.setTimeGetter(rtpClient.getServerTimestamp))
             pusher ! StreamPusher.InitRtpClient(rtpClient)

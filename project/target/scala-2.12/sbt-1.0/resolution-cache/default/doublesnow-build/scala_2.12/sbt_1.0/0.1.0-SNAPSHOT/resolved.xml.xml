@@ -4,7 +4,7 @@
 		module="doublesnow-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20200210205325"
+		publication="20200211120851"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

@@ -105,6 +105,9 @@ object AuthProtocol {
 
   val ChangeModeError = ChangeModeRsp(errCode = 200020, msg = "change live mode error.")
 
+  /*用户邀请*/
+  case class InviteUser(userName:String) extends WsMsgHost
+
 
   /*连线控制*/
 
@@ -117,6 +120,14 @@ object AuthProtocol {
     errCode: Int = 0,
     msg: String = "ok"
   ) extends WsMsgRm2Host //拒绝成功不发joinInfo，仅发送默认状态信息
+
+  case class SpeakerJoinRsp(
+    joinInfo: Option[AudienceInfo] = None, //发言者信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Host //拒绝成功不发joinInfo，仅发送默认状态信息
+
+  val SpeakerJoinError = SpeakerJoinRsp(errCode = 400030, msg = "speaker join error")
 
   val AudienceJoinError = AudienceJoinRsp(errCode = 400020, msg = "audience join error")
 
@@ -151,6 +162,14 @@ object AuthProtocol {
 
   /*发言请求*/
   case class AttendeeSpeakReq(userInd: Long, roomId: Long, clientType: Int) extends WsMsgAudience
+
+  case class SpeakRsp(
+    hostLiveId: Option[String] = None, //房主liveId
+    joinInfo: Option[LiveInfo] = None, //连线者live信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Audience
+
 
   case class JoinRsp(
     hostLiveId: Option[String] = None, //房主liveId

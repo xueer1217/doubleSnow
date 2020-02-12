@@ -89,6 +89,8 @@ object HostScene {
 
     def audienceAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo)
 
+    def speakerAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo)
+
     def shutJoin()
 
     def shutSpeak()
@@ -98,6 +100,8 @@ object HostScene {
     def setFullScreen()
 
     def exitFullScreen()
+
+    def sendIvt(userName: String)
 
     def sendCmt(comment: Comment)
 
@@ -518,13 +522,12 @@ class HostScene(stage: Stage) {
 
     agreeBtn.setOnAction {
       _ =>
-        listener.audienceAcceptance(userId = audienceId, accept = true, newRequest)
+        listener.speakerAcceptance(userId = audienceId, accept = true, newRequest)
     }
     refuseBtn.setOnAction {
       _ =>
-        listener.audienceAcceptance(userId = audienceId, accept = false, newRequest)
+        listener.speakerAcceptance(userId = audienceId, accept = false, newRequest)
     }
-
   }
 
   def getScene: Scene = this.scene
@@ -1093,8 +1096,29 @@ class HostScene(stage: Stage) {
   }
 
   def addLeftChild4Area(): VBox = {
+
+    val user = new Text("用户名：")
+    user.getStyleClass.add("hostScene-leftArea-text")
+    val userFiled = new TextField()
+    userFiled.setPrefWidth(width * 0.15)
+    val inviteIcon = new ImageView("img/confirm.png")
+    inviteIcon.setFitHeight(20)
+    inviteIcon.setFitWidth(20)
+    val inviteBtn = new Button("邀请", inviteIcon)
+    val invitation = new HBox()
+    invitation.setSpacing(5)
+    invitation.getChildren.addAll(user,userFiled,inviteBtn)
+
+    inviteBtn.getStyleClass.add("audienceScene-leftArea-sendBtn")
+    inviteBtn.setOnAction { _ =>
+      if (userFiled.getText() != null) {
+        val userName = userFiled.getText()
+        listener.sendIvt(userName)
+
+      }
+    }
     val vBox = new VBox()
-    vBox.getChildren.addAll(watchingState, watchingTable)
+    vBox.getChildren.addAll(invitation, watchingState, watchingTable)
     vBox.setSpacing(20)
     vBox.setPrefHeight(height)
     vBox.setPadding(new Insets(20, 10, 5, 10))

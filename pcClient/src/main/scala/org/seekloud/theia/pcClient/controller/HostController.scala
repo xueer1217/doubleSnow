@@ -29,6 +29,7 @@ class HostController(
   var isConnecting = false
   var isLive = false
   var likeNum: Int = RmManager.roomInfo.get.like
+  var isSpeaking = false
 
   def showScene(): Unit = {
     Boot.addToPlatform(
@@ -70,6 +71,22 @@ class HostController(
         } else {
           Boot.addToPlatform {
             WarningDialog.initWarningDialog(s"无法重复连线，请先断开当前连线。")
+          }
+        }
+      }
+    }
+
+    override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
+      if (!isSpeaking) {
+        rmManager ! RmManager.SpeakerAcceptane(userId, accept)
+//        hostScene.audObservableList.remove(newRequest)
+      } else {
+        if (isSpeaking && !accept) {
+          rmManager ! RmManager.SpeakerAcceptane(userId, accept)
+//          hostScene.audObservableList.remove(newRequest)
+        } else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"无法重复申请发言，请先断开申请。")
           }
         }
       }
@@ -133,6 +150,17 @@ class HostController(
       }
     }
 
+    override def sendIvt(userName: String): Unit = {
+
+      if(! userName.equals(""))
+        rmManager ! RmManager.SendInvitation(userName)
+      else {
+        Boot.addToPlatform{
+          WarningDialog.initWarningDialog("用户名不能为空")
+        }
+      }
+
+    }
     override def changeOption(bit: Option[Int] = None, re: Option[String] = None, frameRate: Option[Int] = None, needImage: Boolean = true, needSound: Boolean = true): Unit = {
       rmManager ! RmManager.ChangeOption(bit, re, frameRate, needImage, needSound)
     }
@@ -280,8 +308,30 @@ class HostController(
       case msg:AttendeeSpeak =>
         log.debug(s"Attendee-${msg.userName} send speak req.")
           //todo 更新发言请求列表
+        Boot.addToPlatform {
+          hostScene.updateSpeakerList(msg.userId, msg.userName)
+        }
 
+      case msg: SpeakerJoinRsp =>
+        if (msg.errCode == 0) {
+          //显示发言者信息
+          //todo 发言者画面突出显示
+//          rmManager ! RmManager.
 
+          Boot.addToPlatform {
+            if (!hostScene.tb5.isSelected) {
+              hostScene.tb5.setGraphic(hostScene.connectionIcon1)
+            }
+            hostScene.speakStateText.setText(s"${msg.joinInfo.get.userName}发言中")
+            hostScene.speakStateBox.getChildren.add(hostScene.shutSpeakBtn)
+            isSpeaking = true
+          }
+
+        } else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"观众加入出错:${msg.msg}")
+          }
+        }
 
       case msg: AudienceJoinRsp =>
         if (msg.errCode == 0) {

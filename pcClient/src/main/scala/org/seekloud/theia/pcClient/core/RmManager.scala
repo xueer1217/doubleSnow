@@ -124,6 +124,8 @@ object RmManager {
 
   final case class AudienceAcceptance(userId: Long, accept: Boolean) extends RmCommand
 
+  final case class SpeakerAcceptane(userId: Long, accept: Boolean) extends  RmCommand
+
   final case class JoinBegin(audienceInfo: AudienceInfo) extends RmCommand //开始和某观众连线
 
   final case object JoinStop extends RmCommand //停止和某观众连线
@@ -145,6 +147,8 @@ object RmManager {
   final case object AudienceWsEstablish extends RmCommand
 
   final case class SendComment(comment: Comment) extends RmCommand
+
+  final case class SendInvitation(userName: String) extends RmCommand
 
   final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand
 
@@ -590,6 +594,13 @@ object RmManager {
           sender.foreach(_ ! JoinAccept(roomInfo.get.roomId, msg.userId, ClientType.PC, msg.accept))
           Behaviors.same
 
+        case msg: SpeakerAcceptane =>
+          log.debug(s"accept speak user-${msg.userId} speak.")
+          assert(roomInfo.nonEmpty)
+          //todo 审批用户发言
+ //         sender.foreach(_ ! SpeakAccept())
+          Behaviors.same
+
         case msg: JoinBegin =>
           /*背景改变*/
           hostScene.resetBack()
@@ -655,6 +666,11 @@ object RmManager {
         case msg: SendComment =>
           //          log.debug(s"sending ${msg.comment}")
           sender.foreach(_ ! msg.comment)
+          Behaviors.same
+
+        case msg: SendInvitation =>
+         // todo 向用户发送邀请
+          sender.foreach(_ !InviteUser(msg.userName))
           Behaviors.same
 
         case GetPackageLoss =>

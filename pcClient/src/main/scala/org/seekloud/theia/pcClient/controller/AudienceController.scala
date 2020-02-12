@@ -255,6 +255,18 @@ class AudienceController(
             audienceScene.commentBoard.updateComment(msg)
             audienceScene.barrage.updateBarrage(msg)
           }
+        case msg:SpeakRsp =>
+          if (msg.errCode == 0) {
+            //todo 发言者画面突出显示
+//            rmManager ! RmManager.StartJoin(msg.hostLiveId.get, msg.joinInfo.get)
+            audienceScene.hasReqSpeak = false
+          } else if (msg.errCode == 300001) {
+            WarningDialog.initWarningDialog("房主未开通发言功能!")
+            audienceScene.hasReqSpeak = false
+          } else if (msg.errCode == 300002) {
+            WarningDialog.initWarningDialog("房主拒绝发言申请!")
+            audienceScene.hasReqSpeak = false
+          }
 
 
         case msg: JoinRsp =>

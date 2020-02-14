@@ -1,5 +1,7 @@
 package org.seekloud.theia.roomManager.models.dao
 
+import java.util.concurrent.atomic.AtomicLong
+
 import org.seekloud.theia.roomManager.Boot.executor
 import org.seekloud.theia.roomManager.common.Common
 import org.seekloud.theia.roomManager.utils.DBUtil._
@@ -14,6 +16,7 @@ import slick.jdbc.H2Profile.api._
   */
 object RoomDao {
 
+  val roomid = new AtomicLong(4000001)
 
   def getCoverImg(coverImg: String): String = {
     if (coverImg == "") Common.DefaultImg.coverImg else coverImg
@@ -22,7 +25,7 @@ object RoomDao {
   def createRoom(uid: Long) = {
     val q = for {
       username <- tUserInfo.filter(_.uid === uid).map(_.userName).result.head
-      res <- tRoom.returning(tRoom.map(_.roomid)) += rRoom(0L, username + "的会议", "暂无会议描述", "", System.currentTimeMillis(), uid, "")
+      res <- tRoom.returning(tRoom.map(_.roomid)) += rRoom(roomid.getAndIncrement(), username + "的会议", "暂无会议描述", "", System.currentTimeMillis(), uid, "")
     } yield res
 
     db.run(q)

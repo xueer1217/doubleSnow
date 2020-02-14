@@ -1,5 +1,6 @@
 package org.seekloud.theia.roomManager.models.dao
 import java.util
+import java.util.concurrent.atomic.AtomicLong
 
 import org.seekloud.theia.protocol.ptcl.CommonInfo.RecordInfo
 import org.seekloud.theia.protocol.ptcl.client2Manager.http.CommonProtocol.GetRecordListRsp
@@ -19,8 +20,10 @@ import scala.concurrent.Future
   * */
 object StatisticDao {
 
+  val id = new AtomicLong(2000001)
+
   def addLoginEvent(uid:Long, time:Long) = {
-    db.run(tLoginEvent += rLoginEvent(1, uid, time))
+    db.run(tLoginEvent += rLoginEvent(id.getAndIncrement(), uid, time))
   }
 
 //  def addObserveEvent(uid:Long, rid:Long, anchor:Boolean, temp:Boolean, in_time:Long) = {

@@ -33,10 +33,12 @@ object Routes {
     val watchRecordOver = urlRecord + "/watchRecordOver"
     val getCommentInfo = "/theia/roomManager/recordComment/getRecordCommentList"
     val sendCommentInfo = "/theia/roomManager/recordComment/addRecordComment"
+    val deleteCommentInfo = "/theia/roomManager/recordComment/deleteRecordComment"
 
     def uploadImg(imgType:Int, userId:String) = base+s"/file/uploadFile?imgType=$imgType&userId=$userId"
 
     def nickNameChange(userId:Long,userName:String) = urlbase + s"/nickNameChange?userId=$userId&newName=$userName"
+
   }
 
   object AdminRoutes{

@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20200214155225"/>
+		date="20200214214021"/>
 	<dependencies>
 		<module organisation="io.circe" name="circe-parser_2.12">
 			<revision name="0.9.3" status="release" pubdate="20180328092252" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/circe/circe" extra-info.apiURL="https://circe.github.io/circe/api/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="59">
@@ -214,7 +214,7 @@
 			</revision>
 		</module>
 		<module organisation="shared" name="shared_2.12">
-			<revision name="0.1" status="integration" pubdate="20200214155218" resolver="inter-project" artresolver="inter-project" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="25">
+			<revision name="0.1" status="integration" pubdate="20200214214018" resolver="inter-project" artresolver="inter-project" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="25">
 				<metadata-artifact status="failed" details="" size="0" time="0" searched="false"/>
 				<caller organisation="rtpclient" name="rtpclient$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="0.1" rev-constraint-default="0.1" rev-constraint-dynamic="0.1" callerrev="0.1"/>
 				<artifacts>

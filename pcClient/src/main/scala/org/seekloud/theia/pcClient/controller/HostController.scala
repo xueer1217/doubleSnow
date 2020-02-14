@@ -78,11 +78,11 @@ class HostController(
 
     override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
       if (!isSpeaking) {
-        rmManager ! RmManager.SpeakerAcceptane(userId, accept)
+        rmManager ! RmManager.SpeakerAcceptance(userId, accept)
 //        hostScene.audObservableList.remove(newRequest)
       } else {
         if (isSpeaking && !accept) {
-          rmManager ! RmManager.SpeakerAcceptane(userId, accept)
+          rmManager ! RmManager.SpeakerAcceptance(userId, accept)
 //          hostScene.audObservableList.remove(newRequest)
         } else {
           Boot.addToPlatform {

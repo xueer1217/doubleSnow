@@ -17,7 +17,7 @@ import org.seekloud.theia.protocol.ptcl.CommonRsp
 import org.seekloud.theia.webClient.common.{Page, Routes}
 import org.seekloud.theia.webClient.util._
 import org.seekloud.theia.protocol.ptcl.client2Manager.http.CommonProtocol._
-import org.seekloud.theia.protocol.ptcl.client2Manager.http.RecordCommentProtocol.{AddRecordCommentReq, CommentInfo, GetRecordCommentListReq, GetRecordCommentListRsp}
+import org.seekloud.theia.protocol.ptcl.client2Manager.http.RecordCommentProtocol.{AddRecordCommentReq, CommentInfo, DeleteCommentReq, GetRecordCommentListReq, GetRecordCommentListRsp}
 import org.seekloud.theia.protocol.ptcl.client2Manager.http.StatisticsProtocol.WatchRecordEndReq
 import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol._
 import org.seekloud.theia.webClient.actors.WebSocketRoom
@@ -109,6 +109,23 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     }
   }
+  def deleteComment(): Unit={
+
+    val data = DeleteCommentReq(roomId,).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          getCommentInfo()
+        } else {
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println(s"parse error,$error")
+
+    }
+
+  }
+
   def getCommentInfo():Unit={
     val data = GetRecordCommentListReq(roomId,time).asJson.noSpaces
     Http.postJsonAndParse[GetRecordCommentListRsp](Routes.UserRoutes.getCommentInfo,data).map{
@@ -206,6 +223,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     },100)
   }
+ // def getdeleteButton(roomId:Long) =
   val comments:Rx[Node] = commentInfo.map{ cf =>
     def createCommentItem(item:CommentInfo) = {
       <div class="rcl-item">
@@ -216,6 +234,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           <div class="rcl-con-name">{item.commentUserName}</div>
           <div class="rcl-con-con">{item.comment}</div>
           <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
+          <div class="rcl-con-delete">{getdeleteButton(item.commentId)}</div>
         </div>
       </div>
     }

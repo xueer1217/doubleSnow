@@ -100,7 +100,7 @@ object StreamPusher {
           if (msg.ifSuccess) {
             log.info(s"StreamPusher-$liveId auth success!")
             val mediaPipe = Pipe.open() //client -> sink -> source -> server
-            val sink = mediaPipe.sink()
+            val sink = mediaPipe.sink() //数据会被写到sink通道、从source通道读取
             val source = mediaPipe.source()
             val dataBuff = ByteBuffer.allocate(7 * TsPacket.tsPacketSize)
             captureActor ! CaptureActor.StartEncode(Right(Channels.newOutputStream(sink)))
@@ -135,6 +135,8 @@ object StreamPusher {
 //  val socket = new DatagramSocket()
 //  val port = 50012
 //  private val addr = InetAddress.getByName("127.0.0.1")
+
+//  pushing(liveId, liveCode, parent, pushClient.get, captureActor, source, dataBuff,null,false)
 
   private def pushing(
     liveId: String,

@@ -8,7 +8,7 @@ import org.seekloud.theia.protocol.ptcl.{Request, Response}
   * */
 object RecordCommentProtocol {
 
-  //1
+
   case class AddRecordCommentReq(
                                   roomId:Long,//录像的房间id
                                   recordTime:Long,//录像的时间戳
@@ -34,7 +34,7 @@ object RecordCommentProtocol {
                           authorHeadImgUrl:Option[String] = None
                         )
 
-  //2
+
   case class GetRecordCommentListReq(
                               roomId:Long,//房间id
                               recordTime:Long//录像时间戳
@@ -45,5 +45,15 @@ object RecordCommentProtocol {
                               errCode:Int = 0,
                               msg:String = "ok"
                               )extends Response
+
+
+
+  case class DeleteCommentReq(
+    roomid:Long,
+    commentid:Long,
+    uid:Long     //执行删除操作的用户id
+  )extends Request
+
+
 
 }

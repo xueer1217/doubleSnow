@@ -14,8 +14,8 @@ import akka.http.scaladsl.model.ws.Message
 import akka.stream.scaladsl.Flow
 import org.seekloud.theia.protocol.ptcl.{CommonRsp, Response}
 import org.seekloud.theia.roomManager.core.RegisterActor.{ConfirmEmail, SendEmail}
-import org.seekloud.theia.roomManager.core.RoomManager
-import org.seekloud.theia.roomManager.models.dao.{StatisticDao, RecordDao, UserInfoDao}
+import org.seekloud.theia.roomManager.core.{RoomManager, UserManager}
+import org.seekloud.theia.roomManager.models.dao.{RecordDao, StatisticDao, UserInfoDao}
 import org.seekloud.theia.roomManager.utils.HestiaClient
 import akka.http.scaladsl.model.headers._
 import org.seekloud.theia.protocol.ptcl.CommonInfo.{RoomInfo, UserInfo}
@@ -189,7 +189,7 @@ trait UserService extends ServiceUtils {
       'token.as[String],
       'roomId.as[Long]?
     ) { (uid, token,roomId) =>
-      val setWsFutureRsp: Future[Option[Flow[Message, Message, Any]]] = userManager ? (SetupWs(uid, token,roomId _))
+      val setWsFutureRsp: Future[Option[Flow[Message, Message, Any]]] = userManager ? (SetupWs(uid, token,roomId,_))
       dealFutureResult(
         setWsFutureRsp.map {
           case Some(rsp) => handleWebSocketMessages(rsp)

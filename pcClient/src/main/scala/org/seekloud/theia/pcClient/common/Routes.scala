@@ -28,7 +28,7 @@ object Routes {
 //  val getRecordList: String = recordUrl + "/getRecordList"
   val searchRecord: String = recordUrl + "/searchRecord"
 
-  def getRecordList(sortBy: String, pageNum: Int, pageSize: Int) = recordUrl + "/getRecordList" + s"?sortBy=$sortBy&pageNum=$pageNum&pageSize=$pageSize"
+  def getRecordList(sortBy: String, pageNum: Int, pageSize: Int,uid:Long) = recordUrl + "/getRecordList" + s"?sortBy=$sortBy&pageNum=$pageNum&pageSize=$pageSize&uid=$uid"
   def getAuthorRecordList(roomId:Long)= recordUrl + "/getAuthorRecordList"+s"?roomId=$roomId"
 
   val deleteRecord:String=recordUrl + "/deleteRecord"

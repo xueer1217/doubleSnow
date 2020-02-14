@@ -42,36 +42,36 @@ trait AdminService extends ServiceUtils with SessionBase{
     }
   }
 
-  private def deleteRecordErrorRsp(msg:String) = CommonRsp(100034,msg)
-  private val deleteRecord = (path("deleteRecord") & post){
-    AdminAction{ _ =>
-      entity(as[Either[Error,AdminProtocol.DeleteRecordReq]]) {
-        case Right(req) =>
-          dealFutureResult {
-            RecordDao.searchRecordById(req.recordIdList).flatMap { r =>
-              DistributorClient.deleteRecord(r).map {
-                case Right(data) =>
-                  dealFutureResult {
-                    RecordDao.deleteRecordById(req.recordIdList).map { t =>
-                      complete(CommonRsp())
-                    }.recover {
-                      case e: Exception =>
-                        complete(deleteRecordErrorRsp(s"删除录像id失败，error:$e"))
-                    }
-                  }
-                case Left(error) =>
-                  complete(deleteRecordErrorRsp(s"请求distributor删除录像失败，error:$error"))
-              }
-            }.recover {
-              case e: Exception =>
-                complete(deleteRecordErrorRsp(s"删除录像id失败，error:$e"))
-            }
-          }
-        case Left(error) =>
-          complete(deleteRecordErrorRsp(s"录像删除失败，接口请求错误，error:$error"))
-      }
-    }
-  }
+//  private def deleteRecordErrorRsp(msg:String) = CommonRsp(100034,msg)
+//  private val deleteRecord = (path("deleteRecord") & post){
+//    AdminAction{ _ =>
+//      entity(as[Either[Error,AdminProtocol.DeleteRecordReq]]) {
+//        case Right(req) =>
+//          dealFutureResult {
+//            RecordDao.searchRecordById(req.recordIdList).flatMap { r =>
+//              DistributorClient.deleteRecord(r).map {
+//                case Right(data) =>
+//                  dealFutureResult {
+//                    RecordDao.deleteRecordById(req.recordIdList).map { t =>
+//                      complete(CommonRsp())
+//                    }.recover {
+//                      case e: Exception =>
+//                        complete(deleteRecordErrorRsp(s"删除录像id失败，error:$e"))
+//                    }
+//                  }
+//                case Left(error) =>
+//                  complete(deleteRecordErrorRsp(s"请求distributor删除录像失败，error:$error"))
+//              }
+//            }.recover {
+//              case e: Exception =>
+//                complete(deleteRecordErrorRsp(s"删除录像id失败，error:$e"))
+//            }
+//          }
+//        case Left(error) =>
+//          complete(deleteRecordErrorRsp(s"录像删除失败，接口请求错误，error:$error"))
+//      }
+//    }
+//  }
 
   private def sealAccountErrorRsp(msg:String) = CommonRsp(100034,msg)
 
@@ -187,7 +187,7 @@ trait AdminService extends ServiceUtils with SessionBase{
 
 
   val admin = pathPrefix("admin"){
-    adminSignIn ~ deleteRecord ~ sealAccount ~ cancelSealAccount ~ getUserList ~ banOnAnchor
+    adminSignIn  ~ sealAccount ~ cancelSealAccount ~ getUserList ~ banOnAnchor
   }
 
 }

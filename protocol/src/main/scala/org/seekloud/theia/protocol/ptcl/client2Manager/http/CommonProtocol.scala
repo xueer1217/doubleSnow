@@ -97,10 +97,13 @@ object CommonProtocol {
 
   case class SearchRecordRsp(
     url: String = "",
-    recordInfo: RecordInfo,
+    recordInfo: Option[RecordInfo] = None ,
     errCode: Int = 0,
     msg: String = "ok"
   ) extends Response
+
+  val RecordNotExist = SearchRecordRsp(errCode = 200001,msg = "该录像不存在")
+  val AnchorNotExist = SearchRecordRsp(errCode = 200002,msg = "该主持人信息不存在")
 
   /*case class GetAuthorRecordListReq(
     roomId: Long,
@@ -124,6 +127,38 @@ object CommonProtocol {
     recordId: Long,
     recordAddr: String
   ) extends Request
+
+  /*管理只能看录像的用户*/
+
+  case class InviteWatchRecordReq(
+    invitorId:Long,
+    invitee:String,
+    roomId:Long
+  )extends Request
+
+  case class DeleteWatchInviteReq(
+    uid:Long,
+    invitee:Long,
+    roomId:Long
+  )extends Request
+
+  case class GetInviteListReq(
+    uid:Long,
+    roomid:Long
+  )extends Request
+
+  case class InviteeInfo(
+    uid:Long,
+    username:String,
+    headImage:String
+  )
+  case class GetInviteeListRsp(
+    list:List[InviteeInfo] = Nil,
+    errCode:Int = 0,
+    msg:String = "ok"
+  )extends Response
+
+
 
   /**
     *

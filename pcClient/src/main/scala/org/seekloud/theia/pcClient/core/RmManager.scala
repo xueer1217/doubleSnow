@@ -132,6 +132,8 @@ object RmManager {
 
   final case class ChangeCaptureMode(mediaSource: Int, cameraPosition: Int) extends RmCommand
 
+  final case class InviteAudience(username: InviteJoinReq) extends RmCommand //邀请用户参会
+
   // 0->camera; 1->desktop; 2->both
   //0：左上  1：右上  2：右下  3：左下
 
@@ -146,7 +148,7 @@ object RmManager {
 
   final case class SendComment(comment: Comment) extends RmCommand
 
-  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand  //判断是否给房间点赞过
+  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand //判断是否给房间点赞过
 
   final case class SendLikeRoom(likeRoom: LikeRoom) extends RmCommand
 
@@ -660,6 +662,10 @@ object RmManager {
           liveManager ! LiveManager.GetPackageLoss
           Behaviors.same
 
+        case msg: InviteAudience =>
+          sender.foreach(_ ! msg.username)
+          Behaviors.same
+
         case x =>
           log.warn(s"unknown msg in host: $x")
           Behaviors.unhandled
@@ -915,7 +921,7 @@ object RmManager {
           log.info(s"Start join.")
           assert(userInfo.nonEmpty)
 
-          //房主同意连线之后 开始开始拉流
+          //          //房主同意连线之后 开始开始拉流
           val roomInfo = audienceScene.getRoomInfo
           val info = WatchInfo(roomInfo.roomId, audienceScene.gc)
           liveManager ! LiveManager.PullStream(roomInfo.rtmp.get, watchInfo = Some(info), audienceScene = Some(audienceScene))

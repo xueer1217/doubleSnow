@@ -57,7 +57,7 @@ object LiveManager {
           roomInfoMap.put(roomId, liveInfo(roomId, liveId, 0, 1, Constants.getMpdPath(roomId)))
           pullActor ! PullActor.NewLive(liveId, roomId)
           encodeManager ! EncodeManager.UpdateEncode(roomId, startTime)
-          roomLiveMap.filter(_._2==roomId).foreach{e =>
+          roomLiveMap.filter(_._2==roomId).foreach{e =>   //roomLiveMap liveid -> roomid
             roomLiveMap.remove(e._1)
           }
           roomLiveMap.put(liveId, roomId)

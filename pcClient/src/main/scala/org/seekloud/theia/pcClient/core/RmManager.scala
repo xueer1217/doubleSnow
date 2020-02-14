@@ -124,8 +124,6 @@ object RmManager {
 
   final case class AudienceAcceptance(userId: Long, accept: Boolean) extends RmCommand
 
-  final case class SpeakerAcceptane(userId: Long, accept: Boolean) extends  RmCommand
-
   final case class JoinBegin(audienceInfo: AudienceInfo) extends RmCommand //开始和某观众连线
 
   final case object JoinStop extends RmCommand //停止和某观众连线
@@ -133,6 +131,8 @@ object RmManager {
   final case object ShutJoin extends RmCommand //主动关闭和某观众的连线
 
   final case class ChangeCaptureMode(mediaSource: Int, cameraPosition: Int) extends RmCommand
+
+  final case class InviteAudience(username: InviteJoinReq) extends RmCommand //邀请用户参会
 
   // 0->camera; 1->desktop; 2->both
   //0：左上  1：右上  2：右下  3：左下
@@ -148,15 +148,13 @@ object RmManager {
 
   final case class SendComment(comment: Comment) extends RmCommand
 
-  final case class SendInvitation(userName: String) extends RmCommand
-
-  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand
+  final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand //判断是否给房间点赞过
 
   final case class SendLikeRoom(likeRoom: LikeRoom) extends RmCommand
 
-  final case class JoinRoomReq(roomId: Long) extends RmCommand
+  final case class JoinRoomReq(roomId: Long) extends RmCommand //连线请求
 
-  final case class SpeakReq(roomId:Long) extends RmCommand
+  final case class SpeakReq(roomId: Long) extends RmCommand //发言请求
 
   final case class StartJoin(hostLiveId: String, audienceLiveInfo: LiveInfo) extends RmCommand
 
@@ -268,7 +266,7 @@ object RmManager {
               rst match {
                 case Right(rsp) =>
                   if (rsp.errCode == 0) {
-                    //todo 发送连线请求
+
                     ctx.self ! GoToWatch(rsp.roomInfo.get)
                   }
                   else if (rsp.errCode == 100008) {
@@ -346,8 +344,8 @@ object RmManager {
 
 
             audienceScene.liveId = msg.roomInfo.rtmp
-//
-            //            val info = WatchInfo(msg.roomInfo.roomId, audienceScene.gc)
+            //todo watchinfo有点问题
+            //val info = WatchInfo(msg.roomInfo.roomId, audienceScene.gc)
             ctx.self ! AudienceWsEstablish
 
             Boot.addToPlatform {
@@ -356,8 +354,7 @@ object RmManager {
             }
 
             switchBehavior(ctx, "audienceBehavior", audienceBehavior(stageCtx, homeController, roomController, audienceScene, audienceController, liveManager, mediaPlayer, audienceLiveInfo = None, audienceStatus = AudienceStatus.LIVE, anchorLiveId = msg.roomInfo.rtmp))
-          }
-          else {
+          } else {
             log.info(s"roomInfo error: ${msg.roomInfo}!")
             Boot.addToPlatform {
               roomController.foreach(_.removeLoading())
@@ -594,13 +591,6 @@ object RmManager {
           sender.foreach(_ ! JoinAccept(roomInfo.get.roomId, msg.userId, ClientType.PC, msg.accept))
           Behaviors.same
 
-        case msg: SpeakerAcceptane =>
-          log.debug(s"accept speak user-${msg.userId} speak.")
-          assert(roomInfo.nonEmpty)
-          //todo 审批用户发言
- //         sender.foreach(_ ! SpeakAccept())
-          Behaviors.same
-
         case msg: JoinBegin =>
           /*背景改变*/
           hostScene.resetBack()
@@ -668,13 +658,12 @@ object RmManager {
           sender.foreach(_ ! msg.comment)
           Behaviors.same
 
-        case msg: SendInvitation =>
-         // todo 向用户发送邀请
-          sender.foreach(_ !InviteUser(msg.userName))
-          Behaviors.same
-
         case GetPackageLoss =>
           liveManager ! LiveManager.GetPackageLoss
+          Behaviors.same
+
+        case msg: InviteAudience =>
+          sender.foreach(_ ! msg.username)
           Behaviors.same
 
         case x =>
@@ -729,6 +718,11 @@ object RmManager {
                   if (userInfo.nonEmpty) {
                     ctx.self ! SendJudgeLike(JudgeLike(userInfo.get.userId, audienceScene.getRoomInfo.roomId))
                     ctx.self ! JoinRoomReq(audienceScene.getRoomInfo.roomId) //如果ws建立成功 就发送连线请求
+
+                    Boot.addToPlatform {
+                      WarningDialog.initWarningDialog("已经发送参会请求，等待会议发起人同意！")
+                    }
+
                   }
                 }
 
@@ -845,10 +839,10 @@ object RmManager {
           sender.foreach(_ ! JoinReq(userId, msg.roomId, ClientType.PC))
           Behaviors.same
 
-        case msg:SpeakReq =>
+        case msg: SpeakReq =>
           assert(userInfo.nonEmpty)
           val userId = userInfo.get.userId
-          sender.foreach(_ ! AttendeeSpeakReq(userId,msg.roomId,ClientType.PC))
+          sender.foreach(_ ! AttendeeSpeakReq(userId, msg.roomId, ClientType.PC))
           Behaviors.same
 
         case msg: ChangeOption4Audience =>
@@ -927,7 +921,7 @@ object RmManager {
           log.info(s"Start join.")
           assert(userInfo.nonEmpty)
 
-          //房主同意连线之后 开始开始拉流
+          //          //房主同意连线之后 开始开始拉流
           val roomInfo = audienceScene.getRoomInfo
           val info = WatchInfo(roomInfo.roomId, audienceScene.gc)
           liveManager ! LiveManager.PullStream(roomInfo.rtmp.get, watchInfo = Some(info), audienceScene = Some(audienceScene))

@@ -129,9 +129,9 @@ object RMClient extends HttpUtil {
   }
 
   //获取录像列表及地址
-  def getRecordList(sortBy: String, pageNum: Int, pageSize: Int): Future[Either[Throwable, GetRecordListRsp]] = {
+  def getRecordList(sortBy: String, pageNum: Int, pageSize: Int,uid:Long): Future[Either[Throwable, GetRecordListRsp]] = {
     val methodName = "getRecordList"
-    val url = Routes.getRecordList(sortBy, pageNum, pageSize)
+    val url = Routes.getRecordList(sortBy, pageNum, pageSize,uid)
 
     getRequestSend(methodName, url, Nil, needLogRsp = false).map {
       case Right(jsonStr) =>

@@ -140,7 +140,17 @@ object AuthProtocol {
 
   /*发言申请*/
 
-  case class AttendeeSpeak(userId:Long,userName:String,clientType:Int) extends WsMsgRm2Host //申请发言者信息
+  case class AttendeeSpeak(userId: Long, userName: String, clientType: Int) extends WsMsgRm2Host //申请发言者信息
+
+  /*邀请参会*/
+
+  case class InviteJoinReq(username: String) extends WsMsgHost
+
+  case class InviteJoinRsp(errCode: Int = 0, msg: String = "ok") extends WsMsgRm2Host
+
+  val UsernameNotExist = InviteJoinRsp(errCode = 500001, msg = "user does not exist")
+
+  val InviteError = InviteJoinRsp(errCode = 500002, msg = "inner error")
 
   /**
     *

@@ -22,6 +22,8 @@ object EmailActor {
 
   case class SendConfirmEmail(url: String, email: String) extends Command
 
+  case class InviteJoin(invitor: String, email: String, roomid: Long) extends Command
+
   val behavior = idle()
 
   def idle(): Behavior[Command] = {
@@ -29,19 +31,17 @@ object EmailActor {
       msg match {
         case x@SendConfirmEmail(url, email) =>
           log.info(s"I receive msg:$x")
-          val session = getEbuptSession
-          val message = new MimeMessage(session)
-          message.setFrom(new InternetAddress(AppSettings.emailAddresserEmail))
-          message.setRecipient(RecipientType.TO,new InternetAddress(email))
-          message.setSubject(s"欢迎加入Theia")
-          message.setSentDate(new Date)
-          val mainPart = new MimeMultipart
-          val html = new MimeBodyPart
+          val subject = s"欢迎加入Theia"
           val content = getRegisterEamilHtml(url, email)
-          html.setContent(content, "text/html; charset=utf-8")
-          mainPart.addBodyPart(html)
-          message.setContent(mainPart)
-          Transport.send(message)
+          send(email, subject, content)
+
+          Behaviors.same
+
+        case x@InviteJoin(invitor, email, roomid) =>
+          log.info(s"I receive msg:$x")
+          val subject = s"$invitor 邀请你加入doubleSnow会议"
+          val content = s"会议id :$roomid"
+          send(email, subject, content)
           Behaviors.same
 
         case x =>
@@ -50,6 +50,22 @@ object EmailActor {
       }
     }
   }
+
+  def send(email: String, subject: String, content: String) = {
+
+    val message = new MimeMessage(getEbuptSession)
+    message.setFrom(new InternetAddress(AppSettings.emailAddresserEmail))
+    message.setRecipient(RecipientType.TO, new InternetAddress(email))
+    message.setSubject(subject)
+    message.setSentDate(new Date)
+    val mainPart = new MimeMultipart
+    val html = new MimeBodyPart
+    html.setContent(content, "text/html; charset=utf-8")
+    mainPart.addBodyPart(html)
+    message.setContent(mainPart)
+    Transport.send(message)
+  }
+
 
   def getProperties = {
     val p = new Properties
@@ -64,7 +80,7 @@ object EmailActor {
     Session.getInstance(getProperties, new MyAuthenticator(AppSettings.emailAddresserEmail, AppSettings.emailAddresserPwd))
   }
 
-  def getRegisterEamilHtml(confirmUrl:String,email:String) = {
+  def getRegisterEamilHtml(confirmUrl: String, email: String) = {
     val sb: StringBuilder = new StringBuilder
     sb.append("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/></head><body>")
 

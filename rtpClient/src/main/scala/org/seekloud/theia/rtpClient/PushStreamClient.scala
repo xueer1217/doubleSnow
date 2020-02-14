@@ -131,7 +131,7 @@ class PushStreamClient(local_host: String, local_port: Int, pushStreamDst: InetS
       while (true) {
         pushBuf.clear()
         pushChannel.receive(pushBuf)
-        pushBuf.flip()
+        pushBuf.flip()//读写指针指到缓存头部，并且设置了最多只能读出之前写入的数据长度
         val byteArray = new Array[Byte](pushBuf.remaining())
         pushBuf.get(byteArray)
         val data = parseData(byteArray)
@@ -192,8 +192,8 @@ class PushStreamClient(local_host: String, local_port: Int, pushStreamDst: InetS
   }
   )
 
-
-
+//  case class Header(payloadType: Int, m: Int, seq: Int, ssrc: Int, timestamp: Long)
+//    sendData(Header(authType, 0, 0, 0, 0), payload, pushStreamDst, pushChannel)
   def sendData(header: Header, data: Array[Byte], dst: InetSocketAddress,
     channel: DatagramChannel, maxLength: Int = 1500, isLiveIds: Boolean = false, calcDelay: Boolean = false) = {
     val seq = header.seq
@@ -277,7 +277,7 @@ class PushStreamClient(local_host: String, local_port: Int, pushStreamDst: InetS
     pushChannel.socket().setReuseAddress(true)
 
 //    try {
-      pushChannel.socket().bind(new InetSocketAddress(local_host, local_port))
+      pushChannel.socket().bind(new InetSocketAddress(local_host, local_port))  //打开了一个datagramChannel 他可以接收主播地址及端口下发送的udp数据
 //    } catch {
 //      case e: Exception =>
 //        log.debug(s"push channel bind $local_host error: $e")

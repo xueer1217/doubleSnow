@@ -39,12 +39,12 @@ create unique index user_info_user_name_index on user_info (user_name);
 create table room
 (
     roomId     bigint                default room_id_seq.nextval, -- 一场会议对应一个roomId
-    room_name  varchar(256) not null default '',                       -- 会议名称
-    room_desc  varchar(256) not null default '',                       -- 会议描述
-    cover_img  varchar(256) not null default '',                       -- 会议封面
-    start_time bigint       not null,                                  -- 会议开始时间
-    end_time   bigint       not null default 0,                        -- 会议结束时间
-    anchorId   bigint       not null,                                  -- 会议主持人id
+    room_name  varchar(256) not null default '',                  -- 会议名称
+    room_desc  varchar(256) not null default '',                  -- 会议描述
+    cover_img  varchar(256) not null default '',                  -- 会议封面
+    start_time bigint       not null,                             -- 会议开始时间
+    end_time   bigint       not null default 0,                   -- 会议结束时间
+    anchorId   bigint       not null,                             -- 会议主持人id
     primary key (roomId)
 
 );
@@ -71,4 +71,31 @@ create table attend_event
     primary key (id)
 );
 
-alter table attend_event drop column temporary;
+alter table attend_event
+    drop column temporary;
+
+
+alter table room
+    drop column end_time;
+
+alter table room
+    add duration varchar(100) not null default '';
+
+--录像评论表
+create
+sequence comment_id_seq start
+with 5000001 increment by 1;
+
+create table record_comment
+(
+    id            bigint       not null default comment_id_seq.nextval,
+    room_id       bigint       not null,           -- 录像id
+    record_time   bigint       not null,           -- 录像start time
+    comment       varchar(256) not null default '',-- 评论内容
+    comment_time  bigint       not null,           -- 评论时间
+    comment_uid   bigint       not null,           -- 发表评论的用户id
+    author_uid    bigint,                          -- 被评论的用户id,如果是None，就是回复主播
+    relative_time bigint       not null default 0, -- 评论相对于
+
+    primary key (id)
+);

@@ -47,7 +47,7 @@ object UserManager {
 
   final case class Register(code:String, email:String, userName:String, password:String, replyTo:ActorRef[SignUpRsp]) extends Command
 
-  final case class SetupWs(uidOpt:Long, tokenOpt:String,roomId:Option[Long] ,replyTo: ActorRef[Option[Flow[Message, Message, Any]]]) extends Command
+  final case class SetupWs(uidOpt:Long, tokenOpt:String,roomId:Option[Long],replyTo: ActorRef[Option[Flow[Message, Message, Any]]]) extends Command
 
   final case class TemporaryUser(replyTo:ActorRef[GetTemporaryUserRsp]) extends Command
 

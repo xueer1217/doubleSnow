@@ -80,7 +80,7 @@ class HomeController(
                 WarningDialog.initWarningDialog("注册成功！")
               }
             } else {
-              log.error(s"sign up error: ${signUpRsp.msg}")
+              log.error(s"sign up error: ${signUpRsp.msg} ")
               removeLoading()
               Boot.addToPlatform {
                 WarningDialog.initWarningDialog(s"${signUpRsp.msg}")

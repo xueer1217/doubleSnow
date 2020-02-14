@@ -22,6 +22,7 @@ import javafx.scene.shape.Rectangle
 import javafx.stage.Stage
 import org.seekloud.theia.pcClient.component.{Common, WarningDialog}
 import org.seekloud.theia.pcClient.component.Common._
+import org.seekloud.theia.pcClient.core.RmManager
 import org.seekloud.theia.pcClient.utils.{RMClient, TimeUtil}
 
 import scala.collection.mutable
@@ -505,7 +506,7 @@ class RoomScene {
   }
 
   def updateNextPage(page: Int, pagination: Pagination): Unit = {
-    RMClient.getRecordList(recordSort, page, recordsPerPage).map {
+    RMClient.getRecordList(recordSort, page, recordsPerPage,RmManager.userInfo.get.userId).map {
       case Right(rst) =>
         if (rst.errCode == 0) {
           Boot.addToPlatform {

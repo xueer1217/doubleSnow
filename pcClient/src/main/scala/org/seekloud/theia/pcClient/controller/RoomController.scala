@@ -83,7 +83,7 @@ class RoomController(
   }
 
   def updateRecordList(sortBy: String = "time", pageNum: Int = 1, pageSize: Int = roomScene.recordsPerPage): Unit = {
-    RMClient.getRecordList(sortBy: String, pageNum: Int, pageSize: Int).map {
+    RMClient.getRecordList(sortBy: String, pageNum: Int, pageSize: Int,RmManager.userInfo.get.userId).map {
       case Right(rst) =>
         if (rst.errCode == 0) {
           Boot.addToPlatform {

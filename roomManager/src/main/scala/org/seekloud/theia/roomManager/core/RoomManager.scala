@@ -242,9 +242,11 @@ object RoomManager {
               v match{
                 case Right(rsp) =>
                   log.debug(s"${ctx.self.path}获取录像id${roomId}时长为duration=${rsp.duration}")
-                  RecordDao.addRecord(wholeRoomInfo.roomInfo.roomId,
-                    wholeRoomInfo.roomInfo.roomName,wholeRoomInfo.roomInfo.roomDes,startTime,
-                    UserInfoDao.getVideoImg(wholeRoomInfo.roomInfo.coverImgUrl),0,wholeRoomInfo.roomInfo.like,rsp.duration)
+
+                  RoomDao.updateDuration(wholeRoomInfo.roomInfo.roomId,rsp.duration)
+//                  RecordDao.addRecord(wholeRoomInfo.roomInfo.roomId,
+//                    wholeRoomInfo.roomInfo.roomName,wholeRoomInfo.roomInfo.roomDes,startTime,
+//                    UserInfoDao.getVideoImg(wholeRoomInfo.roomInfo.coverImgUrl),0,wholeRoomInfo.roomInfo.like,rsp.duration)
                   //timer.startSingleTimer(FinishPullKey + roomId.toString + startTime, FinishPull(roomId, startTime, liveId), 5.seconds)
                 case Left(err) =>
                   log.debug(s"${ctx.self.path} 查询录像文件信息失败,error:$err")

@@ -88,7 +88,7 @@ with 5000001 increment by 1;
 
 create table record_comment
 (
-    id            bigint       not null default comment_id_seq.nextval,
+    id            bigint       not null auto_increment,
     room_id       bigint       not null,           -- 录像id
     record_time   bigint       not null,           -- 录像start time
     comment       varchar(256) not null default '',-- 评论内容
@@ -99,3 +99,12 @@ create table record_comment
 
     primary key (id)
 );
+
+
+alter table user_info alter column uid  bigint not null auto_increment ;
+
+alter table room alter column roomId bigint not null auto_increment;
+
+alter table attend_event alter column  id bigint not null auto_increment;
+
+alter table record_comment alter column id bigint not null auto_increment;

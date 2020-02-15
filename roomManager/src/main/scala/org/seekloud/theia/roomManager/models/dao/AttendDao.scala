@@ -1,9 +1,13 @@
 package org.seekloud.theia.roomManager.models.dao
 
+import java.util.concurrent.atomic.AtomicLong
+
 import org.seekloud.theia.roomManager.Boot.executor
-import org.seekloud.theia.roomManager.utils.DBUtil._
+import org.seekloud.theia.roomManager.utils.DBUtil.{db, _}
 import org.seekloud.theia.roomManager.models.SlickTables._
 import slick.jdbc.H2Profile.api._
+
+import scala.util.{Failure, Success}
 
 /**
   * User: haoxue
@@ -14,8 +18,17 @@ import slick.jdbc.H2Profile.api._
 object AttendDao {
 
 
+  val id = new AtomicLong(3000001)
+
   def addAttendEvent(uid:Long,roomId:Long,inTime:Long) ={
-    db.run(tAttendEvent += rAttendEvent(0L,uid,roomId,inTime,0))
+    db.run{
+      tAttendEvent += rAttendEvent(id.getAndIncrement(),uid,roomId,inTime,0)
+    }.andThen{
+      case Success(_) =>
+        log.debug("数据表Attend_Event操作成功！！")
+      case Failure(ex) =>
+        ex.printStackTrace()
+    }
   }
 
 

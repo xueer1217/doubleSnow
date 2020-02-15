@@ -161,15 +161,15 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         if(rsp.errCode==0){
           //获得了url
           mp4Url := rsp.url
+          val recordInfo = rsp.recordInfo.get
+          dom.window.sessionStorage.setItem("recordName", recordInfo.recordName)
+          dom.window.sessionStorage.setItem("recordCoverImg", recordInfo.coverImg)
+          dom.window.sessionStorage.setItem("recordStartTime", recordInfo.startTime.toString)
 
-          dom.window.sessionStorage.setItem("recordName", rsp.recordInfo.recordName)
-          dom.window.sessionStorage.setItem("recordCoverImg", rsp.recordInfo.coverImg)
-          dom.window.sessionStorage.setItem("recordStartTime", rsp.recordInfo.startTime.toString)
-
-          watchRecordEndInfo = WatchRecordEnd(rsp.recordInfo.recordId, newData)
-          roomCoverImg := rsp.recordInfo.coverImg
-          videoTime := rsp.recordInfo.startTime.toString
-          videoName := rsp.recordInfo.recordName
+          watchRecordEndInfo = WatchRecordEnd(recordInfo.recordId, newData)
+          roomCoverImg := recordInfo.coverImg
+          videoTime := recordInfo.startTime.toString
+          videoName := recordInfo.recordName
           val v = dom.document.getElementById("recordVideo").asInstanceOf[Video]
           v.load()
           v.play()

@@ -1,5 +1,7 @@
 package org.seekloud.theia.roomManager.models.dao
 
+import java.util.concurrent.atomic.{AtomicInteger, AtomicLong}
+
 import org.seekloud.theia.protocol.ptcl.CommonInfo
 import org.seekloud.theia.protocol.ptcl.CommonInfo.{RoomInfo, UserDes}
 import org.seekloud.theia.roomManager.common.{AppSettings, Common}
@@ -15,6 +17,8 @@ import scala.concurrent.Future
 object UserInfoDao {
 
 
+  val uid = new AtomicLong(1000001)
+
   def getHeadImg(headImg:String):String = {
     if(headImg == "")Common.DefaultImg.headImg else headImg
   }
@@ -28,7 +32,8 @@ object UserInfoDao {
   }
 
   def addUser(email:String, name:String, pw:String, token:String, timeStamp:Long,rtmpToken:String) = {
-    db.run(tUserInfo += rUserInfo(1, name, pw, 1, token, timeStamp,Common.DefaultImg.headImg,Common.DefaultImg.coverImg,email,timeStamp,rtmpToken))
+    val id = uid.getAndIncrement()
+    db.run(tUserInfo += rUserInfo(id, name, pw, id, token, timeStamp,Common.DefaultImg.headImg,Common.DefaultImg.coverImg,email,timeStamp,rtmpToken))
   }
 
   def modifyImg4User(userId:Long,fileName:String,imgType:Int) = {

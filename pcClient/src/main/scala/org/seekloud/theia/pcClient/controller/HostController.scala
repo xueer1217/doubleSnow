@@ -150,14 +150,16 @@ class HostController(
       }
     }
 
+    //邀请用户参会
     override def sendIvt(userName: String): Unit = {
 
-      if(! userName.equals(""))
-        rmManager ! RmManager.SendInvitation(userName)
-      else {
+      if(userName.isEmpty){
+
         Boot.addToPlatform{
           WarningDialog.initWarningDialog("用户名不能为空")
         }
+      }else{
+        rmManager ! RmManager.InviteAudience(InviteJoinReq(userName))
       }
 
     }
@@ -252,6 +254,10 @@ class HostController(
       val url = "123"
 //      rmManager
     }
+
+
+
+
   })
 
 

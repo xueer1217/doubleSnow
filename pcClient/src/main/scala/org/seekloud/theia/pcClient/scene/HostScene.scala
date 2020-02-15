@@ -124,6 +124,7 @@ object HostScene {
     def ShowBoth()
 
     def pushRtmpStream()
+
   }
 
 }
@@ -1105,17 +1106,19 @@ class HostScene(stage: Stage) {
     inviteIcon.setFitHeight(20)
     inviteIcon.setFitWidth(20)
     val inviteBtn = new Button("邀请", inviteIcon)
+
     val invitation = new HBox()
     invitation.setSpacing(5)
     invitation.getChildren.addAll(user,userFiled,inviteBtn)
 
     inviteBtn.getStyleClass.add("audienceScene-leftArea-sendBtn")
     inviteBtn.setOnAction { _ =>
-      if (userFiled.getText() != null) {
-        val userName = userFiled.getText()
+
+
+        val userName = userFiled.getText().trim()
         listener.sendIvt(userName)
 
-      }
+
     }
     val vBox = new VBox()
     vBox.getChildren.addAll(invitation, watchingState, watchingTable)

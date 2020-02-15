@@ -154,3 +154,73 @@ java.net.BindException: Address already in use
 20-02-15 09:55:50.422 INFO o.s.t.rtpServer.core.PublishActor$ - liveId - is starting......
 20-02-15 09:55:50.422 INFO o.s.t.rtpServer.core.StreamManager$ - GetSSRC:#null  localhost  51147
 20-02-15 09:55:50.422 INFO o.s.t.rtpServer.core.PublishActor$ - recv subscribe  info from:127.0.0.1:51147 when waiting data
+20-02-15 14:53:53.165 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 14:53:53.285 INFO org.seekloud.theia.rtpServer.Boot$ - Starting.
+20-02-15 14:53:53.918 INFO org.seekloud.theia.rtpServer.Boot$ - Server is listening on 0:0:0:0:0:0:0:0:30390
+20-02-15 17:33:10.795 INFO o.s.t.rtpServer.core.UserManager$ - gen liveId: user100001, liveCode: wisXOEEhBj success
+20-02-15 17:33:58.351 INFO o.s.t.rtpServer.core.PublishManager$ - gen client id {-1961046552} for /127.0.0.1:59177
+20-02-15 17:35:36.756 INFO o.s.t.rtpServer.core.UserManager$ - gen liveId: user100002, liveCode: 6dz7rFQG2j success
+20-02-15 17:35:36.876 INFO o.s.t.rtpServer.core.PublishManager$ - ParsePullStreamRequest====>  ip:127.0.0.1   port:59177
+20-02-15 17:35:36.876 INFO o.s.t.rtpServer.core.PublishManager$ - seq == 0 && m == 1user100002
+20-02-15 17:35:36.877 INFO o.s.t.rtpServer.core.PublishManager$ - recv new liveIdList: List(user100002) from clientId: -1961046552
+20-02-15 17:35:36.877 INFO o.s.t.rtpServer.core.PublishManager$ - previousLiveIds: List()
+20-02-15 17:35:36.878 INFO o.s.t.rtpServer.core.PublishManager$ - unsubscribeLiveIds: List()
+20-02-15 17:35:36.883 INFO o.s.t.rtpServer.core.PublishActor$ - liveId -user100002 is starting......
+20-02-15 17:35:36.886 INFO o.s.t.rtpServer.core.PublishActor$ - recv subscribe user100002 info from:127.0.0.1:59177 when waiting data
+20-02-15 17:35:36.895 INFO o.s.t.rtpServer.core.StreamManager$ - GetSSRC:user100002#null  localhost  59177
+20-02-15 17:35:36.962 INFO o.s.t.rtpServer.core.UserManager$ - liveId:user100002 auth success!
+20-02-15 17:35:36.963 INFO o.s.theia.rtpServer.core.AuthActor$ - liveId: user100002, ssrcLong: -1425925339
+20-02-15 17:35:36.965 INFO o.s.t.rtpServer.core.StreamManager$ - user100002 auth success
+20-02-15 17:35:36.971 INFO o.s.t.rtpServer.core.StreamActor$ - liveId user100002 auth success, turn to work behavior
+20-02-15 17:35:37.649 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 0, ssrc: -1425925339, data len: 1316
+20-02-15 17:35:37.656 INFO o.s.t.rtpServer.core.PublishActor$ - user100002 rece first data
+20-02-15 17:35:37.657 INFO o.s.t.rtpServer.core.StreamManager$ - GetSSRC:user100002#-1425925339  localhost  59177
+20-02-15 17:35:37.660 INFO o.s.t.rtpServer.core.PublishActor$ - recv SubscriberRcvSSRC user100002 info from:127.0.0.1:59177 when work
+20-02-15 17:35:41.584 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 1000, ssrc: -1425925339, data len: 1316
+20-02-15 17:35:45.718 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 2000, ssrc: -1425925339, data len: 1316
+20-02-15 17:35:49.813 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 3000, ssrc: -1425925339, data len: 1316
+20-02-15 17:35:53.884 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 4000, ssrc: -1425925339, data len: 1316
+20-02-15 17:35:57.783 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 5000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:01.947 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 6000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:05.980 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 7000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:09.883 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 8000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:14.184 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 9000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:18.318 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 10000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:22.248 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 11000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:26.150 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 12000, ssrc: -1425925339, data len: 752
+20-02-15 17:36:30.484 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 13000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:34.648 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 14000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:38.619 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 15000, ssrc: -1425925339, data len: 940
+20-02-15 17:36:42.850 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 16000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:46.984 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 17000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:50.884 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 18000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:54.981 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 19000, ssrc: -1425925339, data len: 1316
+20-02-15 17:36:58.881 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 20000, ssrc: -1425925339, data len: 376
+20-02-15 17:37:02.984 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 21000, ssrc: -1425925339, data len: 1316
+20-02-15 17:37:07.019 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 22000, ssrc: -1425925339, data len: 1316
+20-02-15 17:37:11.185 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 23000, ssrc: -1425925339, data len: 1316
+20-02-15 17:37:15.318 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 24000, ssrc: -1425925339, data len: 1316
+20-02-15 17:37:19.382 INFO o.s.t.rtpServer.core.ReceiveActor$ - =====seq: 25000, ssrc: -1425925339, data len: 1316
+20-02-15 17:37:20.029 INFO o.s.t.rtpServer.core.ReceiveActor$ - stopPushingRequest===122
+20-02-15 17:37:20.032 INFO o.s.t.rtpServer.core.StreamManager$ - userManager stop stream of liveId:user100002
+20-02-15 17:37:20.034 INFO o.s.t.rtpServer.core.StreamManager$ - 未鉴权，分配测试liveId: liveIdTest--1425925339
+20-02-15 17:37:20.036 INFO o.s.t.rtpServer.core.StreamActor$ - liveId liveIdTest--1425925339 auth success, turn to work behavior
+20-02-15 17:37:20.038 INFO o.s.t.rtpServer.core.PublishActor$ - stream user100002 stopped
+20-02-15 17:37:20.039 INFO o.s.t.rtpServer.core.PublishActor$ - liveId -liveIdTest--1425925339 is starting......
+20-02-15 17:37:20.039 INFO o.s.t.rtpServer.core.PublishActor$ - liveIdTest--1425925339 rece first data
+20-02-15 17:37:20.039 ERROR o.s.t.rtpServer.core.PublishManager$ - publishActor_user100002 dead!
+20-02-15 17:37:20.039 ERROR o.s.t.rtpServer.core.StreamManager$ - streamer_user100002 dead!
+20-02-15 17:37:20.049 INFO o.s.t.rtpServer.core.PublishManager$ - ParsePullStreamRequest====>  ip:127.0.0.1   port:59177
+20-02-15 17:37:20.050 INFO o.s.t.rtpServer.core.PublishManager$ - seq == 0 && m == 1
+20-02-15 17:37:20.050 INFO o.s.t.rtpServer.core.PublishManager$ - recv new liveIdList: List() from clientId: -1961046552
+20-02-15 17:37:20.050 INFO o.s.t.rtpServer.core.PublishManager$ - previousLiveIds: List()
+20-02-15 17:37:20.050 INFO o.s.t.rtpServer.core.PublishManager$ - unsubscribeLiveIds: List()
+20-02-15 17:37:20.051 INFO o.s.t.rtpServer.core.PublishActor$ - liveId - is starting......
+20-02-15 17:37:20.051 INFO o.s.t.rtpServer.core.PublishActor$ - recv subscribe  info from:127.0.0.1:59177 when waiting data
+20-02-15 17:37:20.051 INFO o.s.t.rtpServer.core.StreamManager$ - GetSSRC:#null  localhost  59177
+20-02-15 17:37:50.058 INFO o.s.t.rtpServer.core.StreamActor$ - 30秒未推流，断掉与流liveIdTest--1425925339 的连接
+20-02-15 17:37:50.059 INFO o.s.t.rtpServer.core.StreamManager$ - userManager stop stream of liveId:liveIdTest--1425925339
+20-02-15 17:37:50.060 INFO o.s.t.rtpServer.core.PublishActor$ - stream liveIdTest--1425925339 stopped
+20-02-15 17:37:50.060 ERROR o.s.t.rtpServer.core.PublishManager$ - publishActor_liveIdTest--1425925339 dead!
+20-02-15 17:37:50.069 ERROR o.s.t.rtpServer.core.StreamManager$ - streamer_liveIdTest--1425925339 dead!
+20-02-15 17:37:50.070 INFO o.s.t.rtpServer.core.DataStoreActor$ - liveIdTest--1425925339 is stopped

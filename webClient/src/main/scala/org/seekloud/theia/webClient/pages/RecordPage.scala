@@ -109,22 +109,22 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     }
   }
-  def deleteComment(): Unit={
-
-    val data = DeleteCommentReq(roomId,).asJson.noSpaces
-    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
-      case Right(rsp) =>
-        if (rsp.errCode == 0) {
-          getCommentInfo()
-        } else {
-          println(rsp.msg)
-        }
-      case Left(error) =>
-        println(s"parse error,$error")
-
-    }
-
-  }
+//  def deleteComment(): Unit={
+//
+//    val data = DeleteCommentReq(roomId,).asJson.noSpaces
+//    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
+//      case Right(rsp) =>
+//        if (rsp.errCode == 0) {
+//          getCommentInfo()
+//        } else {
+//          println(rsp.msg)
+//        }
+//      case Left(error) =>
+//        println(s"parse error,$error")
+//
+//    }
+//
+//  }
 
   def getCommentInfo():Unit={
     val data = GetRecordCommentListReq(roomId,time).asJson.noSpaces
@@ -234,7 +234,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           <div class="rcl-con-name">{item.commentUserName}</div>
           <div class="rcl-con-con">{item.comment}</div>
           <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
-          <div class="rcl-con-delete">{getdeleteButton(item.commentId)}</div>
+        <!--  <div class="rcl-con-delete">{getdeleteButton(item.commentId)}</div> -->
         </div>
       </div>
     }

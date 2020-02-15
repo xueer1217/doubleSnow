@@ -506,3 +506,985 @@ select "UID", "USER_NAME", "PASSWORD", "ROOMID", "TOKEN", "TOKEN_CREATE_TIME", "
 20-02-15 10:04:16.005 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
 20-02-15 10:04:46.025 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
 20-02-15 10:05:16.045 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 14:58:51.029 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 14:58:51.148 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 14:58:51.162 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 14:58:51.178 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 14:58:51.185 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 14:58:51.191 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 14:59:21.216 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 14:59:51.231 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:00:17.649 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 15:00:17.988 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:20.400 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:20.401 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:20.403 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:21.254 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:00:22.749 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:22.750 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:22.750 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:25.075 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:25.076 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:25.076 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:27.398 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:27.400 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:27.400 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:29.720 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:29.720 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:29.721 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:32.038 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:32.039 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:32.040 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:34.353 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:34.354 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:34.354 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:36.673 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:36.674 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:36.675 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:37.567 INFO akka.actor.ActorSystemImpl - Request timeout encountered for request [GET /theia/roomManager/record/getRecordList Empty]
+20-02-15 15:00:37.583 INFO akka.actor.ActorSystemImpl - Request timeout encountered for request [GET /theia/roomManager/record/getRecordList Empty]
+20-02-15 15:00:38.983 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:38.984 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:00:38.985 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:41.320 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.fs.FilePathDisk.createDirectory(FilePathDisk.java:274)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:42)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:309)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:308)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:74)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:188)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:159)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at slick.jdbc.DataSourceJdbcDataSource.createConnection(JdbcDataSource.scala:71)
+	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
+	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:249)
+	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:248)
+	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
+	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+20-02-15 15:00:41.322 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Error while creating file "/D:" [90062-196]
+20-02-15 15:00:51.276 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:01:21.295 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:01:51.315 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:01:57.442 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 15:01:57.525 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 15:01:57.534 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 15:01:57.545 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 15:01:57.551 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 15:01:57.555 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 15:02:27.574 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:02:33.551 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 15:02:33.875 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:02:33.986 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-15 15:02:34.005 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.006 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:34.007 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:02:57.593 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:03:27.614 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:03:57.632 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:04:27.655 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:04:57.674 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:05:27.695 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:05:57.718 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:06:27.736 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:06:57.757 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:07:27.779 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:07:57.801 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:08:27.821 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:08:31.258 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.258 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.261 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.263 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.266 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.268 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.272 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.273 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.276 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:31.277 DEBUG org.seekloud.theia.roomManager.Boot$ - 获取录像列表失败：org.h2.jdbc.JdbcSQLException: Table "ATTEND_EVENT" not found; SQL statement:
+select "ROOMID" from "PUBLIC"."ATTEND_EVENT" where "UID" = 1 [42102-196]
+20-02-15 15:08:57.842 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:09:27.861 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:09:57.881 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:10:27.903 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:10:57.923 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:11:27.943 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:11:57.964 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:12:27.985 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:12:58.007 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:13:28.028 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:13:58.047 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:14:28.069 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:14:58.089 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:15:28.111 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:15:58.130 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:16:28.150 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:16:58.173 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:17:28.192 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:17:58.212 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:18:28.234 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:18:58.253 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:19:28.276 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:19:58.296 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:20:28.316 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:20:58.337 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:21:28.358 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:21:58.379 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:22:28.399 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:22:58.420 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:23:28.441 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:23:58.462 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:24:28.482 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:24:58.503 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:25:28.524 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:25:58.544 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:26:28.564 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:26:58.585 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:27:28.605 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:27:58.627 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:28:28.646 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:28:58.669 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:29:28.689 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:29:58.710 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:30:28.731 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:30:58.751 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:31:28.772 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:31:58.791 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:32:28.813 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:35:08.505 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 15:35:08.586 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 15:35:08.594 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 15:35:08.605 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 15:35:08.610 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 15:35:08.616 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 15:35:33.244 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 15:35:33.606 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:35:33.746 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-15 15:35:38.630 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:36:08.646 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:36:38.669 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:37:08.689 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:37:38.709 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:38:08.729 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:38:38.748 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:39:08.772 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:39:38.792 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:40:08.812 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:40:38.833 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:41:08.854 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:41:38.872 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:42:08.895 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:42:38.914 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:43:08.936 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:43:38.957 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:44:08.976 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:44:38.998 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:45:09.020 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:48:32.410 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 15:48:32.492 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 15:48:32.501 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 15:48:32.512 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 15:48:32.518 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 15:48:32.522 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 15:48:52.285 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.287 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.288 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.288 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.288 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.288 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.288 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.289 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.292 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.295 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 15:48:52.373 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 15:48:52.699 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 15:48:52.825 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.859 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.860 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.860 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.860 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.860 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:1
+20-02-15 15:48:52.881 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.881 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.882 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.884 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.885 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:2
+20-02-15 15:48:52.890 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.890 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.890 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.890 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.891 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.891 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.891 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.892 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.892 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.893 DEBUG org.seekloud.theia.roomManager.Boot$ - uid: 1 参与了会议 roomid:3
+20-02-15 15:48:52.898 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.899 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.899 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:48:52.906 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 获取的record
+20-02-15 15:49:02.539 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:49:32.556 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:50:02.576 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 15:50:32.598 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:01:12.838 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 17:01:12.927 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 17:01:12.936 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 17:01:12.947 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 17:01:12.953 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 17:01:12.956 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 17:01:30.208 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.210 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.211 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.211 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.211 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.211 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.211 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.212 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.215 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.217 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:01:30.292 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 17:01:30.611 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 17:01:30.736 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-15 17:01:30.849 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.849 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.849 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.851 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.856 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.858 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.860 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.863 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.863 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:30.868 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:01:42.979 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:02:12.995 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:02:43.016 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:03:13.037 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:03:30.873 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.878 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.881 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.884 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.888 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.891 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.897 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.900 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.915 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.916 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-15 17:03:30.929 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.944 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.953 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.954 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.956 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.958 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.961 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.963 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.965 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:30.968 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-15 17:03:43.057 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:04:13.077 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:04:43.098 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:05:13.120 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:05:43.139 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:06:13.160 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:06:43.182 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:07:13.201 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:07:43.222 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:08:13.242 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:08:43.263 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:09:13.283 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:09:43.305 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:10:13.325 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:10:43.347 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:11:13.367 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:11:43.386 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:12:13.409 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:12:43.429 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:13:13.451 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:13:43.469 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:14:13.493 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:14:43.511 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:15:13.533 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:15:43.552 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:16:13.575 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:16:43.595 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:17:13.614 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:17:43.637 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:18:13.657 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:18:43.677 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:19:13.699 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:19:43.719 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:20:13.738 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:20:43.759 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:21:13.780 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:21:43.802 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:22:13.823 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:22:43.843 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:23:13.862 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:23:43.883 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:24:13.904 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:24:43.924 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:25:13.945 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:25:43.966 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:26:13.987 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:26:44.008 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:27:14.027 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:27:44.051 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:28:14.070 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:28:44.090 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:29:14.111 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:29:44.132 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:29:49.063 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-15 17:29:49.144 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-15 17:29:49.153 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-15 17:29:49.163 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-15 17:29:49.170 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-15 17:29:49.173 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-15 17:30:19.207 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:30:40.604 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-15 17:30:40.850 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-15 17:30:41.001 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-15 17:30:41.056 DEBUG o.s.t.r.core.RegisterActor$ - RegisterActor_haoxue@ebupt.com start...
+20-02-15 17:30:41.060 INFO o.s.t.roomManager.core.EmailActor$ - I receive msg:SendConfirmEmail(http://127.0.0.1:30387/theia/roomManager/user/confirmEmail?email=haoxue@ebupt.com&code=rkjzOPlbGICjILd0Ph06,haoxue@ebupt.com)
+20-02-15 17:30:41.064 DEBUG o.s.t.r.core.RegisterActor$ - Start timer [TimeoutKey] with generation [1]
+20-02-15 17:30:49.225 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:31:19.245 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:31:48.758 INFO org.seekloud.theia.roomManager.Boot$ - receive confirmEmail:haoxue@ebupt.com, rkjzOPlbGICjILd0Ph06
+20-02-15 17:31:48.790 DEBUG o.s.t.r.core.RegisterActor$ - Cancel all timers
+20-02-15 17:31:48.791 DEBUG o.s.t.r.core.RegisterManager$ - akka://theia/user/registerManager the child registerActor_haoxue@ebupt.com dead
+20-02-15 17:31:48.803 INFO org.seekloud.theia.roomManager.Boot$ - 注册成功！
+20-02-15 17:31:48.803 INFO o.s.t.r.core.RegisterManager$ - RegisterManager 不再监管 RegisterActor_haoxue@ebupt.com
+20-02-15 17:31:49.266 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:31:59.145 INFO org.seekloud.theia.roomManager.Boot$ - 2 login success
+20-02-15 17:32:02.722 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager ws start
+20-02-15 17:32:02.723 INFO o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager websocket will setup for user:2
+20-02-15 17:32:02.724 INFO o.s.t.roomManager.core.UserActor$ - userActor-2 is starting...
+20-02-15 17:32:02.724 DEBUG o.s.t.roomManager.core.UserActor$ - uid 2 创建房间
+20-02-15 17:32:02.738 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:32:02.751 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Room操作成功！！
+20-02-15 17:32:02.757 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Attend_Event操作成功！！
+20-02-15 17:32:02.759 DEBUG o.s.t.roomManager.core.UserActor$ - uid: 2 创建房间 4 
+20-02-15 17:32:02.761 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager更新用户信息失败，房间不存在，有可能该用户是主播等待房间开启，房间id=4,用户id=2
+20-02-15 17:32:02.762 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:32:02.890 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [HeartBeatKey_2] with generation [2]
+20-02-15 17:32:12.120 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:32:12.120 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager请求错误，该房间还不存在，房间id=4，用户id=2
+20-02-15 17:32:12.120 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:32:13.950 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:32:13.950 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager请求错误，该房间还不存在，房间id=4，用户id=2
+20-02-15 17:32:13.950 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:32:17.131 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [5]
+20-02-15 17:32:17.132 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager请求错误，该房间还不存在，房间id=4，用户id=2
+20-02-15 17:32:17.132 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [5]
+20-02-15 17:32:19.288 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:32:23.024 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [HeartBeatKey_2] with generation [2]
+20-02-15 17:32:49.307 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:33:10.305 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [6]
+20-02-15 17:33:10.306 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-4 setup
+20-02-15 17:33:10.306 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-4 用户id=2 开启了新的视频会议 roomid=4
+20-02-15 17:33:10.307 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [6]
+20-02-15 17:33:10.391 DEBUG o.s.t.roomManager.utils.RtpClient$ - get live info
+20-02-15 17:33:10.395 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [getLiveInfo] Processing...
+20-02-15 17:33:10.395 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo url=http://127.0.0.1:30390/theia/rtpServer/api/getLiveInfo
+20-02-15 17:33:10.395 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo parameters=List()
+20-02-15 17:33:10.395 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo postData={"appId":"roomManager","sn":"122151181274480","timestamp":"1581759190392","nonce":"oExq3l","data":"{}","signature":"7d1c59d285a210eaa3cbbf3542412f4724babb9d"}
+20-02-15 17:33:10.446 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:33:10.873 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [startPull] Processing...
+20-02-15 17:33:10.873 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull url=http://127.0.0.1:30389/theia/distributor/startPull
+20-02-15 17:33:10.873 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull parameters=List()
+20-02-15 17:33:10.873 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull postData={"roomId":4,"liveId":"user100001"}
+20-02-15 17:33:10.881 ERROR o.s.t.r.utils.DistributorClient$ - startPullStream postJsonRequestSend error :java.net.ConnectException: Connection refused: /127.0.0.1:30389
+20-02-15 17:33:10.881 ERROR o.s.t.roomManager.core.RoomActor$ - distributor startPull error: startPullStream postJsonRequestSend error :java.net.ConnectException: Connection refused: /127.0.0.1:30389
+20-02-15 17:33:10.892 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#1084522760])定向分发消息：StartLiveRsp(None,200001,start live refused because of getting live info from distributor error.)
+20-02-15 17:33:10.914 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:33:17.621 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [7]
+20-02-15 17:33:17.621 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-4 recv an unknown msg:WebSocketMsgWithActor(2,4,HostStopPushStream(1000001)) in init state...
+20-02-15 17:33:17.621 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [7]
+20-02-15 17:33:19.330 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:33:49.350 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:34:08.028 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [8]
+20-02-15 17:34:08.029 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [8]
+20-02-15 17:34:08.029 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-4 recv an unknown msg:StartLiveAgain(4) in init state...
+20-02-15 17:34:19.369 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:34:38.295 DEBUG o.s.t.roomManager.core.UserActor$ - userActor-2-temp-false 主播关闭房间，roomId=4,userId=2
+20-02-15 17:34:38.296 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-4 recv an unknown msg:HostCloseRoom(4) in init state...
+20-02-15 17:34:38.296 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel all timers
+20-02-15 17:34:38.299 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager the child = List(Actor[akka://theia/user/userManager/userActor-100029-temp-false#439238190])
+20-02-15 17:34:47.491 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager ws start
+20-02-15 17:34:47.492 INFO o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager websocket will setup for user:2
+20-02-15 17:34:47.492 INFO o.s.t.roomManager.core.UserActor$ - userActor-2 is starting...
+20-02-15 17:34:47.492 DEBUG o.s.t.roomManager.core.UserActor$ - uid 2 创建房间
+20-02-15 17:34:47.496 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:34:47.508 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Room操作成功！！
+20-02-15 17:34:47.512 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Attend_Event操作成功！！
+20-02-15 17:34:47.512 DEBUG o.s.t.roomManager.core.UserActor$ - uid: 2 创建房间 5 
+20-02-15 17:34:47.512 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager更新用户信息失败，房间不存在，有可能该用户是主播等待房间开启，房间id=5,用户id=2
+20-02-15 17:34:47.512 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:34:47.514 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [HeartBeatKey_2] with generation [2]
+20-02-15 17:34:49.392 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:35:07.554 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [HeartBeatKey_2] with generation [2]
+20-02-15 17:35:19.413 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:35:36.747 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:35:36.748 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:35:36.748 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-5 setup
+20-02-15 17:35:36.749 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-5 用户id=2 开启了新的视频会议 roomid=5
+20-02-15 17:35:36.749 DEBUG o.s.t.roomManager.utils.RtpClient$ - get live info
+20-02-15 17:35:36.749 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [getLiveInfo] Processing...
+20-02-15 17:35:36.749 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo url=http://127.0.0.1:30390/theia/rtpServer/api/getLiveInfo
+20-02-15 17:35:36.749 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo parameters=List()
+20-02-15 17:35:36.749 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo postData={"appId":"roomManager","sn":"122297534896299","timestamp":"1581759336749","nonce":"XvMv6H","data":"{}","signature":"d240e7b1a57a4fd3a7d3cf45d806c935398390d4"}
+20-02-15 17:35:36.751 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:35:36.770 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [startPull] Processing...
+20-02-15 17:35:36.770 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull url=http://127.0.0.1:30389/theia/distributor/startPull
+20-02-15 17:35:36.770 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull parameters=List()
+20-02-15 17:35:36.770 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull postData={"roomId":5,"liveId":"user100002"}
+20-02-15 17:35:36.909 DEBUG o.s.t.r.utils.DistributorClient$ - startPull rsp: {"errCode":0,"msg":"got liveIduser100002","liveAdd":"/theia/distributor/getFile/5/index.mpd","startTime":1581759336861}
+20-02-15 17:35:36.915 INFO o.s.t.roomManager.core.RoomActor$ - distributor startPull succeed, get live address: /theia/distributor/getFile/5/index.mpd
+20-02-15 17:35:36.915 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：StartLiveRsp(Some(LiveInfo(user100002,6dz7rFQG2j)),0,ok)
+20-02-15 17:35:36.918 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-15 17:35:36.938 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:35:36.939 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:35:36.943 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：ChangeModeRsp(0,ok)
+20-02-15 17:35:49.433 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:35:54.328 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [5]
+20-02-15 17:35:54.329 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [5]
+20-02-15 17:35:54.345 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [2]
+20-02-15 17:35:54.346 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：InviteJoinRsp(500001,user does not exist)
+20-02-15 17:35:54.348 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [2]
+20-02-15 17:36:12.499 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [6]
+20-02-15 17:36:12.500 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [6]
+20-02-15 17:36:12.503 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:36:12.504 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：InviteJoinRsp(500001,user does not exist)
+20-02-15 17:36:12.504 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [3]
+20-02-15 17:36:19.452 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:36:49.472 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:37:07.238 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [7]
+20-02-15 17:37:07.239 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [7]
+20-02-15 17:37:07.242 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:37:07.245 INFO o.s.t.roomManager.core.EmailActor$ - I receive msg:InviteJoin(hx,haoxue@neotel.com.cn,5)
+20-02-15 17:37:07.246 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：InviteJoinRsp(0,ok)
+20-02-15 17:37:07.247 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [4]
+20-02-15 17:37:19.495 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:37:20.021 DEBUG o.s.t.roomManager.core.UserActor$ - userActor-2-temp-false 主播关闭房间，roomId=5,userId=2
+20-02-15 17:37:20.022 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-5 host close the room
+20-02-15 17:37:20.023 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel all timers
+20-02-15 17:37:20.023 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-5 主播向distributor发送finishPull请求
+20-02-15 17:37:20.023 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager the child = List(Actor[akka://theia/user/userManager/userActor-100029-temp-false#439238190])
+20-02-15 17:37:20.028 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [finishPull] Processing...
+20-02-15 17:37:20.028 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull url=http://127.0.0.1:30389/theia/distributor/finishPull
+20-02-15 17:37:20.028 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull parameters=List()
+20-02-15 17:37:20.028 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull postData={"liveId":"user100002"}
+20-02-15 17:37:20.039 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#732924053])定向分发消息：HostCloseRoom()
+20-02-15 17:37:20.040 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel all timers
+20-02-15 17:37:20.041 INFO o.s.t.roomManager.core.RoomManager$ - ---- wait seconds to seek record ----
+20-02-15 17:37:20.044 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager the child = List(Actor[akka://theia/user/roomManager/roomActor-1000029#-533845289], Actor[akka://theia/user/roomManager/roomActor-4#822966615])
+20-02-15 17:37:20.045 DEBUG o.s.t.roomManager.core.RoomManager$ - Start timer [DelaySeekRecordKey51581759336861] with generation [1]
+20-02-15 17:37:25.061 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [seekRecord] Processing...
+20-02-15 17:37:25.062 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord url=http://127.0.0.1:30389/theia/distributor/seekRecord
+20-02-15 17:37:25.062 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord parameters=List()
+20-02-15 17:37:25.062 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord postData={"roomId":5,"startTime":1581759336861}
+20-02-15 17:37:25.150 DEBUG o.s.t.r.utils.DistributorClient$ - RecordInfoRsp(1000100,record file not exist.,)
+20-02-15 17:37:25.150 ERROR o.s.t.r.utils.DistributorClient$ - seekRecord decode error1 : record file not exist.
+20-02-15 17:37:25.150 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager 查询录像文件信息失败,error:seekRecord decode error1 :record file not exist.
+20-02-15 17:37:49.514 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:38:19.537 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:38:49.557 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:39:19.578 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:39:49.599 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:40:19.618 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:40:49.638 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:41:19.661 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:41:37.962 DEBUG o.s.t.roomManager.core.RoomActor$ - 房间信息未更新
+20-02-15 17:41:39.097 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.098 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.100 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.102 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.108 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.112 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.116 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.118 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.120 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.132 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:2 is getting attend info
+20-02-15 17:41:39.161 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.161 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.161 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.162 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.162 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.164 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.167 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.169 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.170 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:39.171 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 0
+20-02-15 17:41:49.679 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:42:19.700 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:42:49.721 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:43:19.742 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:43:49.763 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:44:19.783 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:44:49.806 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-15 17:45:19.825 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient

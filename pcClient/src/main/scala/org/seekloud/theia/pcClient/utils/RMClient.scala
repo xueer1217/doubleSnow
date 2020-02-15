@@ -135,12 +135,12 @@ object RMClient extends HttpUtil {
 
     getRequestSend(methodName, url, Nil, needLogRsp = false).map {
       case Right(jsonStr) =>
-//        Future{
-//          decode[GetRecordListRsp](jsonStr)
-//        }.onComplete{
-//          case Success(value) => log.debug(s"decode[GetRecordListRsp] success")
-//          case Failure(exception) => log.debug(s"decode[GetRecordListRsp] failed: $exception")
-//        }
+        Future{
+          decode[GetRecordListRsp](jsonStr)
+        }.onComplete{
+          case Success(value) => log.debug(s"decode[GetRecordListRsp] success")
+          case Failure(exception) => log.debug(s"decode[GetRecordListRsp] failed: $exception")
+        }
         decode[GetRecordListRsp](jsonStr)
 
       case Left(error) =>

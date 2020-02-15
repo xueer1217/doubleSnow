@@ -670,7 +670,6 @@ object RmManager {
           Behaviors.same
 
         case msg: SendInvitation =>
-          // todo 向用户发送邀请
           sender.foreach(_ !InviteUser(msg.userName))
           Behaviors.same
 

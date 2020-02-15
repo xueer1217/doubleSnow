@@ -56,7 +56,7 @@ object RoomDao {
 
   def searchRecord(roomId: Long) = {
     val q = for {
-      record <- tRoom.filter(_.roomid === roomId).result.headOption
+      record <- tRoom.filter(i=> i.roomid === roomId && i.duration =!= "").result.headOption
       anchorId <- tRoom.filter(_.roomid === roomId).map(_.anchorid).result.headOption
       anchor <- tUserInfo.filter(_.uid === anchorId.getOrElse(0L)).result.headOption
     } yield {

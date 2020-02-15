@@ -35,37 +35,34 @@ trait RecordService {
 
       dealFutureResult {
 
+        def sortRule(record: RecordInfo): Long = {
+          record.startTime
+        }
 
+        log.debug(s"uid:$uid is getting attend info")
         RoomDao.getAttendRoomid(uid).map { list =>
-          val recordList = mutable.ListBuffer[RecordInfo]()
-          list.distinct.map { roomid =>
+          //          val recordList = mutable.ListBuffer[RecordInfo]()
+          dealFutureResult {
+            Future.sequence(list.distinct.map { roomid =>
+              RoomDao.searchRecord(roomid).map {
+                //
+                case (Some(i), Some(info)) =>
+                  RecordInfo(i.roomid, i.roomid, i.roomName, i.roomDesc, i.anchorid, info.userName, i.startTime, UserInfoDao.getHeadImg(info.headImg), RoomDao.getCoverImg(i.coverImg), 0, 0, i.duration)
 
-            RoomDao.searchRecord(roomid).map { res =>
-
-              val (record, anchor) = res
-
-              if (record.nonEmpty && anchor.nonEmpty && record.get.duration.nonEmpty) {
-
-                val i = record.get
-                val info = anchor.get
-                recordList += RecordInfo(i.roomid, i.roomid, i.roomName, i.roomDesc, i.anchorid, info.userName, i.startTime, UserInfoDao.getHeadImg(info.headImg), RoomDao.getCoverImg(i.coverImg), 0, 0, i.duration)
-
+                case _ =>
+                  RecordInfo(-1, -1, "", "", -1, "", 0, "", "", 0, 0, "")
               }
+
+            }).map { list =>
+              //被时间排序过的list
+              val res = list.filter(_.recordId != -1).sortBy(sortRule)(Ordering.Long.reverse).toList
+              val slice = res.slice((pageNum - 1) * pageSize, (pageNum - 1) * pageSize + pageSize)
+              log.debug(s"recordlist size is ${res.size}")
+              complete(GetRecordListRsp(res.size, slice))
             }
+
           }
 
-          def sortRule(record: RecordInfo): Long = {
-            record.startTime
-          }
-
-          val sortedRecord = recordList.sortBy(sortRule)(Ordering.Long.reverse).toList
-
-
-
-          val res = sortedRecord.slice((pageNum - 1) * pageSize, (pageNum - 1) * pageSize + pageSize)
-
-
-          complete(GetRecordListRsp(sortedRecord.size, res))
         }.recover {
           case e: Exception =>
             log.debug(s"获取录像列表失败：$e")
@@ -221,9 +218,9 @@ trait RecordService {
                 RoomDao.getInviteeInfo(req.roomid).map { list =>
                   val inviteeList = mutable.ListBuffer[InviteeInfo]()
                   list.map { uid =>
-                    UserInfoDao.searchById(uid).map{
+                    UserInfoDao.searchById(uid).map {
                       case Some(i) =>
-                        inviteeList +=   InviteeInfo(i.uid, i.userName, i.headImg)
+                        inviteeList += InviteeInfo(i.uid, i.userName, i.headImg)
                       case _ =>
                     }
                   }

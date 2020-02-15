@@ -45,7 +45,7 @@ class WatchingList(headerColWidth: Double, infoColWidth: Double, tableHeight: Do
   var watchingList: ObservableList[WatchingListInfo] = FXCollections.observableArrayList()
   var watchingNum = 0
 
-  val watchingState = new Text(s"有${watchingNum}人正在观看该直播")
+  val watchingState = new Text(s"有${watchingNum}人正在参加会议")
   watchingState.getStyleClass.add("hostScene-leftArea-text")
 
   /*update*/
@@ -55,7 +55,7 @@ class WatchingList(headerColWidth: Double, infoColWidth: Double, tableHeight: Do
         tb.get.setGraphic(audienceIcon1)
       }
     }
-    watchingState.setText(s"有${list.length}人正在观看该直播:")
+    watchingState.setText(s"有${list.length}人正在参加会议:")
     if (list.size < watchingList.size()) { // Audience leave, reduce from watchingList.
       var removePos = 0
       for (i <- 0 until watchingList.size()) {

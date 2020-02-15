@@ -6,7 +6,10 @@ import org.seekloud.theia.roomManager.Boot.executor
 import org.seekloud.theia.roomManager.common.Common
 import org.seekloud.theia.roomManager.utils.DBUtil._
 import org.seekloud.theia.roomManager.models.SlickTables._
+import org.slf4j.LoggerFactory
 import slick.jdbc.H2Profile.api._
+
+import scala.util.{Failure, Success}
 
 /**
   * User: haoxue
@@ -28,7 +31,12 @@ object RoomDao {
       res <- tRoom.returning(tRoom.map(_.roomid)) += rRoom(roomid.getAndIncrement(), username + "的会议", "暂无会议描述", "", System.currentTimeMillis(), uid, "")
     } yield res
 
-    db.run(q)
+    db.run(q).andThen{
+      case Success(_) =>
+        log.debug("数据表Room操作成功！！")
+      case Failure(ex) =>
+        ex.printStackTrace()
+    }
   }
 
   def getRoomInfo(roomId: Long) = {

@@ -125,7 +125,9 @@ object RoomManager {
 
         case r@ActorProtocol.UpdateSubscriber(join,roomId,userId,temporary,userActor) =>
           getRoomActorOpt(roomId,ctx)match{
-            case Some(actor) =>actor ! r
+            case Some(actor) =>
+              log.debug(s"${ctx.self.path}更新用户信息成功，roomid：$roomId 用户id: $userId")
+              actor ! r
             case None =>log.debug(s"${ctx.self.path}更新用户信息失败，房间不存在，有可能该用户是主播等待房间开启，房间id=$roomId,用户id=$userId")
           }
           Behaviors.same

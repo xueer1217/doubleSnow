@@ -116,19 +116,28 @@ object UserActor {
             roomIdOp match {
 
               case Some(roomId) =>
-
+                log.debug(s"uid:$userId ws 连接 roomid $roomId")
                 roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join,roomId,userId,temporary,Some(ctx.self))
                 init(userId,temporary,Some(roomId))
 
 
               case None =>
-                for{
+
+                log.debug(s"uid $userId 创建房间")
+
+               val q =  for{
                   roomId <- RoomDao.createRoom(userId)
                   opt <- AttendDao.addAttendEvent(userId,roomId,System.currentTimeMillis())
                 }yield {
+                  roomId
+                }
+                q.map{ roomId =>
                   roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join,roomId,userId,temporary,Some(ctx.self))
+                  log.debug(s"uid: $userId 创建房间 $roomId ")
                   ctx.self ! SwitchBehavior("init",init(userId,temporary,Some(roomId)))
                 }
+
+
                 switchBehavior(ctx,"busy",busy(),BusyTime,TimeOut("busy"))
             }
 

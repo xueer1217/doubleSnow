@@ -93,7 +93,7 @@ object RoomActor {
       msg match {
 
         case ActorProtocol.StartRoom4Anchor(userId, `roomId`, actor) =>
-          log.debug(s"${ctx.self.path} 用户id=$userId 开启了新的视频会议 id=$roomId")
+          log.debug(s"${ctx.self.path} 用户id=$userId 开启了新的视频会议 roomid=$roomId")
           subscribers.put((userId, false), actor)
           for {
             data <- RtpClient.getLiveInfoFunc()

@@ -20,7 +20,7 @@ trait SlickTables {
   def ddl = schema
 
   /** Entity class storing rows of table tAttendEvent
-   *  @param id Database column ID SqlType(BIGINT), PrimaryKey
+   *  @param id Database column ID SqlType(BIGINT), AutoInc, PrimaryKey
    *  @param uid Database column UID SqlType(BIGINT)
    *  @param roomid Database column ROOMID SqlType(BIGINT)
    *  @param inTime Database column IN_TIME SqlType(BIGINT), Default(0)
@@ -37,8 +37,8 @@ trait SlickTables {
     /** Maps whole row to an option. Useful for outer joins. */
     def ? = ((Rep.Some(id), Rep.Some(uid), Rep.Some(roomid), Rep.Some(inTime), Rep.Some(outTime))).shaped.<>({r=>import r._; _1.map(_=> rAttendEvent.tupled((_1.get, _2.get, _3.get, _4.get, _5.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
-    /** Database column ID SqlType(BIGINT), PrimaryKey */
-    val id: Rep[Long] = column[Long]("ID", O.PrimaryKey)
+    /** Database column ID SqlType(BIGINT), AutoInc, PrimaryKey */
+    val id: Rep[Long] = column[Long]("ID", O.AutoInc, O.PrimaryKey)
     /** Database column UID SqlType(BIGINT) */
     val uid: Rep[Long] = column[Long]("UID")
     /** Database column ROOMID SqlType(BIGINT) */
@@ -78,7 +78,7 @@ trait SlickTables {
   lazy val tLoginEvent = new TableQuery(tag => new tLoginEvent(tag))
 
   /** Entity class storing rows of table tRecordComment
-   *  @param id Database column ID SqlType(BIGINT), PrimaryKey
+   *  @param id Database column ID SqlType(BIGINT), AutoInc, PrimaryKey
    *  @param roomId Database column ROOM_ID SqlType(BIGINT)
    *  @param recordTime Database column RECORD_TIME SqlType(BIGINT)
    *  @param comment Database column COMMENT SqlType(VARCHAR), Length(256,true), Default()
@@ -98,8 +98,8 @@ trait SlickTables {
     /** Maps whole row to an option. Useful for outer joins. */
     def ? = ((Rep.Some(id), Rep.Some(roomId), Rep.Some(recordTime), Rep.Some(comment), Rep.Some(commentTime), Rep.Some(commentUid), authorUid, Rep.Some(relativeTime))).shaped.<>({r=>import r._; _1.map(_=> rRecordComment.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7, _8.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
-    /** Database column ID SqlType(BIGINT), PrimaryKey */
-    val id: Rep[Long] = column[Long]("ID", O.PrimaryKey)
+    /** Database column ID SqlType(BIGINT), AutoInc, PrimaryKey */
+    val id: Rep[Long] = column[Long]("ID", O.AutoInc, O.PrimaryKey)
     /** Database column ROOM_ID SqlType(BIGINT) */
     val roomId: Rep[Long] = column[Long]("ROOM_ID")
     /** Database column RECORD_TIME SqlType(BIGINT) */
@@ -119,7 +119,7 @@ trait SlickTables {
   lazy val tRecordComment = new TableQuery(tag => new tRecordComment(tag))
 
   /** Entity class storing rows of table tRoom
-   *  @param roomid Database column ROOMID SqlType(BIGINT), PrimaryKey
+   *  @param roomid Database column ROOMID SqlType(BIGINT), AutoInc, PrimaryKey
    *  @param roomName Database column ROOM_NAME SqlType(VARCHAR), Length(256,true), Default()
    *  @param roomDesc Database column ROOM_DESC SqlType(VARCHAR), Length(256,true), Default()
    *  @param coverImg Database column COVER_IMG SqlType(VARCHAR), Length(256,true), Default()
@@ -138,8 +138,8 @@ trait SlickTables {
     /** Maps whole row to an option. Useful for outer joins. */
     def ? = ((Rep.Some(roomid), Rep.Some(roomName), Rep.Some(roomDesc), Rep.Some(coverImg), Rep.Some(startTime), Rep.Some(anchorid), Rep.Some(duration))).shaped.<>({r=>import r._; _1.map(_=> rRoom.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
-    /** Database column ROOMID SqlType(BIGINT), PrimaryKey */
-    val roomid: Rep[Long] = column[Long]("ROOMID", O.PrimaryKey)
+    /** Database column ROOMID SqlType(BIGINT), AutoInc, PrimaryKey */
+    val roomid: Rep[Long] = column[Long]("ROOMID", O.AutoInc, O.PrimaryKey)
     /** Database column ROOM_NAME SqlType(VARCHAR), Length(256,true), Default() */
     val roomName: Rep[String] = column[String]("ROOM_NAME", O.Length(256,varying=true), O.Default(""))
     /** Database column ROOM_DESC SqlType(VARCHAR), Length(256,true), Default() */
@@ -157,7 +157,7 @@ trait SlickTables {
   lazy val tRoom = new TableQuery(tag => new tRoom(tag))
 
   /** Entity class storing rows of table tUserInfo
-   *  @param uid Database column UID SqlType(BIGINT), PrimaryKey
+   *  @param uid Database column UID SqlType(BIGINT), AutoInc, PrimaryKey
    *  @param userName Database column USER_NAME SqlType(VARCHAR), Length(100,true)
    *  @param password Database column PASSWORD SqlType(VARCHAR), Length(100,true)
    *  @param roomid Database column ROOMID SqlType(BIGINT), Default(0)
@@ -184,8 +184,8 @@ trait SlickTables {
     /** Maps whole row to an option. Useful for outer joins. */
     def ? = ((Rep.Some(uid), Rep.Some(userName), Rep.Some(password), Rep.Some(roomid), Rep.Some(token), Rep.Some(tokenCreateTime), Rep.Some(headImg), Rep.Some(coverImg), Rep.Some(email), Rep.Some(createTime), Rep.Some(rtmpToken), Rep.Some(`sealed`), Rep.Some(sealedUtilTime), Rep.Some(allowAnchor))).shaped.<>({r=>import r._; _1.map(_=> rUserInfo.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7.get, _8.get, _9.get, _10.get, _11.get, _12.get, _13.get, _14.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
-    /** Database column UID SqlType(BIGINT), PrimaryKey */
-    val uid: Rep[Long] = column[Long]("UID", O.PrimaryKey)
+    /** Database column UID SqlType(BIGINT), AutoInc, PrimaryKey */
+    val uid: Rep[Long] = column[Long]("UID", O.AutoInc, O.PrimaryKey)
     /** Database column USER_NAME SqlType(VARCHAR), Length(100,true) */
     val userName: Rep[String] = column[String]("USER_NAME", O.Length(100,varying=true))
     /** Database column PASSWORD SqlType(VARCHAR), Length(100,true) */

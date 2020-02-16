@@ -34,6 +34,9 @@ object Routes {
     val getCommentInfo = "/theia/roomManager/recordComment/getRecordCommentList"
     val sendCommentInfo = "/theia/roomManager/recordComment/addRecordComment"
     val deleteCommentInfo = "/theia/roomManager/recordComment/deleteRecordComment"
+    val sendInvitationInfo = "/theia/roomManager/recordInvitation/InviteWatchRecord"
+    val deleteInvitationInfo ="/theia/roomManager/recordInvitation/deleteWatchInvite"
+    val getInviteeInfo = "/theia/roomManager/recordInvitation/getInviteeList"
 
     def uploadImg(imgType:Int, userId:String) = base+s"/file/uploadFile?imgType=$imgType&userId=$userId"
 

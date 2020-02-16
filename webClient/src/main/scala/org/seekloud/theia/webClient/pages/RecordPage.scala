@@ -52,7 +52,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   private val videoTime = Var(dom.window.sessionStorage.getItem("recordStartTime"))
   private val videoName = Var(dom.window.sessionStorage.getItem("recordName"))
   val commentInfo = Var(List.empty[CommentInfo])
-
+  val inviteeInfo = Var(List.empty[InviteeInfo])
   def exitRecord(): Future[Unit] ={
     val userId =
       if(isTemUser()) dom.window.sessionStorage.getItem("userId")
@@ -106,17 +106,21 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           }
         case Left(e) =>
           println("error happen: "+ e)
+
       }
     }
   }
-  def deleteComment(): Unit={
+  def deleteComment(commentId:Long): Unit={
 
-    val data = DeleteCommentReq(roomId,).asJson.noSpaces
+    val uid = dom.window.localStorage.getItem("userId").toLong
+
+    val data = DeleteCommentReq(roomId,commentId ,uid).asJson.noSpaces
     Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
       case Right(rsp) =>
         if (rsp.errCode == 0) {
           getCommentInfo()
         } else {
+          JsFunc.alert("非会议主持人不能删除评论！")
           println(rsp.msg)
         }
       case Left(error) =>
@@ -139,6 +143,56 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       case Left(e) =>
         println("error happen: " + e)
     }
+  }
+
+  def InviteWatchRecord () :Unit= {
+    val invitorId= dom.window.localStorage.getItem("userId").toLong
+    val username= dom.document.getElementById("ipt-txt").asInstanceOf[TextArea].value
+    val data = InviteWatchRecordReq(invitorId,username,roomId).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.sendInvitationInfo,data).map {
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          getInviteeInfo()
+          println(123)
+        } else {
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println(s"parse error,$error")
+    }
+
+  }
+
+  def deleteWatchInvite (invitee:Long):Unit = {
+    val uid= dom.window.localStorage.getItem("userId").toLong
+    val data = DeleteWatchInviteReq(uid,invitee,roomId).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteInvitationInfo,data).map{
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          println(123)
+        } else {
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println (s"parse error,$error")
+    }
+  }
+
+  def getInviteeInfo() : Unit = {
+    val uid = dom.window.localStorage.getItem("userId").toLong
+    val data = GetInviteListReq(roomId,uid).asJson.noSpaces
+    Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteeInfo,data).map{
+      case Right(rsp) =>
+        if(rsp.errCode == 0){
+          inviteeInfo := rsp.list
+          println(123)
+        }else{
+          inviteeInfo := List.empty[InviteeInfo]
+        }
+      case Left(e) =>
+        println("error happen: " + e)
+    }
+
   }
 
   private var mp4Url = Var("")
@@ -223,7 +277,26 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     },100)
   }
- // def getdeleteButton(roomId:Long) =
+
+ val invitation:Rx[Node] = inviteeInfo.map{ e =>
+   def createInvitationItem(item:InviteeInfo) = {
+     <div class="rcl-item">
+       <div class="user-face">
+         <img class="userface" src={item.headImage}></img>
+       </div>
+       <div class="rcl-con">
+        <div class="rcl-con-name">{item.username}</div>
+       </div>
+       <div class="rcl-con-delete">
+         <button class="pop-button"onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
+       </div>
+     </div>
+   }
+   <div class="comment-list">
+     {e.map(createInvitationItem)}
+   </div>
+ }
+
   val comments:Rx[Node] = commentInfo.map{ cf =>
     def createCommentItem(item:CommentInfo) = {
       <div class="rcl-item">
@@ -234,8 +307,12 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           <div class="rcl-con-name">{item.commentUserName}</div>
           <div class="rcl-con-con">{item.comment}</div>
           <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
-          <div class="rcl-con-delete">{getdeleteButton(item.commentId)}</div>
+               <!--        if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) { -->
         </div>
+        <div class="rcl-con-delete">
+          <button class="pop-button"onclick={() => deleteComment(item.commentId)}>删除</button>
+             <!--   {getdeleteButton(item.commentId)}  -->
+          </div>
       </div>
     }
     <div class="comment-list">
@@ -247,6 +324,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   override def render: Elem = {
     init()
     getCommentInfo()
+    getInviteeInfo()
     <div>
       <div class="audienceInfo" style="margin-left: 250px;margin-top: 20px;width:60%">
         <div class="anchorInfo">
@@ -271,6 +349,23 @@ class RecordPage(roomId:Long,time:Long) extends Page{
             </div>
           </div>
         </div>
+
+        <div class="r-username" id= "r-username" >
+         <div class="rc-head ">用户名</div>
+          <div class="rc-content">
+           <div class ="username-send">
+            <div class="textarea-container">
+              <textarea cols="80" name="msg" rows="5" placeholder="请输入邀请观看会议录像的用户名。" class="ipt-txt" id="ipt-txt"
+                        onkeydown={(e:dom.KeyboardEvent)=> if (e.keyCode==13) sendComment()} ></textarea>
+              <div class="rsb-button">
+                <button type="submit" class="comment-submit" id="comment-submit" onclick={()=>sendComment()}>邀请</button>
+              </div>
+            </div>
+          </div>
+          {invitation}
+        </div>
+        </div>
+
 
         <div class="r-comment" id="r-comment">
           <div class="rc-head">全部评论(

@@ -419,7 +419,7 @@ object RoomActor {
         }
         idle(wholeRoomInfo, liveInfoMap, subscribers, liker, startTime, totalView, connect,inviteList)
 
-      case JoinAccept(`roomId`, userId4Audience, clientType, accept) =>
+      case JoinAccept(roomId, userId4Audience, clientType, accept) =>
         log.debug(s"${ctx.self.path} 接受连线者请求，roomId=$roomId")
         if (accept) {
           for {
@@ -494,7 +494,7 @@ object RoomActor {
 
         Behaviors.same
 
-      case HostShutJoin(`roomId`) =>
+      case HostShutJoin(roomId) =>
         log.debug(s"${ctx.self.path} the host has shut the join in room$roomId")
         liveInfoMap.remove(Role.audience)
         liveInfoMap.get(Role.host) match {
@@ -516,6 +516,8 @@ object RoomActor {
         Behaviors.same
 
       case ModifyRoomInfo(roomName, roomDes) =>
+
+        log.debug("修改了--------------------------")
         val roomInfo = if (roomName.nonEmpty && roomDes.nonEmpty) {
           wholeRoomInfo.roomInfo.copy(roomName = roomName.get, roomDes = roomDes.get)
         } else if (roomName.nonEmpty) {
@@ -533,7 +535,7 @@ object RoomActor {
         idle(info, liveInfoMap, subscribers, liker, startTime, totalView, isJoinOpen,inviteList)
 
 
-      case HostStopPushStream(`roomId`) =>
+      case HostStopPushStream(roomId) =>
         //val liveId = wholeRoomInfo.roomInfo.rtmp.get
        /* wholeRoomInfo.roomInfo.rtmp match {
           case Some(v) =>
@@ -567,7 +569,7 @@ object RoomActor {
             idle(newroomInfo, liveInfoMap, mutable.HashMap.empty[(Long, Boolean), ActorRef[UserActor.Command]], mutable.Set[Long](), -1l, totalView, isJoinOpen,inviteList)
         }
 
-      case JoinReq(userId4Audience, `roomId`, clientType) =>
+      case JoinReq(userId4Audience, roomId, clientType) =>
         if (isJoinOpen) {
           UserInfoDao.searchById(userId4Audience).map { r =>
             if (r.nonEmpty) {
@@ -609,7 +611,7 @@ object RoomActor {
         Behaviors.same
 
 
-      case AudienceShutJoin(`roomId`) =>
+      case AudienceShutJoin(roomId) =>
         //切断所有的观众连线
         liveInfoMap.get(Role.audience) match {
           case Some(value) =>
@@ -661,7 +663,7 @@ object RoomActor {
         Behaviors.same
 
 
-      case LikeRoom(`userId`, `roomId`, upDown) =>
+      case LikeRoom(userId, roomId, upDown) =>
         upDown match {
           case Like.up =>
             if (liker.contains(userId)) {
@@ -693,11 +695,11 @@ object RoomActor {
       //        wholeRoomInfo.roomInfo.like = liker.size
       //        Behaviors.same
 
-      case JudgeLike(`userId`, `roomId`) =>
+      case JudgeLike(userId, roomId) =>
         dispatchTo(List((userId, false)), JudgeLikeRsp(liker.contains(userId)))
         Behaviors.same
 
-      case Comment(`userId`, `roomId`, comment, color, extension) =>
+      case Comment(userId, roomId, comment, color, extension) =>
         UserInfoDao.searchById(userId).onComplete {
           case Success(value) =>
             value match {
@@ -718,6 +720,7 @@ object RoomActor {
 
         UserInfoDao.searchByName(username).onComplete{
           case Success(value) =>
+            log.debug("邀请成功==============")
             value match{
               case Some(info) =>
                 emailActor ! InviteJoin(wholeRoomInfo.roomInfo.userName,info.email,wholeRoomInfo.roomInfo.roomId)

@@ -92,7 +92,7 @@ object CommonProtocol {
     roomId: Long,
     startTime: Long,
     inTime:Long,//用户开始观看视频的时间
-    userIdOpt:Option[Long] = None
+    userId:Long
   ) extends Request
 
   case class SearchRecordRsp(
@@ -104,7 +104,8 @@ object CommonProtocol {
 
   val RecordNotExist = SearchRecordRsp(errCode = 200001,msg = "该录像不存在")
   val AnchorNotExist = SearchRecordRsp(errCode = 200002,msg = "该主持人信息不存在")
-
+  val NoAuthToWatchRecord = SearchRecordRsp(errCode = 200003,msg = "您无权查看该录像")
+  val WatchError = SearchRecordRsp(errCode = 200004,msg = "parse error")
   /*case class GetAuthorRecordListReq(
     roomId: Long,
     sortBy: String,

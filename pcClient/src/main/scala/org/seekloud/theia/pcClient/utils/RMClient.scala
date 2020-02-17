@@ -151,7 +151,7 @@ object RMClient extends HttpUtil {
 
   }
 
-  def searchRecord(roomId: Long, startTime: Long, userId: Option[Long]) : Future[Either[Throwable, SearchRecordRsp]] = {
+  def searchRecord(roomId: Long, startTime: Long, userId: Long) : Future[Either[Throwable, SearchRecordRsp]] = {
     val methodName = "searchRecord"
     val url = Routes.searchRecord
 

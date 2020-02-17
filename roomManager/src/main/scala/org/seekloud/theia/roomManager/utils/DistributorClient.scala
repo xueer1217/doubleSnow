@@ -70,6 +70,7 @@ object DistributorClient {
 
   def startPull(roomId: Long, liveId: String): Future[Either[String, StartPullRsp]] = {
     val url = distributorBaseUrl + "/startPull"
+    log.debug(s"$url")
     val jsonString = DistributorProtocol.StartPullReq(roomId, liveId).asJson.noSpaces
     postJsonRequestSend("startPull", url, List(), jsonString, timeOut = 60 * 1000, needLogRsp = false).map{
       case Right(rsp) =>

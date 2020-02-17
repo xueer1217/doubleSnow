@@ -119,7 +119,7 @@ object PublishManager {
           Behaviors.same
 
         case ParsePullStreamRequest(liveIdByte, channel, remoteAddress) =>
-          val parseData = RtpUtil.parseData(liveIdByte)
+          val parseData = RtpUtil.parseData(liveIdByte) //接收到的全部内容
           val seq = parseData.header.seq
           val m = parseData.header.m
           val clientId = parseData.header.ssrc

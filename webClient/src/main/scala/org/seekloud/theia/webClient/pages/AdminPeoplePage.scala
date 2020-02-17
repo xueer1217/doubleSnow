@@ -50,18 +50,18 @@ class AdminPeoplePage extends Page{
       }
     )
     //初始化表三
-    val recordListUrl = Routes.UserRoutes.getRecordList("view",1,1)
-    Http.getAndParse[GetRecordListRsp](recordListUrl).map{
-      case Right(rsp) =>
-        if(rsp.errCode == 0){
-          dom.document.getElementById("record-id").asInstanceOf[Input].value = rsp.recordInfo.head.recordId.toString
-          obtainStat2()
-        }else{
-          println(s"errors happen rsp: ${rsp.msg}")
-        }
-      case Left(e) =>
-        println(s"errors happen: $e")
-    }
+//    val recordListUrl = Routes.UserRoutes.getRecordList("view",1,1)
+//    Http.getAndParse[GetRecordListRsp](recordListUrl).map{
+//      case Right(rsp) =>
+//        if(rsp.errCode == 0){
+//          dom.document.getElementById("record-id").asInstanceOf[Input].value = rsp.recordInfo.head.recordId.toString
+//          obtainStat2()
+//        }else{
+//          println(s"errors happen rsp: ${rsp.msg}")
+//        }
+//      case Left(e) =>
+//        println(s"errors happen: $e")
+//    }
     dom.document.getElementById("record-time").setAttribute("disabled","true")
     //初始化表一
     obtainStat0()

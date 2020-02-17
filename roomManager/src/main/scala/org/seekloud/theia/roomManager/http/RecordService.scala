@@ -68,38 +68,48 @@ trait RecordService {
             log.debug(s"获取录像列表失败：$e")
             complete(GetAuthorRecordListRsp(0, Nil))
         }
-
-
       }
 
     }
   }
 
+
   private val searchRecord = (path("searchRecord") & post) {
     entity(as[Either[Error, SearchRecord]]) {
       case Right(req) =>
+
         dealFutureResult {
-          RoomDao.searchRecord(req.roomId).map {
-            case (Some(i), Some(anchor)) =>
-              //              dealFutureResult {
+          RoomDao.checkAttendByUid(req.userId, req.roomId).map {
+            case Some(_) =>
+              dealFutureResult {
+                RoomDao.searchRecord(req.roomId).map {
+                  case (Some(i), Some(anchor)) =>
 
-              //                StatisticDao.addObserveEvent(if (req.userIdOpt.nonEmpty) req.userIdOpt.get else 1l, recordInfo.recordId, false, req.userIdOpt.isEmpty, req.inTime).map { r =>
-              //                  RecordDao.updateViewNum(req.roomId, req.startTime, recordInfo.observeNum + 1)
-              val url = s"https://${AppSettings.distributorDomain}/theia/distributor/getRecord/${req.roomId}/${req.startTime}/record.mp4"
-              val recordInfo = RecordInfo(i.roomid, i.roomid, i.roomName, i.roomDesc, i.anchorid, anchor.userName, i.startTime, UserInfoDao.getHeadImg(anchor.headImg), RoomDao.getCoverImg(i.coverImg), 0, 0, i.duration)
-              complete(SearchRecordRsp(url, Some(recordInfo)))
+                    val url = if ((!AppSettings.distributorUseIp)) s"https://${AppSettings.distributorDomain}/theia/distributor/getRecord/${req.roomId}/${req.startTime}/record.mp4"
+                    else s"https://${AppSettings.distributorIp}:${AppSettings.distributorPort}/theia/distributor/getRecord/${req.roomId}/${req.startTime}/record.mp4"
 
-            //                }
-            //              }
+                    val recordInfo = RecordInfo(i.roomid, i.roomid, i.roomName, i.roomDesc, i.anchorid, anchor.userName, i.startTime, UserInfoDao.getHeadImg(anchor.headImg), RoomDao.getCoverImg(i.coverImg), 0, 0, i.duration)
+                    complete(SearchRecordRsp(url, Some(recordInfo)))
 
-            case (Some(i), _) =>
-              complete(AnchorNotExist)
-            case (_, _) =>
-              complete(RecordNotExist)
+
+                  case (Some(i), _) =>
+                    log.debug(s"未找到该录像roomid:${req.roomId} 主持人信息")
+                    complete(AnchorNotExist)
+
+                  case (_, _) =>
+                    log.debug(s"未找到该录像roomid:${req.roomId} 信息")
+                    complete(RecordNotExist)
+                }
+              }
+            case None =>
+              log.debug(s"用户${req.userId} 无权查看 未找到该录像roomid:${req.roomId} 主持人信息")
+              complete(NoAuthToWatchRecord)
           }
+
         }
       case Left(e) =>
-        complete(CommonRsp(100070, s"parse error:$e"))
+        log.debug(s"parse error")
+        complete(WatchError)
     }
   }
 
@@ -213,26 +223,27 @@ trait RecordService {
               complete(GetInviteeListRsp(errCode = 100111, msg = s"用户uid${req.uid}不是会议发起人，无权查看"))
             case _ =>
               dealFutureResult {
-
-
                 RoomDao.getInviteeInfo(req.roomid).map { list =>
-                  val inviteeList = mutable.ListBuffer[InviteeInfo]()
-                  list.map { uid =>
-                    UserInfoDao.searchById(uid).map {
-                      case Some(i) =>
-                        inviteeList += InviteeInfo(i.uid, i.userName, i.headImg)
-                      case _ =>
+
+                  dealFutureResult {
+
+                    Future.sequence {
+                      list.map { uid =>
+                        UserInfoDao.searchById(uid).map {
+                          case Some(i) =>
+                            InviteeInfo(i.uid, i.userName, i.headImg)
+                          case _ =>
+                            InviteeInfo(-1, "", "")
+                        }
+                      }.toList
+                    }.map { list =>
+                      val res = list.filter(_.uid != -1)
+                      complete(GetInviteeListRsp(res))
                     }
                   }
-
-                  complete(GetInviteeListRsp(inviteeList.toList))
                 }
-
               }
-
           }
-
-
         }
       case Left(ex) =>
         log.debug(s"parse error")
@@ -251,7 +262,7 @@ trait RecordService {
               complete(CommonRsp(100202, s"用户uid:${req.uid}不是会议发起人，无权查看"))
             case _ =>
               dealFutureResult {
-                RoomDao.findInviteeOfRecord(req.invitee, req.roomId).map {
+                RoomDao.checkInviteeOfRecord(req.invitee, req.roomId).map {
 
                   case Some(info) =>
 
@@ -261,8 +272,8 @@ trait RecordService {
                       }
                     }
                   case None =>
-                    log.debug(s"该用户uid: ${req.invitee} 无权访问该会议roomid:${req.roomId}")
-                    complete(CommonRsp(100201, s"该用户uid: ${req.invitee} 无权访问该会议roomid:${req.roomId}"))
+                    log.debug(s"该用户uid: ${req.invitee} 未被邀请该会议roomid:${req.roomId}")
+                    complete(CommonRsp(100201, s"该用户uid: ${req.invitee} 未被邀请该会议roomid:${req.roomId}"))
                 }
               }
 
@@ -276,25 +287,6 @@ trait RecordService {
     }
 
   }
-
-  //  private val addRecordAddr = (path("addRecordAddr") & post) {
-  //    entity(as[Either[Error, AddRecordAddrReq]]) {
-  //      case Right(req) =>
-  //        dealFutureResult {
-  //          RecordDao.addRecordAddr(req.recordId, req.recordAddr).map { r =>
-  //            if (r == 1) {
-  //              log.info("添加录像地址成功")
-  //              complete(CommonRsp())
-  //            } else {
-  //              log.info("添加录像地址失败")
-  //              complete(CommonRsp(100049, s"add record failed"))
-  //            }
-  //          }
-  //        }
-  //      case Left(e) =>
-  //        complete(CommonRsp(100050, s"add record req error: $e"))
-  //    }
-  //  }
 
 
   val recordRoutes: Route = pathPrefix("record") {

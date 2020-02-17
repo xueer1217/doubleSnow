@@ -24,11 +24,17 @@ object Routes {
   val temporaryUser: String = userUrl + "/temporaryUser"
   val getRoomInfo: String = userUrl + "/getRoomInfo"
 
+
+
+  /*录像相关*/
   val recordUrl: String = baseUrl + "/record"
-//  val getRecordList: String = recordUrl + "/getRecordList"
+  //查看会议录像及会议信息
   val searchRecord: String = recordUrl + "/searchRecord"
 
+  //参会人查看会议录像列表
   def getRecordList(sortBy: String, pageNum: Int, pageSize: Int,uid:Long) = recordUrl + "/getRecordList" + s"?sortBy=$sortBy&pageNum=$pageNum&pageSize=$pageSize&uid=$uid"
+
+  //(废弃)
   def getAuthorRecordList(roomId:Long)= recordUrl + "/getAuthorRecordList"+s"?roomId=$roomId"
 
   val deleteRecord:String=recordUrl + "/deleteRecord"

@@ -10,10 +10,11 @@ object Routes {
 
   private val base = "/theia/roomManager"
 
-  object UserRoutes{
+  object UserRoutes {
 
     private val urlbase = base + "/user"
     private val urlRecord = base + "/record"
+    private val urlComment = base + "/recordComment"
 
     val userRegister = urlbase + "/signUp"
 
@@ -27,21 +28,39 @@ object Routes {
 
     val temporaryUser = urlbase + "/temporaryUser"
 
-    def getRecordList(sortBy:String,pageNum:Int,pageSize:Int) = urlRecord + s"/getRecordList?sortBy=$sortBy&pageNum=$pageNum&pageSize=$pageSize"
 
+    /*录像相关*/
+
+    //参会人查看自己可见的会议录像列表
+    def getRecordList(sortBy: String, pageNum: Int, pageSize: Int, uid: Long) = urlRecord + s"/getRecordList?sortBy=$sortBy&pageNum=$pageNum&pageSize=$pageSize&uid=$uid"
+    //参会人查看会议录像和会议信息
     val getOneRecord = urlRecord + "/searchRecord"
+    //（废弃）
     val watchRecordOver = urlRecord + "/watchRecordOver"
-    val getCommentInfo = "/theia/roomManager/recordComment/getRecordCommentList"
-    val sendCommentInfo = "/theia/roomManager/recordComment/addRecordComment"
-    val deleteCommentInfo = "/theia/roomManager/recordComment/deleteRecordComment"
+    //会议发起者可以邀请其他未参会用户查看会议录像
+    val inviteToWatchRecord = urlRecord + "/inviteWatchRecord"
+    //会议发起者查看邀请列表
+    val getInviteList = urlRecord + "/getInviteInfo"
+    //会议发起者删除邀请信息
+    val deleteInviteInfo = urlRecord + "/deleteWatchInvite"
 
-    def uploadImg(imgType:Int, userId:String) = base+s"/file/uploadFile?imgType=$imgType&userId=$userId"
 
-    def nickNameChange(userId:Long,userName:String) = urlbase + s"/nickNameChange?userId=$userId&newName=$userName"
+    /*评论相关*/
+
+    //查看评论
+    val getCommentInfo = urlComment+"/getRecordCommentList"
+    //添加评论
+    val sendCommentInfo = urlComment+"/addRecordComment"
+    //会议发起者可以删除评论
+    val deleteCommentInfo = urlComment+"/deleteComment"
+
+    def uploadImg(imgType: Int, userId: String) = base + s"/file/uploadFile?imgType=$imgType&userId=$userId"
+
+    def nickNameChange(userId: Long, userName: String) = urlbase + s"/nickNameChange?userId=$userId&newName=$userName"
 
   }
 
-  object AdminRoutes{
+  object AdminRoutes {
 
     private val urlAdmin = base + "/admin"
     private val urlStat = base + "/statistic"
@@ -69,12 +88,12 @@ object Routes {
 
   val getToken = base + "/rtmp/getToken"
 
-  def getWsSocketUri(liveId:String,liveCode:String): String = {
+  def getWsSocketUri(liveId: String, liveCode: String): String = {
     val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
     s"$wsProtocol://10.1.29.246:41650/webrtcServer/userJoin?liveId=$liveId&liveCode=$liveCode"
   }
 
-  def rmWebScocketUri(userId:Long, token:String,roomId:Long) = {
+  def rmWebScocketUri(userId: Long, token: String, roomId: Long) = {
     val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
     s"$wsProtocol://${dom.document.location.host}/theia/roomManager/user/setupWebSocket?userId=$userId&token=$token&roomId=$roomId"
   }

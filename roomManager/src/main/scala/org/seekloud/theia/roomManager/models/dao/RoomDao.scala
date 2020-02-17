@@ -56,7 +56,7 @@ object RoomDao {
 
   def searchRecord(roomId: Long) = {
     val q = for {
-      record <- tRoom.filter(i=> i.roomid === roomId && i.duration =!= "").result.headOption
+      record <-  tRoom.filter(i=> i.roomid === roomId && i.duration =!= "").result.headOption
       anchorId <- tRoom.filter(_.roomid === roomId).map(_.anchorid).result.headOption
       anchor <- tUserInfo.filter(_.uid === anchorId.getOrElse(0L)).result.headOption
     } yield {
@@ -76,7 +76,7 @@ object RoomDao {
     db.run(tRoom.filter(i => i.roomid === roomId && i.anchorid === uid).result.headOption)
   }
 
-  //验证该用户是否已经有资格查看录像
+  //用户名验证该用户是否已经有资格查看录像
   def checkAttend(username: String, roomId: Long) = {
     val q = for {
       uid <- tUserInfo.filter(_.userName === username).map(_.uid).result.headOption
@@ -88,6 +88,12 @@ object RoomDao {
     db.run(q)
 
   }
+  def checkAttendByUid(uid:Long,roomid:Long) = {
+    db.run(tAttendEvent.filter(i => i.uid === uid && i.roomid === roomid).result.headOption)
+  }
+
+
+
 
   def inviteWatchRecord(uid: Long, roomid: Long) = {
 
@@ -95,9 +101,9 @@ object RoomDao {
 
   }
 
-  //确认该用户是否有权查看会议录像
-  def findInviteeOfRecord(uid: Long, roomId: Long) = {
-    db.run(tAttendEvent.filter(i => i.uid === uid && i.roomid === roomId).result.headOption)
+  //确认该用户是否被邀请看录像
+  def checkInviteeOfRecord(uid: Long, roomId: Long) = {
+    db.run(tAttendEvent.filter(i => i.uid === uid && i.roomid === roomId && i.inTime === 0L).result.headOption)
   }
 
   //删除邀请

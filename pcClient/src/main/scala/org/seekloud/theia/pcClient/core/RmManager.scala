@@ -314,30 +314,41 @@ object RmManager {
           Behaviors.same
 
         case msg: GetRecordDetail =>
-          RMClient.searchRecord(msg.recordInfo.roomId, msg.recordInfo.startTime, userInfo.map(_.userId)).onComplete {
-            case Success(rst) =>
-              rst match {
-                case Right(record) =>
-                  if (record.errCode == 0) {
-                    ctx.self ! GoToRecord(msg.recordInfo, record.url)
-                  } else {
+          
+          val uid =  userInfo.map(_.userId)
+          if(uid.nonEmpty){
+            RMClient.searchRecord(msg.recordInfo.roomId, msg.recordInfo.startTime, uid.get).onComplete {
+              case Success(rst) =>
+                rst match {
+                  case Right(record) =>
+                    if (record.errCode == 0) {
+                      ctx.self ! GoToRecord(msg.recordInfo, record.url)
+                    } else {
+                      Boot.addToPlatform {
+                        roomController.foreach(_.removeLoading())
+                        WarningDialog.initWarningDialog(s"processor还没准备好哦~~~")
+                      }
+                    }
+                  case Left(error) =>
+                    log.error(s"search record rsp error: $error")
                     Boot.addToPlatform {
                       roomController.foreach(_.removeLoading())
-                      WarningDialog.initWarningDialog(s"processor还没准备好哦~~~")
                     }
-                  }
-                case Left(error) =>
-                  log.error(s"search record rsp error: $error")
-                  Boot.addToPlatform {
-                    roomController.foreach(_.removeLoading())
-                  }
-              }
-            case Failure(ex) =>
-              log.error(s"search record-${msg.recordInfo.roomId} future error: $ex")
-              Boot.addToPlatform {
-                roomController.foreach(_.removeLoading())
-              }
+                }
+              case Failure(ex) =>
+                log.error(s"search record-${msg.recordInfo.roomId} future error: $ex")
+                Boot.addToPlatform {
+                  roomController.foreach(_.removeLoading())
+                }
+            }
+          }else{
+            Boot.addToPlatform {
+              roomController.foreach(_.removeLoading())
+              WarningDialog.initWarningDialog(s"你还没有登录不能查看录像～～～")
+            }
           }
+          
+     
           Behaviors.same
 
 

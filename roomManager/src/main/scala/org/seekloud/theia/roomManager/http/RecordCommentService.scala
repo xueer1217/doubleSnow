@@ -126,8 +126,8 @@ trait RecordCommentService extends ServiceUtils {
         }
 
       case Left(error) =>
-        log.debug(s"增加记录评论失败，请求错误，error=$error")
-        complete(getRecordCommentListErrorRsp(s"增加记录评论失败，请求错误，error=$error"))
+        log.debug(s"获取评论列表失败，请求错误，error=$error")
+        complete(getRecordCommentListErrorRsp(s"获取评论列表失败，请求错误，error=$error"))
     }
     //    }
   }

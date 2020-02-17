@@ -190,18 +190,28 @@ class HomePage extends Page{
   }
 
   def getRecordList(sortBy:String,pageNum:Int,pageSize:Int):Unit={
-    val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize)
-    Http.getAndParse[GetRecordListRsp](recordListUrl).map{
-      case Right(rsp) =>
-        if(rsp.errCode == 0){
-          recordList := rsp.recordInfo
-          recordNumber := rsp.recordNum
-          recordPageNum = if(rsp.recordNum % perPageSize != 0) (rsp.recordNum / perPageSize) +1 else rsp.recordNum / perPageSize
-          Globals.pagePaginator("bp-4-element",pageNum,showPages,recordPageNum)
-        }
-      case Left(e) =>
-        println(s"errors happen: $e")
+
+    if(dom.window.sessionStorage.getItem("userId").isEmpty){
+      //todo 如果没有登录 跳转到登录页面
+      dom.window.location.hash = ""
+    }else{
+      val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize,dom.window.sessionStorage.getItem("userId").toLong)
+      Http.getAndParse[GetRecordListRsp](recordListUrl).map{
+        case Right(rsp) =>
+          if(rsp.errCode == 0){
+            recordList := rsp.recordInfo
+            recordNumber := rsp.recordNum
+            recordPageNum = if(rsp.recordNum % perPageSize != 0) (rsp.recordNum / perPageSize) +1 else rsp.recordNum / perPageSize
+            Globals.pagePaginator("bp-4-element",pageNum,showPages,recordPageNum)
+          }
+        case Left(e) =>
+          println(s"errors happen: $e")
+      }
+
     }
+
+
+
   }
 
   override def render: Elem = {

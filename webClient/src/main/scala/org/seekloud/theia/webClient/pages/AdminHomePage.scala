@@ -244,20 +244,20 @@ class AdminHomePage extends Page{
   }
 
   def getRecordList(sortBy:String,pageNum:Int,pageSize:Int):Unit={
-    val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize)
-    Http.getAndParse[GetRecordListRsp](recordListUrl).map{
-      case Right(rsp) =>
-        if(rsp.errCode == 0){
-          recordList := rsp.recordInfo
-          recordNumber := rsp.recordNum
-          recordPageNum = if(rsp.recordNum % perPageSize != 0) (rsp.recordNum / perPageSize) + 1 else rsp.recordNum / perPageSize
-          Globals.pagePaginator("bp-3-element",pageNum,showPages,recordPageNum)
-        }else{
-          dom.window.location.hash = s"#/Home"
-        }
-      case Left(e) =>
-        println(s"errors happen: $e")
-    }
+//    val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize)
+//    Http.getAndParse[GetRecordListRsp](recordListUrl).map{
+//      case Right(rsp) =>
+//        if(rsp.errCode == 0){
+//          recordList := rsp.recordInfo
+//          recordNumber := rsp.recordNum
+//          recordPageNum = if(rsp.recordNum % perPageSize != 0) (rsp.recordNum / perPageSize) + 1 else rsp.recordNum / perPageSize
+//          Globals.pagePaginator("bp-3-element",pageNum,showPages,recordPageNum)
+//        }else{
+//          dom.window.location.hash = s"#/Home"
+//        }
+//      case Left(e) =>
+//        println(s"errors happen: $e")
+//    }
   }
 
   def getUserList(pageNum:Int,pageSize:Int) = {

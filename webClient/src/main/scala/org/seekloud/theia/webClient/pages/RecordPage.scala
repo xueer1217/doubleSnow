@@ -154,32 +154,38 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         case _ => None
       }
     }
-    val newData = new Date().getTime
-    val data = SearchRecord(roomId,time,newData,userOption).asJson.noSpaces
-    Http.postJsonAndParse[SearchRecordRsp](Routes.UserRoutes.getOneRecord,data).map{
-      case Right(rsp) =>
-        if(rsp.errCode==0){
-          //获得了url
-          mp4Url := rsp.url
-          val recordInfo = rsp.recordInfo.get
-          dom.window.sessionStorage.setItem("recordName", recordInfo.recordName)
-          dom.window.sessionStorage.setItem("recordCoverImg", recordInfo.coverImg)
-          dom.window.sessionStorage.setItem("recordStartTime", recordInfo.startTime.toString)
+    if(userOption.nonEmpty){
+      val newData = new Date().getTime
+      val data = SearchRecord(roomId,time,newData,userOption.get).asJson.noSpaces
+      Http.postJsonAndParse[SearchRecordRsp](Routes.UserRoutes.getOneRecord,data).map{
+        case Right(rsp) =>
+          if(rsp.errCode==0){
+            //获得了url
+            mp4Url := rsp.url
+            val recordInfo = rsp.recordInfo.get
+            dom.window.sessionStorage.setItem("recordName", recordInfo.recordName)
+            dom.window.sessionStorage.setItem("recordCoverImg", recordInfo.coverImg)
+            dom.window.sessionStorage.setItem("recordStartTime", recordInfo.startTime.toString)
 
-          watchRecordEndInfo = WatchRecordEnd(recordInfo.recordId, newData)
-          roomCoverImg := recordInfo.coverImg
-          videoTime := recordInfo.startTime.toString
-          videoName := recordInfo.recordName
-          val v = dom.document.getElementById("recordVideo").asInstanceOf[Video]
-          v.load()
-          v.play()
-        }
-        else{
-          PopWindow.commonPop(s"get url error in watchRecord: ${rsp.msg}")
-        }
-      case Left(e) =>
-        PopWindow.commonPop(s"get url error in watchRecord: $e")
+            watchRecordEndInfo = WatchRecordEnd(recordInfo.recordId, newData)
+            roomCoverImg := recordInfo.coverImg
+            videoTime := recordInfo.startTime.toString
+            videoName := recordInfo.recordName
+            val v = dom.document.getElementById("recordVideo").asInstanceOf[Video]
+            v.load()
+            v.play()
+          }
+          else{
+            PopWindow.commonPop(s"get url error in watchRecord: ${rsp.msg}")
+          }
+        case Left(e) =>
+          PopWindow.commonPop(s"get url error in watchRecord: $e")
+      }
+    }else{
+      PopWindow.commonPop(s"userinfo is empty , can not watch record")
     }
+    
+
   }
 
   def videoPlayback(): Unit ={

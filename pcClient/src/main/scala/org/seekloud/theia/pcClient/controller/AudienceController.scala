@@ -284,6 +284,12 @@ class AudienceController(
             rmManager ! RmManager.BackToHome
           }
 
+          //todo 观众重新拉流
+        case msg : NewJoinRsp =>
+          if(msg.errCode == 0) {
+
+          }
+
         case msg:Join4AllRsp=>
           if (msg.errCode == 0) {
             rmManager ! RmManager.PullFromProcessor(msg.mixLiveId.get)

@@ -106,7 +106,7 @@ object AuthProtocol {
   val ChangeModeError = ChangeModeRsp(errCode = 200020, msg = "change live mode error.")
 
   /*用户邀请*/
-  case class InviteUser(userName:String) extends WsMsgHost
+  case class InviteUser(userName: String) extends WsMsgHost
 
 
   /*连线控制*/
@@ -184,6 +184,12 @@ object AuthProtocol {
   case class JoinRsp(
     hostLiveId: Option[String] = None, //房主liveId
     joinInfo: Option[LiveInfo] = None, //连线者live信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Audience
+
+  case class NewJoinRsp(
+    pullLiceId: Option[String] = None, //新的拉流的liveId
     errCode: Int = 0,
     msg: String = "ok"
   ) extends WsMsgRm2Audience

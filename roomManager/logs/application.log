@@ -3542,3 +3542,163 @@ Caused by: java.net.UnknownHostException: smtp.exmail.qq.com
 20-02-17 22:20:22.366 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
 20-02-17 22:20:52.386 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
 20-02-17 22:21:22.408 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:14:25.306 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-17 23:14:25.397 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-17 23:14:25.408 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-17 23:14:25.424 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-17 23:14:25.436 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-17 23:14:25.442 INFO o.s.t.roomManager.core.UserActor$ - userActor-100029 is starting...
+20-02-17 23:14:55.471 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:15:22.267 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-17 23:15:22.500 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-17 23:15:22.650 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-17 23:15:22.761 INFO org.seekloud.theia.roomManager.Boot$ - 2 login success
+20-02-17 23:15:25.487 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:15:26.591 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager ws start
+20-02-17 23:15:26.593 INFO o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager websocket will setup for user:1
+20-02-17 23:15:26.594 INFO o.s.t.roomManager.core.UserActor$ - userActor-1 is starting...
+20-02-17 23:15:26.594 DEBUG o.s.t.roomManager.core.UserActor$ - uid 1 创建房间
+20-02-17 23:15:26.612 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:26.624 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Room操作成功！！
+20-02-17 23:15:26.633 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Attend_Event操作成功！！
+20-02-17 23:15:26.636 DEBUG o.s.t.roomManager.core.UserActor$ - uid: 1 创建房间 19 
+20-02-17 23:15:26.638 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager更新用户信息失败，房间不存在，有可能该用户是主播等待房间开启，房间id=19,用户id=1
+20-02-17 23:15:26.638 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:26.670 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [HeartBeatKey_1] with generation [2]
+20-02-17 23:15:36.378 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [3]
+20-02-17 23:15:36.379 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 setup
+20-02-17 23:15:36.379 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 用户id=1 开启了新的视频会议 roomid=19
+20-02-17 23:15:36.380 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [3]
+20-02-17 23:15:36.559 DEBUG o.s.t.roomManager.utils.RtpClient$ - get live info
+20-02-17 23:15:36.564 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [getLiveInfo] Processing...
+20-02-17 23:15:36.564 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo url=http://127.0.0.1:30390/theia/rtpServer/api/getLiveInfo
+20-02-17 23:15:36.564 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo parameters=List()
+20-02-17 23:15:36.564 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo postData={"appId":"roomManager","sn":"33740523318816","timestamp":"1581952536559","nonce":"rDmF1M","data":"{}","signature":"afa5bf2999645e5051ae07b416ca309d2a23df77"}
+20-02-17 23:15:36.626 DEBUG o.s.t.roomManager.core.RoomActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:36.768 DEBUG o.s.t.r.utils.DistributorClient$ - http://127.0.0.1:30389/theia/distributor/startPull
+20-02-17 23:15:36.773 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [startPull] Processing...
+20-02-17 23:15:36.773 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull url=http://127.0.0.1:30389/theia/distributor/startPull
+20-02-17 23:15:36.774 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull parameters=List()
+20-02-17 23:15:36.774 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull postData={"roomId":19,"liveId":"user100001"}
+20-02-17 23:15:36.978 DEBUG o.s.t.r.utils.DistributorClient$ - startPull rsp: {"errCode":0,"msg":"got liveIduser100001","liveAdd":"/theia/distributor/getFile/19/index.mpd","startTime":1581952536908}
+20-02-17 23:15:36.982 INFO o.s.t.roomManager.core.RoomActor$ - distributor startPull succeed, get live address: /theia/distributor/getFile/19/index.mpd
+20-02-17 23:15:36.985 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：StartLiveRsp(Some(LiveInfo(user100001,uv7E2Ewx8z)),0,ok)
+20-02-17 23:15:37.013 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:37.103 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [4]
+20-02-17 23:15:37.103 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [4]
+20-02-17 23:15:37.107 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：ChangeModeRsp(0,ok)
+20-02-17 23:15:39.899 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager search room,roomId=19,rtmp=Some(user100001)
+20-02-17 23:15:41.197 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager ws start
+20-02-17 23:15:41.197 INFO o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager websocket will setup for user:2
+20-02-17 23:15:41.198 INFO o.s.t.roomManager.core.UserActor$ - userActor-2 is starting...
+20-02-17 23:15:41.201 DEBUG o.s.theia.roomManager.utils.DBUtil$ - 数据表Attend_Event操作成功！！
+20-02-17 23:15:41.202 DEBUG o.s.t.roomManager.core.UserActor$ - uid:2 ws 连接 roomid 19
+20-02-17 23:15:41.202 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:41.202 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager更新用户信息成功，roomid：19 用户id: 2
+20-02-17 23:15:41.203 INFO o.s.t.roomManager.core.RoomActor$ - -----roomActor get UpdateSubscriber id: 19
+20-02-17 23:15:41.203 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [1]
+20-02-17 23:15:41.203 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19新用户加入房间roomId=19,userId=2
+20-02-17 23:15:41.204 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [HeartBeatKey_2] with generation [2]
+20-02-17 23:15:41.216 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])分发消息：UpdateAudienceInfo(List(UserDes(2,hx,http://pic.neoap.com/hestia/files/image/roomManager/b2eab30365a2a81cf1a13d1de6332c8f.png)))
+20-02-17 23:15:41.289 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [3]
+20-02-17 23:15:41.290 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [3]
+20-02-17 23:15:41.294 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：JudgeLikeRsp(false,0,ok)
+20-02-17 23:15:41.348 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [4]
+20-02-17 23:15:41.349 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [4]
+20-02-17 23:15:41.357 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：AudienceJoin(2,hx,0)
+20-02-17 23:15:45.059 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [5]
+20-02-17 23:15:45.060 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 接受连线者请求，roomId=1
+20-02-17 23:15:45.060 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [5]
+20-02-17 23:15:45.068 DEBUG o.s.t.roomManager.utils.RtpClient$ - get live info
+20-02-17 23:15:45.069 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [getLiveInfo] Processing...
+20-02-17 23:15:45.069 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo url=http://127.0.0.1:30390/theia/rtpServer/api/getLiveInfo
+20-02-17 23:15:45.069 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo parameters=List()
+20-02-17 23:15:45.069 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo postData={"appId":"roomManager","sn":"33749032102523","timestamp":"1581952545068","nonce":"qwXPuq","data":"{}","signature":"0f80218c924211a283e5533cb6cc2fb7041175b8"}
+20-02-17 23:15:45.077 DEBUG o.s.t.roomManager.utils.RtpClient$ - get live info
+20-02-17 23:15:45.077 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [getLiveInfo] Processing...
+20-02-17 23:15:45.077 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo url=http://127.0.0.1:30390/theia/rtpServer/api/getLiveInfo
+20-02-17 23:15:45.077 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo parameters=List()
+20-02-17 23:15:45.077 DEBUG o.s.t.roomManager.utils.HttpUtil$ - getLiveInfo postData={"appId":"roomManager","sn":"33749040639434","timestamp":"1581952545077","nonce":"fjtx05","data":"{}","signature":"c6ffb2e401857463d4805864f74590e6fdc6a6ea"}
+20-02-17 23:15:45.083 INFO o.s.t.roomManager.core.RoomActor$ - clientLiveInfo(user100002,fG6sxD0kW3); mixLiveInfo(user100003,nNuWo5eWow)
+20-02-17 23:15:45.084 DEBUG o.s.t.r.utils.DistributorClient$ - http://127.0.0.1:30389/theia/distributor/startPull
+20-02-17 23:15:45.085 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [startPull] Processing...
+20-02-17 23:15:45.085 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull url=http://127.0.0.1:30389/theia/distributor/startPull
+20-02-17 23:15:45.085 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull parameters=List()
+20-02-17 23:15:45.085 DEBUG o.s.t.roomManager.utils.HttpUtil$ - startPull postData={"roomId":1,"liveId":"user100003"}
+20-02-17 23:15:45.090 DEBUG o.s.t.r.utils.DistributorClient$ - startPull rsp: {"errCode":0,"msg":"got liveIduser100003","liveAdd":"/theia/distributor/getFile/1/index.mpd","startTime":1581952545088}
+20-02-17 23:15:45.091 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [newConnect] Processing...
+20-02-17 23:15:45.092 DEBUG o.s.t.roomManager.utils.HttpUtil$ - newConnect url=http://127.0.0.1:30388/theia/processor/newConnect
+20-02-17 23:15:45.092 DEBUG o.s.t.roomManager.utils.HttpUtil$ - newConnect parameters=List()
+20-02-17 23:15:45.092 DEBUG o.s.t.roomManager.utils.HttpUtil$ - newConnect postData={"roomId":1,"host":"user100001","client":"user100002","pushLiveId":"user100003","pushLiveCode":"nNuWo5eWow","layout":0}
+20-02-17 23:15:45.095 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 更新liveId=user100003,更新后的liveId=Some(user100003)
+20-02-17 23:15:45.099 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])分发消息：RcvComment(-1,,user:1 join in room:1,#FFFFFF,None)
+20-02-17 23:15:45.108 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：Join4AllRsp(Some(user100003),0,ok)
+20-02-17 23:15:45.109 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：AudienceJoinRsp(Some(AudienceInfo(2,hx,user100002)),0,ok)
+20-02-17 23:15:45.118 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：JoinRsp(Some(user100001),Some(LiveInfo(user100002,fG6sxD0kW3)),0,ok)
+20-02-17 23:15:46.747 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [HeartBeatKey_1] with generation [2]
+20-02-17 23:15:55.508 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:16:01.269 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [HeartBeatKey_2] with generation [2]
+20-02-17 23:16:25.529 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:16:49.491 DEBUG o.s.t.roomManager.core.UserActor$ - Start timer [BehaviorChangeKey] with generation [6]
+20-02-17 23:16:49.491 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 the host has shut the join in room1
+20-02-17 23:16:49.491 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel timer [BehaviorChangeKey] with generation [6]
+20-02-17 23:16:49.499 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [closeRoom] Processing...
+20-02-17 23:16:49.499 DEBUG o.s.t.roomManager.utils.HttpUtil$ - closeRoom url=http://127.0.0.1:30388/theia/processor/closeRoom
+20-02-17 23:16:49.499 DEBUG o.s.t.roomManager.utils.HttpUtil$ - closeRoom parameters=List()
+20-02-17 23:16:49.499 DEBUG o.s.t.roomManager.utils.HttpUtil$ - closeRoom postData={"roomId":1}
+20-02-17 23:16:49.502 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])分发消息：HostDisconnect(user100001)
+20-02-17 23:16:49.508 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((2,false) -> Actor[akka://theia/user/userManager/userActor-2-temp-false#804605218], (1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])分发消息：RcvComment(-1,,the host has shut the join in room 1,#FFFFFF,None)
+20-02-17 23:16:49.509 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 更新liveId=user100001,更新后的liveId=Some(user100001)
+20-02-17 23:16:49.698 DEBUG o.s.t.roomManager.core.UserActor$ - userActor-2-temp-false complete msg
+20-02-17 23:16:49.700 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel all timers
+20-02-17 23:16:49.701 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager更新用户信息成功，roomid：19 用户id: 2
+20-02-17 23:16:49.701 INFO o.s.t.roomManager.core.RoomActor$ - -----roomActor get UpdateSubscriber id: 19
+20-02-17 23:16:49.702 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19用户离开房间roomId=19,userId=2
+20-02-17 23:16:49.711 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel all timers
+20-02-17 23:16:49.712 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager the child = List(Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937], Actor[akka://theia/user/userManager/userActor-100029-temp-false#-1749240634])
+20-02-17 23:16:49.709 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])分发消息：UpdateAudienceInfo(List())
+20-02-17 23:16:55.549 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:17:11.992 DEBUG o.s.t.roomManager.core.UserActor$ - userActor-1-temp-false 主播关闭房间，roomId=19,userId=1
+20-02-17 23:17:11.993 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 host close the room
+20-02-17 23:17:11.993 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-19 主播向distributor发送finishPull请求
+20-02-17 23:17:11.994 DEBUG o.s.t.roomManager.core.UserActor$ - Cancel all timers
+20-02-17 23:17:11.995 DEBUG o.s.t.roomManager.core.UserManager$ - akka://theia/user/userManager the child = List(Actor[akka://theia/user/userManager/userActor-100029-temp-false#-1749240634])
+20-02-17 23:17:12.000 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [finishPull] Processing...
+20-02-17 23:17:12.000 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull url=http://127.0.0.1:30389/theia/distributor/finishPull
+20-02-17 23:17:12.000 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull parameters=List()
+20-02-17 23:17:12.000 DEBUG o.s.t.roomManager.utils.HttpUtil$ - finishPull postData={"liveId":"user100001"}
+20-02-17 23:17:12.006 DEBUG o.s.t.roomManager.core.RoomActor$ - Map((1,false) -> Actor[akka://theia/user/userManager/userActor-1-temp-false#1909828937])定向分发消息：HostCloseRoom()
+20-02-17 23:17:12.007 DEBUG o.s.t.roomManager.core.RoomActor$ - Cancel all timers
+20-02-17 23:17:12.007 INFO o.s.t.roomManager.core.RoomManager$ - ---- wait seconds to seek record ----
+20-02-17 23:17:12.013 DEBUG o.s.t.roomManager.core.RoomManager$ - Start timer [DelaySeekRecordKey191581952536908] with generation [1]
+20-02-17 23:17:12.013 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager the child = List(Actor[akka://theia/user/roomManager/roomActor-1000029#-2046368209])
+20-02-17 23:17:17.035 INFO o.s.t.roomManager.utils.HttpUtil$ - Post Request [seekRecord] Processing...
+20-02-17 23:17:17.035 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord url=http://127.0.0.1:30389/theia/distributor/seekRecord
+20-02-17 23:17:17.036 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord parameters=List()
+20-02-17 23:17:17.036 DEBUG o.s.t.roomManager.utils.HttpUtil$ - seekRecord postData={"roomId":19,"startTime":1581952536908}
+20-02-17 23:17:17.089 DEBUG o.s.t.r.utils.DistributorClient$ - RecordInfoRsp(1000100,record file not exist.,)
+20-02-17 23:17:17.089 ERROR o.s.t.r.utils.DistributorClient$ - seekRecord decode error1 : record file not exist.
+20-02-17 23:17:17.089 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager 查询录像文件信息失败,error:seekRecord decode error1 :record file not exist.
+20-02-17 23:17:25.570 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:17:55.592 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:18:25.611 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:18:55.631 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:19:25.652 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:19:55.674 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:20:25.693 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:20:55.713 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:21:25.734 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:21:55.756 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:22:25.775 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:22:55.798 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:23:25.817 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:23:55.837 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:24:25.856 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:24:55.879 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:25:25.899 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:25:55.919 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:26:25.939 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:26:55.961 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:27:25.980 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:27:56.003 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient
+20-02-17 23:28:26.022 DEBUG o.s.t.roomManager.core.UserActor$ - akka://theia/user/userManager/userActor-100029-temp-false 测试房间的房主actor，不处理其他类型的消息msg=CompleteMsgClient

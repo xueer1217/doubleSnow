@@ -377,17 +377,18 @@ class HostScene(stage: Stage) {
 
   val waitPulling = new Image("img/waitPulling.gif")
 
+  //连线背景
   def resetBack(): Unit = {
     val sWidth = gc.getCanvas.getWidth
     val sHeight = gc.getCanvas.getHeight
     gc.drawImage(connectionBg, 0, 0, sWidth, sHeight)
-    gc.drawImage(waitPulling, sWidth / 2, sHeight / 4, sWidth / 2, sHeight / 2)
-    gc.drawImage(waitPulling, 0, sHeight / 4, sWidth / 2, sHeight / 2)
+    gc.drawImage(waitPulling, sWidth / 2, sHeight / 4, sWidth / 2, sHeight / 2) //右
+    gc.drawImage(waitPulling, 0, sHeight / 4, sWidth / 2, sHeight / 2) //左
     gc.setFont(Font.font(emojiFont, 25))
     gc.setFill(Color.BLACK)
     gc.fillText(s"连线中", liveImage.getWidth / 2 - 40, liveImage.getHeight / 8)
   }
-
+//直播背景
   def resetLoading(): Unit = {
     val sWidth = gc.getCanvas.getWidth
     val sHeight = gc.getCanvas.getHeight

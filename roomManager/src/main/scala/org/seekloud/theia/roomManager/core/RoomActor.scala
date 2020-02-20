@@ -499,10 +499,9 @@ object RoomActor {
                                 val audienceInfo = AudienceInfo(userId4Audience, userInfoOpt.get.userName, liveInfo4HostMix.liveId)
                                 dispatch(RcvComment(-1l, "", s"user:$userId join in room:$roomId")) //群发评论
                                 //                                dispatchTo(subscribers.keys.toList.filter(t => t._1 != wholeRoomInfo.roomInfo.userId && t._1 != userId4Audience), Join4AllRsp(Some(liveInfo4Mix.liveId))) //除了host和连线者发送混流的liveId
-                                dispatchTo(List((wholeRoomInfo.roomInfo.userId, false)), AudienceJoinRsp(Some(audienceInfo))) //给主持人混流信息的username id liveid
+                                dispatchTo(List((wholeRoomInfo.roomInfo.userId, false)), NewAudienceJoinRsp(Some(audienceInfo))) //给主持人混流信息的username id liveid
                                 dispatchTo(List((userId4Audience, false)), JoinRsp(Some(oldId), Some(liveInfo4NewClient))) //给新连线着发送两人的混流id 以及自己推流的liveinfo
-                                //todo 创建新的rsp
-                                dispatchTo(List((userIdList(0), false)), NewJoinRsp(Some(oldId))) //给之前的连线者发送新的混流
+                                dispatchTo(List((userIdList.head, false)), NewJoinRsp(Some(liveInfo4ClientMix.liveId))) //给之前的连线者发送新的混流
                               case None =>
                                 log.debug(s"${ctx.self.path} 当前房间没有rtmp,roomId=$roomId")
                                 dispatchTo(List((wholeRoomInfo.roomInfo.userId, false)), AudienceJoinError)

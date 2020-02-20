@@ -49,7 +49,7 @@ object Constants {
 
   object AppWindow {
 //    val width = 1152
-    val width = 1220
+    val  width = 1220
     val height = 864
   }
   object DefaultPlayer {

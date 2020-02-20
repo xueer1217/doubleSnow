@@ -121,6 +121,12 @@ object AuthProtocol {
     msg: String = "ok"
   ) extends WsMsgRm2Host //拒绝成功不发joinInfo，仅发送默认状态信息
 
+  case class NewAudienceJoinRsp(
+    joinInfo: Option[AudienceInfo] = None, //连线者信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Host //超过两人连线时使用
+
   case class SpeakerJoinRsp(
     joinInfo: Option[AudienceInfo] = None, //发言者信息
     errCode: Int = 0,
@@ -189,7 +195,7 @@ object AuthProtocol {
   ) extends WsMsgRm2Audience
 
   case class NewJoinRsp(
-    pullLiceId: Option[String] = None, //新的拉流的liveId
+    pullLiveId: Option[String] = None, //新的拉流的liveId
     errCode: Int = 0,
     msg: String = "ok"
   ) extends WsMsgRm2Audience

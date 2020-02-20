@@ -61,18 +61,14 @@ class HostController(
     }
 
     override def audienceAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
-      if (!isConnecting) {
+
+
+      if(!accept){
         rmManager ! RmManager.AudienceAcceptance(userId, accept)
         hostScene.audObservableList.remove(newRequest)
-      } else {
-        if (isConnecting && !accept) {
-          rmManager ! RmManager.AudienceAcceptance(userId, accept)
-          hostScene.audObservableList.remove(newRequest)
-        } else {
-          Boot.addToPlatform {
-            WarningDialog.initWarningDialog(s"无法重复连线，请先断开当前连线。")
-          }
-        }
+      }else{
+        rmManager ! RmManager.AudienceAcceptance(userId, accept)
+        hostScene.audObservableList.remove(newRequest)
       }
     }
 
@@ -348,7 +344,28 @@ class HostController(
             if (!hostScene.tb3.isSelected) {
               hostScene.tb3.setGraphic(hostScene.connectionIcon1)
             }
-            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}连线中")
+            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}进入会议")
+            hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
+            isConnecting = true
+          }
+
+        } else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"观众加入出错:${msg.msg}")
+          }
+        }
+
+      case msg:NewAudienceJoinRsp =>
+
+        if (msg.errCode == 0) {
+          //显示连线观众信息
+          rmManager ! RmManager.NewJoinBegin(msg.joinInfo.get)
+
+          Boot.addToPlatform {
+            if (!hostScene.tb3.isSelected) {
+              hostScene.tb3.setGraphic(hostScene.connectionIcon1)
+            }
+            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}进入会议")
             hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
             isConnecting = true
           }

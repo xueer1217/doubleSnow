@@ -412,24 +412,24 @@ class HostScene(stage: Stage) {
 
   imageToggleBtn.setOnAction {
     _ =>
-      if (!isLive) {
+//      if (!isLive) {
         listener.changeOption(needImage = imageToggleBtn.isSelected, needSound = soundToggleBtn.isSelected)
         if(imageToggleBtn.isSelected) Tooltip.install(imageToggleBtn, new Tooltip("点击关闭直播画面"))
         else  Tooltip.install(imageToggleBtn, new Tooltip("点击开启直播画面"))
-      } else {
-        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
-      }
+//      } else {
+//        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
+//      }
   }
 
   soundToggleBtn.setOnAction {
     _ =>
-      if (!isLive) {
+//      if (!isLive) {
         listener.changeOption(needImage = imageToggleBtn.isSelected, needSound = soundToggleBtn.isSelected)
         if(soundToggleBtn.isSelected) Tooltip.install(soundToggleBtn, new Tooltip("点击关闭直播声音"))
         else  Tooltip.install(soundToggleBtn, new Tooltip("点击开启直播声音"))
-      } else {
-        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
-      }
+//      } else {
+//        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
+//      }
   }
 
   val barBox: VBox = liveBar.barVBox

@@ -592,6 +592,7 @@ object RmManager {
           Behaviors.same
 
         case msg: ChangeOption =>
+
           liveManager ! LiveManager.ChangeMediaOption(msg.bit, msg.re, msg.frameRate, msg.needImage, msg.needSound, hostScene.resetLoading)
           Behaviors.same
 

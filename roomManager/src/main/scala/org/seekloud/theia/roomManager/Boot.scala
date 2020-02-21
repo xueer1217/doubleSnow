@@ -48,7 +48,7 @@ object Boot extends HttpService {
   val registerManager = system.spawn(RegisterManager.create(), "registerManager")
 
 //  val emailActor = system.spawn(EmailActor.behavior, "emailActor")
-  val emailActor = system.spawn(EmailActor.behavior, "emailActor")
+  val emailActor = system.spawn(EmailActor.create(), "emailActor")
 
   def main(args: Array[String]): Unit = {
     //    log.info("Starting.")

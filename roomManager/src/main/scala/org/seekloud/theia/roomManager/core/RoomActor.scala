@@ -145,7 +145,7 @@ object RoomActor {
           if (roomInfoOpt.nonEmpty) {
             replyTo ! roomInfoOpt.get
           } else {
-            log.debug("房间信息未更新")
+            log.debug("房间还没有开启直播")
             replyTo ! RoomInfo(-1, "", "", -1l, "", "", "", -1, -1)
           }
           Behaviors.same

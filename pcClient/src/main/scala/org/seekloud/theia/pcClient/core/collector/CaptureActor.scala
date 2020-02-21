@@ -256,7 +256,7 @@ object   CaptureActor {
               }
             } else {
 
-              log.debug(s"仍在给drawer图像--------------")
+//              log.debug(s"仍在给drawer图像--------------")
               Boot.addToPlatform {
                 gc.drawImage(msg.image, 0.0, sHeight / 4, sWidth / 2, sHeight / 2)
               }

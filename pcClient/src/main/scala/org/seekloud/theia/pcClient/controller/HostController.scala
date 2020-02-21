@@ -258,6 +258,7 @@ class HostController(
 
 
   def wsMessageHandle(data: WsMsgRm): Unit = {
+
     data match {
 
       case msg: HeatBeat =>
@@ -290,6 +291,23 @@ class HostController(
             val roomDes = hostScene.roomInfoMap(RmManager.roomInfo.get.roomId)(1)
             hostScene.roomNameField.setText(roomName)
             hostScene.roomDesArea.setText(roomDes)
+          }
+        }
+
+      case msg :NewRoomInfoRsp =>
+        if(msg.errCode == 0 ){
+          RmManager.roomInfo = msg.roomInfo
+          if(msg.roomInfo.nonEmpty){
+            val rinfo = msg.roomInfo.get
+            Boot.addToPlatform{
+              hostScene.roomId.setText(rinfo.roomId.toString)
+            }
+          }
+
+        }else{
+          log.debug(s"${msg.msg}")
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog("获取房间信息失败！")
           }
         }
 

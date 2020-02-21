@@ -108,3 +108,12 @@ alter table room alter column roomId bigint not null auto_increment;
 alter table attend_event alter column  id bigint not null auto_increment;
 
 alter table record_comment alter column id bigint not null auto_increment;
+
+/* 用atomicLong  */
+alter table user_info alter column uid  bigint not null ;
+
+alter table room alter column roomId bigint not null ;
+
+alter table attend_event alter column  id bigint not null;
+
+alter table record_comment alter column id bigint not null;

@@ -69,6 +69,12 @@ object EmailActor {
 
   def getProperties = {
     val p = new Properties
+
+    val SSL_FACTORY:String = "javax.net.ssl.SSLSocketFactory"
+    p.put("mail.smtp.socketFactory.class", SSL_FACTORY)
+    p.put("mail.smtp.socketFactory.fallback", "false")
+    p.put("mail.smtp.socketFactory.port", "465")
+
     p.put("mail.smtp.host", AppSettings.emailHost)
     p.put("mail.smtp.port", AppSettings.emailPort)
     p.put("mail.transport.protocol", "smtp")

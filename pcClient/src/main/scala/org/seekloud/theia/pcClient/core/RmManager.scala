@@ -152,8 +152,6 @@ object RmManager {
 
   final case class SendComment(comment: Comment) extends RmCommand
 
-  final case class SendInvitation(userName: String) extends RmCommand
-
   final case class SendJudgeLike(judgeLike: JudgeLike) extends RmCommand //判断是否给房间点赞过
 
   final case class SendLikeRoom(likeRoom: LikeRoom) extends RmCommand
@@ -695,10 +693,6 @@ object RmManager {
         case msg: SendComment =>
           //          log.debug(s"sending ${msg.comment}")
           sender.foreach(_ ! msg.comment)
-          Behaviors.same
-
-        case msg: SendInvitation =>
-          sender.foreach(_ ! InviteUser(msg.userName))
           Behaviors.same
 
         case GetPackageLoss =>

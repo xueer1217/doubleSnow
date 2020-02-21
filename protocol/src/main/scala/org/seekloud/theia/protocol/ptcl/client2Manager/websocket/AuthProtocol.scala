@@ -105,9 +105,6 @@ object AuthProtocol {
 
   val ChangeModeError = ChangeModeRsp(errCode = 200020, msg = "change live mode error.")
 
-  /*用户邀请*/
-  case class InviteUser(userName: String) extends WsMsgHost
-
 
   /*连线控制*/
 

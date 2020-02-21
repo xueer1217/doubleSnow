@@ -300,6 +300,13 @@ class HostController(
           }
         }
 
+      case msg: InviteJoinRsp =>
+        if (msg.errCode == 0) {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog("邀请成功")
+          }
+        }
+
       case msg: AudienceJoin =>
         //将该条信息展示在host页面(TableView)
         log.debug(s"Audience-${msg.userName} send join req.")

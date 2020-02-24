@@ -323,6 +323,10 @@ class HostController(
           Boot.addToPlatform {
             WarningDialog.initWarningDialog("邀请成功")
           }
+        }  else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"邀请用户出错:${msg.msg}")
+          }
         }
 
       case msg: AudienceJoin =>

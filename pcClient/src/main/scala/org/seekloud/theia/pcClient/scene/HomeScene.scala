@@ -173,17 +173,19 @@ class HomeScene {
     //    val welcomeText = new Text("欢迎来到Theia在线直播系统")
     //    welcomeText.getStyleClass.add("homeScene-text")
 
-    val welcomeText = new ImageView("img/welcomeText.png")
-    welcomeText.setFitHeight(61)
-    welcomeText.setFitWidth(690)
+//    val welcomeText = new ImageView("img/welcomeText.png")
+//    welcomeText.setFitHeight(61)
+//    welcomeText.setFitWidth(690)
 
-    val welcomeBg = new ImageView("img/welcomeBg3.png")
+    val welcomeBg = new ImageView("img/welcomeBg4.png")
 
     welcomeBg.setFitWidth(width)
     welcomeBg.setFitHeight(height * 0.4)
 
     val stackPane = new StackPane() //居中且铺满的布局
-    stackPane.getChildren.addAll(welcomeBg, welcomeText)
+//    stackPane.getChildren.addAll(welcomeBg, welcomeText)
+      stackPane.getChildren.addAll(welcomeBg)
+
     stackPane
   }
 

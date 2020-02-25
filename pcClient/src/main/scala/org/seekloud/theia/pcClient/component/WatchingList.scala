@@ -44,7 +44,7 @@ class WatchingList(headerColWidth: Double, infoColWidth: Double,  tableHeight: D
   var watchingList: ObservableList[WatchingListInfo] = FXCollections.observableArrayList()
   var watchingNum = 0
 
-  val watchingState = new Text(s"有${watchingNum}人正在观看该直播")
+  val watchingState = new Text(s"有${watchingNum}人正在参加会议")
   watchingState.getStyleClass.add("hostScene-leftArea-text")
 
   /*update*/

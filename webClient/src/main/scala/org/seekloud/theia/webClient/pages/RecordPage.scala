@@ -110,6 +110,8 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     }
   }
+
+  //会议发起者可以删除评论
   def deleteComment(commentId:Long): Unit={
 
     val uid = dom.window.localStorage.getItem("userId").toLong
@@ -145,11 +147,12 @@ class RecordPage(roomId:Long,time:Long) extends Page{
     }
   }
 
+//会议发起者可以邀请其他未参会用户查看会议录像
   def InviteWatchRecord () :Unit= {
     val invitorId= dom.window.localStorage.getItem("userId").toLong
     val username= dom.document.getElementById("ipt-txt").asInstanceOf[TextArea].value
     val data = InviteWatchRecordReq(invitorId,username,roomId).asJson.noSpaces
-    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.sendInvitationInfo,data).map {
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.inviteToWatchRecord,data).map {
       case Right(rsp) =>
         if (rsp.errCode == 0) {
           getInviteeInfo()
@@ -163,10 +166,11 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
   }
 
+  //会议发起者删除邀请信息
   def deleteWatchInvite (invitee:Long):Unit = {
     val uid= dom.window.localStorage.getItem("userId").toLong
     val data = DeleteWatchInviteReq(uid,invitee,roomId).asJson.noSpaces
-    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteInvitationInfo,data).map{
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteInviteInfo,data).map{
       case Right(rsp) =>
         if (rsp.errCode == 0) {
           println(123)
@@ -178,10 +182,11 @@ class RecordPage(roomId:Long,time:Long) extends Page{
     }
   }
 
+  //会议发起者查看邀请列表
   def getInviteeInfo() : Unit = {
     val uid = dom.window.localStorage.getItem("userId").toLong
     val data = GetInviteListReq(roomId,uid).asJson.noSpaces
-    Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteeInfo,data).map{
+    Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteList,data).map{
       case Right(rsp) =>
         if(rsp.errCode == 0){
           inviteeInfo := rsp.list
@@ -197,6 +202,8 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
   private var mp4Url = Var("")
   //https://www.runoob.com/try/demo_source/mov_bbb.mp4
+
+  //参会者查看会议录像和会议信息
   def watchRecord():Unit = {
     val userId =
       if(isTemUser()) dom.window.sessionStorage.getItem("userId")
@@ -209,7 +216,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     }
     val newData = new Date().getTime
-    val data = SearchRecord(roomId,time,newData,userOption).asJson.noSpaces
+    val data = SearchRecord(roomId,time,newData,userId.toLong).asJson.noSpaces
     Http.postJsonAndParse[SearchRecordRsp](Routes.UserRoutes.getOneRecord,data).map{
       case Right(rsp) =>
         if(rsp.errCode==0){
@@ -288,7 +295,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         <div class="rcl-con-name">{item.username}</div>
        </div>
        <div class="rcl-con-delete">
-         <button class="pop-button"onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
+         <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
        </div>
      </div>
    }
@@ -310,7 +317,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
                <!--        if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) { -->
         </div>
         <div class="rcl-con-delete">
-          <button class="pop-button"onclick={() => deleteComment(item.commentId)}>删除</button>
+          <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteComment(item.commentId)}>删除</button>
              <!--   {getdeleteButton(item.commentId)}  -->
           </div>
       </div>
@@ -356,9 +363,9 @@ class RecordPage(roomId:Long,time:Long) extends Page{
            <div class ="username-send">
             <div class="textarea-container">
               <textarea cols="80" name="msg" rows="5" placeholder="请输入邀请观看会议录像的用户名。" class="ipt-txt" id="ipt-txt"
-                        onkeydown={(e:dom.KeyboardEvent)=> if (e.keyCode==13) sendComment()} ></textarea>
+                        onkeydown={(e:dom.KeyboardEvent)=> if (e.keyCode==13) InviteWatchRecord()} ></textarea>
               <div class="rsb-button">
-                <button type="submit" class="comment-submit" id="comment-submit" onclick={()=>sendComment()}>邀请</button>
+                <button type="submit" class="comment-submit" id="comment-submit" onclick={()=>InviteWatchRecord()}>邀请</button>
               </div>
             </div>
           </div>

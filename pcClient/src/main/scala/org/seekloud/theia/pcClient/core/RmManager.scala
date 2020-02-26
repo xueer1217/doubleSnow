@@ -108,7 +108,7 @@ object RmManager {
 
   final case object HostWsEstablish extends RmCommand
 
-  final case class HostLiveReq(rtmpSelected: Boolean, rtpSelected: Boolean, rtmpServer: Option[String] = None) extends RmCommand
+  final case object HostLiveReq extends RmCommand
 
   final case class StartLive(liveId: String, liveCode: String) extends RmCommand
 
@@ -536,19 +536,11 @@ object RmManager {
           System.gc()
           switchBehavior(ctx, "idle", idle(stageCtx, liveManager, mediaPlayer, homeController))
 
-        case msg: HostLiveReq =>
+        case  HostLiveReq =>
           log.debug(s"Host req live.")
           assert(userInfo.nonEmpty && roomInfo.nonEmpty)
-          if (msg.rtpSelected) {
-            sender.foreach(_ ! StartLiveReq(userInfo.get.userId, userInfo.get.token, ClientType.PC)) //roomManager->UserActor->WebSocketMsg(reqOpt)
-          }
-
-          // log.debug(s"rtmpselected   ${msg.rtmpSelected}  ==== ${msg.rtmpServer}  ")
-          if (msg.rtmpSelected && msg.rtmpServer.nonEmpty) {
-            liveManager ! LiveManager.PushRtmpStream(msg.rtmpServer.get)
-            hostController.isLive = true
-          }
-          hostBehavior(stageCtx, homeController, hostScene, hostController, liveManager, mediaPlayer, sender, hostStatus, joinAudience, Some(msg.rtmpSelected), Some(msg.rtpSelected))
+          sender.foreach(_ ! StartLiveReq(userInfo.get.userId, userInfo.get.token, ClientType.PC)) //roomManager->UserActor->WebSocketMsg(reqOpt)
+          Behaviors.same
 
         case msg: StartLive =>
           log.info(s"${msg.liveId} start live.")
@@ -646,8 +638,8 @@ object RmManager {
           assert(roomInfo.nonEmpty)
           if (hostStatus == HostStatus.CONNECT) {
             Boot.addToPlatform {
-              hostScene.connectionStateText.setText(s"目前状态：无连接~")
-              hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
+//              hostScene.connectionStateText.setText(s"目前状态：无连接~")
+//              hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
               hostController.isConnecting = false
             }
             sender.foreach(_ ! HostShutJoin(roomInfo.get.roomId))

@@ -3,10 +3,10 @@ package org.seekloud.theia.pcClient.component
 import javafx.beans.property.{ObjectProperty, SimpleObjectProperty, SimpleStringProperty, StringProperty}
 import javafx.collections.{FXCollections, ObservableList}
 import javafx.scene.control.cell.PropertyValueFactory
-import javafx.scene.control.{TableColumn, TableView, ToggleButton}
+import javafx.scene.control.{Button, TableColumn, TableView, ToggleButton}
 import javafx.scene.image.ImageView
 import javafx.scene.text.Text
-import org.seekloud.theia.pcClient.common.Pictures
+import org.seekloud.theia.pcClient.common.{Constants, Pictures}
 import org.seekloud.theia.protocol.ptcl.CommonInfo
 import org.seekloud.theia.protocol.ptcl.CommonInfo.UserDes
 import org.slf4j.LoggerFactory
@@ -21,7 +21,7 @@ object WatchingList{
 
   case class WatchingListInfo(
     header: ObjectProperty[ImageView],
-    userInfo: StringProperty
+    userInfo: StringProperty,
   )
   {
     def getHeader: ImageView = header.get()
@@ -34,10 +34,9 @@ object WatchingList{
   }
 
 }
-class WatchingList(headerColWidth: Double, infoColWidth: Double, tableHeight: Double, tb: Option[ToggleButton]) {
+class WatchingList(headerColWidth: Double, infoColWidth: Double,  tableHeight: Double, tb: Option[ToggleButton]) {
   import WatchingList._
   private[this] val log = LoggerFactory.getLogger(this.getClass)
-
   val audienceIcon1 = new ImageView("img/watching1.png")
   audienceIcon1.setFitWidth(20)
   audienceIcon1.setFitHeight(20)
@@ -55,7 +54,7 @@ class WatchingList(headerColWidth: Double, infoColWidth: Double, tableHeight: Do
         tb.get.setGraphic(audienceIcon1)
       }
     }
-    watchingState.setText(s"有${list.length}人正在观看该直播:")
+    watchingState.setText(s"有${list.length}人正在参加会议:")
     if (list.size < watchingList.size()) { // Audience leave, reduce from watchingList.
       var removePos = 0
       for (i <- 0 until watchingList.size()) {
@@ -104,12 +103,10 @@ class WatchingList(headerColWidth: Double, infoColWidth: Double, tableHeight: Do
 //  headerCol.setPrefWidth(width * 0.1)
   headerCol.setPrefWidth(headerColWidth)
 
-
   val userInfoCol = new TableColumn[WatchingListInfo, String]("用户信息")
   userInfoCol.setCellValueFactory(new PropertyValueFactory[WatchingListInfo, String]("userInfo"))
 //  userInfoCol.setPrefWidth(width * 0.15)
   userInfoCol.setPrefWidth(infoColWidth)
-
   watchingTable.setItems(watchingList)
   watchingTable.getColumns.addAll(headerCol, userInfoCol)
 //  watchingTable.setPrefHeight(height * 0.8)

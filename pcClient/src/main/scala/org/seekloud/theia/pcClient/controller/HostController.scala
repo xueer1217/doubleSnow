@@ -7,7 +7,7 @@ import org.seekloud.theia.pcClient.component.WarningDialog
 import org.seekloud.theia.pcClient.core.RmManager
 import org.seekloud.theia.pcClient.core.RmManager.HeartBeat
 import org.seekloud.theia.pcClient.scene.HostScene
-import org.seekloud.theia.pcClient.scene.HostScene.{AudienceListInfo, HostSceneListener}
+import org.seekloud.theia.pcClient.scene.HostScene.{AudienceListInfo, HostSceneListener, SpeakerListInfo}
 import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol._
 import org.slf4j.LoggerFactory
 import org.seekloud.theia.pcClient.utils.RMClient
@@ -42,10 +42,10 @@ class HostController(
   }
 
   hostScene.setListener(new HostSceneListener {
-    override def startLive(rtmpSelected: Boolean, rtpSelected: Boolean, rtmpServer: Option[String]): Unit = {
+    override def startLive(): Unit = {
       //test define
       //val test="rtmp://txy.live-send.acg.tv/live-txy/?streamname=live_44829093_50571972&key=faf3125e8c84c88ad7f05e4fcc017149"
-      rmManager ! RmManager.HostLiveReq(rtmpSelected, rtpSelected, rtmpServer)
+      rmManager ! RmManager.HostLiveReq
     }
 
     override def stopLive(): Unit = {
@@ -72,7 +72,7 @@ class HostController(
       }
     }
 
-    override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
+    override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: SpeakerListInfo): Unit = {
       if (!isSpeaking) {
         rmManager ! RmManager.SpeakerAcceptance(userId, accept)
 //        hostScene.audObservableList.remove(newRequest)
@@ -86,6 +86,14 @@ class HostController(
           }
         }
       }
+    }
+
+    override def shutIamge(): Unit = {
+
+    }
+
+    override def shutSound(): Unit = {
+
     }
 
     override def shutJoin(): Unit = {
@@ -373,8 +381,8 @@ class HostController(
             if (!hostScene.tb3.isSelected) {
               hostScene.tb3.setGraphic(hostScene.connectionIcon1)
             }
-            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}进入会议")
-            hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
+            hostScene.connectionStateText.setText(s"正在进行会议")
+         //   hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
             isConnecting = true
           }
 
@@ -394,8 +402,8 @@ class HostController(
             if (!hostScene.tb3.isSelected) {
               hostScene.tb3.setGraphic(hostScene.connectionIcon1)
             }
-            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}进入会议")
-            hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
+            hostScene.connectionStateText.setText(s"正在进行会议")
+        //    hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
             isConnecting = true
           }
 
@@ -412,8 +420,8 @@ class HostController(
           if (!hostScene.tb3.isSelected) {
             hostScene.tb3.setGraphic(hostScene.connectionIcon1)
           }
-          hostScene.connectionStateText.setText(s"目前状态：无连接")
-          hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
+    //      hostScene.connectionStateText.setText(s"目前状态：无连接")
+     //     hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
           isConnecting = false
         }
 
@@ -428,7 +436,7 @@ class HostController(
       case msg: UpdateAudienceInfo =>
 //        log.info(s"update audienceList.")
         Boot.addToPlatform {
-          hostScene.watchingList.updateWatchingList(msg.AudienceList)
+          hostScene.updateWatchingList(msg.AudienceList)
         }
 
 

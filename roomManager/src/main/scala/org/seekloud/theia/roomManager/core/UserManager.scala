@@ -83,7 +83,7 @@ object UserManager {
           implicit timer =>
             val userIdGenerator = new AtomicLong(1L)
             val temporaryUserMap = mutable.HashMap[Long, (Long,UserInfo)]()
-            roomManager ! ActorProtocol.AddUserActor4Test(Common.TestConfig.TEST_USER_ID,Common.TestConfig.TEST_ROOM_ID,getUserActor(Common.TestConfig.TEST_USER_ID,false,ctx))
+//            roomManager ! ActorProtocol.AddUserActor4Test(Common.TestConfig.TEST_USER_ID,Common.TestConfig.TEST_ROOM_ID,getUserActor(Common.TestConfig.TEST_USER_ID,false,ctx))
             idle(userIdGenerator,temporaryUserMap)
         }
     }

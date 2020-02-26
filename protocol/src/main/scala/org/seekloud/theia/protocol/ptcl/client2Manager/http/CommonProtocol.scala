@@ -246,7 +246,7 @@ object CommonProtocol {
     * 获取liveinfo
     **/
   case class GetLiveInfoRsp(
-    liveInfo: LiveInfo,
+    liveInfo: Option[List[LiveInfo]] = None,
     errCode: Int = 0,
     msg: String = "ok"
   ) extends Response

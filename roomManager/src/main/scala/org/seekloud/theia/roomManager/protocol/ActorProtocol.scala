@@ -28,4 +28,6 @@ object ActorProtocol {
 
 
   case class BanOnAnchor(roomId:Long) extends RoomCommand
+
+
 }

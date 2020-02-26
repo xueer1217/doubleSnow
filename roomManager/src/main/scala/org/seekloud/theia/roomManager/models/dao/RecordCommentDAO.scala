@@ -16,8 +16,13 @@ object RecordCommentDAO {
 
   val id = new AtomicLong(5000001)
 
-  def addRecordComment(r:rRecordComment):Future[Long] = {
-    db.run(tRecordComment.returning(tRecordComment.map(_.id)) += r)
+  def addRecordComment(r:rRecordComment) = {
+    val q = for{
+      add <- tRecordComment += r
+    }yield{
+
+    }
+    db.run(q)
   }
 
 

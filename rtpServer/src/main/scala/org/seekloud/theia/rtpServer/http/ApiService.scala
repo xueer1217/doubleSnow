@@ -134,15 +134,16 @@ trait ApiService extends BaseService with ServiceUtils with CirceSupport{
   private val log = LoggerFactory.getLogger(this.getClass)
 
 
+  //产生特定数量的liveinfo
   private val getLiveInfo = (path("getLiveInfo") & post & pathEndOrSingleSlash) {
-    dealGetReq {
-      val rstF: Future[LiveInfo] = userManager ? UserManager.GenLiveIdAndLiveCode
+    dealPostReq[GetLiveInfoReq] { r =>
+      val rstF: Future[List[LiveInfo]] = userManager ? (UserManager.GenLiveIdAndLiveCode(r.num,_))
       rstF.map {rst =>
-        complete(GetLiveInfoRsp(rst))
+        complete(GetLiveInfoRsp(Some(rst)))
       }.recover {
         case e: Exception =>
           log.info(s"getLiveInfo error.." + e.getMessage)
-          complete(110001, s"getLiveInfo error.....$e")
+          complete(GetLiveInfoRsp(errCode = 110001,msg = s"getLiveInfo error.....$e"))
       }
     }
   }

@@ -1,6 +1,7 @@
 package org.seekloud.theia.protocol.ptcl.client2Manager.http
 
 
+import org.seekloud.theia.protocol.ptcl.client2Manager.http.CommonProtocol.InviteeInfo
 import org.seekloud.theia.protocol.ptcl.{Request, Response}
 
 /**

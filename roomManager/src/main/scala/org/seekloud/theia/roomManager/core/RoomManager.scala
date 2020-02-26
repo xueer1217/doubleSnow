@@ -42,6 +42,8 @@ object RoomManager {
   case class DelaySeekRecord(wholeRoomInfo:WholeRoomInfo, totalView:Int, roomId:Long, startTime:Long, liveId: String) extends Command
   case class OnSeekRecord(wholeRoomInfo:WholeRoomInfo, totalView:Int, roomId:Long, startTime:Long, liveId: String) extends Command
 
+
+
   //case class FinishPull(roomId: Long, startTime: Long, liveId: String) extends Command
 
   case class GetRtmpLiveInfo(roomId:Long, replyTo:ActorRef[GetLiveInfoRsp4RM]) extends Command with RoomActor.Command
@@ -83,6 +85,8 @@ object RoomManager {
 
     Behaviors.receive[Command]{(ctx,msg) =>
       msg match {
+
+
         case GetRoomList(replyTo) =>
           val roomInfoListFuture = ctx.children.map(_.unsafeUpcast[RoomActor.Command]).map{r =>
             val roomInfoFuture:Future[RoomInfo] = r ? (GetRoomInfo(_))

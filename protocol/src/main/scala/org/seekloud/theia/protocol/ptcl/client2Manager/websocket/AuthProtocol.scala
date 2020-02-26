@@ -14,9 +14,9 @@ object AuthProtocol {
 
   sealed trait WsMsgManager
 
-  sealed trait WsMsgClient extends WsMsgFront
+  sealed trait WsMsgClient extends WsMsgFront //pcCient to roomManager
 
-  sealed trait WsMsgRm extends WsMsgManager
+  sealed trait WsMsgRm extends WsMsgManager //roomManager to pcClient
 
   case object CompleteMsgClient extends WsMsgFront
 
@@ -92,6 +92,14 @@ object AuthProtocol {
 
   val ModifyRoomError = ModifyRoomRsp(errCode = 200010, msg = "modify room error.")
 
+  /*主播创建的房间信息*/
+  case class NewRoomInfoRsp(
+    roomInfo: Option[RoomInfo] = None,
+    errCode: Int = 0,
+    msg: String = "ok"
+  )extends WsMsgRm2Host
+
+  val NewRoomInfoError = NewRoomInfoRsp(errCode = 200011,msg  = "get new roominfo error")
 
   /*设置直播内容*/
 
@@ -105,9 +113,6 @@ object AuthProtocol {
 
   val ChangeModeError = ChangeModeRsp(errCode = 200020, msg = "change live mode error.")
 
-  /*用户邀请*/
-  case class InviteUser(userName:String) extends WsMsgHost
-
 
   /*连线控制*/
 
@@ -120,6 +125,12 @@ object AuthProtocol {
     errCode: Int = 0,
     msg: String = "ok"
   ) extends WsMsgRm2Host //拒绝成功不发joinInfo，仅发送默认状态信息
+
+  case class NewAudienceJoinRsp(
+    joinInfo: Option[AudienceInfo] = None, //连线者信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Host //超过两人连线时使用
 
   case class SpeakerJoinRsp(
     joinInfo: Option[AudienceInfo] = None, //发言者信息
@@ -184,6 +195,12 @@ object AuthProtocol {
   case class JoinRsp(
     hostLiveId: Option[String] = None, //房主liveId
     joinInfo: Option[LiveInfo] = None, //连线者live信息
+    errCode: Int = 0,
+    msg: String = "ok"
+  ) extends WsMsgRm2Audience
+
+  case class NewJoinRsp(
+    pullLiveId: Option[String] = None, //新的拉流的liveId
     errCode: Int = 0,
     msg: String = "ok"
   ) extends WsMsgRm2Audience

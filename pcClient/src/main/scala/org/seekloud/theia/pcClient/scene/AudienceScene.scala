@@ -489,7 +489,7 @@ class AudienceScene(album: AlbumInfo, isRecord: Boolean = false, recordUrl: Stri
 
       //      val exitBtn = new Button("中断连线", new ImageView("img/shutdown.png"))
       exitBtn.getStyleClass.add("audienceScene-leftArea-linkBtn")
-      exitBtn.setOnAction(_ => listener.quitJoin(album.roomId))
+     // exitBtn.setOnAction(_ => listener.quitJoin(album.roomId))
       Common.addButtonEffect(exitBtn)
 
       val buttonBox = new HBox(linkBtn, exitBtn)

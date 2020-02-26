@@ -1,9 +1,10 @@
 package org.seekloud.theia.roomManager.core
 
+import java.security.Security
 import java.util.{Date, Properties}
 
 import akka.actor.typed.Behavior
-import akka.actor.typed.scaladsl.Behaviors
+import akka.actor.typed.scaladsl.{Behaviors, StashBuffer}
 import javax.mail.Message.RecipientType
 import javax.mail._
 import javax.mail.internet.{InternetAddress, MimeBodyPart, MimeMessage, MimeMultipart}
@@ -24,7 +25,19 @@ object EmailActor {
 
   case class InviteJoin(invitor: String, email: String, roomid: Long) extends Command
 
-  val behavior = idle()
+  val behavior = create()
+
+  def create():Behavior[Command] = {
+    log.debug("emailActor is Starting....")
+    Behaviors.setup[Command] { ctx =>
+      implicit val stashBuffer: StashBuffer[Command] = StashBuffer[Command](Int.MaxValue)
+      Behaviors.withTimers[Command] { implicit timer =>
+        idle()
+      }
+    }
+  }
+
+
 
   def idle(): Behavior[Command] = {
     Behaviors.receive[Command] { (ctx, msg) =>
@@ -69,6 +82,14 @@ object EmailActor {
 
   def getProperties = {
     val p = new Properties
+
+    Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+
+    val SSL_FACTORY:String = "javax.net.ssl.SSLSocketFactory"
+    p.put("mail.smtp.socketFactory.class", SSL_FACTORY)
+    p.put("mail.smtp.socketFactory.fallback", "false")
+    p.put("mail.smtp.socketFactory.port", "465")
+
     p.put("mail.smtp.host", AppSettings.emailHost)
     p.put("mail.smtp.port", AppSettings.emailPort)
     p.put("mail.transport.protocol", "smtp")

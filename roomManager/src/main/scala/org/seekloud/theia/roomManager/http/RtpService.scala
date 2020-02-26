@@ -24,17 +24,19 @@ trait RtpService extends ServiceUtils{
   case class GetLiveInfoReq()
   private val getLiveInfo = (path("getLiveInfo") & post){
     dealPostReq[GetLiveInfoReq]{req =>
-      RtpClient.getLiveInfoFunc().map{
-        case Right(rsp) =>
-          log.debug(s"获取liveInfo  ..${rsp}")
-          complete(GetLiveInfoRsp4RM(Some(rsp.liveInfo)))
-        case Left(error) =>
-          complete(CommonRsp(1000023, s"获取live info失败：${error}"))
-
-      }.recover{
-        case e:Exception =>
-          complete(CommonRsp(1000024, s"获取live info失败：${e}"))
-      }
+      log.debug(s"这个功能暂时舍弃。。。。")
+      Future(complete("这个功能暂时舍弃。。。"))
+//      RtpClient.getLiveInfoFunc().map{
+//        case Right(rsp) =>
+//          log.debug(s"获取liveInfo  ..${rsp}")
+//          complete(GetLiveInfoRsp4RM(Some(rsp.liveInfo)))
+//        case Left(error) =>
+//          complete(CommonRsp(1000023, s"获取live info失败：${error}"))
+//
+//      }.recover{
+//        case e:Exception =>
+//          complete(CommonRsp(1000024, s"获取live info失败：${e}"))
+//      }
     }
   }
 

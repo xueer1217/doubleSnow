@@ -100,7 +100,7 @@ object RoomManager {
   }
 
   def getRoomActor(ctx: ActorContext[Command], roomId:Long, host: String, client: String, pushLiveId: String,pushLiveCode: String,  layout: Int) = {
-    val childName = s"roomActor_${roomId}_${host}"
+    val childName = s"roomActor_${roomId}_${host}_${client}"
     ctx.child(childName).getOrElse{
       val actor = ctx.spawn(RoomActor.create(roomId, host, client, pushLiveId, pushLiveCode, layout), childName)
       ctx.watchWith(actor, ChildDead(roomId, childName, actor))

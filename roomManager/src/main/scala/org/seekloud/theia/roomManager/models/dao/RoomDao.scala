@@ -9,6 +9,7 @@ import org.seekloud.theia.roomManager.models.SlickTables._
 import org.slf4j.LoggerFactory
 import slick.jdbc.H2Profile.api._
 
+import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 /**
@@ -26,10 +27,13 @@ object RoomDao {
   }
 
   def createRoom(uid: Long) = {
+    val roomId = roomid.getAndIncrement()
     val q = for {
       username <- tUserInfo.filter(_.uid === uid).map(_.userName).result.head
-      res <- tRoom.returning(tRoom.map(_.roomid)) += rRoom(roomid.getAndIncrement(), username + "的会议", "暂无会议描述", "", System.currentTimeMillis(), uid, "")
-    } yield res
+      res <- tRoom += rRoom(roomId, username + "的会议", "暂无会议描述", "", System.currentTimeMillis(), uid, "")
+    } yield {
+      roomId
+    }
 
     db.run(q).andThen{
       case Success(_) =>

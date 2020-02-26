@@ -7,7 +7,7 @@ import org.seekloud.theia.pcClient.component.WarningDialog
 import org.seekloud.theia.pcClient.core.RmManager
 import org.seekloud.theia.pcClient.core.RmManager.HeartBeat
 import org.seekloud.theia.pcClient.scene.HostScene
-import org.seekloud.theia.pcClient.scene.HostScene.{AudienceListInfo, HostSceneListener}
+import org.seekloud.theia.pcClient.scene.HostScene.{AudienceListInfo, HostSceneListener, SpeakerListInfo}
 import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol._
 import org.slf4j.LoggerFactory
 import org.seekloud.theia.pcClient.utils.RMClient
@@ -42,10 +42,10 @@ class HostController(
   }
 
   hostScene.setListener(new HostSceneListener {
-    override def startLive(rtmpSelected: Boolean, rtpSelected: Boolean, rtmpServer: Option[String]): Unit = {
+    override def startLive(): Unit = {
       //test define
       //val test="rtmp://txy.live-send.acg.tv/live-txy/?streamname=live_44829093_50571972&key=faf3125e8c84c88ad7f05e4fcc017149"
-      rmManager ! RmManager.HostLiveReq(rtmpSelected, rtpSelected, rtmpServer)
+      rmManager ! RmManager.HostLiveReq
     }
 
     override def stopLive(): Unit = {
@@ -61,22 +61,18 @@ class HostController(
     }
 
     override def audienceAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
-      if (!isConnecting) {
+
+
+      if(!accept){
         rmManager ! RmManager.AudienceAcceptance(userId, accept)
         hostScene.audObservableList.remove(newRequest)
-      } else {
-        if (isConnecting && !accept) {
-          rmManager ! RmManager.AudienceAcceptance(userId, accept)
-          hostScene.audObservableList.remove(newRequest)
-        } else {
-          Boot.addToPlatform {
-            WarningDialog.initWarningDialog(s"无法重复连线，请先断开当前连线。")
-          }
-        }
+      }else{
+        rmManager ! RmManager.AudienceAcceptance(userId, accept)
+        hostScene.audObservableList.remove(newRequest)
       }
     }
 
-    override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: AudienceListInfo): Unit = {
+    override def speakerAcceptance(userId: Long, accept: Boolean, newRequest: SpeakerListInfo): Unit = {
       if (!isSpeaking) {
         rmManager ! RmManager.SpeakerAcceptance(userId, accept)
 //        hostScene.audObservableList.remove(newRequest)
@@ -90,6 +86,14 @@ class HostController(
           }
         }
       }
+    }
+
+    override def shutIamge(): Unit = {
+
+    }
+
+    override def shutSound(): Unit = {
+
     }
 
     override def shutJoin(): Unit = {
@@ -262,6 +266,7 @@ class HostController(
 
 
   def wsMessageHandle(data: WsMsgRm): Unit = {
+
     data match {
 
       case msg: HeatBeat =>
@@ -297,10 +302,38 @@ class HostController(
           }
         }
 
+      case msg :NewRoomInfoRsp =>
+        if(msg.errCode == 0 ){
+          RmManager.roomInfo = msg.roomInfo
+          if(msg.roomInfo.nonEmpty){
+            val rinfo = msg.roomInfo.get
+            Boot.addToPlatform{
+              hostScene.roomId.setText(rinfo.roomId.toString)
+            }
+          }
+
+        }else{
+          log.debug(s"${msg.msg}")
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog("获取房间信息失败！")
+          }
+        }
+
       case msg: ChangeModeRsp =>
         if (msg.errCode != 0) {
           Boot.addToPlatform {
             WarningDialog.initWarningDialog("该项设置目前不可用！")
+          }
+        }
+
+      case msg: InviteJoinRsp =>
+        if (msg.errCode == 0) {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog("邀请成功")
+          }
+        }  else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"邀请用户出错:${msg.msg}")
           }
         }
 
@@ -348,8 +381,29 @@ class HostController(
             if (!hostScene.tb3.isSelected) {
               hostScene.tb3.setGraphic(hostScene.connectionIcon1)
             }
-            hostScene.connectionStateText.setText(s"与${msg.joinInfo.get.userName}连线中")
-            hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
+            hostScene.connectionStateText.setText(s"正在进行会议")
+         //   hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
+            isConnecting = true
+          }
+
+        } else {
+          Boot.addToPlatform {
+            WarningDialog.initWarningDialog(s"观众加入出错:${msg.msg}")
+          }
+        }
+
+      case msg:NewAudienceJoinRsp =>
+
+        if (msg.errCode == 0) {
+          //显示连线观众信息
+          rmManager ! RmManager.NewJoinBegin(msg.joinInfo.get)
+
+          Boot.addToPlatform {
+            if (!hostScene.tb3.isSelected) {
+              hostScene.tb3.setGraphic(hostScene.connectionIcon1)
+            }
+            hostScene.connectionStateText.setText(s"正在进行会议")
+        //    hostScene.connectStateBox.getChildren.add(hostScene.shutConnectionBtn)
             isConnecting = true
           }
 
@@ -366,8 +420,8 @@ class HostController(
           if (!hostScene.tb3.isSelected) {
             hostScene.tb3.setGraphic(hostScene.connectionIcon1)
           }
-          hostScene.connectionStateText.setText(s"目前状态：无连接")
-          hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
+    //      hostScene.connectionStateText.setText(s"目前状态：无连接")
+     //     hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
           isConnecting = false
         }
 
@@ -382,7 +436,7 @@ class HostController(
       case msg: UpdateAudienceInfo =>
 //        log.info(s"update audienceList.")
         Boot.addToPlatform {
-          hostScene.watchingList.updateWatchingList(msg.AudienceList)
+          hostScene.updateWatchingList(msg.AudienceList)
         }
 
 

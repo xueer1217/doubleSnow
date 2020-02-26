@@ -25,6 +25,7 @@ import org.seekloud.theia.roomManager.http.SessionBase.UserSession
 import org.seekloud.theia.roomManager.utils.SecureUtil
 
 import scala.concurrent.Future
+import scala.util.{Failure, Success}
 
 trait UserService extends ServiceUtils {
   import io.circe._
@@ -52,13 +53,23 @@ trait UserService extends ServiceUtils {
                       case Some(_) =>
                         complete(CommonRsp(180010, "用户名已注册"))
                       case None =>
-                        val signFutureRsp: Future[SignUpRsp] = registerManager ? (SendEmail(code, data.url, data.email, data.userName, data.password, _))
-                        dealFutureResult {
-                          signFutureRsp.map {
-                            rsp =>
-                              complete(rsp)
+
+                        val timestamp = System.currentTimeMillis()
+                        val token = SecureUtil.nonceStr(40)
+                        dealFutureResult{
+                          UserInfoDao.addUser(
+                            data.email,data.userName,SecureUtil.getSecurePassword(data.password, data.email, timestamp),token,timestamp,SecureUtil.nonceStr(40)
+                          ).map{ _=>
+                            complete(SignUpRsp())
                           }
                         }
+//                        val signFutureRsp: Future[SignUpRsp] = registerManager ? (SendEmail(code, data.url, data.email, data.userName, data.password, _))
+//                        dealFutureResult {
+//                          signFutureRsp.map {
+//                            rsp =>
+//                              complete(rsp)
+//                          }
+//                        }
                     }
                   }
               }

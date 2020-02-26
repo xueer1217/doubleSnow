@@ -14,7 +14,7 @@ import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol
 import org.seekloud.theia.protocol.ptcl.client2Manager.websocket.AuthProtocol._
 import org.seekloud.theia.roomManager.Boot.{executor, roomManager, scheduler}
 import org.seekloud.theia.roomManager.common.Common
-import org.seekloud.theia.roomManager.models.dao.{UserInfoDao, AttendDao, RoomDao}
+import org.seekloud.theia.roomManager.models.dao.{AttendDao, RoomDao, UserInfoDao}
 import org.seekloud.theia.roomManager.protocol.ActorProtocol
 import org.seekloud.theia.roomManager.utils.RtpClient
 import org.slf4j.LoggerFactory
@@ -63,6 +63,8 @@ object UserActor {
   final case object ChangeBehaviorToInit extends Command
 
   final case object SendHeartBeat extends Command
+
+  final case class NewRoomInfo(roomId: Long) extends Command
 
   private final case class SwitchBehavior(
     name: String,
@@ -115,10 +117,17 @@ object UserActor {
           case UserClientActor(clientActor) =>
             ctx.watchWith(clientActor, UserLeft(clientActor))
             timer.startPeriodicTimer("HeartBeatKey_" + userId, SendHeartBeat, 10.seconds)
+            if (roomIdOpt.nonEmpty) {
+              log.debug(s"search new roominfo roomid:${roomIdOpt.get}")
+              ctx.self ! NewRoomInfo(roomIdOpt.get)
+            } else {
+              log.debug(s"roomidOpt is empty ")
+            }
+
             switchBehavior(ctx, "audience", audience(userId, temporary, clientActor, roomIdOpt.get))
 
 
-          case UserLogin(`userId`, roomIdOp) =>
+          case UserLogin(userId, roomIdOp) =>
 
             roomIdOp match {
 
@@ -149,7 +158,9 @@ object UserActor {
                   roomId
                 }
                 q.map { roomId =>
-                  roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join, roomId, userId, temporary, Some(ctx.self))
+
+                  //                  roomManager ! ActorProtocol.UpdateSubscriber(Common.Subscriber.join, roomId, userId, temporary, Some(ctx.self))
+                  //                  roomManager ! ActorProtocol.HostSearchRoomInfo(userId,roomId)
                   log.debug(s"uid: $userId 创建房间 $roomId ")
                   ctx.self ! SwitchBehavior("init", init(userId, temporary, Some(roomId)))
                 }
@@ -277,6 +288,28 @@ object UserActor {
     ): Behavior[Command] =
     Behaviors.receive[Command] { (ctx, msg) =>
       msg match {
+
+        case NewRoomInfo(roomId) =>
+          val q = for {
+            roominfo <- RoomDao.getRoomInfo(roomId)
+            anchordInfo <- if (roominfo.nonEmpty) UserInfoDao.searchById(roominfo.get.anchorid) else Future(None)
+          }yield{
+            (roominfo,anchordInfo)
+          }
+          q.map{
+            case (Some(rinfo),Some(uinfo)) =>
+              val roomInfo = RoomInfo(rinfo.roomid,rinfo.roomName,rinfo.roomDesc,uinfo.uid,uinfo.userName,uinfo.headImg,rinfo.coverImg)
+              clientActor ! NewRoomInfoRsp(Some(roomInfo))
+            case (Some(rinfo),_) =>
+              log.debug(s"anchor info does not exist , anchorid is ${rinfo.anchorid}")
+              clientActor ! NewRoomInfoError
+            case _=>
+              log.debug(s"room info does not exist , roomid is $roomId")
+              clientActor ! NewRoomInfoError
+          }
+
+          Behaviors.same
+
         case SendHeartBeat =>
           //          log.debug(s"${ctx.self.path} 发送心跳给userId=$userId,roomId=$roomId")
           ctx.scheduleOnce(10.seconds, clientActor, Wrap(HeatBeat(System.currentTimeMillis()).asInstanceOf[WsMsgRm].fillMiddleBuffer(sendBuffer).result()))

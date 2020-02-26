@@ -193,7 +193,7 @@ class HomePage extends Page{
 
     if(dom.window.sessionStorage.getItem("userId").isEmpty){
       //todo 如果没有登录 跳转到登录页面
-      dom.window.location.hash = ""
+      dom.window.location.hash = s"#/Home"
     }else{
       val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize,dom.window.sessionStorage.getItem("userId").toLong)
       Http.getAndParse[GetRecordListRsp](recordListUrl).map{

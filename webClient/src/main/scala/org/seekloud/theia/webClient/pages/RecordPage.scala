@@ -53,6 +53,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   private val videoName = Var(dom.window.sessionStorage.getItem("recordName"))
   val commentInfo = Var(List.empty[CommentInfo])
   val inviteeInfo = Var(List.empty[InviteeInfo])
+
   def exitRecord(): Future[Unit] ={
     val userId =
       if(isTemUser()) dom.window.sessionStorage.getItem("userId")
@@ -122,7 +123,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         if (rsp.errCode == 0) {
           getCommentInfo()
         } else {
-          JsFunc.alert("非会议主持人不能删除评论！")
+         // JsFunc.alert("非会议主持人不能删除评论！")
           println(rsp.msg)
         }
       case Left(error) =>
@@ -287,6 +288,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
  val invitation:Rx[Node] = inviteeInfo.map{ e =>
    def createInvitationItem(item:InviteeInfo) = {
+     if (dom.window.localStorage.getItem("userId") == item.uid) {
      <div class="rcl-item">
        <div class="user-face">
          <img class="userface" src={item.headImage}></img>
@@ -297,7 +299,8 @@ class RecordPage(roomId:Long,time:Long) extends Page{
        <div class="rcl-con-delete">
          <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
        </div>
-     </div>
+     </div>}
+     else emptyHTML
    }
    <div class="comment-list">
      {e.map(createInvitationItem)}
@@ -306,6 +309,8 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
   val comments:Rx[Node] = commentInfo.map{ cf =>
     def createCommentItem(item:CommentInfo) = {
+      if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) {
+
       <div class="rcl-item">
         <div class="user-face">
           <img class="userface" src={item.commentHeadImgUrl}></img>
@@ -314,14 +319,25 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           <div class="rcl-con-name">{item.commentUserName}</div>
           <div class="rcl-con-con">{item.comment}</div>
           <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
-               <!--        if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) { -->
         </div>
         <div class="rcl-con-delete">
           <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteComment(item.commentId)}>删除</button>
-             <!--   {getdeleteButton(item.commentId)}  -->
           </div>
-      </div>
+      </div>} else {
+        <div class="rcl-item">
+          <div class="user-face">
+            <img class="userface" src={item.commentHeadImgUrl}></img>
+          </div>
+          <div class="rcl-con">
+            <div class="rcl-con-name">{item.commentUserName}</div>
+            <div class="rcl-con-con">{item.comment}</div>
+            <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
+          </div>
+        </div>
+
+      }
     }
+
     <div class="comment-list">
       {cf.map(createCommentItem)}
     </div>

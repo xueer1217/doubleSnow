@@ -240,13 +240,13 @@ object PopWindow {
   def personalCenter(userId:Long,userName:String):Elem =
     <div class="pop-background" style="display:flex" onclick={(e: Event)=>showPersonCenter := emptyHTML}>
       <div class="pop-main" onclick={(e: Event)=>e.stopPropagation()} style="padding-top:50px">
-        <div class="imgBubble" id="imgBubble">
+        <!-- <div class="imgBubble" id="imgBubble">
           <span>你动我一下试试！</span>
-        </div>
+        </div>-->
         <div class="change-userImg">
           <input style="display: none" type="file" id="userImg-file" onchange={(e: Event)=>changeImgByFile(userId, e.target.asInstanceOf[Input].value, e.target.asInstanceOf[Input].files)}>okokok</input>
-          <img src={initHeadImg} onclick={()=>changeHeadImg()} id="random-head"></img>
-          <!--<div class="change-userImg-file" onclick={()=>dom.document.getElementById("userImg-file").asInstanceOf[HTMLElement].click()}>选择文件</div>-->
+          <!--  <img src={initHeadImg} onclick={()=>changeHeadImg()} id="random-head"></img> -->
+          <div class="change-userImg-file" onclick={()=>dom.document.getElementById("userImg-file").asInstanceOf[HTMLElement].click()}>选择文件</div>
         </div>
         <input class="pop-input" id="change-username" placeholder="修改昵称" value={userName}></input>
         <div class="pop-button" onclick={()=>changeUserInfo(userId)}>确认修改</div>

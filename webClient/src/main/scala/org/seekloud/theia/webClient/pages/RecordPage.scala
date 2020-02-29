@@ -309,7 +309,6 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
   val comments:Rx[Node] = commentInfo.map{ cf =>
     def createCommentItem(item:CommentInfo) = {
-      if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) {
 
       <div class="rcl-item">
         <div class="user-face">
@@ -323,19 +322,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         <div class="rcl-con-delete">
           <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteComment(item.commentId)}>删除</button>
           </div>
-      </div>} else {
-        <div class="rcl-item">
-          <div class="user-face">
-            <img class="userface" src={item.commentHeadImgUrl}></img>
-          </div>
-          <div class="rcl-con">
-            <div class="rcl-con-name">{item.commentUserName}</div>
-            <div class="rcl-con-con">{item.comment}</div>
-            <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
-          </div>
-        </div>
-
-      }
+      </div>
     }
 
     <div class="comment-list">

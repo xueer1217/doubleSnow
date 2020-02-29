@@ -186,7 +186,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   //会议发起者查看邀请列表
   def getInviteeInfo() : Unit = {
     val uid = dom.window.localStorage.getItem("userId").toLong
-    val data = GetInviteListReq(roomId,uid).asJson.noSpaces
+    val data = GetInviteListReq(uid,roomId).asJson.noSpaces
     Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteList,data).map{
       case Right(rsp) =>
         if(rsp.errCode == 0){
@@ -288,7 +288,6 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 
  val invitation:Rx[Node] = inviteeInfo.map{ e =>
    def createInvitationItem(item:InviteeInfo) = {
-     if (dom.window.localStorage.getItem("userId") == item.uid) {
      <div class="rcl-item">
        <div class="user-face">
          <img class="userface" src={item.headImage}></img>
@@ -299,8 +298,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
        <div class="rcl-con-delete">
          <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
        </div>
-     </div>}
-     else emptyHTML
+     </div>
    }
    <div class="comment-list">
      {e.map(createInvitationItem)}

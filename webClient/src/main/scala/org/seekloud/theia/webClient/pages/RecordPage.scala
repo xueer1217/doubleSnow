@@ -52,6 +52,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   private val videoTime = Var(dom.window.sessionStorage.getItem("recordStartTime"))
   private val videoName = Var(dom.window.sessionStorage.getItem("recordName"))
   val commentInfo = Var(List.empty[CommentInfo])
+  val inviteeInfo = Var(List.empty[InviteeInfo])
 
   def exitRecord(): Future[Unit] ={
     val userId =
@@ -106,25 +107,31 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           }
         case Left(e) =>
           println("error happen: "+ e)
+
       }
     }
   }
-//  def deleteComment(): Unit={
-//
-//    val data = DeleteCommentReq(roomId,).asJson.noSpaces
-//    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
-//      case Right(rsp) =>
-//        if (rsp.errCode == 0) {
-//          getCommentInfo()
-//        } else {
-//          println(rsp.msg)
-//        }
-//      case Left(error) =>
-//        println(s"parse error,$error")
-//
-//    }
-//
-//  }
+
+  //会议发起者可以删除评论
+  def deleteComment(commentId:Long): Unit={
+
+    val uid = dom.window.localStorage.getItem("userId").toLong
+
+    val data = DeleteCommentReq(roomId,commentId ,uid).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteCommentInfo, data).map{
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          getCommentInfo()
+        } else {
+         // JsFunc.alert("非会议主持人不能删除评论！")
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println(s"parse error,$error")
+
+    }
+
+  }
 
   def getCommentInfo():Unit={
     val data = GetRecordCommentListReq(roomId,time).asJson.noSpaces
@@ -141,8 +148,63 @@ class RecordPage(roomId:Long,time:Long) extends Page{
     }
   }
 
+//会议发起者可以邀请其他未参会用户查看会议录像
+  def InviteWatchRecord () :Unit= {
+    val invitorId= dom.window.localStorage.getItem("userId").toLong
+    val username= dom.document.getElementById("ipt-txt").asInstanceOf[TextArea].value
+    val data = InviteWatchRecordReq(invitorId,username,roomId).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.inviteToWatchRecord,data).map {
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          getInviteeInfo()
+          println(123)
+        } else {
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println(s"parse error,$error")
+    }
+
+  }
+
+  //会议发起者删除邀请信息
+  def deleteWatchInvite (invitee:Long):Unit = {
+    val uid= dom.window.localStorage.getItem("userId").toLong
+    val data = DeleteWatchInviteReq(uid,invitee,roomId).asJson.noSpaces
+    Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteInviteInfo,data).map{
+      case Right(rsp) =>
+        if (rsp.errCode == 0) {
+          println(123)
+        } else {
+          println(rsp.msg)
+        }
+      case Left(error) =>
+        println (s"parse error,$error")
+    }
+  }
+
+  //会议发起者查看邀请列表
+  def getInviteeInfo() : Unit = {
+    val uid = dom.window.localStorage.getItem("userId").toLong
+    val data = GetInviteListReq(roomId,uid).asJson.noSpaces
+    Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteList,data).map{
+      case Right(rsp) =>
+        if(rsp.errCode == 0){
+          inviteeInfo := rsp.list
+          println(123)
+        }else{
+          inviteeInfo := List.empty[InviteeInfo]
+        }
+      case Left(e) =>
+        println("error happen: " + e)
+    }
+
+  }
+
   private var mp4Url = Var("")
   //https://www.runoob.com/try/demo_source/mov_bbb.mp4
+
+  //参会者查看会议录像和会议信息
   def watchRecord():Unit = {
     val userId =
       if(isTemUser()) dom.window.sessionStorage.getItem("userId")
@@ -154,38 +216,32 @@ class RecordPage(roomId:Long,time:Long) extends Page{
         case _ => None
       }
     }
-    if(userOption.nonEmpty){
-      val newData = new Date().getTime
-      val data = SearchRecord(roomId,time,newData,userOption.get).asJson.noSpaces
-      Http.postJsonAndParse[SearchRecordRsp](Routes.UserRoutes.getOneRecord,data).map{
-        case Right(rsp) =>
-          if(rsp.errCode==0){
-            //获得了url
-            mp4Url := rsp.url
-            val recordInfo = rsp.recordInfo.get
-            dom.window.sessionStorage.setItem("recordName", recordInfo.recordName)
-            dom.window.sessionStorage.setItem("recordCoverImg", recordInfo.coverImg)
-            dom.window.sessionStorage.setItem("recordStartTime", recordInfo.startTime.toString)
+    val newData = new Date().getTime
+    val data = SearchRecord(roomId,time,newData,userId.toLong).asJson.noSpaces
+    Http.postJsonAndParse[SearchRecordRsp](Routes.UserRoutes.getOneRecord,data).map{
+      case Right(rsp) =>
+        if(rsp.errCode==0){
+          //获得了url
+          mp4Url := rsp.url
+          val recordInfo = rsp.recordInfo.get
+          dom.window.sessionStorage.setItem("recordName", recordInfo.recordName)
+          dom.window.sessionStorage.setItem("recordCoverImg", recordInfo.coverImg)
+          dom.window.sessionStorage.setItem("recordStartTime", recordInfo.startTime.toString)
 
-            watchRecordEndInfo = WatchRecordEnd(recordInfo.recordId, newData)
-            roomCoverImg := recordInfo.coverImg
-            videoTime := recordInfo.startTime.toString
-            videoName := recordInfo.recordName
-            val v = dom.document.getElementById("recordVideo").asInstanceOf[Video]
-            v.load()
-            v.play()
-          }
-          else{
-            PopWindow.commonPop(s"get url error in watchRecord: ${rsp.msg}")
-          }
-        case Left(e) =>
-          PopWindow.commonPop(s"get url error in watchRecord: $e")
-      }
-    }else{
-      PopWindow.commonPop(s"userinfo is empty , can not watch record")
+          watchRecordEndInfo = WatchRecordEnd(recordInfo.recordId, newData)
+          roomCoverImg := recordInfo.coverImg
+          videoTime := recordInfo.startTime.toString
+          videoName := recordInfo.recordName
+          val v = dom.document.getElementById("recordVideo").asInstanceOf[Video]
+          v.load()
+          v.play()
+        }
+        else{
+          PopWindow.commonPop(s"get url error in watchRecord: ${rsp.msg}")
+        }
+      case Left(e) =>
+        PopWindow.commonPop(s"get url error in watchRecord: $e")
     }
-    
-
   }
 
   def videoPlayback(): Unit ={
@@ -229,9 +285,32 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       }
     },100)
   }
- // def getdeleteButton(roomId:Long) =
+
+ val invitation:Rx[Node] = inviteeInfo.map{ e =>
+   def createInvitationItem(item:InviteeInfo) = {
+     if (dom.window.localStorage.getItem("userId") == item.uid) {
+     <div class="rcl-item">
+       <div class="user-face">
+         <img class="userface" src={item.headImage}></img>
+       </div>
+       <div class="rcl-con">
+        <div class="rcl-con-name">{item.username}</div>
+       </div>
+       <div class="rcl-con-delete">
+         <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
+       </div>
+     </div>}
+     else emptyHTML
+   }
+   <div class="comment-list">
+     {e.map(createInvitationItem)}
+   </div>
+ }
+
   val comments:Rx[Node] = commentInfo.map{ cf =>
     def createCommentItem(item:CommentInfo) = {
+      if (dom.window.localStorage.getItem("userId")==item.authorUidOpt) {
+
       <div class="rcl-item">
         <div class="user-face">
           <img class="userface" src={item.commentHeadImgUrl}></img>
@@ -240,10 +319,25 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           <div class="rcl-con-name">{item.commentUserName}</div>
           <div class="rcl-con-con">{item.comment}</div>
           <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
-        <!--  <div class="rcl-con-delete">{getdeleteButton(item.commentId)}</div> -->
         </div>
-      </div>
+        <div class="rcl-con-delete">
+          <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteComment(item.commentId)}>删除</button>
+          </div>
+      </div>} else {
+        <div class="rcl-item">
+          <div class="user-face">
+            <img class="userface" src={item.commentHeadImgUrl}></img>
+          </div>
+          <div class="rcl-con">
+            <div class="rcl-con-name">{item.commentUserName}</div>
+            <div class="rcl-con-con">{item.comment}</div>
+            <div class="rcl-con-time">{TimeTool.dateFormatDefault(item.commentTime)}</div>
+          </div>
+        </div>
+
+      }
     }
+
     <div class="comment-list">
       {cf.map(createCommentItem)}
     </div>
@@ -253,6 +347,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   override def render: Elem = {
     init()
     getCommentInfo()
+    getInviteeInfo()
     <div>
       <div class="audienceInfo" style="margin-left: 250px;margin-top: 20px;width:60%">
         <div class="anchorInfo">
@@ -277,6 +372,23 @@ class RecordPage(roomId:Long,time:Long) extends Page{
             </div>
           </div>
         </div>
+
+        <div class="r-username" id= "r-username" >
+         <div class="rc-head ">用户名</div>
+          <div class="rc-content">
+           <div class ="username-send">
+            <div class="textarea-container">
+              <textarea cols="80" name="msg" rows="5" placeholder="请输入邀请观看会议录像的用户名。" class="ipt-txt" id="ipt-txt"
+                        onkeydown={(e:dom.KeyboardEvent)=> if (e.keyCode==13) InviteWatchRecord()} ></textarea>
+              <div class="rsb-button">
+                <button type="submit" class="comment-submit" id="comment-submit" onclick={()=>InviteWatchRecord()}>邀请</button>
+              </div>
+            </div>
+          </div>
+          {invitation}
+        </div>
+        </div>
+
 
         <div class="r-comment" id="r-comment">
           <div class="rc-head">全部评论(

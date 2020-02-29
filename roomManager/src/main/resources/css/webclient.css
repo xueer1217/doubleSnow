@@ -1252,7 +1252,7 @@ img.userface {
     margin-right: 80px;
     display: flex;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e5e9ef;
+    /*border-bottom: 1px solid #e5e9ef;*/
 }
 textarea.ipt-txt {
     font-size: 12px;

@@ -80,7 +80,11 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   def sendComment():Unit = {
     val b_area = dom.document.getElementById("ipt-txt").asInstanceOf[TextArea]
     val currentTime = System.currentTimeMillis()
+    println(s"${b_area.value.length}")
+    println(s"&&&&&& ${dom.window.localStorage.getItem("isTemUser")}")
+
     if(b_area.value.length != 0  && dom.window.localStorage.getItem("isTemUser") == null){
+
       val userId =
         if(isTemUser()) dom.window.sessionStorage.getItem("userId").toLong
         else dom.window.localStorage.getItem("userId").toLong
@@ -151,15 +155,17 @@ class RecordPage(roomId:Long,time:Long) extends Page{
 //会议发起者可以邀请其他未参会用户查看会议录像
   def InviteWatchRecord () :Unit= {
     val invitorId= dom.window.localStorage.getItem("userId").toLong
-    val username= dom.document.getElementById("ipt-txt").asInstanceOf[TextArea].value
+    val username= dom.document.getElementById("inviteName").asInstanceOf[TextArea].value
     val data = InviteWatchRecordReq(invitorId,username,roomId).asJson.noSpaces
     Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.inviteToWatchRecord,data).map {
       case Right(rsp) =>
         if (rsp.errCode == 0) {
           getInviteeInfo()
+          JsFunc.alert(s"${rsp.msg}")
 //          println(123)
         } else {
           println(rsp.msg)
+          JsFunc.alert(s"${rsp.msg}")
         }
       case Left(error) =>
         println(s"parse error,$error")
@@ -175,6 +181,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       case Right(rsp) =>
         if (rsp.errCode == 0) {
 //          println(123)
+          getInviteeInfo()
         } else {
           println(rsp.msg)
         }
@@ -289,15 +296,14 @@ class RecordPage(roomId:Long,time:Long) extends Page{
  val invitation:Rx[Node] = inviteeInfo.map{ e =>
    def createInvitationItem(item:InviteeInfo) = {
      <div class="rcl-item">
-       <div class="rc-head ">邀请列表</div>
        <div class="user-face">
          <img class="userface" src={item.headImage}></img>
        </div>
-       <div class="rcl-con">
-        <div class="rcl-con-name">{item.username}</div>
+       <div class="rcl-con" style="padding-bottom: 0px;">
+        <div class="rcl-con-con " style =" margin-top:20px">{item.username}</div>
        </div>
        <div class="rcl-con-delete">
-         <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.username.toLong)}>删除邀请</button>
+         <button type="submit" class="comment-submit" id="comment-submit" onclick={() => deleteWatchInvite(item.uid)}>删除邀请</button>
        </div>
      </div>
    }
@@ -359,20 +365,21 @@ class RecordPage(roomId:Long,time:Long) extends Page{
           </div>
         </div>
 
-        <div class="r-username" id= "r-username" >
-         <div class="rc-head ">用户名</div>
+        <div class="r-username" id= "r-username" style="background-color:#fff;margin-top: 30px;" >
+         <div class="rc-head ">邀请新用户参会</div>
           <div class="rc-content">
            <div class ="username-send">
-            <div class="textarea-container">
-              <textarea cols="80" name="msg" rows="5" placeholder="请输入邀请观看会议录像的用户名。" class="ipt-txt" id="ipt-txt"
+            <div class="textarea-container" style="margin-left: 87px;">
+              <textarea cols="80" name="msg" rows="5" placeholder="请输入邀请观看会议录像的用户名。" class="ipt-txt" id="inviteName"
                         onkeydown={(e:dom.KeyboardEvent)=> if (e.keyCode==13) InviteWatchRecord()} ></textarea>
               <div class="rsb-button">
                 <button type="submit" class="comment-submit" id="comment-submit" onclick={()=>InviteWatchRecord()}>邀请</button>
               </div>
             </div>
           </div>
-          {invitation}
         </div>
+          <div class="rc-head " style="margin-top:0px;">邀请列表</div>
+          {invitation}
         </div>
 
 

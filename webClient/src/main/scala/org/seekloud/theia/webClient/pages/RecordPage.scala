@@ -289,6 +289,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
  val invitation:Rx[Node] = inviteeInfo.map{ e =>
    def createInvitationItem(item:InviteeInfo) = {
      <div class="rcl-item">
+       <div class="rc-head ">邀请列表</div>
        <div class="user-face">
          <img class="userface" src={item.headImage}></img>
        </div>

@@ -79,5 +79,9 @@ object Messages {
 
   final case object StopRecordToBiliBili extends ReqCommand
 
+  final case class ShieldImage(op:Boolean) extends ReqCommand
+
+  final case class ShieldVoice(op:Boolean) extends ReqCommand
+
 
 }

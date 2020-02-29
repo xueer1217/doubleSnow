@@ -45,6 +45,12 @@ object   CaptureActor {
 
   final case object StopPushRtmp extends CaptureCommand
 
+  /*shield voice and image*/
+
+  final case class ShieldVoice(op:Boolean) extends CaptureCommand
+
+  final case class ShieldImage(op:Boolean) extends CaptureCommand
+
   /*drawer*/
   sealed trait DrawCommand
 
@@ -230,6 +236,19 @@ object   CaptureActor {
             WarningDialog.initWarningDialog("连接到b站失败，请确认b站端是否开始直播，或者重开b站端直播")
             parent!LiveManager.StopBili
           }
+          Behaviors.same
+
+
+        case msg:ShieldVoice => //屏蔽声音
+
+          reqActor.foreach(_ ! Messages.ShieldVoice(msg.op) )
+
+          Behaviors.same
+
+
+        case msg:ShieldImage =>
+          reqActor.foreach(_ ! Messages.ShieldImage(msg.op))
+
           Behaviors.same
 
         case x =>

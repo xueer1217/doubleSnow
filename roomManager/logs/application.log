@@ -4739,3 +4739,285 @@ Caused by: java.net.UnknownHostException: smtp.exmail.qq.com
 20-02-25 19:34:08.461 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
 20-02-25 19:34:08.466 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
 20-02-25 19:34:08.481 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 15:35:31.638 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 15:35:31.756 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 15:35:31.773 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 15:35:31.789 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 15:35:31.791 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 15:35:31.801 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 15:35:31.834 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 15:42:17.048 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 15:42:17.303 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 15:42:17.461 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 15:42:17.567 INFO org.seekloud.theia.roomManager.Boot$ - 1 login success
+20-02-29 16:23:17.550 WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s727ms), soft-evicting connections from pool.
+20-02-29 20:10:26.007 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:10:26.219 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:10:26.246 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:10:26.270 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:10:26.272 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:10:26.288 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:10:26.332 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:12:53.025 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 20:12:53.319 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 20:12:53.484 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 20:12:53.599 INFO org.seekloud.theia.roomManager.Boot$ - 2 login success
+20-02-29 20:22:02.090 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:22:02.203 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:22:02.216 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:22:02.225 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:22:02.225 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:22:02.230 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:22:02.246 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:24:34.086 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:24:34.192 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:24:34.202 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:24:34.212 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:24:34.213 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:24:34.217 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:24:34.234 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:27:19.414 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:27:19.541 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:27:19.555 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:27:19.566 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:27:19.567 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:27:19.570 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:27:19.584 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:30:45.945 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:30:46.035 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:30:46.044 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:30:46.051 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:30:46.051 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:30:46.055 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:30:46.065 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:32:29.259 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:32:29.359 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:32:29.372 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:32:29.380 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:32:29.380 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:32:29.385 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:32:29.396 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:33:15.004 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:33:15.225 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:33:15.262 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:33:15.273 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:33:15.274 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:33:15.289 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:33:15.317 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:34:31.231 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:34:31.329 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:34:31.339 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:34:31.345 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:34:31.346 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:34:31.349 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:34:31.358 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:35:44.611 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:35:44.698 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:35:44.706 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:35:44.711 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:35:44.712 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:35:44.715 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:35:44.723 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:38:24.385 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:38:24.487 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:38:24.498 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:38:24.505 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:38:24.505 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:38:24.508 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:38:24.519 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:39:30.840 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:39:30.970 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:39:30.979 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:39:30.985 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:39:30.985 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:39:30.988 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:39:31.002 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:41:18.800 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:41:18.904 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:41:18.914 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:41:18.923 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:41:18.924 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:41:18.927 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:41:18.940 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:41:48.834 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 20:41:49.098 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 20:41:49.251 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 20:41:49.364 INFO org.seekloud.theia.roomManager.Boot$ - 1 login success
+20-02-29 20:45:16.645 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:45:16.755 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:45:16.768 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:45:16.778 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:45:16.779 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:45:16.780 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:45:16.792 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:47:42.930 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:47:43.044 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:47:43.055 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:47:43.066 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:47:43.066 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:47:43.069 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:47:43.080 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:54:20.325 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 20:54:20.524 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 20:54:20.547 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 20:54:20.573 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:54:20.575 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 20:54:20.581 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 20:54:20.604 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 20:56:04.095 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 20:56:04.229 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 20:56:04.495 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 20:56:04.658 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 20:56:04.847 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 20:57:39.552 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 20:57:39.643 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:01:40.833 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:01:40.931 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:01:40.940 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:01:40.948 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:01:40.948 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:01:40.954 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:01:40.968 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:02:05.959 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:02:06.212 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:02:06.364 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:02:06.492 INFO org.seekloud.theia.roomManager.Boot$ - 1 login success
+20-02-29 21:02:14.640 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:02:14.753 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:02:38.525 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:02:38.607 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:03:56.262 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:03:56.320 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:04:08.247 INFO org.seekloud.theia.roomManager.Boot$ - 3 login success
+20-02-29 21:04:24.721 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:3 is getting attend info
+20-02-29 21:04:24.749 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 1
+20-02-29 21:04:44.121 INFO org.seekloud.theia.roomManager.Boot$ - 1 login success
+20-02-29 21:06:14.319 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:06:14.367 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:06:17.121 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:06:17.163 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:06:24.076 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:06:24.113 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:08:25.706 DEBUG org.seekloud.theia.roomManager.Boot$ - 用户不存在 username zzz
+20-02-29 21:19:43.273 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:19:43.393 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:19:43.408 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:19:43.420 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:19:43.421 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:19:43.434 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:19:43.466 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:20:05.839 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:20:05.950 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:20:06.234 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:20:06.425 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:20:06.620 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:20:15.867 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:20:15.982 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:20:20.423 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:20:20.507 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:35:49.001 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:35:49.243 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:35:49.254 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:35:49.263 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:35:49.263 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:35:49.268 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:35:49.284 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:36:07.540 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:36:07.664 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:36:07.911 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:36:08.065 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:36:08.247 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:36:10.328 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:36:10.431 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:36:12.755 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:36:12.854 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:39:39.595 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:39:39.703 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:39:39.713 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:39:39.722 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:39:39.723 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:39:39.729 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:39:39.758 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:40:10.490 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:40:10.602 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:40:10.851 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:40:11.033 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:40:11.196 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:40:12.317 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:40:12.402 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:40:14.100 DEBUG org.seekloud.theia.roomManager.Boot$ - 2 is getting inviteInfo 
+20-02-29 21:40:29.851 DEBUG org.seekloud.theia.roomManager.Boot$ - 用户不存在 username 111
+20-02-29 21:41:49.073 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:41:49.169 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:41:49.180 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:41:49.189 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:41:49.189 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:41:49.193 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:41:49.205 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:41:57.016 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:41:57.147 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:41:57.400 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:41:57.571 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:41:57.768 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:42:11.261 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:42:11.374 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:42:12.574 DEBUG org.seekloud.theia.roomManager.Boot$ - 2 is getting inviteInfo 
+20-02-29 21:44:02.123 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:44:02.230 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:44:02.239 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:44:02.246 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:44:02.247 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:44:02.251 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:44:02.262 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:44:09.034 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:44:09.171 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:44:09.471 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:44:09.706 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:44:09.959 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:44:12.608 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:44:12.716 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:44:15.517 DEBUG org.seekloud.theia.roomManager.Boot$ - 2 is getting inviteInfo 
+20-02-29 21:45:41.926 ERROR o.s.t.roomManager.http.ServiceUtils$ - internal error: Unique index or primary key violation: "PRIMARY_KEY_3 ON PUBLIC.ATTEND_EVENT(ID) VALUES (0, 35)"; SQL statement:
+insert into "PUBLIC"."ATTEND_EVENT" ("ID","UID","ROOMID","IN_TIME","OUT_TIME")  values (?,?,?,?,?) [23505-196]
+20-02-29 21:53:02.190 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:53:02.299 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:53:02.310 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:53:02.318 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:53:02.319 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:53:02.321 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:53:02.334 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:53:10.893 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:53:11.045 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:53:11.337 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:53:11.522 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:53:11.723 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:53:13.091 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:53:13.244 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:53:14.302 DEBUG org.seekloud.theia.roomManager.Boot$ - 2 is getting inviteInfo 
+20-02-29 21:59:12.976 INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+20-02-29 21:59:13.113 DEBUG o.s.t.roomManager.core.UserManager$ - RoomManager start...
+20-02-29 21:59:13.127 INFO o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager setup
+20-02-29 21:59:13.137 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:59:13.138 DEBUG o.s.t.roomManager.core.EmailActor$ - emailActor is Starting....
+20-02-29 21:59:13.145 DEBUG o.s.t.roomManager.core.RoomManager$ - akka://theia/user/roomManager ---===== None
+20-02-29 21:59:13.167 DEBUG o.s.t.roomManager.core.RoomActor$ - akka://theia/user/roomManager/roomActor-1000029 setup
+20-02-29 21:59:50.872 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 21:59:50.999 WARN slick.util.AsyncExecutor - Having maxConnection > maxThreads can result in deadlocks if transactions or database locks are used.
+20-02-29 21:59:51.247 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20-02-29 21:59:51.414 INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20-02-29 21:59:51.616 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 21:59:53.952 DEBUG org.seekloud.theia.roomManager.Boot$ - 2 is getting inviteInfo 
+20-02-29 21:59:59.336 DEBUG org.seekloud.theia.roomManager.Boot$ - 1 is getting inviteInfo 
+20-02-29 21:59:59.352 DEBUG org.seekloud.theia.roomManager.Boot$ - list size 1111111111 is 0
+20-02-29 21:59:59.453 DEBUG org.seekloud.theia.roomManager.Boot$ - list size is 0
+20-02-29 22:00:11.993 DEBUG org.seekloud.theia.roomManager.Boot$ - 1 is getting inviteInfo 
+20-02-29 22:00:12.003 DEBUG org.seekloud.theia.roomManager.Boot$ - list size 1111111111 is 1
+20-02-29 22:00:12.008 DEBUG org.seekloud.theia.roomManager.Boot$ - list size is 1
+20-02-29 22:00:21.632 DEBUG org.seekloud.theia.roomManager.Boot$ - 1 is getting inviteInfo 
+20-02-29 22:00:21.642 DEBUG org.seekloud.theia.roomManager.Boot$ - list size 1111111111 is 1
+20-02-29 22:00:21.650 DEBUG org.seekloud.theia.roomManager.Boot$ - list size is 1
+20-02-29 22:00:40.636 DEBUG org.seekloud.theia.roomManager.Boot$ - uid:1 is getting attend info
+20-02-29 22:00:40.708 DEBUG org.seekloud.theia.roomManager.Boot$ - recordlist size is 2
+20-02-29 22:00:41.566 DEBUG org.seekloud.theia.roomManager.Boot$ - 1 is getting inviteInfo 
+20-02-29 22:00:41.576 DEBUG org.seekloud.theia.roomManager.Boot$ - list size 1111111111 is 1
+20-02-29 22:00:41.580 DEBUG org.seekloud.theia.roomManager.Boot$ - list size is 1

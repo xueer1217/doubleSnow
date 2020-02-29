@@ -120,6 +120,8 @@ object MainPage extends PageSwitcher {
         case "Home" :: Nil =>
           exitShow := emptyHTML
           //返回首页时关闭websocket
+
+
           if(dom.window.sessionStorage.getItem("roomId") != null || dom.window.localStorage.getItem("roomId") != null){
             clearRecordInfo()
             clearRoomInfo()

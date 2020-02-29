@@ -139,7 +139,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       case Right(rsp) =>
         if(rsp.errCode == 0){
           commentInfo := rsp.recordCommentList
-          println(123)
+//          println(123)
         }else{
           commentInfo := List.empty[CommentInfo]
         }
@@ -157,7 +157,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
       case Right(rsp) =>
         if (rsp.errCode == 0) {
           getInviteeInfo()
-          println(123)
+//          println(123)
         } else {
           println(rsp.msg)
         }
@@ -174,7 +174,7 @@ class RecordPage(roomId:Long,time:Long) extends Page{
     Http.postJsonAndParse[CommonRsp](Routes.UserRoutes.deleteInviteInfo,data).map{
       case Right(rsp) =>
         if (rsp.errCode == 0) {
-          println(123)
+//          println(123)
         } else {
           println(rsp.msg)
         }
@@ -186,12 +186,12 @@ class RecordPage(roomId:Long,time:Long) extends Page{
   //会议发起者查看邀请列表
   def getInviteeInfo() : Unit = {
     val uid = dom.window.localStorage.getItem("userId").toLong
-    val data = GetInviteListReq(roomId,uid).asJson.noSpaces
+    val data = GetInviteListReq(uid,roomId).asJson.noSpaces
     Http.postJsonAndParse[GetInviteeListRsp](Routes.UserRoutes.getInviteList,data).map{
       case Right(rsp) =>
         if(rsp.errCode == 0){
           inviteeInfo := rsp.list
-          println(123)
+          println(s"invite list size is ${rsp.list.size}")
         }else{
           inviteeInfo := List.empty[InviteeInfo]
         }

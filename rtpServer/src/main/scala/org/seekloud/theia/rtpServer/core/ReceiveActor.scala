@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory
 import org.seekloud.theia.rtpServer.utils.RtpUtil
 import org.seekloud.theia.rtpServer.utils.RtpUtil.sendRtpPackage
 import org.seekloud.theia.rtpClient.Protocol
-import org.seekloud.theia.shared.kcp.KCP
+//import org.seekloud.theia.shared.kcp.KCP
 
 /**
   * Created by haoshuhan on 2019/7/16.

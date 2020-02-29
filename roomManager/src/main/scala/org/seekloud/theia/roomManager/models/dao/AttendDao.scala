@@ -31,5 +31,11 @@ object AttendDao {
     }
   }
 
+  def inviteWatchRecord(uid: Long, roomid: Long) = {
+
+    db.run(tAttendEvent += rAttendEvent(0L, uid, roomid, 0L, 0L))
+
+  }
+
 
 }

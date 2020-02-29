@@ -88,12 +88,15 @@ class HostController(
       }
     }
 
-    override def shutIamge(): Unit = {
+    override def shutImage(op:Boolean): Unit = {
+
+      rmManager ! RmManager.ShutImage(op)
 
     }
 
-    override def shutSound(): Unit = {
+    override def shutSound(op:Boolean): Unit = {
 
+      rmManager ! RmManager.ShutSound(op)
     }
 
     override def shutJoin(): Unit = {

@@ -103,6 +103,10 @@ object RmManager {
 
   final case object StopBilibili extends RmCommand
 
+  final case class ShutImage(op: Boolean) extends RmCommand
+
+  final case class ShutSound(op: Boolean) extends RmCommand
+
 
   /*主播*/
 
@@ -536,7 +540,7 @@ object RmManager {
           System.gc()
           switchBehavior(ctx, "idle", idle(stageCtx, liveManager, mediaPlayer, homeController))
 
-        case  HostLiveReq =>
+        case HostLiveReq =>
           log.debug(s"Host req live.")
           assert(userInfo.nonEmpty && roomInfo.nonEmpty)
           sender.foreach(_ ! StartLiveReq(userInfo.get.userId, userInfo.get.token, ClientType.PC)) //roomManager->UserActor->WebSocketMsg(reqOpt)
@@ -610,7 +614,7 @@ object RmManager {
 
         case msg: JoinBegin =>
           /*背景改变*/
-//          hostScene.resetBack()
+          //          hostScene.resetBack()
 
           /*媒体画面模式更改*/
           liveManager ! LiveManager.SwitchMediaMode(isJoin = true, reset = hostScene.resetBack)
@@ -638,8 +642,8 @@ object RmManager {
           assert(roomInfo.nonEmpty)
           if (hostStatus == HostStatus.CONNECT) {
             Boot.addToPlatform {
-//              hostScene.connectionStateText.setText(s"目前状态：无连接~")
-//              hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
+              //              hostScene.connectionStateText.setText(s"目前状态：无连接~")
+              //              hostScene.connectStateBox.getChildren.remove(hostScene.shutConnectionBtn)
               hostController.isConnecting = false
             }
             sender.foreach(_ ! HostShutJoin(roomInfo.get.roomId))
@@ -694,6 +698,15 @@ object RmManager {
         case msg: InviteAudience =>
           sender.foreach(_ ! msg.username)
           Behaviors.same
+
+        case msg: ShutImage =>
+          liveManager ! LiveManager.ShieldMyImage(msg.op)
+          Behaviors.same
+
+        case msg: ShutSound =>
+          liveManager ! LiveManager.ShieldMyVoice(msg.op)
+          Behaviors.same
+
 
         case x =>
           log.warn(s"unknown msg in host: $x")

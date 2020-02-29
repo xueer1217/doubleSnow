@@ -15,11 +15,12 @@ import org.seekloud.theia.pcClient.core.stream.StreamPuller.{PackageLossInfo, Pu
 import org.seekloud.theia.pcClient.scene.{AudienceScene, HostScene}
 import org.seekloud.theia.pcClient.utils.{GetAllPixel, NetUtil, RtpUtil}
 import org.seekloud.theia.rtpClient.{PullStreamClient, PushStreamClient}
-import org.seekloud.theia.pcClient.utils.RtpUtil.{clientHost,clientHostQueue}
+import org.seekloud.theia.pcClient.utils.RtpUtil.{clientHost, clientHostQueue}
 import org.seekloud.theia.player.sdk.MediaPlayer
 import org.slf4j.LoggerFactory
 import org.seekloud.theia.pcClient.Boot.{executor, scheduler, timeout}
 import org.seekloud.theia.pcClient.core.RmManager.log
+import org.seekloud.theia.pcClient.core.collector.CaptureActor.{ShieldImage, ShieldVoice}
 
 import concurrent.duration._
 import language.postfixOps
@@ -62,7 +63,7 @@ object LiveManager {
 
   final case class ChangeCaptureMode(mediaSource: Int, cameraPosition: Int) extends LiveCommand
 
-  final case class RecordOption(recordOrNot: Boolean, path: Option[String] = None, reset: () => Unit)  extends LiveCommand with CaptureActor.CaptureCommand
+  final case class RecordOption(recordOrNot: Boolean, path: Option[String] = None, reset: () => Unit) extends LiveCommand with CaptureActor.CaptureCommand
 
   final case class PushStream(liveId: String, liveCode: String) extends LiveCommand
 
@@ -85,6 +86,10 @@ object LiveManager {
   final case object StopPushRtmp extends LiveCommand
 
   final case object StopBili extends LiveCommand
+
+  final case class ShieldMyVoice(op:Boolean) extends LiveCommand
+
+  final case class ShieldMyImage(op:Boolean) extends LiveCommand
 
   private object PUSH_RETRY_TIMER_KEY
 
@@ -117,17 +122,17 @@ object LiveManager {
     Behaviors.receive[LiveCommand] { (ctx, msg) =>
       msg match {
         case msg: DevicesOn =>
-          val captureActor = getCaptureActor(ctx, msg.gc, msg.isJoin, msg.callBackFunc,ctx.self)
+          val captureActor = getCaptureActor(ctx, msg.gc, msg.isJoin, msg.callBackFunc, ctx.self)
           val mediaCapture = MediaCapture(captureActor, debug = AppSettings.captureDebug, needTimestamp = AppSettings.needTimestamp)
           val availableDevices = GetAllPixel.getAllDevicePixel()
-          var pixel = (640,360)
-          if(availableDevices.nonEmpty && !availableDevices.contains("640x360")){
+          var pixel = (640, 360)
+          if (availableDevices.nonEmpty && !availableDevices.contains("640x360")) {
             pixel = DeviceUtil.parseImgResolution(availableDevices.max)
           }
-          log.info("availableDevices pixels: "+availableDevices)
-//          mediaCapture.setAudioCodec(avcodec.AV_CODEC_ID_AAC)
+          log.info("availableDevices pixels: " + availableDevices)
+          //          mediaCapture.setAudioCodec(avcodec.AV_CODEC_ID_AAC)
           mediaCapture.setVideoCodec(avcodec.AV_CODEC_ID_MPEG2VIDEO)
-//          mediaCapture.setVideoCodec(avcodec.AV_CODEC_ID_H264)
+          //          mediaCapture.setVideoCodec(avcodec.AV_CODEC_ID_H264)
           mediaCapture.setAudioCodec(avcodec.AV_CODEC_ID_MP2)
           mediaCapture.setImageWidth(pixel._1)
           mediaCapture.setImageHeight(pixel._2)
@@ -138,7 +143,6 @@ object LiveManager {
         case DeviceOff =>
           captureActor.foreach(_ ! CaptureActor.StopCapture)
           idle(parent, mediaPlayer, None, streamPusher, streamPuller, mediaCapture, isStart = isStart, isRegular = isRegular)
-
 
 
         case msg: SwitchMediaMode =>
@@ -176,7 +180,7 @@ object LiveManager {
             val pusher = getStreamPusher(ctx, msg.liveId, msg.liveCode, captureActor.get)
             RtpUtil.initIpPool()
             validHost = clientHostQueue.dequeue()
-            val rtpClient = new PushStreamClient(AppSettings.host, NetUtil.getFreePort, pushChannel.serverPushAddr, pusher,AppSettings.rtpServerDst)
+            val rtpClient = new PushStreamClient(AppSettings.host, NetUtil.getFreePort, pushChannel.serverPushAddr, pusher, AppSettings.rtpServerDst)
             mediaCapture.foreach(_.setTimeGetter(rtpClient.getServerTimestamp))
             pusher ! StreamPusher.InitRtpClient(rtpClient)
             idle(parent, mediaPlayer, captureActor, Some(pusher), streamPuller, mediaCapture, isStart = isStart, isRegular = isRegular)
@@ -186,6 +190,19 @@ object LiveManager {
             timer.startSingleTimer(PUSH_RETRY_TIMER_KEY, msg, 100.millis)
             Behaviors.same
           }
+
+        case msg:ShieldMyVoice =>
+          log.debug(s"host shield himself voice")
+          assert(captureActor.nonEmpty)
+          captureActor.get ! ShieldVoice(msg.op)
+
+          Behaviors.same
+
+        case msg:ShieldMyImage =>
+          log.debug(s"host shield himself image")
+          assert(captureActor.nonEmpty)
+          captureActor.get ! ShieldImage(msg.op)
+          Behaviors.same
 
         case InitRtpFailed =>
           ctx.self ! StopPush
@@ -205,7 +222,7 @@ object LiveManager {
           Behaviors.same
 
         case StopBili =>
-          parent!RmManager.StopBilibili
+          parent ! RmManager.StopBilibili
           Behaviors.same
 
         case msg: PullStream =>
@@ -243,7 +260,7 @@ object LiveManager {
 
         case PullerStopped =>
           log.info(s"LiveManager got puller stopped.")
-          if(isRegular) parent ! RmManager.PullerStopped
+          if (isRegular) parent ! RmManager.PullerStopped
           idle(parent, mediaPlayer, captureActor, streamPusher, None, mediaCapture, isStart = false, isRegular = false)
 
         case Ask4State(reply) =>
@@ -253,7 +270,7 @@ object LiveManager {
         case PushRtmpStream(url) =>
           //log.debug(s"Host live push stream000.")
           captureActor.foreach(_ ! CaptureActor.PushRtmpStream(url))
-         // log.debug(s"Host live push stream.")
+          // log.debug(s"Host live push stream.")
           Behaviors.same
 
         case ChildDead(child, childRef) =>
@@ -277,7 +294,7 @@ object LiveManager {
   ) = {
     val childName = s"captureActor-${System.currentTimeMillis()}"
     ctx.child(childName).getOrElse {
-      val actor = ctx.spawn(CaptureActor.create(frameRate, gc, isJoin, callBackFunc,parent), childName)
+      val actor = ctx.spawn(CaptureActor.create(frameRate, gc, isJoin, callBackFunc, parent), childName)
       ctx.watchWith(actor, ChildDead(childName, actor))
       actor
     }.unsafeUpcast[CaptureActor.CaptureCommand]
@@ -304,7 +321,7 @@ object LiveManager {
     mediaPlayer: MediaPlayer,
     joinInfo: Option[JoinInfo],
     watchInfo: Option[WatchInfo],
-    audienceScene : Option[AudienceScene],
+    audienceScene: Option[AudienceScene],
     hostScene: Option[HostScene]
   ) = {
     val childName = s"streamPuller-$liveId"

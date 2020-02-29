@@ -11,7 +11,7 @@ import org.seekloud.theia.protocol.ptcl.CommonRsp
 import org.seekloud.theia.protocol.ptcl.client2Manager.http.AdminProtocol.DeleteRecordReq
 import org.seekloud.theia.protocol.ptcl.client2Manager.http.StatisticsProtocol
 import org.seekloud.theia.roomManager.Boot.{executor, scheduler, userManager}
-import org.seekloud.theia.roomManager.models.dao.{RecordDao, RoomDao, StatisticDao, UserInfoDao}
+import org.seekloud.theia.roomManager.models.dao.{AttendDao, RecordDao, RoomDao, StatisticDao, UserInfoDao}
 import org.seekloud.theia.roomManager.common.{AppSettings, Common}
 
 import scala.collection.mutable
@@ -187,15 +187,13 @@ trait RecordService {
                       RoomDao.checkAttend(req.invitee, req.roomId).map {
                         case None =>
                           dealFutureResult {
-                            RoomDao.inviteWatchRecord(info.uid, req.roomId).map { _ =>
+                            AttendDao.inviteWatchRecord(info.uid, req.roomId).map { _ =>
                               complete(CommonRsp())
                             }
                           }
                         case _ =>
                           complete(CommonRsp(1001003, s"用户 ${req.invitee} 已经有权查看录像 无需邀请"))
                       }
-
-
                     }
                   case None =>
                     log.debug(s"用户不存在 username ${req.invitee}")
@@ -218,6 +216,7 @@ trait RecordService {
       case Right(req) =>
         dealFutureResult {
 
+          log.debug(s"${req.uid} is getting inviteInfo ")
           RoomDao.checkAnchor(req.uid, req.roomid).map {
             case None =>
               complete(GetInviteeListRsp(errCode = 100111, msg = s"用户uid${req.uid}不是会议发起人，无权查看"))
@@ -225,6 +224,7 @@ trait RecordService {
               dealFutureResult {
                 RoomDao.getInviteeInfo(req.roomid).map { list =>
 
+                  log.debug(s"list size 1111111111 is ${list.size}")
                   dealFutureResult {
 
                     Future.sequence {
@@ -238,6 +238,7 @@ trait RecordService {
                       }.toList
                     }.map { list =>
                       val res = list.filter(_.uid != -1)
+                      log.debug(s"list size is ${res.size}")
                       complete(GetInviteeListRsp(res))
                     }
                   }
@@ -257,6 +258,7 @@ trait RecordService {
     entity(as[Either[Error, DeleteWatchInviteReq]]) {
       case Right(req) =>
         dealFutureResult {
+          log.debug(s"${req.uid} is delete inviteInfo ")
           RoomDao.checkAnchor(req.uid, req.roomId).map {
             case None =>
               complete(CommonRsp(100202, s"用户uid:${req.uid}不是会议发起人，无权查看"))

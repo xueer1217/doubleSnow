@@ -139,9 +139,9 @@ object HostScene {
 
     def speakerAcceptance(userId: Long, accept: Boolean, newRequest: SpeakerListInfo)
 
-    def shutIamge()
+    def shutImage(op:Boolean)
 
-    def shutSound()
+    def shutSound(op:Boolean)
 
     def shutJoin()
 
@@ -409,27 +409,19 @@ class HostScene(stage: Stage) {
   val imageToggleBtn: ToggleButton = liveBar.imageToggleButton
   val soundToggleBtn: ToggleButton = liveBar.soundToggleButton
 
-//  imageToggleBtn.setOnAction {
-//    _ =>
-//      if (!isLive) {
-//        listener.changeOption(needImage = imageToggleBtn.isSelected, needSound = soundToggleBtn.isSelected)
-//        if(imageToggleBtn.isSelected) Tooltip.install(imageToggleBtn, new Tooltip("点击关闭直播画面"))
-//        else  Tooltip.install(imageToggleBtn, new Tooltip("点击开启直播画面"))
-//      } else {
-//        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
-//      }
-//  }
+  imageToggleBtn.setOnAction {
+    _ =>
+        listener.shutImage(imageToggleBtn.isSelected)
+        if(imageToggleBtn.isSelected) Tooltip.install(imageToggleBtn, new Tooltip("点击关闭直播画面"))
+        else  Tooltip.install(imageToggleBtn, new Tooltip("点击开启直播画面"))
+  }
 
-//  soundToggleBtn.setOnAction {
-//    _ =>
-//      if (!isLive) {
-//        listener.changeOption(needImage = imageToggleBtn.isSelected, needSound = soundToggleBtn.isSelected)
-//        if(soundToggleBtn.isSelected) Tooltip.install(soundToggleBtn, new Tooltip("点击关闭直播声音"))
-//        else  Tooltip.install(soundToggleBtn, new Tooltip("点击开启直播声音"))
-//      } else {
-//        WarningDialog.initWarningDialog("直播中无法更改设置哦~")
-//      }
-//  }
+  soundToggleBtn.setOnAction {
+    _ =>
+        listener.shutSound(soundToggleBtn.isSelected)
+        if(soundToggleBtn.isSelected) Tooltip.install(soundToggleBtn, new Tooltip("点击关闭直播声音"))
+        else  Tooltip.install(soundToggleBtn, new Tooltip("点击开启直播声音"))
+  }
 
   val barBox: VBox = liveBar.barVBox
 

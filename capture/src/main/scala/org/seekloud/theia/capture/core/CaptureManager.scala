@@ -560,6 +560,18 @@ object CaptureManager {
           Behaviors.same
 
 
+        case msg:ShieldVoice =>
+          debug(s"capture Manager shield voice")
+          soundCaptureOpt.foreach(_ ! SoundCapture.ShieldSample(msg.op))
+
+          Behaviors.same
+
+        case msg:ShieldImage =>
+          debug(s"capture manager shield image")
+
+          encodeActorMap.foreach(_._2 ! EncodeActor.ShieldImage(msg.op))
+          Behaviors.same
+
         case x =>
           log.warn(s"unknown msg in idle: $x")
           Behaviors.unhandled

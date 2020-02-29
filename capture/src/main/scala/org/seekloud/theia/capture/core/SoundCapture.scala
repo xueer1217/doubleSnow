@@ -5,7 +5,7 @@ import java.util.concurrent.{LinkedBlockingDeque, ScheduledFuture, ScheduledThre
 
 import akka.actor.typed.{ActorRef, Behavior}
 import akka.actor.typed.scaladsl.Behaviors
-import javax.sound.sampled.TargetDataLine
+import javax.sound.sampled.{BooleanControl, Control, TargetDataLine}
 import org.seekloud.theia.capture.protocol.Messages
 import org.seekloud.theia.capture.protocol.Messages.{EncoderType, LatestSound}
 import org.slf4j.LoggerFactory
@@ -35,6 +35,8 @@ object SoundCapture {
   final case object StopSample extends Command
 
   final case object AskSamples extends Command
+
+  final case class ShieldSample(op: Boolean) extends Command
 
 
   def create(
@@ -88,6 +90,7 @@ object SoundCapture {
 
         case Sample =>
           try {
+
             val nBytesRead = line.read(audioBytes, 0, line.available)
             val nSamplesRead = if (sampleSize == 16) nBytesRead / 2 else nBytesRead
             val samples = new Array[Short](nSamplesRead)
@@ -110,6 +113,14 @@ object SoundCapture {
               log.warn(s"sample sound error: $ex")
           }
           working(replyTo, line, encoders, frameRate, sampleRate, channels, sampleSize, audioBytes, audioExecutor, audioLoop, askFlag = false)
+
+
+        case ShieldSample(op) =>
+
+          log.debug(s"sound capture shield sample success")
+          val control = line.getControl(BooleanControl.Type).asInstanceOf[BooleanControl]
+          control.setValue(op)
+          Behaviors.same
 
         case AskSamples =>
           working(replyTo, line, encoders, frameRate, sampleRate, channels, sampleSize, audioBytes, audioExecutor, audioLoop, askFlag = true)

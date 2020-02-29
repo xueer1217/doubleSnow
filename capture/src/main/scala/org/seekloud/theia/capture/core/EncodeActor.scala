@@ -1,6 +1,7 @@
 package org.seekloud.theia.capture.core
 
 import java.awt.image.BufferedImage
+import java.io.FileInputStream
 import java.nio.ShortBuffer
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -8,6 +9,7 @@ import java.util.concurrent.{LinkedBlockingDeque, ScheduledFuture, ScheduledThre
 
 import akka.actor.typed.{ActorRef, Behavior}
 import akka.actor.typed.scaladsl.Behaviors
+import javax.imageio.ImageIO
 import org.bytedeco.javacv.{FFmpegFrameRecorder, Java2DFrameConverter}
 import org.seekloud.theia.capture.sdk.MediaCapture.executor
 import org.seekloud.theia.capture.protocol.Messages
@@ -42,6 +44,8 @@ object EncodeActor {
   final case class EncodeSamples(sampleRate: Int, channel: Int, samples: ShortBuffer) extends Command
 
   final case object StopEncode extends Command
+
+  final case class ShieldImage(op:Boolean) extends Command
 
 
   def create(
@@ -94,7 +98,8 @@ object EncodeActor {
     needSound: Boolean,
     encodeLoop: Option[ScheduledFuture[_]] = None,
     encodeExecutor: Option[ScheduledThreadPoolExecutor] = None,
-    frameNumber: Int = 0
+    frameNumber: Int = 0,
+    noImage:Boolean  = false,
   ): Behavior[Command] =
     Behaviors.receive[Command] { (ctx, msg) =>
       msg match {
@@ -111,7 +116,7 @@ object EncodeActor {
             TimeUnit.MICROSECONDS
           )
 
-          working(replyTo, encodeType, encoder, imageCache, imageConverter, needImage, needSound, Some(loop), Some(encodeLoopExecutor), frameNumber)
+          working(replyTo, encodeType, encoder, imageCache, imageConverter, needImage, needSound, Some(loop), Some(encodeLoopExecutor), frameNumber,noImage)
 
         case EncodeLoop =>
           if (needImage) {
@@ -120,15 +125,45 @@ object EncodeActor {
               if (latestImage != null) {
                 encoder.setTimestamp((frameNumber * (1000.0 / encoder.getFrameRate) * 1000).toLong)
                 if (!needTimeMark) {
-                  encoder.record(latestImage.frame)
+
+                  if(noImage){
+                    val iw = latestImage.frame.imageWidth
+                    val ih = latestImage.frame.imageHeight
+                    val fstream = new FileInputStream("file:/Users/haoxue/Downloads/black.jpg")
+                    val input = ImageIO.read(fstream);
+                    val bufferedImage = new BufferedImage(iw,ih,BufferedImage.TYPE_INT_RGB)
+                    val grafic = bufferedImage.createGraphics()
+                    grafic.drawImage(input,0,0,null)
+                    encoder.record(imageConverter.convert(bufferedImage))
+                  }else{
+                    encoder.record(latestImage.frame)
+                  }
+
                 } else {
-                  val iw = latestImage.frame.imageWidth
-                  val ih = latestImage.frame.imageHeight
-                  val bImg = imageConverter.convert(latestImage.frame)
-                  val ts = if (CaptureManager.timeGetter != null) CaptureManager.timeGetter() else System.currentTimeMillis()
-                  val date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S").format(ts)
-                  bImg.getGraphics.drawString(date, iw / 10, ih / 10)
-                  encoder.record(imageConverter.convert(bImg))
+
+                  if(noImage){
+                    val iw = latestImage.frame.imageWidth
+                    val ih = latestImage.frame.imageHeight
+                    val fstream = new FileInputStream("file:/Users/haoxue/Downloads/black.jpg")
+                    val input = ImageIO.read(fstream);
+                    val bImg = new BufferedImage(iw,ih,BufferedImage.TYPE_INT_RGB)
+                    val grafic = bImg.createGraphics()
+                    grafic.drawImage(input,0,0,null)
+                    val ts = if (CaptureManager.timeGetter != null) CaptureManager.timeGetter() else System.currentTimeMillis()
+                    val date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S").format(ts)
+                    bImg.getGraphics.drawString(date, iw / 10, ih / 10)
+                    encoder.record(imageConverter.convert(bImg))
+
+                  }else{
+                    val iw = latestImage.frame.imageWidth
+                    val ih = latestImage.frame.imageHeight
+                    val bImg = imageConverter.convert(latestImage.frame)
+                    val ts = if (CaptureManager.timeGetter != null) CaptureManager.timeGetter() else System.currentTimeMillis()
+                    val date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S").format(ts)
+                    bImg.getGraphics.drawString(date, iw / 10, ih / 10)
+                    encoder.record(imageConverter.convert(bImg))
+                  }
+
                 }
               }
             } catch {
@@ -140,7 +175,7 @@ object EncodeActor {
                 }
             }
           }
-          working(replyTo, encodeType, encoder, imageCache, imageConverter, needImage, needSound, encodeLoop, encodeExecutor, frameNumber + 1)
+          working(replyTo, encodeType, encoder, imageCache, imageConverter, needImage, needSound, encodeLoop, encodeExecutor, frameNumber + 1,noImage)
 
         case msg: EncodeSamples =>
           if (encodeLoop.nonEmpty) {
@@ -167,6 +202,14 @@ object EncodeActor {
           }
           Behaviors.stopped
 
+        case msg:ShieldImage =>
+
+          //屏蔽图像
+
+          log.debug(s"encode actor sheild image success")
+            working(replyTo,encodeType,encoder,imageCache,imageConverter,needImage,needSound,encodeLoop,encodeExecutor,frameNumber,msg.op)
+
+          Behaviors.same
         case x =>
           log.warn(s"unknown msg in working: $x")
           Behaviors.unhandled

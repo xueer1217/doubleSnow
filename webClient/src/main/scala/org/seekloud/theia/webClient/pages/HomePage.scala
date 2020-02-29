@@ -191,13 +191,21 @@ class HomePage extends Page{
 
   def getRecordList(sortBy:String,pageNum:Int,pageSize:Int):Unit={
 
-    if(dom.window.sessionStorage.getItem("userId").isEmpty){
+
+
+
+    if(dom.window.localStorage.getItem("userId").isEmpty){
       //todo 如果没有登录 跳转到登录页面
-      dom.window.location.hash = s"#/Home"
+//      dom.window.location.hash = s"#/Record"
+
+      dom.window.location.hash = s"#/Live/1"
     }else{
-      val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize,dom.window.sessionStorage.getItem("userId").toLong)
+//      JsFunc.alert(s"bbbbbbb")
+      val recordListUrl = Routes.UserRoutes.getRecordList(sortBy,pageNum,pageSize,dom.window.localStorage.getItem("userId").toLong)
+      println(s"$recordListUrl")
       Http.getAndParse[GetRecordListRsp](recordListUrl).map{
         case Right(rsp) =>
+          println(s"${rsp.msg}   recordList size is ${rsp.recordInfo.size}")
           if(rsp.errCode == 0){
             recordList := rsp.recordInfo
             recordNumber := rsp.recordNum
@@ -216,6 +224,7 @@ class HomePage extends Page{
 
   override def render: Elem = {
     //获取所有直播
+
     getRoomList()
     //获取第一页的录像
     getRecordList("time",1,perPageSize)

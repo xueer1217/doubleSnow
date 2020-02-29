@@ -98,13 +98,6 @@ object RoomDao {
 
 
 
-
-  def inviteWatchRecord(uid: Long, roomid: Long) = {
-
-    db.run(tAttendEvent += rAttendEvent(0L, uid, roomid, 0L, 0L))
-
-  }
-
   //确认该用户是否被邀请看录像
   def checkInviteeOfRecord(uid: Long, roomId: Long) = {
     db.run(tAttendEvent.filter(i => i.uid === uid && i.roomid === roomId && i.inTime === 0L).result.headOption)

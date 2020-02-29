@@ -1,11 +1,16 @@
 package org.seekloud.theia.capture.demo
 
+import java.awt.image.BufferedImage
+import java.io.FileInputStream
+
 import javafx.application.Application
 import javafx.embed.swing.SwingFXUtils
 import javafx.scene.Scene
 import javafx.scene.image.{Image, ImageView, WritableImage}
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
+import javax.imageio.ImageIO
+import javax.swing.ImageIcon
 import org.bytedeco.javacv.{Java2DFrameUtils1, JavaFXFrameConverter1, JavaUtils}
 import org.bytedeco.opencv.global.opencv_imgcodecs.imread
 import org.bytedeco.opencv.opencv_core.Mat
@@ -33,26 +38,26 @@ class testRemoveBlackInImage extends Application {
     val scene: Scene = new Scene(root, 400, 400);
     primaryStage.setScene(scene);
 */
-    println(System.getProperty("os.name"))
-
-    var video = false
-    val str = """[AVFoundation input device @ 0x7faa98622780] [0] FaceTime HD Camera
-                [AVFoundation input device @ 0x7faa98622780] [1] Capture screen 0
-                [AVFoundation input device @ 0x7faa98622780] AVFoundation audio devices:
-                [AVFoundation input device @ 0x7faa98622780] [0] Soundflower (2ch)
-                [AVFoundation input device @ 0x7faa98622780] [1] MacBook Pro 麦克风
-                [AVFoundation input device @ 0x7faa98622780] [2] Soundflower (64ch)"""
-
-    val reg = """(\[\d+]) (.*)""".r
-    reg.findAllIn(str).foreach{
-      case reg(a, b) =>
-        if(a=="[0]"){
-          video = !video
-        }
-        if(video) println(b+" "+"video"+a.drop(1).dropRight(1) )
-        else println(b+" "+"audio"+a.tail.head )
-    }
-
+//    println(System.getProperty("os.name"))
+//
+//    var video = false
+//    val str = """[AVFoundation input device @ 0x7faa98622780] [0] FaceTime HD Camera
+//                [AVFoundation input device @ 0x7faa98622780] [1] Capture screen 0
+//                [AVFoundation input device @ 0x7faa98622780] AVFoundation audio devices:
+//                [AVFoundation input device @ 0x7faa98622780] [0] Soundflower (2ch)
+//                [AVFoundation input device @ 0x7faa98622780] [1] MacBook Pro 麦克风
+//                [AVFoundation input device @ 0x7faa98622780] [2] Soundflower (64ch)"""
+//
+//    val reg = """(\[\d+]) (.*)""".r
+//    reg.findAllIn(str).foreach{
+//      case reg(a, b) =>
+//        if(a=="[0]"){
+//          video = !video
+//        }
+//        if(video) println(b+" "+"video"+a.drop(1).dropRight(1) )
+//        else println(b+" "+"audio"+a.tail.head )
+//    }
+//
 
 
 //    println(reg.findAllMatchIn(str).size)
@@ -77,6 +82,18 @@ class testRemoveBlackInImage extends Application {
 */
 
     //primaryStage.show()
+
+
+    val fstream = new FileInputStream("file:/Users/haoxue/Downloads/black.jpg")
+
+    val input = ImageIO.read(fstream);
+
+    val bufferedImage = new BufferedImage(300,300,BufferedImage.TYPE_INT_RGB)
+    val grafic = bufferedImage.createGraphics()
+    grafic.drawImage(input,0,0,null)
+
+
+
   }
 
 }
